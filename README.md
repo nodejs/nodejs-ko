@@ -14,4 +14,4 @@
 
 ## 연락처
 io.js  한국어 번역팀의 소식은 다음 소셜 미디어 서비스를 통해서도 접할 수 있습니다.
-- 트위터 : [@iojs_kr](https://twitter/iojs_kr)
+- 트위터 : [@iojs_kr](https://twitter.com/iojs_kr)

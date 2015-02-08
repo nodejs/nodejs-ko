@@ -12,4 +12,4 @@
 
 ## Contact
 You can contact us also on the following social medias:
-- Twitter : [@iojs_kr](https://twitter/iojs_kr)
+- Twitter : [@iojs_kr](https://twitter.com/iojs_kr)
