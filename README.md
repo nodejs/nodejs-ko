@@ -1,3 +1,5 @@
+[English version](https://github.com/iojs/iojs-kr/blob/master/README.en.md) is available also.
+
 ## iojs-kr
 [io.js](https://iojs.org/) 한국어 번역팀
 
