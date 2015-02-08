@@ -11,5 +11,5 @@
 [MIT](https://tldrlegal.com/license/mit-license)
 
 ## Contact
-You can contact us also on the following social medias:
+You can contact us also on the following social media:
 - Twitter : [@iojs_kr](https://twitter.com/iojs_kr)
