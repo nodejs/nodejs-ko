@@ -3,6 +3,7 @@ The [English version](https://github.com/iojs/iojs-kr/blob/master/README.en.md) 
 ## iojs-kr
 
 [![Join the chat at https://gitter.im/iojs/iojs-kr](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/iojs/iojs-kr?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [io.js](https://iojs.org/) 한국어 번역팀
 
 ## 참여자 (참여시기 순)
