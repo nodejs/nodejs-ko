@@ -16,15 +16,15 @@ io.js의 발표 후 몇 달 동안 많은 일이 있었습니다. 야심에 찬 
 
 우리는 누구도 예상치 못한 기여를 받고 있습니다. 프로젝트의 발표 이후,
 [TC](https://github.com/iojs/io.js/blob/v1.x/GOVERNANCE.md#iojs-project-governance)
-(프로젝트의 의사결정 기구)에 두 사람([Chris Dickinson](https://github.com/chrisdickinson), [Colin
-Ihrig](https://github.com/cjihrig))이 추가되어 뛰어난 일을 해주었습니다. [Domenic
-Denicola](https://github.com/domenic)도 (나나 [Rod
+(프로젝트의 의사결정 기구)에 두 사람([**Chris Dickinson**](https://github.com/chrisdickinson), [**Colin
+Ihrig**](https://github.com/cjihrig))이 추가되어 뛰어난 일을 해주었습니다. [**Domenic
+Denicola**](https://github.com/domenic)도 (나나 [Rod
 Vagg](https://github.com/rvagg)처럼) 투표권이 없는 참가자로 TC 회의에
-초대되었습니다. 이는 **TC39**와 [v8과의 협력](https://twitter.com/rvagg/status/558378711624343552)
+초대되었습니다. 이는 **TC39**와 [**v8**과의 협력](https://twitter.com/rvagg/status/558378711624343552)
 의 길을 열었습니다.
 
 node.js™의 역사상 8명 이상의 활발한 커미터가 있었던 적은 없습니다. 지난주 **Chris
-Dickinson**는 또 다른 라운드로 이끌어 줄 [8명의 새로운 커미터](https://github.com/iojs/io.js/issues/234#issuecomment-71097752)를
+Dickinson**는 또 다른 라운드로 이끌어 줄 [**8명의 새로운 커미터**](https://github.com/iojs/io.js/issues/234#issuecomment-71097752)를
 io.js에 올렸습니다.
 
 io.js의 현재 릴리스는 **안정** 버전으로 예정되어 있고 **3월 초**에 크롬에 릴리스될
@@ -34,8 +34,8 @@ io.js를 기대해도 된다**는 이야기입니다. 불안정 버전은 io.js 
 [테스트하기 위해 계속](https://github.com/iojs/io.js/pull/630) 유지 됩니다.
 
 코어 개발 외의 몇 가지 작업은 이미 프로젝트 팀과 커미터가 필요할 만큼
-성장했습니다. 설립될 때 있었던 [빌드](https://github.com/iojs/build) 그룹말고도
-이제는 [웹사이트](https://github.com/iojs/website) 그룹과 [스트림](https://github.com/iojs/readable-stream)
+성장했습니다. 설립될 때 있었던 [**빌드**](https://github.com/iojs/build) 그룹말고도
+이제는 [**웹사이트**](https://github.com/iojs/website) 그룹과 [**스트림**](https://github.com/iojs/readable-stream)
 그룹이 있습니다. 우리는 워킹 그룹이 앞으로 **전파, 문서화, 지역화, nan[^1], 로드맵**을
 형성하길 기대합니다. 이 그룹은 훨씬 광범위한 참여를 제공합니다.
 
