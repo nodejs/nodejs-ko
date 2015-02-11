@@ -1,10 +1,12 @@
-# io.js의 상태
-
-- Authors: @mikeal
-- Referer: https://medium.com/node-js-javascript/state-of-io-js-2b3094e6f923
-
-===
-
+---
+layout: post
+title: io.js의 상태
+author: mikeal
+ref: State of io.js
+refurl: https://medium.com/node-js-javascript/state-of-io-js-2b3094e6f923
+translator:
+  - <a href="https://github.com/marocchino" target="_blank">Shim Won</a>
+---
 기억하는 한 가장 성공적인 오픈 소스 주도 활동
 
 io.js의 발표 후 몇 달 동안 많은 일이 있었습니다. 야심에 찬 출시는 **Fedor의 생일**인
@@ -16,7 +18,7 @@ io.js의 발표 후 몇 달 동안 많은 일이 있었습니다. 야심에 찬 
 
 우리는 누구도 예상치 못한 기여를 받고 있습니다. 프로젝트 발표 후,
 뛰어난 활약을 해준 [**Chris Dickinson**](https://github.com/chrisdickinson)과
-[**Colin Ihrig**](https://github.com/cjihrig)을 
+[**Colin Ihrig**](https://github.com/cjihrig)을
 
 [TC](https://github.com/iojs/io.js/blob/v1.x/GOVERNANCE.md#iojs-project-governance)
 (프로젝트 의사결정 기구)에 추가했습니다. [**Domenic

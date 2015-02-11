@@ -1,4 +1,13 @@
-# io.js와 node.js 재단
+---
+layout: post
+title: io.js와 node.js 재단
+author: mikeal
+ref: io.js and a node.js Foundation
+refurl: https://medium.com/@iojs/io-js-and-a-node-js-foundation-4e14699fb7be
+translator:
+  - <a href="https://github.com/outsideris" target="_blank">Outsider</a>
+---
+
 현재의 중재 상황
 
 일주일 전 Joyent의 CEO인 Scott Hammond가 비공개회의에
@@ -28,7 +37,3 @@ Github에서 io.js가 합류해야 하는지에 대한 이슈를 만들 것이�
 [build](https://github.com/iojs/build),
 [roadmap](https://github.com/iojs/roadmap))에 공헌하고 애플리케이션에 io.js를 적용하길
 바란다. 언젠가 io.js의 이름이 달라지더라도 계속해서 io.js를 릴리즈하고 개선해 나갈 것이다. ☺
-
-
-- 원문: [io.js and a node.js Foundation]
-(https://medium.com/@iojs/io-js-and-a-node-js-foundation-4e14699fb7be)
