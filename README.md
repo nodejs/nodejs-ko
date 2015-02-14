@@ -4,7 +4,7 @@ The [English version](https://github.com/iojs/iojs-kr/blob/master/README.en.md) 
 
 [![Join the chat at https://gitter.im/iojs/iojs-kr](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/iojs/iojs-kr?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-[io.js](https://iojs.org/) 한국어 번역팀
+[io.js](https://iojs.org/) 한국 커뮤니티
 
 ## 참여자 (참여시기 순)
 - JeongHoon Byun ([@outsideris](http://github.com/outsideris))
@@ -12,6 +12,7 @@ The [English version](https://github.com/iojs/iojs-kr/blob/master/README.en.md) 
 - Kuriyama hibiya ([@hibiyasleep](https://github.com/hibiyasleep))
 - Teagon Kim ([@taggon](https://github.com/taggon))
 - Jeonghwan Jang ([@nundefined](https://github.com/nundefined))
+- Sanghun Woo ([@wodory](https://github.com/wodory))
 
 ## 라이선스
 [MIT](https://tldrlegal.com/license/mit-license)

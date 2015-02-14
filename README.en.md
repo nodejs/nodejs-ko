@@ -7,6 +7,7 @@
 - Kuriyama hibiya ([@hibiyasleep](https://github.com/hibiyasleep))
 - Teagon Kim ([@taggon](https://github.com/taggon))
 - Jeonghwan Jang ([@nundefined](https://github.com/nundefined))
+- Sanghun Woo ([@wodory](https://github.com/wodory))
 
 ## License
 [MIT](https://tldrlegal.com/license/mit-license)
