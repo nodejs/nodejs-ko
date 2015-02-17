@@ -1,8 +1,17 @@
-# 겨우 하루 만에... io.js는 어떻게 146명이 참가하는 27개 언어 지역화라는 성과를 냈는가
+---
+layout: post
+title: 겨우 하루 만에... io.js는 어떻게 146명이 참가하는 27개 언어 지역화라는 성과를 냈는가
+author: mikeal
+ref: How io.js built a 146 person, 27 language localization effort… in one day.
+refurl: https://medium.com/@mikeal/how-io-js-built-a-146-person-27-language-localization-effort-in-one-day-65e5b1c49a62
+translator:
+  - <a href="https://github.com/xarus01" target="_blank">Taegun Park</a>
+---
+
 커뮤니티에 참여를 요청한다면 그들은 기꺼이 도와줄 것입니다.
 
-나의 첫 한국 방문에서 나는 그곳에 거대한 Node 커뮤니티가 있을 뿐만 아니라, 우리가 생각지도 못했던 그들의 지원 네트워크와 자료들을 가지고 있다는데 깜짝 놀랐다. 
-현재까지는, 이것이 바로 복수의 언어가 사용되는 큰 커뮤니티들이 그들의 지역 커뮤니티를 지원하고 또 기능해온 방식이었다. 
+나의 첫 한국 방문에서 나는 그곳에 거대한 Node 커뮤니티가 있을 뿐만 아니라, 우리가 생각지도 못했던 그들의 지원 네트워크와 자료들을 가지고 있다는데 깜짝 놀랐다.
+현재까지는, 이것이 바로 복수의 언어가 사용되는 큰 커뮤니티들이 그들의 지역 커뮤니티를 지원하고 또 기능해온 방식이었다.
 
 ![@isaacs, @mikeal 그리고 play(node) 관계자들, 2012년 가을, 대한민국 서울.](https://d262ilb51hltx0.cloudfront.net/max/676/1*dgwsAsTXAJsvYBOdo1KZaw.png)
 
@@ -50,5 +59,3 @@ NodeSchool에서 시작된 작업을 준비하면서 그들에게 혹시 결과�
 위와 같은 일이 매 시간마다 각각의 시간대에서 일어났으며 한 시간마다 몇 개의 새로운 언어가 지역화 작업에 추가되는 결과를 만들어냈다. 일요일 아침(태평양 표준시)에 일어나서 잠든 동안 참가 신청을 한 사람들을 모두 추가했다. 그리고 하루 동안 얼마나 사람들이 모였는지를 확인하고는 27개 언어를 사용하는 146명의 사람들이 단 하루 만에 모여들었다는데 경악을 금치 못했다.
 
 만약 우리가 이 모든 것을 하루 만에 성취할 수 있었다면, 한 달 후에는 어떤 놀라운 일들이 벌어질 수 있을지 몹시 기대된다 ☺
-
-원문: https://medium.com/@mikeal/how-io-js-built-a-146-person-27-language-localization-effort-in-one-day-65e5b1c49a62
