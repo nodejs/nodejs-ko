@@ -1,4 +1,4 @@
-## iojs-kr
+## iojs-ko
 [io.js](https://iojs.org/) i18n for Korean
 
 ## Members
@@ -14,5 +14,5 @@
 
 ## Contact
 You can contact us also on the following social media:
-- Twitter : [@iojs_kr](https://twitter.com/iojs_kr)
+- Twitter : [@iojs_ko](https://twitter.com/iojs_ko)
 - Medium : [@iojs_kr](https://medium.com/@iojs_kr)

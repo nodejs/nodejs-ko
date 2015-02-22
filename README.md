@@ -1,8 +1,8 @@
-The [English version](https://github.com/iojs/iojs-kr/blob/master/README.en.md) is also available.
+The [English version](https://github.com/iojs/iojs-ko/blob/master/README.en.md) is also available.
 
-## iojs-kr
+## iojs-ko
 
-[![Join the chat at https://gitter.im/iojs/iojs-kr](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/iojs/iojs-kr?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/iojs/iojs-ko](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/iojs/iojs-ko?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 [io.js](https://iojs.org/) 한국 커뮤니티
 
@@ -19,5 +19,5 @@ The [English version](https://github.com/iojs/iojs-kr/blob/master/README.en.md) 
 
 ## 연락처
 io.js  한국어 번역팀의 소식은 다음 소셜 미디어 서비스를 통해서도 접할 수 있습니다.
-- 트위터 : [@iojs_kr](https://twitter.com/iojs_kr)
+- 트위터 : [@iojs_ko](https://twitter.com/iojs_ko)
 - 미디엄 : [@iojs_kr](https://medium.com/@iojs_kr)
