@@ -1,4 +1,4 @@
-The [English version](https://github.com/iojs/iojs-ko/blob/master/README.en.md) is also available.
+The [English version](https://github.com/iojs/iojs-ko/blob/gh-pages/README.en.md) is also available.
 
 ## iojs-ko
 
