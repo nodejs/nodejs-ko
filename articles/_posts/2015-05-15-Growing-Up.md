@@ -94,3 +94,4 @@ So, we need a foundation. One has been setup and wants us to join. It has, in my
 그래서 우리는 조직되어 있고 우리가 참여하길 바라는 재단이 필요합니다. 개인적인 생각으로 io.js를 위한 이상적인 구조로 되어 있으면 좋겠습니다. 추가로 여전히 양분된 node.js와 io.js 커뮤니티의 분열과 혼란이 종식되기를 바랍니다. [만약 선택할 수 있다면](https://github.com/nodejs/io.js/issues/1664), 우리는 이 모든 것을 얻고 싶고 관리 방법, 배포 과정, 그리고 실행 그룹을 온전히 지켜내고 싶습니다.
 
 ![](https://d262ilb51hltx0.cloudfront.net/max/880/1*TA2IVRqUhiouhitlS9fRLw.gif)
+
