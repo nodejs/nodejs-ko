@@ -1,3 +1,14 @@
+---
+layout: post
+title: Important security upgrades for node.js and io.js.
+author: mikeal
+ref: Growing-Up — Node &amp; JavaScript
+refurl: https://medium.com/@iojs/important-security-upgrades-for-node-js-and-io-js-8ac14ece5852
+translator:
+- <a href="https://github.com/freenice12" target="_blank">freenice12</a>
+---
+
+
 <!--
 Important security upgrades for node.js and io.js
 Critical security releases for node.js and io.js
@@ -16,14 +27,14 @@ io.js-v1.8.3
 First, the obvious: the handling of this hasn’t been ideal, it would have been nice to take our time and do this more strategically. It’s evening in the USA and it’s the weekend of the 4th of July.
 -->
 
-첫번째 분명한 것: 이 일을 다루는 것은 아주 이상적이고, 이것을 더 전략적으로 시간을 할애했다면 좋았을 것 같습니다.
+첫번째 분명한 것: 이 일의 처리는 이상적이라고는 할 수 없었고, 이것을 더 전략적으로 시간을 할애했다면 좋았을 것 같습니다.
 지금 미국은 7월 4일 주말의 저녁입니다.
 
 <!--
 We made the call to push forward because details about the bug and potential exploit has inadvertently made its way to a public forum so we’d rather given companies and users the tools to protect themselves and mitigate DoS if they happen to become a reality than sit on it and cross our fingers. The timing sucks, particularly for the USA where it’s hitting the weekend and the whole 4th of July thing makes this a nightmare for people managing large deployments but this is the call we made with the information available.
 -->
 
-우리는 소집을 강행하도록 만들었습니다. 왜냐하면 그 방법과 버그의 세부 사항들이 실수로 공개 포럼에 올랐기 때문입니다. 그래서 우리는 스스로를 보호하려고 도구를 사용하는 유저들과 회사에 DoS를 경감하도록 해주었습니다. 만약 그들이 실제 상황을 발생 시켰다면 그 상황을 깔아 뭉개고 행운을 빌었을 것입니다. 시기가 굉장히 좋지 않습니다. 큰 배포를 다루는 사람들에게는 7월 4일 전체가 이것이 악몽이 되도록 만들었고  특히 주말을 빼앗긴 미국은 더욱 그렇습니다. 그럼에도 불구하고 이것은 우리에게 가용한 정보들로 만든 소집입니다.
+우리는 강행하기로 했습니다. 왜냐하면 그 방법과 버그의 세부 사항들이 실수로 공개 포럼에 올랐기 때문입니다. 그래서 우리는 스스로를 보호하려고 도구를 사용하는 유저들과 회사에 DoS를 경감하도록 해주었습니다. 이런 공격이 실제로 발생할때 모른척하고 얼버무리는 대신 회사와 사용자들에게 스스로를 보호할 수 있는 대책을 마련해주고 싶었습니다. 시기가 굉장히 좋지 않습니다. 큰 배포를 다루는 사람들에게는 7월 4일 전체가 이것이 악몽이 되도록 만들었고  특히 주말을 빼앗긴 미국은 더욱 그렇습니다. 그럼에도 불구하고 이 정보를 공표하기로 결정했습니다.
 
 <!--
 A short history
@@ -31,10 +42,10 @@ Kris Reeves and Trevor Norris pinpointed a bug in V8 in the way it decodes UTF s
 -->
 
 요약한다면
-Kris Reeves와 trevor Norris는UTF V8에서 문자열을 디코딩하는 방법의 버그를 정확히 찾아냈습니다. 이것은 Node UTF8 문자열을 변환하는 버퍼에 영향을 줬습니다.그리고 프로세스의 강제 종료를 유발할 수 있습니다. 보안상의 문제는 애플리케이션의 외부에서 이 매커니즘을 통해 Node로 전달된 많은 데이터들 때문이라는 사실로 부터 발견되었습니다. 이 뜻은 이 경로를 통해 실행될 때 사용자들은 잠재적으로 애플리케이션의 crash를 유발할 수 있는 특별히 만들어진 입력 데이터를 전달할 수 있다는 뜻입니다. 우리는 UTF8 문자열 전환을 위한 버퍼를 사용하는 많은 유저들이 사용하는 한 대부분의 네트워킹과 파일 시스템 작동이 영향을 받을 것을 알고 있습니다.
+Kris Reeves와 trevor Norris는UTF V8에서 문자열을 디코딩하는 방법의 버그를 정확하게 특정했습니다. 이것은 Node UTF8 문자열을 변환하는 버퍼에 영향을 주고 프로세스의 강제 종료를 유발할 수 있습니다. 보안 상 고려해야 할 것은 애플리케이션의 외부에서 이 매커니즘을 통해 Node로 많은 데이터가 전달될 수 있다는 것입니다. 이 말은 이 경로를 통해 실행될 때 사용자들은 잠재적으로 애플리케이션의 crash를 유발할 수 있는 특별히 만들어진 입력 데이터를 전달할 수 있다는 뜻입니다. 우리는 UTF8 문자열 전환을 위한 버퍼를 사용하는 많은 유저들이 사용하는 한 대부분의 네트워킹과 파일 시스템 작동이 영향을 받을 것을 알고 있습니다. Node는 이 데이터를 UTF8로 변환하지 않기 때문에 우리는 HTTP(S) 헤더 파싱이 때문에 취약하지 않다는것을 알고 있습니다. HTTP(S)가 이용하는 방법은 제한되었기 때문에 조금 위안이 되지만 분명하게 헤더 파싱 보다 더 많은 방법이 있습니다. 우리에겐 아직 이 취약점을 잠재적으로 완화하기 위해 악용될 수 있는 요구된 데이터 형식의 다양한 TLS 종결자와 포워드 프록시에 대한 정보도 없습니다.
 
 <!--
 The initial ETA was midday PDT. Unfortunately, the patch wasn’t quite ready and there was an extended test and verification process for V8, io.js and Node.js during the day. The builds also take some time on top of that, hence the delay. Fedor Indutny created the fix, Ben Noordhuis, Trevor Norris, Julien Gilli, Rod Vagg, Michael Dawson and Jeremiah Senkpiel all worked very hard to make this land successfully.
 -->
 
-초기 완료 예정시간은 태평양 연안시로 정오였습니다. 불행하게도 그 패치는 완전히 준비되지 않았고 낮동안에는 V8, io.js 그리고 Node.js를 위한 다양한 검증 과정과 확장된 테스트만이 있었습니다. 빌드는 가장 중요한 것을 위해 시간을 할애했고 그런 이유로 지연되었습니다. Fedor Indutny는 수정본을 만들었고, Ben Noordhuis, Trevor Norris, Julien Gilli, Rod Vagg, Michael Dawson 그리고 Jeremiah Senkpiel 모두 성공으로 이끌기 위해 열심히 일했습니다.
+초기 완료 예정시간은 태평양 연안시로 정오였습니다. 불행하게도 그 패치는 불완전하고 낮동안에는 V8, io.js 그리고 Node.js를 위한 다양한 검증 과정과 확장된 테스트만이 있었습니다. 빌드는 이런 이유로 시간을 할애했고 그래서 지연되었습니다. Fedor Indutny는 수정본을 만들었고, Ben Noordhuis, Trevor Norris, Julien Gilli, Rod Vagg, Michael Dawson 그리고 Jeremiah Senkpiel 모두 성공으로 이끌기 위해 열심히 일했습니다.
