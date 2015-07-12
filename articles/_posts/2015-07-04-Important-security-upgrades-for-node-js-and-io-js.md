@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Important security upgrades for node.js and io.js.
+title: node.js와 io.js를 위한 중요 보안 업데이트
 author: mikeal
-ref: Growing-Up — Node &amp; JavaScript
+ref: Important security upgrades for node.js and io.js.
 refurl: https://medium.com/@iojs/important-security-upgrades-for-node-js-and-io-js-8ac14ece5852
 translator:
 - <a href="https://github.com/freenice12" target="_blank">freenice12</a>
@@ -17,7 +17,6 @@ io.js-v2.3.3
 io.js-v1.8.3
 -->
 
-# node.js와 io.js를 위한 중요 보안 업데이트
 ### node.js와 io.js를 위한 치명적인 보안 릴리스
 * [node.js-v0.12.6](http://nodejs.org/dist/v0.12.6/)
 * [io.js-v2.3.3](https://iojs.org/dist/v2.3.3/)
