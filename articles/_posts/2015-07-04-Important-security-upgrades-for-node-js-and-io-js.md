@@ -48,4 +48,4 @@ Kris Reeves와 Trevor Norris는 V8에서 UTF 문자열을 디코드하는 방법
 The initial ETA was midday PDT. Unfortunately, the patch wasn’t quite ready and there was an extended test and verification process for V8, io.js and Node.js during the day. The builds also take some time on top of that, hence the delay. Fedor Indutny created the fix, Ben Noordhuis, Trevor Norris, Julien Gilli, Rod Vagg, Michael Dawson and Jeremiah Senkpiel all worked very hard to make this land successfully.
 -->
 
-초기 완료 예정 시각은 태평양 연안시로 정오였습니다. 불행하게도 그 패치는 불완전하고 낮 동안에는 V8, io.js, Node.js를 위한 다양한 검증 과정과 확장된 테스트만이 있었습니다. 빌드는 이런 이유로 시간을 할애했고 그래서 지연되었습니다. Fedor Indutny는 수정본을 만들었고, Ben Noordhuis, Trevor Norris, Julien Gilli, Rod Vagg, Michael Dawson 그리고 Jeremiah Senkpiel 모두 성공으로 이끌기 위해 열심히 일했습니다.
+초기 완료 예정 시각은 태평양 연안시로 정오였습니다. 불행하게도 그 패치는 불완전하고 낮 동안에는 V8, io.js, Node.js를 위한 다양한 검증 과정과 확장된 테스트만이 있었습니다. 빌드는 이런 이유로 시간을 할애했고 그래서 지연되었습니다. Fedor Indutny는 수정본을 만들었고, Ben Noordhuis, Trevor Norris, Julien Gilli, Rod Vagg, Michael Dawson, Jeremiah Senkpiel 모두 성공으로 이끌기 위해 열심히 일했습니다.
