@@ -5,7 +5,7 @@ author: Dan Shaw
 ref: npm is Massive
 refurl: https://medium.com/@nodesource/npm-is-massive-2bdd9417591c
 translator:
-<a href="https://github.com/outsideris" target="_blank">Outsider</a>
+- <a href="https://github.com/outsideris" target="_blank">Outsider</a>
 ---
 
 <!--
