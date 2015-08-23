@@ -1,18 +1,19 @@
-## iojs-ko
+# iojs-ko
+
+[![Join the chat at https://gitter.im/nodejs/iojs-ko](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/nodejs/iojs-ko?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [io.js](https://iojs.org/) i18n for Korean
 
-## Members
-- JeongHoon Byun ([@outsideris](http://github.com/outsideris))
-- Taegun Park ([@xarus01](https://github.com/xarus01))
-- Kuriyama hibiya ([@hibiyasleep](https://github.com/hibiyasleep))
-- Teagon Kim ([@taggon](https://github.com/taggon))
-- Jeonghwan Jang ([@nundefined](https://github.com/nundefined))
-- Sanghun Woo ([@wodory](https://github.com/wodory))
+## [Contributors](https://github.com/nodejs/iojs-ko/graphs/contributors)
 
 ## License
+
 [MIT](https://tldrlegal.com/license/mit-license)
 
 ## Contact
+
+We have a [gitter](https://gitter.im/nodejs/iojs-ko) channel.
+
 You can contact us also on the following social media:
+
 - Twitter : [@iojs_ko](https://twitter.com/iojs_ko)
-- Medium : [@iojs_kr](https://medium.com/@iojs_kr)
