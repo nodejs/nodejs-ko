@@ -1,25 +1,30 @@
 require 'open-uri'
 require 'date'
 
+# template creator
 class Template
-  attr_reader :type, :url, :source
-  def initialize(type, url)
-    @type, @url = type, url
+  attr_accessor :url, :source, :type, :date
+
+  def initialize(url)
+    self.url = url
+    self.source = open(url, &:read)
+    self.type = url =~ /weekly-updates/ ? :weekly : :articles
+    date_str = source.match(%r{>(\d{4}-\d{2}-\d{2})</time>})[1]
+    self.date = Date.parse(date_str)
   end
 
   def content
     <<-TEMPLATE.gsub(/^ */, '')
       ---
       layout: post
-      title: 번역글의 제목
+      title: #{translated_title}
       author: #{author}
       ref: #{title}
       refurl: #{url}
       translator:
         - <a href="GITHUB_URL" target="_blank">번역자 이름</a>
       ---
-
-      Content.
+      #{article}
     TEMPLATE
   end
 
@@ -28,57 +33,61 @@ class Template
   end
 
   private
-  def source
-    @source ||= open(url, &:read)
+
+  def article
+    text = source.force_encoding('UTF-8').match(%r{<article>(.+?)</article>}m)[1]
+    text.gsub! %r{<li>}, ' - '
+    text.gsub! %r{<a href="(.+?)">(.+?)</a>}, '[\2](\1)'
+    text.gsub! %r{<h3 id=".+?">(.+?)</h3>}, '### \1'
+    text.gsub! %r{<div class="blogpost-header">.+?</div>|</?p>|</li>|</?ul>}m, ''
+  end
+
+  def translated_title
+    if type == :weekly
+      "io.js와 Node.js 주간 뉴스 #{date.strftime('%Y년 %-m월 %-d일')}"
+    else
+      '번역글의 제목'
+    end
   end
 
   def url_title
     if type == :weekly
       type
     else
-      url.scan(/([^\/]+)-\w+$/).first.first
+      url.match(%r{blog/(.+?)/?$})[1].tr('/', '-')
     end
   end
 
-  def date
-    date_str = source.scan(/<meta property="article:published_time" content="(.+?)">/).first.first
-    Date.parse(date_str).strftime("%Y-%m-%d")
-  end
-
   def filename
-    "#{date}-#{url_title}.md"
+    "#{date.strftime('%Y-%m-%d')}-#{url_title}.md"
   end
 
   def title
-    source.scan(/<title>(.+?) — Medium<\/title>/).first.first
+    source.match(%r{<h1>(.+?)</h1>})[1]
   end
 
   def author
-    source.scan(/<link rel="author" href="https:\/\/medium\.com\/@(.+?)">/).first.first
+    matches = source.match(/<span class="blogpost-meta">by (.+?), <time/)
+    matches ? matches[1] : 'Node'
   end
 end
 
 namespace :create do
-  desc "Create a new article"
+  desc 'Create a new article'
   task :articles, [:url] do |_, args|
     url = args[:url]
-    create_template(:articles, url)
-  end
-
-  desc "Create a new weekly news"
-  task :weekly, [:url] do |_, args|
-    url = args[:url]
-    create_template(:weekly, url)
+    create_template(url)
   end
 
   private
-  def create_template(type, url)
-    template = Template.new(type, url)
+
+  def create_template(url)
+    template = Template.new(url)
     $stderr.print "Creating template `#{template.filepath}'... "
     if File.exist?(template.filepath)
       warn "Could not create template, `#{template.filepath}' already exists."
     else
-      File.open(template.filepath, 'w') {|f| f.write template.content }
+      File.open(template.filepath, 'w') { |f| f.write template.content }
       warn 'done.'
     end
   rescue => e
