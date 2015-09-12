@@ -25,7 +25,7 @@ title: 번역 참여 가이드
 1. 번역 작업을 위한 파일을 생성합니다.
     * 디렉터리 관례
         - 일반적인 글은 `articles/_posts/` 디렉터리를 사용합니다.
-        - [io.js 블로그](https://medium.com/@iojs)에 올라오는 `weekly/_posts/` 디렉터리를 사용합니다.
+        - [Node.js 블로그](https://nodejs.org/en/blog/)에 올라오는 `weekly/_posts/` 디렉터리를 사용합니다.
     * 파일명
         - 원문이 올라온 날짜와 제목을 대시(`-`)로 이어 붙여서 파일명을 정합니다.(예시: `2015-01-27-state-of-io-js.md`)
         - 주간 뉴스의 경우에는 원문의 날짜와 weekly를 대시(`-`)로 이어 붙여서 파일명을 정합니다.(예시: `2015-02-13-weekly.md`)
@@ -33,14 +33,14 @@ title: 번역 참여 가이드
         - 관례대로 파일을 자동으로 생성하려면 다음 명령어를 실행합니다.
 
         ```
-        $ rake create:폴더[URL]
+        $ rake create:articles[URL]
         ```
 
         - 다음과 같이 사용합니다.
 
         ```
-        $ rake create:articles[https://medium.com/@iojs/io-js-and-a-node-js-foundation-4e14699fb7be]
-        $ rake create:weekly[https://medium.com/node-js-javascript/io-js-week-of-february-13th-2015-7846b94074a2]
+        $ rake create:articles[https://nodejs.org/en/blog/weekly-updates/weekly-update.2015-08-14/]
+        $ rake create:articles[https://nodejs.org/en/blog/announcements/interactive-2015/]
         ```
 
         - 이 명령어를 실행하면 각각 article이나 weekly에 관례에 맞는 파일이 자동으로 생성됩니다.
