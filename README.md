@@ -4,7 +4,7 @@
 
 The [English version](https://github.com/nodejs/iojs-ko/blob/gh-pages/README.en.md) is also available.
 
-[io.js](https://iojs.org/) 한국 커뮤니티
+[Node.js](https://nodejs.org/) 한국 커뮤니티
 
 ## [참여자](https://github.com/nodejs/iojs-ko/graphs/contributors)
 
@@ -16,6 +16,6 @@ The [English version](https://github.com/nodejs/iojs-ko/blob/gh-pages/README.en.
 
 주로 [gitter](https://gitter.im/nodejs/iojs-ko)에서 논의하고 있습니다.
 
-io.js 한국 커뮤니티의 소식은 다음 소셜 미디어 서비스를 통해서도 접할 수 있습니다.
+Node.js 한국 커뮤니티의 소식은 다음 소셜 미디어 서비스를 통해서도 접할 수 있습니다.
 
 - 트위터 : [@iojs_ko](https://twitter.com/iojs_ko)
