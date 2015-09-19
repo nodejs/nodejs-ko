@@ -19,22 +19,22 @@ The Node.js Foundation is pleased to announce [Node.js Interactive](http://inter
 -->
 
 Node.js 재단은 2015년 12월 8-9일, 오리건 주 포틀랜드에서
-[Node.js Interactive](http://interactive.nodejs.org)를 발표하게 되어 기쁩니다.
-node.js가 기술의 모든 측면에서 성장함에 따라, 이 모임은 빠른 웹 사이트와 실시간
-애플리케이션의 개발 간소화부터 node.js 애플리케이션 관리를 위한 조언까지 모든
-것을 다루게 될 것입니다.
+[Node.js Interactive](http://interactive.nodejs.org)를 개최합니다. node.js가
+광범위하게 성장함에 따라, 이 콘퍼런스는 빠른 웹 사이트와 실시간 애플리케이션의
+효율적인 개발 방법부터 node.js 애플리케이션 관리를 위한 조언, 그 밖에 언급되지
+않은 것까지 전반적으로 다루게 될 것입니다.
 
 <!--
 The event will be the first of its kind under the Node.js Foundation led in cooperation with The Linux Foundation. Vendor-neutral by design, it will focus on the continued ideals of open governance collaboration between the now joined node.js and io.js community. The conference welcomes experienced developers as well as those interested in how node.js might be of use to their business with tracks that focus on IoT, front-end and back-end technologies. To curate these tracks and create the best experience for attendees, track chairs include seasoned veterans:
 -->
 
-이 이벤트는 Node.js 재단이 Linux 재단과 함께 협력한 첫 번째 일이 될 것입니다.
-이제 합해진 node.js와 io.js 커뮤니티의 오픈 거버넌스 공동 작업이 이루어질 텐데,
-벤더에 구애받지 않은 디자인은 이 공동 작업의 이상을 이어나가는 데 집중할
-것입니다. 콘퍼런스는 경력 있는 개발자 뿐만 아니라 IoT, 프론트엔드, 백엔드 기술에
-초점을 맞춘 트랙들을 자신의 사업에 어떻게 이용할 수 있을지 관심을 가진 사람들도
-환영합니다. 이런 트랙들을 모으고 참석자들에게 최상의 경험을 제공하기 위해서 트랙
-책임자는 잔뼈 굵은 베테랑들로 이루어져 있습니다.
+이번 행사는 Node.js 재단이 Linux 재단과 함께 협력한 첫 번째 일이 될 것입니다.
+의도적으로 특정 벤더에 소속되지 않은 채, 이제는 합쳐진 node.js와 io.js 커뮤니티
+간 오픈 거버넌스 협업의 이상을 이어나가는 데 집중할 것입니다. 콘퍼런스는 경력
+개발자뿐만 아니라 IoT, 프론트엔드, 백엔드 기술에 초점을 맞춘 발표들을 자신의
+사업에 어떻게 이용할 수 있을지 관심을 가진 사람들도 환영합니다. 이런 발표들을
+모으고 참석자들에게 최상의 경험을 제공하기 위해서 발표 책임자는 잔뼈 굵은
+베테랑들로 이루어져 있습니다.
 
 <!--
 * [Kassandra Perch](https://github.com/nodebotanist) for IoT, a software developer / evangelist / advocate / educator / roboticist living in Austin, TX, who you can follow at: [@nodebotanist](https://twitter.com/nodebotanist).
@@ -50,11 +50,11 @@ The event will be the first of its kind under the Node.js Foundation led in coop
 As the Node.js community continues to grow, the Node.js Foundation believes this event is the perfect place to continue to develop collaboration and better understand what’s next for this extremely popular technology. Interested in joining us? Register [here](http://events.linuxfoundation.org/events/node-interactive/attend/register). Timeline for discount rates are as follows:
 -->
 
-Node.js 커뮤니티가 성장함에 따라, Node.js 재단은 이 이벤트가 개발 협업을
-이어가고, 엄청난 인기의 이 기술 다음에 올 것은 무엇인지 이해하는 장소가 될
-것이라고 믿습니다. 우리와 함께 하고 싶은가요?
+Node.js 커뮤니티가 성장함에 따라, Node.js 재단은 이번 행사가 엄청난 인기의
+Node.js가 다음에는 어떻게 될지 이해하고 협업 개발을 이어나가는 최적의 장소가 될
+것이라고 생각합니다. 우리와 함께 하고 싶은가요?
 [여기](http://events.linuxfoundation.org/events/node-interactive/attend/register)에서
-등록하세요. 시간에 따른 할인율은 다음과 같습니다.
+등록하세요. 등록 시기에 따른 할인율은 다음과 같습니다.
 
 <!--
 * Super Early Bird - US$200 for the 1st 100 tickets
@@ -74,4 +74,4 @@ If you are interested in becoming a speaker, please check out our [Call For Part
 
 발표자가 되고 싶다면,
 [모집 공고](http://events.linuxfoundation.org/events/node-interactive/program/cfp)
-페이지를 참조하세요. 모집 공고는 2015년 9월 24일에 종료됩니다.
+페이지를 참조하세요. 모집은 2015년 9월 24일에 종료됩니다.
