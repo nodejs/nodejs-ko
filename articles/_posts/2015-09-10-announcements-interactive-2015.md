@@ -41,7 +41,7 @@ The event will be the first of its kind under the Node.js Foundation led in coop
 * [Jessica Lord](https://github.com/jlord/) for Front-End, a GitHub developer and designer who loves open source, JavaScript & node.js, and stories of Tudor England and is a Portland transplant.
 * [C J Silvero](https://github.com/ceejbot) for Back-End, who is all node, all the time and works as director of engineering at npm, Inc. in the Bay area.
 -->
-*
+
 * [Kassandra Perch](https://github.com/nodebotanist), IoT 담당, 텍사스 오스틴에 사는 소프트웨어 개발자 / 에반젤리스트 / 지지자 / 교육자 / 로봇 기술자, [@nodebotanist](https://twitter.com/nodebotanist)에서 팔로우.
 * [Jessica Lord](https://github.com/jlord/), 프론트엔드 담당, 오픈 소스, JavaScript, node.js, 튜더 영국의 이야기를 사랑하는 GitHub 개발자이자 디자이너, 포틀랜드 이주자.
 * [C J Silvero](https://github.com/ceejbot), 백엔드 담당, 항상 node를 쓰고 샌프란시스코 베이 에어리어의 npm, Inc. 엔지니어링 책임자.
