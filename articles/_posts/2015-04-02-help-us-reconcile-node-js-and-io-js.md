@@ -49,10 +49,10 @@ The TSC (Technical Steering Committee) is the primary governance body of what wo
 Unlike io.js where we have a mix of current TC process along with a solid governance structure in one document this charter should be as minimal as possible while also guaranteeing freedom and open governance. We want to continue to iterate on the TC process, as io.js has been for the last 4 months, and if we overload this document with the specifics of that process it will become quite difficult. We need help identifying areas and language improvements we can make in order to walk this line.
 -->
 
-# TSC 협약
-TSC(기술 운영 위원회)는 단일화된 io.js와 node.js 플랫폼의 관리의 주요한 주체가 될 것입니다. io.js에 익숙한 사람들에게는 새로운 기술위원회가 될 것이며 아마도 node.js의 핵심 커미터들뿐만 아니라 기존의 io.js TC 회원들도 받아들이게 될 것입니다.
+# 기술 결정 위원회(TSC) 협약
+기술 결정 위원회(Technical Steering Committe, TSC)는 단일화된 io.js와 node.js 플랫폼의 관리의 주요한 주체가 될 것입니다. io.js에 익숙한 사람들에게는 새로운 기술위원회가 될 것이며 아마도 node.js의 핵심 커미터들뿐만 아니라 기존의 io.js TC 회원들도 받아들이게 될 것입니다.
 
-[TSC 협약](https://github.com/joyent/nodejs-advisory-board/blob/master/governance-proposal/TSC-Charter-Draft.md)은 결국 이사회의 승인을 받게 될 것입니다. 그것은 특정한 권리(재단 이사회로부터 기술적인 의사결정의 자율성과 같은)가 그 안에 있어야 한다는 것을 의미합니다. 이 문서의 수정을 위해서는 이사회의 승인이 필요한데 이는 한번 공식화되면 변경이 어렵다는 것을 의미합니다.
+[기술 결정 위원회 협약](https://github.com/joyent/nodejs-advisory-board/blob/master/governance-proposal/TSC-Charter-Draft.md)은 결국 이사회의 승인을 받게 될 것입니다. 그것은 특정한 권리(재단 이사회로부터 기술적인 의사결정의 자율성과 같은)가 그 안에 있어야 한다는 것을 의미합니다. 이 문서의 수정을 위해서는 이사회의 승인이 필요한데 이는 한번 공식화되면 변경이 어렵다는 것을 의미합니다.
 
 하나의 문서에 견고한 관리체계와 함께 현재의 TC 프로세스가 혼재되어있는 io.js와는 달리, 이 협약은 자유와 개방된 관리를 보장하는 동시에 가능한 최소한의 내용을 포함해야 합니다. 우리는 io.js가 지난 4개월간 해왔던 것처럼 TC 프로세스를 계속 반복하길 원합니다. 그리고 우리가 이 문서에 프로세스와 관련된 세세한 규정을 지나치게 많이 담는다면, 그것은 꽤 곤란하게 될 것입니다. 우리는 이 선을 지키기 위해 지역의 식별과 언어를 개선하는 데 도움이 필요합니다.
 
@@ -65,10 +65,10 @@ In the foundation model that is being created there is a wall between the “Fou
 Certain matters are not left to the TSC (like legal issues) and are handled by the Foundation so they are not included in this document.
 -->
 
-# TSC 정책 초안
-[이 문서](https://github.com/joyent/nodejs-advisory-board/blob/master/governance-proposal/TSC-Policy-Draft.md)에서 재단 이사회가 TSC가 할 방향과 가치 그리고 범위를 비준할 것입니다.
+# 기술 결정 위원회 정책 초안
+[이 문서](https://github.com/joyent/nodejs-advisory-board/blob/master/governance-proposal/TSC-Policy-Draft.md)에서 재단 이사회가 기술 결정 위원회가 할 방향과 가치 그리고 범위를 비준할 것입니다.
 
-거기서 만들어진 재단의 모델에는 이사회와 선임된 경영진에 의해서 관리되는 "재단"과 TSC에 의해 관리되는 "프로젝트" 사이에 벽이 있습니다. 이 문서는 이사회가 TSC에게 인정해주는 부분, 그리고 TSC 방향성과 요구사항(개방성 같은)들을 서술합니다.
+거기서 만들어진 재단의 모델에는 이사회와 선임된 경영진에 의해서 관리되는 "재단"과 기술 결정 위원회에 의해 관리되는 "프로젝트" 사이에 벽이 있습니다. 이 문서는 이사회가 기술 결정 위원회에게 인정해주는 부분, 그리고 기술 결정 위원회 방향성과 요구사항(개방성 같은)들을 서술합니다.
 
-일부 문제(법적인 문제 등)는 TSC에게 남아있지 않고 재단에 의해 다루어지므로 이 문서에 포함되지 않습니다.
+일부 문제(법적인 문제 등)는 기술 결정 위원회에게 남아있지 않고 재단에 의해 다루어지므로 이 문서에 포함되지 않습니다.
 
