@@ -1,10 +1,10 @@
-# iojs-ko
+# nodejs-ko
 
-[![Join the chat at https://gitter.im/nodejs/iojs-ko](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/nodejs/iojs-ko?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/nodejs/nodejs-ko](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/nodejs/nodejs-ko?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-[io.js](https://iojs.org/) i18n for Korean
+[Node.js](https://nodejs.org/) i18n for Korean
 
-## [Contributors](https://github.com/nodejs/iojs-ko/graphs/contributors)
+## [Contributors](https://github.com/nodejs/nodejs-ko/graphs/contributors)
 
 ## License
 
@@ -12,8 +12,8 @@
 
 ## Contact
 
-We have a [gitter](https://gitter.im/nodejs/iojs-ko) channel.
+We have a [gitter](https://gitter.im/nodejs/nodejs-ko) channel.
 
 You can contact us also on the following social media:
 
-- Twitter : [@iojs_ko](https://twitter.com/iojs_ko)
+- Twitter : [@nodejs_ko](https://twitter.com/nodejs_ko)

@@ -122,7 +122,7 @@ babel サポート文法一覧
 
 
 babel에서 지원하는 문법 목록
-![babel에서 지원하는 문법 목록](/iojs-ko/public/images/babel-syntax.png)
+![babel에서 지원하는 문법 목록](/nodejs-ko/public/images/babel-syntax.png)
 [http://kangax.github.io/compat-table/es6/](http://kangax.github.io/compat-table/es6/)
 
 <!--
@@ -1328,7 +1328,7 @@ _sqrt 함수의 재귀 호출이 없어지고 while과 라벨 continue를 사용
 
 babel を使って新しい JavaScript を学んでみたい方向けに tower-of-babel という ES6 チュートリアルの学習ツールを作りました。
 
-![tower-of-babel](/iojs-ko/public/images/tower-of-babel.png)
+![tower-of-babel](/nodejs-ko/public/images/tower-of-babel.png)
 こちらも使ってみてください。
 -->
 # 이후의 ECMAScript2015의 전망
@@ -1367,7 +1367,7 @@ babel을 사용해 새로운 JavaScript를 배우고 싶으신 분들을 위해
 [tower-of-babel](https://github.com/yosuke-furukawa/tower-of-babel)이라는 ES6
 튜토리얼 학습 도구를 만들었습니다.
 
-![tower-of-babel](/iojs-ko/public/images/tower-of-babel.png)
+![tower-of-babel](/nodejs-ko/public/images/tower-of-babel.png)
 한국어로 번역되어 있으니 이것도 한번 해보세요.
 
 <!--

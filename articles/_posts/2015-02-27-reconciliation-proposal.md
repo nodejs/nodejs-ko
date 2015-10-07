@@ -3,7 +3,7 @@ layout: post
 title: 화해 제안
 author: mikeal
 ref: Reconciliation Proposal
-refurl: https://github.com/iojs/io.js/issues/978
+refurl: https://github.com/nodejs/node/issues/978
 translator:
   - <a href="https://github.com/marocchino" target="_blank">marocchino</a>
 ---
@@ -332,7 +332,7 @@ and produce localizations of project resources.
 프로젝트 리소스를 지역화하게 될 것입니다.
 
 io.js 한국 커뮤니티의 투표는
-[iojs/iojs-ko#38](https://github.com/iojs/iojs-ko/issues/38)에서 진행 중입니다.
+[nodejs/nodejs-ko#38](https://github.com/nodejs/nodejs-ko/issues/38)에서 진행 중입니다.
 댓글로 의견을 달아주세요.
 
 # 로드맵 WG
