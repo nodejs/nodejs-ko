@@ -4,23 +4,23 @@ title: 번역 참여 가이드
 ---
 
 # 번역 대상
-* [io.js](https://iojs.org/)와 관련된 모든 문서가 번역 대상입니다.
-* 기본적으로 [공식 io.js의 글](https://medium.com/@iojs)을 번역합니다.
-* 번역했으면 하는 문서는 [이슈](https://github.com/iojs/iojs-ko/issues)로 등록합니다.
+* [Node.js](https://nodejs.org/)와 관련된 모든 문서가 번역 대상입니다.
+* 기본적으로 [공식 Node.js의 글](https://nodejs.org/en/blog/)을 번역합니다.
+* 번역했으면 하는 문서는 [이슈](https://github.com/nodejs/nodejs-ko/issues)로 등록합니다.
     * 이슈의 제목을 원문의 제목으로 하고 본문에 링크를 입력합니다.
-    * 번역 이슈에는 [translation](https://github.com/iojs/iojs-kr/labels/translation) 레이블을 붙입니다.
+    * 번역 이슈에는 [translation](https://github.com/nodejs/nodejs-ko/labels/translation) 레이블을 붙입니다.
 
 # 번역에 참가하는 방법
-* [이슈 #44](https://github.com/iojs/iojs-ko/issues/44)에서 신청을 하면 프로젝트의 Collaborators로 등록해 드립니다.
+* [이슈 #44](https://github.com/iojs/nodejs-ko/issues/44)에서 신청을 하면 프로젝트의 Collaborators로 등록해 드립니다.
     - 꼭 등록하실 필요는 없습니다.
-* [이슈](https://github.com/iojs/iojs-ko/issues) 중에서 [translation 레이블이 붙은 이슈](https://github.com/iojs/iojs-kr/labels/translation)가 번역할 문서입니다.
+* [이슈](https://github.com/nodejs/nodejs-ko/issues) 중에서 [translation 레이블이 붙은 이슈](https://github.com/nodejs/nodejs-ko/labels/translation)가 번역할 문서입니다.
 * 번역하겠다는 의사를 밝힙니다.
     - Collaborators라면 이슈를 자신에게 할당합니다.
     - 그냥 댓글로 남기셔도 됩니다.
 * 이슈를 할당하면 번역의 진행을 위해서 1주일 안에 번역 작업을 합니다. 1주일이 지나면 다른 사람에게 이슈가 넘어갈 수 있습니다.
 
 # 번역 방법
-1. [iojs-ko](https://github.com/iojs/iojs-ko) 프로젝트를 포크합니다.
+1. [nodejs-ko](https://github.com/nodejs/nodejs-ko) 프로젝트를 포크합니다.
 1. 풀 리퀘스트를 보내기 위한 브랜치를 새로 생성합니다.
 1. 번역 작업을 위한 파일을 생성합니다.
     * 디렉터리 관례
@@ -78,7 +78,7 @@ title: 번역 참여 가이드
 1. 번역이 완료되면 해당 브랜치를 이용해서 풀 리퀘스트를 보냅니다.
     * 커밋 메시지나 풀 리퀘스트에 번역한 문서의 이슈번호를 추가합니다.
 1. 풀 리퀘스트는 리뷰 과정을 거치게 되고 이 과정에서 오타, 번역 문체 등을 다듬습니다.
-1. 리뷰가 완료되어 풀 리퀘스트가 머지되면 [블로그](http://iojs.github.io/iojs-ko/)에 적용됩니다.
+1. 리뷰가 완료되어 풀 리퀘스트가 머지되면 [블로그](http://nodejs.github.io/nodejs-ko/)에 적용됩니다.
 
 # 그 외 참고할 사항
 1. 특별히 어색하지 않다면 기울임꼴, 굵은 글씨 등 서식은 원문과 똑같이 사용합니다.
