@@ -44,7 +44,7 @@ class Template
 
   def translated_title
     if type == :weekly
-      "io.js와 Node.js 주간 뉴스 #{date.strftime('%Y년 %-m월 %-d일')}"
+      "Node.js 주간 뉴스 #{date.strftime('%Y년 %-m월 %-d일')}"
     else
       '번역글의 제목'
     end
