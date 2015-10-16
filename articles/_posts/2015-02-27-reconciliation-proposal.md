@@ -80,10 +80,10 @@ Node.js 재단은 **Technical Governance Structure**(재단 운영 조직에서 
 
 규정 구조에 대한 합의의 초안으로 다음 문서를 io.js에서 가져올 것입니다.
 
-- [GOVERNANCE.md](https://github.com/iojs/io.js/blob/v1.x/GOVERNANCE.md) (TC, 투표 등)
-- [CONTRIBUTING.md](https://github.com/iojs/io.js/blob/v1.x/CONTRIBUTING.md) (기여 정책, CoC, DCO 등)
-- [WORKING_GROUPS.md](https://github.com/iojs/io.js/blob/v1.x/WORKING_GROUPS.md)
-- [ROADMAP.md](https://github.com/iojs/io.js/blob/v1.x/ROADMAP.md)
+- [GOVERNANCE.md](https://github.com/nodejs/node/blob/v1.x/GOVERNANCE.md) (TC, 투표 등)
+- [CONTRIBUTING.md](https://github.com/nodejs/node/blob/v1.x/CONTRIBUTING.md) (기여 정책, CoC, DCO 등)
+- [WORKING_GROUPS.md](https://github.com/nodejs/node/blob/v1.x/WORKING_GROUPS.md)
+- [ROADMAP.md](https://github.com/nodejs/node/blob/v1.x/ROADMAP.md)
 
 <!--
 In addition to the definition of "collaborator" from CONTRIBUTING.md the list of
@@ -100,7 +100,7 @@ Stephen Loomis
 Michael Dawson
 -->
 
-덧붙여 [CONTRIBUTING.md](https://github.com/iojs/io.js/blob/v1.x/CONTRIBUTING.md)에
+덧붙여 [CONTRIBUTING.md](https://github.com/nodejs/node/blob/v1.x/CONTRIBUTING.md)에
 있는 "collaborator" 항목의 기존 io.js 기여자들 역시 이관됩니다.
 
 문서가 이전하면서 다음과 같은 변경이 이루어집니다.

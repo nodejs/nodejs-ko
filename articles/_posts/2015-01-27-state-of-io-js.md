@@ -20,7 +20,7 @@ io.js의 발표 후 몇 달 동안 많은 일이 있었습니다. 야심에 찬 
 뛰어난 활약을 해준 [**Chris Dickinson**](https://github.com/chrisdickinson)과
 [**Colin Ihrig**](https://github.com/cjihrig)을
 
-[TC](https://github.com/iojs/io.js/blob/v1.x/GOVERNANCE.md#iojs-project-governance)
+[TC](https://github.com/nodejs/node/blob/v1.x/GOVERNANCE.md#iojs-project-governance)
 (프로젝트 의사결정 기구)에 추가했습니다. [**Domenic
 Denicola**](https://github.com/domenic)도 (저나 [Rod
 Vagg](https://github.com/rvagg)처럼) 투표권이 없는 참가자로 TC 회의에
@@ -29,20 +29,20 @@ Vagg](https://github.com/rvagg)처럼) 투표권이 없는 참가자로 TC 회�
 
 node.js™ 역사상 활발한 커미터가 8명 이상 있었던 적은 없습니다. 지난주 **Chris
 Dickinson**는 또 다른 라운드로 이끌어 줄 [**새로운 커미터
-8명**](https://github.com/iojs/io.js/issues/234#issuecomment-71097752)을
+8명**](https://github.com/nodejs/node/issues/234#issuecomment-71097752)을
 io.js에 올렸습니다.
 
 io.js에서 현재 사용 중인 V8은 **안정** 버전으로 표기될 예정이며 **3월 초**에
 크롬에 포함될 것입니다. 그때부터는  v8 최신 안정 버전을 사용하는 안정된 채널과
 v8 다음 개발 버전을 사용하는 불안정한 채널을 갖게 됩니다. 이 말은 **3월에는
 안정 버전 io.js를 기대해도 된다**는 이야기입니다. 개발 버전은 [계속
-유지](https://github.com/iojs/io.js/pull/630)되며 io.js와 v8의 새 기능을
+유지](https://github.com/nodejs/node/pull/630)되며 io.js와 v8의 새 기능을
 테스트하는데 사용될 것입니다.
 
 코어 개발 외의 몇 가지 작업은 이미 프로젝트 팀과 커미터가 필요할 만큼
-성장했습니다. 설립될 때 있었던 [**빌드**](https://github.com/iojs/build)
-그룹 말고도 이제는 [**웹사이트**](https://github.com/iojs/website) 그룹과
-[**스트림**](https://github.com/iojs/readable-stream) 그룹이 있습니다. 우리는
+성장했습니다. 설립될 때 있었던 [**빌드**](https://github.com/nodejs/build)
+그룹 말고도 이제는 [**웹사이트**](https://github.com/nodejs/website) 그룹과
+[**스트림**](https://github.com/nodejs/readable-stream) 그룹이 있습니다. 우리는
 앞으로 **전파, 문서화, 지역화, nan[^1], 로드맵**과 관련한 워킹 그룹도 만들어지기를
 기대합니다. 이 그룹들이 만들어지면 커뮤니티에서 더 다양한 참여를 이끌어 낼 수 있을
 것입니다.
