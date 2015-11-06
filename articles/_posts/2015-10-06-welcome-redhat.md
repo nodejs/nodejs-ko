@@ -21,13 +21,13 @@ translator:
 <!--
 **SAN FRANCISCO, Oct. 6, 2015** – The [Node.js Foundation](https://nodejs.org/en/foundation/), a community-led and industry-backed consortium to advance the development of the Node.js platform, today announced Red Hat, Inc. has joined the Foundation as a Platinum member. Red Hat joins platinum members, including Famous, IBM, Intel, Joyent, Microsoft and PayPal, to provide support in the adoption, development and long-term success of the Node.js project.
 -->
-**2015년 10월 6일, 샌프란시스코** - [Node.js 재단](https://nodejs.org/en/foundation/)은 오늘 레드햇이 새로운 플래티넘 회원으로 참여했음을 알렸습니다(Node.js 재단은 커뮤니티가 주도하고 기업이 후원하는 컨소시엄으로서 Node.js 플랫폼을 개발하고 있습니다).
+**2015년 10월 6일, 샌프란시스코** - [Node.js 재단](https://nodejs.org/en/foundation/)은 오늘 레드햇이 새로운 플래티넘 회원으로 참여했음을 알렸습니다. Node.js 재단은 커뮤니티가 주도하고 기업이 후원하는 컨소시엄으로서 Node.js 플랫폼을 개발하고 있습니다.
 레드햇은 Node.js 프로젝트의 적용, 개발, 장기적인 성공을 지원하기 위해 IBM, 인텔, Joyent, 마이크로소프트, 페이팔과 같은 플래티넘 회원사가 되었습니다.
 
 <!--
 Node.js is the runtime of choice for high-performance, low latency applications, powering everything from enterprise applications to robots. Over the last two years, more large enterprises, including Red Hat, IBM, PayPal, Fidelity, and Microsoft, have adopted Node.js as part of their enterprise fabric. Today there are 2 million unique IP addresses installing Node.js packages and more than 2 billion package downloads in the last month.
 -->
-Node.js는 고성능 저지연(low latency) 애플리케이션 용으로 사용되는 런타임으로서, 엔터프라이즈 애플리케이션부터 로봇까지 어느 곳에든 사용할 수 있습니다. 지난 2년간, 레드햇, IBM, 페이팔, Fidelity, 마이크로소프트를 비롯한 많은 대기업들이 자신들 조직의 일부에 Node.js를 적용했습니다. 오늘날 Node.js 패키지를 설치한 고유 IP는 2백만 개 정도이며, 지난달 패키지 다운로드 수는 20만 건 이상이었습니다.
+Node.js는 고성능 저지연(low latency) 애플리케이션용으로 사용되는 런타임으로서, 엔터프라이즈 애플리케이션부터 로봇까지 어느 곳에든 사용할 수 있습니다. 지난 2년간, 레드햇, IBM, 페이팔, Fidelity, 마이크로소프트를 비롯한 많은 대기업들이 자신들 조직의 일부에 Node.js를 적용했습니다. 오늘날 Node.js 패키지를 설치한 고유 IP는 2백만 개 정도이며, 지난달 패키지 다운로드 수는 20만 건 이상이었습니다.
 
 <!--
 Often used for building fast, scalable network applications, Node.js supports Red Hat technologies such as [Red Hat Mobile Application Platform](https://www.redhat.com/en/technologies/mobile/application-platform), and is available in [OpenShift by Red Hat](https://www.openshift.com/) and [Red Hat Software Collections](http://developerblog.redhat.com/tag/software-collections/). As a new member, Red Hat is providing financial support, technical contributions, and high-level policy guidance for the newly formed Foundation that operates as a neutral organization to support the project governed by the Node.js community.
@@ -37,7 +37,7 @@ Often used for building fast, scalable network applications, Node.js supports Re
 <!--
 “Node.js has become an important tool for developers who need to build and deploy a new generation of highly responsive, scalable applications for mobile and Internet of Things (IoT),” said Rich Sharples, senior director, Product Management at Red Hat. “We welcome deeper collaboration with the Node.js Foundation and broader community, and look forward to helping increase the role that the technology plays in enterprise software development.”
 -->
-레드햇의 프로덕트 매니지먼트 파트의 선임 디렉터인 리치 샤플즈(Rich Sharples)는 “Node.js는 모바일과 사물인터넷(Internet of Things, IoT) 환경에 사용할 반응성 높고 확장성 있는(scalable) 애플리케이션을 작성하고 배포해야 하는 개발자들에게 중요한 도구가 되었습니다.”라며 “우리는 Node.js 재단 및 광대한 커뮤니티와의 심도 있는 협업을 환영하며, 엔터프라이즈 소프트웨어 개발 분야에서 Node.js 기술의 역할을 더 늘리는 데 일조하고자 합니다.”라고 말했습니다.
+레드햇의 프로덕트 매니지먼트 파트의 선임 디렉터인 리치 샤플즈(Rich Sharples)는 “Node.js는 모바일과 사물 인터넷(Internet of Things, IoT) 환경에 사용할 반응성 높고 확장성 있는(scalable) 애플리케이션을 작성하고 배포해야 하는 개발자들에게 중요한 도구가 되었습니다.”라며 “우리는 Node.js 재단 및 광대한 커뮤니티와의 심도 있는 협업을 환영하며, 엔터프라이즈 소프트웨어 개발 분야에서 Node.js 기술의 역할을 더 늘리는 데 일조하고자 합니다.”라고 말했습니다.
 
 <!--
 “Node.js is exploding in popularity in almost every aspect of technology from microservices architecture to data-intensive applications that run across distributed devices,” said Danese Cooper, Chairperson of the Node.js Foundation Board. “It is a pivotal moment for the technology, and the support of Foundation members is imperative to ensure that Node.js stays relevant and addresses topical projects and problems that are happening within the wider Node.js community.”
