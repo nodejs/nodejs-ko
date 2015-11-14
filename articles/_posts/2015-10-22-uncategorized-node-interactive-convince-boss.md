@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "상사 설득하기" 편지
+title: “상사 설득하기” 편지
 author: Node
-ref: "Convince Your Boss" Letter
+ref: “Convince Your Boss” Letter
 refurl: https://nodejs.org/en/blog/uncategorized/node-interactive-convince-boss/
 translator:
 - <a href="https://github.com/outsideris" target="_blank">Outsider</a>
