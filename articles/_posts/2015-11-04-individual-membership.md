@@ -39,7 +39,7 @@ Keep in mind that every meeting of the Board must reach quorum in order to pass 
 -->
 ## 이사회는 누가 운영할 수 있나요?
 
-모든 등록된 회원입니다.
+등록된 회원이라면 누구든지 가능합니다.
 
 모든 이사회 회의는 정족수를 충족시켜야 결의안 통과가 가능하므로 정기적이고 꾸준하게 참여할 수 있는 사람만 운영하려 해야 합니다.
 
