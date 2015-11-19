@@ -56,7 +56,7 @@ The current board members are listed [here](../../../foundation/board).
 재단이 주최하는 콘퍼런스나 이니셔티브에 관한 법적인 사안, 예산, 인가 등도 회의 내용에 포함됩니다.
 기술 거버넌스는 이사회가 아니라 기술 결정 위원회에서 감독합니다.
 
-현 이사회의 구성은 [여기](../../../foundation/board)에서 볼 수 있습니다.
+현 이사회의 구성은 [여기](https://nodejs.org/en/foundation/board)에서 볼 수 있습니다.
 
 <!--
 ## What are the term lengths?
