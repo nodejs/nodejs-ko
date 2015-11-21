@@ -25,7 +25,7 @@ title: 번역 참여 가이드
 1. 번역 작업을 위한 파일을 생성합니다.
     * 디렉터리 관례
         - 일반적인 글은 `articles/_posts/` 디렉터리를 사용합니다.
-        - [Node.js 블로그](https://nodejs.org/en/blog/)에 올라오는 `weekly/_posts/` 디렉터리를 사용합니다.
+        - [Node.js 블로그](https://nodejs.org/en/blog/)에 올라오는 주간 뉴스는 `weekly/_posts/` 디렉터리를 사용합니다.
     * 파일명
         - 원문이 올라온 날짜와 제목을 대시(`-`)로 이어 붙여서 파일명을 정합니다.(예시: `2015-01-27-state-of-io-js.md`)
         - 주간 뉴스의 경우에는 원문의 날짜와 weekly를 대시(`-`)로 이어 붙여서 파일명을 정합니다.(예시: `2015-02-13-weekly.md`)
