@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 2015년 12월 보안 릴리스 일정 업데이트
+title: 2015년 12월 보안 릴리스 일정 변경
 author: Rod Vagg
 ref: December Security Release Schedule Update
 refurl: https://nodejs.org/en/blog/vulnerability/december-2015-security-release-update/
@@ -19,7 +19,7 @@ OpenSSL 프로젝트는 12월 3일(UTC)에 1.0.2, 1.0.1, 1.0.0, 0.9.8 버전에 
 -->
 
 > **중간** 심각도는 클라이언트 애플리케이션이 예기치 않은 종료, 그리 널리 사용되지 않는 프로토콜(DTLS 등)의 결함, 국부 결함과 같은 문제를 포함합니다.
-> 일반적으로 이러한 결함은 다음 릴리스까지 공개하지 않으며, 한 번에 여러 결함을 해결할 수 있을 때 릴리스 스케줄을 정합니다.
+> 일반적으로 이러한 결함은 다음 릴리스까지 공개하지 않으며, 한 번에 여러 결함을 해결할 수 있을 때 릴리스 일정을 정합니다.
 
 <!--
 Node.js versions v0.10.x and v0.12.x depend on OpenSSL v1.0.1 and versions v4.x (LTS Argon) and v5.x depend on OpenSSL v1.0.2. As the Node.js build process statically links OpenSSL into binaries, we will be required to release patch-level updates to all of our actively supported versions to include the upstream fixes. While we are unaware of the exact nature of the OpenSSL vulnerabilities being fixed, we must consider it likely that Node.js releases will be required in order to protect users.
@@ -37,7 +37,7 @@ OpenSSL 릴리스 일정은 우리가 v0.12.x, v4.x, v5.x 버전을 [릴리스�
 Therefore, we are moving our planned security releases for Node.js from Wednesday the 2nd of December 2015, UTC to the **Friday, the 4th of December 2015, UTC** _(Thursday the 3rd of December US time)_. We understand that the timing of this during the work-week is unfortunate but we must take into account the possibility of introducing a vulnerability gap between disclosure of OpenSSL vulnerabilities and patched releases by Node.js and therefore must respond as quickly as practical. Please be aware that patching and testing of OpenSSL updates is a non-trivial exercise and there will be significant delay after the OpenSSL releases before we can be confident that Node.js builds are stable and suitable for release.
 -->
 따라서 우리는 Node.js의 보안 릴리스 일정을 2015년 12월 2일 수요일(UTC)에서 **2015년 12월 4일 금요일(UTC)**(미국 기준 12월 3일 목요일)로 변경할 것입니다.
-업무 시간에 릴리스되는 이번 일정이 유감스럽다는 점은 이해하지만, OpenSSL 취약점이 공개되는 시기와 Node.js가 패치되는 시기의 차이때문에 보안 취약점이 발생할 수 있다는 점을 고려해야 했으며 가능한 빠르게 반영해야 했습니다.
+업무 시간에 릴리스되는 이번 일정이 유감스럽다는 점은 이해하지만, OpenSSL 취약점이 공개되는 시기와 Node.js가 패치되는 시기의 차이 때문에 보안 취약점이 발생할 수 있다는 점을 고려해야 했으며 가능한 빠르게 반영해야 했습니다.
 OpenSSL 업데이트의 패치와 테스트는 중요한 과정이므로 OpenSSL 릴리스 후 Node.js 빌드에 안정적으로 반영되어 릴리스에 적합하다고 확신할 수 있을 때까지 꽤 시간이 걸릴 수 있습니다.
 
 <!--
@@ -60,12 +60,12 @@ A bug exists in Node.js, all versions of v0.12.x through to v5.x inclusive, wher
 ## CVE-2015-8027 서비스 거부(DoS) 취약점
 
 Node.js v0.12.x부터 v5.x까지 모든 버전에 외부 공격자가 서비스 거부(DoS)를 일으킬 수 있는 버그가 있습니다.
-이 문제의 심각도는 높게 평가되었으며 해당 버전을 사용하고 있는 사용자는 버그 픽스가 나오면 업그레이드 해야합니다.
+이 문제의 심각도는 높게 평가되었으며 해당 버전을 사용하고 있는 사용자는 버그 픽스가 나오면 업그레이드 해야 합니다.
 
 * Node.js 0.10.x 버전은 **아무런 영향이 없습니다**.
-* Node.js 0.12.x 버전은 ***취약할 수 있습니다***.   
-* LTS Argon을 포함한 Node.js 4.x 버전은 ***취약할 수 있습니다***.
-* Node.js 5.x 버전은 ***취약할 수 있습니다***.
+* Node.js 0.12.x 버전은 ***취약합니다***.   
+* LTS Argon을 포함한 Node.js 4.x 버전은 ***취약합니다***.
+* Node.js 5.x 버전은 ***취약합니다***.
 
 <!--
 ## CVE-2015-6764 V8 Out-of-bounds Access Vulnerability
@@ -85,8 +85,8 @@ Node.js v4.x와 v5.x 모든 버전에 응용 프로그램이 사용자가 제공
 
 * Node.js 0.10.x 버전은 **아무런 영향이 없습니다**.
 * Node.js 0.12.x 버전은 **아무런 영향이 없습니다**.   
-* LTS Argon을 포함한 Node.js 4.x 버전은 ***취약할 수 있습니다***.
-* Node.js 5.x 버전은 ***취약할 수 있습니다***.
+* LTS Argon을 포함한 Node.js 4.x 버전은 ***취약합니다***.
+* Node.js 5.x 버전은 ***취약합니다***.
 
 <!--
 ## OpenSSL Moderate Severity Update
@@ -105,7 +105,7 @@ OpenSSL 프로젝트는 "중간" 이하 심각도로 평가된 여러 취약점�
 사용자를 그들의 애플리케이션에 있을 수 있는 잠재적인 보안 취약점으로부터 보호하기 위해 현재 활발히 유지되는 Node.js 버전은 모두 새로 릴리스될 것입니다.
 우리도 OpenSSL이 수정하는 문제의 특성을 자세히는 모르지만 가능한 빨리 업그레이드해야 할 것입니다.
 
-* Node.js 0.10.x 버전은 ***어쩌면 취약할 수 있습니다***.
-* Node.js 0.12.x 버전은 ***어쩌면 취약할 수 있습니다***.   
-* LTS Argon을 포함한 Node.js 4.x 버전은 ***어쩌면 취약할 수 있습니다***.
-* Node.js 5.x 버전은 ***어쩌면 취약할 수 있습니다***.
+* Node.js 0.10.x 버전은 ***취약할 수 있습니다***.
+* Node.js 0.12.x 버전은 ***취약할 수 있습니다***.   
+* LTS Argon을 포함한 Node.js 4.x 버전은 ***취약할 수 있습니다***.
+* Node.js 5.x 버전은 ***취약할 수 있습니다***.
