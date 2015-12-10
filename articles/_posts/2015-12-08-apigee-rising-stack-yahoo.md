@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Apigee, RisingStack, Yahoo가 Node.js 재단에 합류하다
+title: Apigee, RisingStack, Yahoo가 Node.js 재단에 합류합니다
 author: Rod Vagg
 ref: Apigee, RisingStack and Yahoo Join the Node.js Foundation
 refurl: https://nodejs.org/en/blog/announcements/apigee-rising-stack-yahoo/
@@ -47,8 +47,8 @@ More information about the newest Node.js Foundation members:
 [Apigee](https://apigee.com/about/) provides an intelligent API platform for digital businesses. Headquartered in San Jose, California, Apigee’s software supports some of the largest global enterprises. Developers can use the Node.js software platform to build highly customized application programming interfaces (APIs) and apps in the [Apigee API management platform](http://apigee.com/about/products/api-management). The integration of the Node.js technology allows developers to use code to create specialized APIs in Apigee, while utilizing the huge community of JavaScript developers.
 -->
 [Apigee](https://apigee.com/about/)는 디지털 비즈니스를 위한 똑똑한 API 플랫폼을 제공합니다.
-본사는 캘리포니아 산 호세에 있으며, Apigee의 소프트웨어는 가장 큰 글로벌 기업 몇 군데에서 사용되고 있습니다.
-개발자들은 Node.js 소프트웨어 플랫폼 사용해 [Apigee API 관리 플랫폼](http://apigee.com/about/products/api-management)에 고도로 커스터마이징 된 애플리케이션 프로그래밍 인터페이스(API)와 앱을 작성할 수 있습니다.
+본사는 캘리포니아 산호세에 있으며, Apigee의 소프트웨어는 가장 큰 글로벌 기업 몇 군데에서 사용되고 있습니다.
+개발자들은 Node.js 소프트웨어 플랫폼을 사용해 [Apigee API 관리 플랫폼](http://apigee.com/about/products/api-management)에 고도로 커스터마이징 된 애플리케이션 프로그래밍 인터페이스(API)와 앱을 작성할 수 있습니다.
 
 <!--
 “We want to provide to the developer community the best platform for building today’s modern apps and APIs,,” said Ed Anuff, executive vice president of strategy at Apigee. “We are committed to the advancement of Node.js and look forward to continuing to utilize the strengths and further possibilities of the technology. The Node.js Foundation provides an excellent place for us to help push this technology to become even better for our developers that use it everyday.”
@@ -62,7 +62,7 @@ Apigee의 전략 부사장인 Ed Anuff는
 -->
 [RisingStack](https://risingstack.com/)은 2014년에 Gergely Nemeth와 Peter Marton이 설립한 풀스택 자바스크립트 컨설팅 기업입니다.
 이 기업은 Node.js로의 디지털 이전을 도우며 [Trace](http://trace.risingstack.com/)라는 마이크로서비스 모니터링 도구를 제공합니다.
-RisingStack은 여러 오픈소스 프로젝트에도 공헌하고 있으며 수만은 읽을 거리가 있는 유명한 자바스크립트/DevOps [기술 블로그](https://blog.risingstack.com/)를 통해 개발자 커뮤니티의 주목을 받고 있습니다.
+RisingStack은 여러 오픈소스 프로젝트에도 공헌하고 있으며 수많은 읽을 거리가 있는 유명한 자바스크립트/DevOps [기술 블로그](https://blog.risingstack.com/)를 통해 개발자 커뮤니티의 주목을 받고 있습니다.
 
 <!--
 “Node.js is extremely important in Javascript development, and we have experienced a rapid rise of interest in the technology from enterprises.” said Gergely Nemeth, CEO and Co-Founder of RisingStack. “Our business was established to support this growing technology, and we are very excited to join the Node.js Foundation to help broaden this already active community and continue its growth through open governance.”
