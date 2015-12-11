@@ -15,7 +15,7 @@ translator:
 <!--
 **NODE.JS INTERACTIVE 2015, PORTLAND, OR.** — [The Node.js Foundation](https://nodejs.org/en/foundation/), a community-led and industry-backed consortium to advance the development of the Node.js platform, today announced Apigee, RisingStack and Yahoo are joining the Foundation as Silver Members to build and support the Node.js platform. With over 2 million downloads per month, Node.js is the runtime of choice for developers building everything from enterprise applications to Industrial IoT.
 -->
-**NODE.JS 인터랙티브 2015, 오하이오주 포틀랜드** - 커뮤니티가 주도하고 기업들이 지원하는 컨소시엄으로 Node.js 플랫폼의 개발을 돕는 [Node.js 재단](https://nodejs.org/en/foundation/)에서 오늘 Apigee, RisingStack, Yahoo가 Node.js 플랫폼을 만들고 지원하기 위해 실버 회원으로서 재단에 참여했다고 밝혔습니다.
+**NODE.JS 인터랙티브 2015, 미국 오리건 주 포틀랜드** - 커뮤니티가 주도하고 기업들이 지원하는 컨소시엄으로 Node.js 플랫폼의 개발을 돕는 [Node.js 재단](https://nodejs.org/en/foundation/)에서 오늘 Apigee, RisingStack, Yahoo가 Node.js 플랫폼을 만들고 지원하기 위해 실버 회원으로서 재단에 참여했다고 밝혔습니다.
 현재 Node.js는 매달 2백만 건 이상의 다운로드가 이뤄지고 엔터프라이즈 애플리케이션부터 산업 IoT까지 모든 분야에 걸쳐 사용되는 런타임입니다.
 
 <!--
@@ -34,7 +34,7 @@ Node.js 재단 이사회 의장인 Danese Cooper는
 <!--
 The new members are joining just in time for the inaugural Node.js Interactive event taking place today and tomorrow in Portland, OR. The conference focuses on frontend, backend and IoT technologies, and the next big initiatives for the Node.js Foundation. It includes more than 50 tutorials, sessions and keynotes. To stream the event, go to [http://events.linuxfoundation.org/events/node-interactive/program/live-video-stream](http://events.linuxfoundation.org/events/node-interactive/program/live-video-stream).
 -->
-새 회원사는 오늘과 내일 오하이오주 포틀랜드에서 열리는 첫 번째 Node.js 인터랙티브 이벤트에 맞추어 합류했습니다.
+새 회원사는 오늘과 내일 미국 오리건 주 포틀랜드에서 열리는 첫 번째 Node.js 인터랙티브 이벤트에 맞추어 합류했습니다.
 이 컨퍼런스는 프론트엔드, 백엔드, IoT 기술 및 Node.js 재단의 차세대 큰 계획을 조명하며, 50개 이상의 튜토리얼, 세션, 키노트가 포함되어 있습니다.
 이 행사를 실시간으로 보고 싶다면 [http://events.linuxfoundation.org/events/node-interactive/program/live-video-stream](http://events.linuxfoundation.org/events/node-interactive/program/live-video-stream)에 방문해보세요.
 
@@ -92,7 +92,7 @@ Yahoo 기술 부사장인 Preeti Somal은
 Additional Resources
 * Learn more about the [Node.js Foundation](https://nodejs.org/en/foundation/) and get involved with [the project](https://nodejs.org/en/get-involved/).
 -->
-### 추가 자원
+### 추가 자료
 
 * [Node.js 재단](https://nodejs.org/en/foundation/)에 관해 더 알아보거나 [Node.js 프로젝트](https://nodejs.org/en/get-involved/)에 참여해보세요.
 
