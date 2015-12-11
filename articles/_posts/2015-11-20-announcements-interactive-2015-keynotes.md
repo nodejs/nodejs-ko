@@ -29,7 +29,7 @@ Node.js는 모바일, 웹, 클라우드 애플리케이션을 만드는 런타�
 덕분에 개인 금융부터 로봇 공학까지 거의 모든 생태계에서 사용됩니다. 플랫폼의 변경사항과 앞으로 추가될
 새로운 기능을 강조하기 위해 Node.js Interactive는 프론트엔드, 백엔드, 사물인터넷(IoT) 세 가지
 트랙에 집중할 것입니다. 각 트랙에서 주목할 만한 발표는
-[여기](http://nodejs.github.io/nodejs-ko/articles/2015/10/20/announcements-interactive-2015-programming/)서
+[여기](https://nodejs.github.io/nodejs-ko/articles/2015/10/20/announcements-interactive-2015-programming/)서
 볼 수 있습니다. 전체 프로그램은
 [여기](http://events.linuxfoundation.org/events/node-interactive/program/schedule)서 볼 수 있습니다.
 
