@@ -21,12 +21,17 @@ Community Contributions, and 100 Percent Year-Over-Year User Growth
 <!--
 The Node.js Foundation was founded in 2015 to accelerate the development of Node.js and support the large ecosystem that it encompasses through open governance. As part of this mission, the Foundation announced its first incubation project libuv. Libuv is a software library that provides asynchronous event notification and improves the Node.js programming experience. The project is both critical to Node.js and already widely used, making it a natural fit for the Foundation. Under the Foundation's umbrella, it will receive additional support and mentorship.
 -->
-Node.js 재단은 오픈 거버넌스를 통해 Node.js의 개발을 촉진하고 Node.js를 둘러싼 큰 생태계를 지원하기 위해 2015년에 설립되었습니다. 이 목표의 일환으로써 Node.js 재단은  libuv 프로젝트를 첫 번째 인큐베이션 대상으로 한다고 발표했습니다. Libuv는 비동기 이벤트 통지를 제공하고 Node.js 프로그래밍 경험을 개선시켜주는 소프트웨어 라이브러리입니다. 이 프로젝트는 Node.js에 매우 중요하기도 하고 이미 널리 사용되고 있으므로 Node.js 재단에 딱 알맞습니다. Node.js 재단의 지원 아래 libuv 프로젝트는 추가적인 지원과 회원을 확보하게 될 것입니다.
+Node.js 재단은 오픈 거버넌스를 통해 Node.js의 개발을 촉진하고 Node.js를 둘러싼 큰 생태계를 지원하기 위해 2015년에 설립되었습니다.
+이 목표의 일환으로써 Node.js 재단은 libuv 프로젝트를 첫 번째 인큐베이션 대상으로 한다고 발표했습니다.
+libuv는 비동기 이벤트 알림을 제공하고 Node.js 프로그래밍 경험을 개선시켜주는 소프트웨어 라이브러리입니다.
+이 프로젝트는 Node.js에 매우 중요하기도 하고 이미 널리 사용되고 있으므로 Node.js 재단에 딱 알맞습니다.
+Node.js 재단의 지원 아래 libuv 프로젝트는 추가적인 지원과 조언자를 확보하게 될 것입니다.
 
 <!--
 The first Node.js Interactive event unites more than 700 developers, engineers, system architects, DevOps professionals and users representing a wide range of projects, products and companies in Portland, Ore. Node.js Interactive brings together a broad range of speakers to help experienced and novice Node.js users alike learn tips, best practices, new skills, as well as gain insight into future developments for the technology. With Node.js being used in 98% of the Fortune 500 companies regularly, the event will also highlight the maturation of the technology within enterprises.
 -->
-첫 번째 Node.js 인터랙티브 행사 덕분에 700명 이상의 개발자, 엔지니어, 시스템 아키텍트, DevOps 전문가, 광범위한 프로젝트, 제품, 기업을 대표하는 사용자들을 오리건 주 포틀랜드에 한 데 모였습니다. Node.js 인터랙티브에 초청된 다양한 발표자들은 Node.js 초보자와 경험자가 팁, 모범 사례, 새로운 기술을 배우는 것은 물론 Node.js의 장래 개발에 관한 통찰도 얻을 수 있게 도와주었습니다. 포천 500대 기업의 98%가 정기적으로 Node.js를 사용하고 있는 만큼 이 행사에서는 엔터프라이즈 시장에서 Node.js 기술이 얼마나 성숙했는지도 강조할 것입니다.
+첫 번째 Node.js 인터랙티브 행사 덕분에 700명 이상의 개발자, 엔지니어, 시스템 아키텍트, DevOps 전문가, 광범위한 프로젝트, 제품, 기업을 대표하는 사용자들을 오리건 주 포틀랜드에 한 데 모였습니다.
+Node.js 인터랙티브에 초청된 다양한 발표자들은 Node.js 초보자와 경험자가 팁, 모범 사례, 새로운 기술을 배우는 것은 물론 Node.js의 장래 개발에 관한 통찰도 얻을 수 있게 도와주었습니다. 포천 500대 기업의 98%가 정기적으로 Node.js를 사용하고 있는 만큼 이 행사에서는 엔터프라이즈 시장에서 Node.js 기술이 얼마나 성숙했는지도 강조할 것입니다.
 
 <!--
 Attendees have the opportunity to see and learn more about how organizations like Capital One, GoDaddy, Intel, NodeSource, npm and Uber are using Node.js to meet their innovation needs. Attendees are also getting a first look at Node.js advancements announced and demoed this week including:
@@ -41,12 +46,13 @@ Attendees have the opportunity to see and learn more about how organizations lik
 이 프로그램은 Node.js를 활용해 혁신을 이끌어내고 싶은 스타트업 또는 대기업 팀에게 Node.js에 관한 전문 지식, 마케팅 지원, 무료 클라우드 또는 설치형 인프라를 제공합니다.
 2015년도 프로그램에는 Node.js 인터랙티브에서 의존성과 코드에서의 위험성과 우선 순위를 밝혀내는 방법에 관한 획기적인 접근을 발표한 [bitHound](https://www.bithound.io/)가 포함됐습니다.
 더 자세한 정보는 [여기](https://www.joyent.com/innovation)에서 볼 수 있습니다.
-<br><br>또한 Joyent는 짧은 시간에 마이크로서비스를 구동할 수 있는 새로운 Node.js, Docket, NoSQL 레퍼런스 [아키텍처](https://www.joyent.com/blog/how-to-dockerize-a-complete-application)를 릴리스했습니다. 더 자세한 내용은 Joyent가 직접 시연하는 7번 부스를 방문해보세요.
+<br><br>또한 Joyent는 짧은 시간에 마이크로서비스를 구동할 수 있는 새로운 Node.js, Docker, NoSQL 레퍼런스 [아키텍처](https://www.joyent.com/blog/how-to-dockerize-a-complete-application)를 릴리스했습니다.
+더 자세한 내용은 Joyent가 직접 시연하는 7번 부스를 방문해보세요.
 
 <!--
 * IBM is featuring multiple Node.js based solutions for: a complete API lifecycle via StrongLoop Arc and Loopback.io; real-time location tracking in Node using Cloudant®  data services; how to write Node applications against Apache Spark; and end-to-end mobile applications using IBM MobileFirst -- all running on Bluemix®, IBM's Cloud Platform.
 -->
-* IBM은 자사의 클라우드 플랫폼인 Bluemix®에서 실행되는 다양한 Node.js 기반 해결책을 다음과 같이 제시합니다.
+* IBM은 자사의 클라우드 플랫폼인 Bluemix®에서 실행되는 다양한 Node.js 기반 솔루션을 다음과 같이 제시합니다.
  - StrongLoop Arc와 Loopback.io를 통한 완전한 API 주기
  - Node와 Cloudant® 데이터 서비스를 사용한 실시간 위치 추적
  - Apache Spark를 사용하는 Node 애플리케이션 작성 방법
@@ -82,7 +88,7 @@ Node.js와 관련한 스타트업의 현황은 다음과 같습니다.
 -->
  * 엔터프라이즈 소프트웨어 산업에서 성장 단계에 있는 기업의 개발자 중 25%가 Node.js를 사용하고 있습니다.
  * 핀테크(FinTech) 업계 개발자 25%가 Node.js를 사용하고 있습니다.
- * 헬스케어(Healthcare) 스타트업은 Node.js를 주요하게 사용하고 있습니다. 평균적으로 개발자 중 33%가 Node.js를 ...???????
+ * 헬스케어(Healthcare) 스타트업은 Node.js를 주요하게 사용하고 있습니다. 평균적으로 개발자 중 33%가 빠른 혁신을 이루기 위해 핵심 부분에 Node.js를 사용하고 있습니다.
  * IoT 기업의 개발자 48%가 Node.js를 사용하고 있습니다.
  * 교육 스타트업의 개발자 80%가 Node.js를 사용하고 있습니다.
 
