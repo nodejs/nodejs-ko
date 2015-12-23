@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Apigee, RisingStack, Yahoo가 Node.js 재단에 합류합니다
+title: Node.js 재단이 3백만 이상의 사용자와 더불어 Node.js 플랫폼을 발전시켰습니다
 author: Node.js
 ref: Node.js Foundation Advances Platform with More Than Three Million Users
 refurl: https://nodejs.org/en/blog/announcements/foundation-advances-growth/
@@ -11,7 +11,7 @@ translator:
 > Node.js Platform Stronger Than Ever with New Node.js Foundation Members,  
 Community Contributions, and 100 Percent Year-Over-Year User Growth
 -->
-> 새로운 Node.js 재단 회원사, 커뮤니티의 공헌, 매해 100%씩 성장하는 사용자 수 덕분에 Node.js 플랫폼은 유래없이 강력해졌습니다
+> 새로운 Node.js 재단 회원사, 커뮤니티의 공헌, 매해 100%씩 성장하는 사용자 수 덕분에 Node.js 플랫폼은 유례없이 강력해졌습니다
 
 <!--
 **NODE.JS INTERACTIVE 2015, PORTLAND, OR.** — [The Node.js Foundation](https://nodejs.org/en/foundation/), a community-led and industry-backed consortium to advance the development of the Node.js platform, today is announcing major community, code and membership growth, adoption statistics of the technology at large, and the Foundation’s new incubation program.
@@ -30,8 +30,9 @@ Node.js 재단의 지원 아래 libuv 프로젝트는 추가적인 지원과 조
 <!--
 The first Node.js Interactive event unites more than 700 developers, engineers, system architects, DevOps professionals and users representing a wide range of projects, products and companies in Portland, Ore. Node.js Interactive brings together a broad range of speakers to help experienced and novice Node.js users alike learn tips, best practices, new skills, as well as gain insight into future developments for the technology. With Node.js being used in 98% of the Fortune 500 companies regularly, the event will also highlight the maturation of the technology within enterprises.
 -->
-첫 번째 Node.js 인터랙티브 행사 덕분에 700명 이상의 개발자, 엔지니어, 시스템 아키텍트, DevOps 전문가, 광범위한 프로젝트, 제품, 기업을 대표하는 사용자들을 오리건 주 포틀랜드에 한 데 모였습니다.
-Node.js 인터랙티브에 초청된 다양한 발표자들은 Node.js 초보자와 경험자가 팁, 모범 사례, 새로운 기술을 배우는 것은 물론 Node.js의 장래 개발에 관한 통찰도 얻을 수 있게 도와주었습니다. 포천 500대 기업의 98%가 정기적으로 Node.js를 사용하고 있는 만큼 이 행사에서는 엔터프라이즈 시장에서 Node.js 기술이 얼마나 성숙했는지도 강조할 것입니다.
+첫 번째 Node.js 인터랙티브 행사 덕분에 700명 이상의 개발자, 엔지니어, 시스템 아키텍트, DevOps 전문가, 광범위한 프로젝트, 제품, 기업을 대표하는 사용자들이 오리건 주 포틀랜드에 한 데 모입니다.
+Node.js 인터랙티브에 초청된 다양한 발표자들은 Node.js 초보자와 경험자가 팁, 모범 사례, 새로운 기술을 배우는 것은 물론 Node.js의 장래 개발에 관한 통찰도 얻을 수 있게 도울 것입니다.
+포천 500대 기업의 98%가 정기적으로 Node.js를 사용하고 있는 만큼 이 행사에서는 엔터프라이즈 시장에서 Node.js 기술이 얼마나 성숙했는지도 강조할 것입니다.
 
 <!--
 Attendees have the opportunity to see and learn more about how organizations like Capital One, GoDaddy, Intel, NodeSource, npm and Uber are using Node.js to meet their innovation needs. Attendees are also getting a first look at Node.js advancements announced and demoed this week including:
@@ -62,7 +63,8 @@ Attendees have the opportunity to see and learn more about how organizations lik
 * INTEL: A leader in the Internet of Things, Intel will be demoing a SmartHouse at booth number 0013. Based on the [IoTivity](https://www.iotivity.org/) open source project, which is sponsored by the [Open Interconnect Consortium (OIC)](http://openinterconnect.org/), the SmartHouse includes a home gateway from MinnowBoard Max client, three Edison controlled LEDs, fan, motion sensor, and smoke detector. Intel developed Node.js binding for IoTivity to power the demo with everything being controlled from a WebGL 3D virtual house interface.
 -->
 * INTEL: 사물인터넷의 선두인 Intel은 0013 부스에서 SmartHouse를 시연합니다.
-SmartHouse는 [OIC(Open Interconnect Consortium)](http://openinterconnect.org/)가 지원하는 [IoTivity](https://www.iotivity.org/) 오픈소스 프로젝트를 기반으로 하며, MinnowBoard Max 클라이언트 기반의 홈 게이트웨이, Edison으로 제어하는 LED 세 개, 팬, 모션 센서, 화재 경보기 등을 포함합니다. Intel은  IoTivity를 바인딩하는 Node.js 확장 기능을 개발하였고 이를 사용해 WebGL 3D 가상 주택 인터페이스에서 모든 것을 제어하는 데모를 보여줍니다.
+SmartHouse는 [OIC(Open Interconnect Consortium)](http://openinterconnect.org/)가 지원하는 [IoTivity](https://www.iotivity.org/) 오픈소스 프로젝트를 기반으로 하며, MinnowBoard Max 클라이언트 기반의 홈 게이트웨이, Edison으로 제어하는 LED 세 개, 팬, 모션 센서, 화재 경보기 등을 포함합니다.
+Intel은 IoTivity를 바인딩하는 Node.js 확장 기능을 개발하였고 이를 사용해 WebGL 3D 가상 주택 인터페이스에서 모든 것을 제어하는 데모를 보여줍니다.
 
 <!--
 * NEARFORM: nearForm is holding a Node Expert Clinic for attendees who are looking for advice on Node.js adoption or struggling with any existing problems. Individuals will be connected to experts including Matteo Collina, Colin Ihrig, Wyatt Preul and Peter Elger for 30 minute sessions which can be arranged at the conference.
@@ -74,7 +76,7 @@ SmartHouse는 [OIC(Open Interconnect Consortium)](http://openinterconnect.org/)�
 <br><br>nearForm은 또한 대규모로 Node.js를 적용한 실제 고객 성공 사례와 적용 통계도 공유할 것입니다.
 이들은 이를 위해 전 세계에 걸쳐있는 100여 고객으로부터 데이터를 수집했습니다.
 Node.js를 적용하고 사용하는 대표 산업에는 엔터프라이즈 소프트웨어 기업과 미디어 기업이 포함되어 있습니다.
-그 뒤로는 금용, 결제, 여행, 전자상거래, IoT 분야가 비슷한 수준으로 Node.js를 적용하고 사용하는 대표 산업입니다.<!-- 역주: 원문에는 '공동 3위(tie for third)'라는 표현이 있지만 어색한 듯 해서 '비슷한 수준'이라는 말로 수정했습니다 -->
+그 뒤로는 금융, 결제, 여행, 전자상거래, IoT 분야가 비슷한 수준으로 Node.js를 적용하고 사용하는 대표 산업입니다.<!-- 역주: 원문에는 '공동 3위(tie for third)'라는 표현이 있지만 어색한 듯 해서 '비슷한 수준'이라는 말로 수정했습니다 -->
 <br><br>기업에서 Node.js를 사용하는 방식은 스타트업이 주도하고 있지만, 2013년과 2014년부터는 더 큰 기업에서 자사의 핵심 기술을 Node.js로 이전하기 시작했습니다.
 이 같은 기업으로는 PayPal, Condé Nast, Costa 등이 유명합니다.
 Node.js와 관련한 스타트업의 현황은 다음과 같습니다.
