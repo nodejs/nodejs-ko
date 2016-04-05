@@ -44,31 +44,16 @@ The Node.js Foundation is very excited to have Google Cloud Platform join our co
 
 
 <!--
-Google Cloud Platform joined the Node.js Foundation today.
-이제 구글 클라우드 플렛폼은 Node.js 재단에 소속되었습니다.
-
-This news comes on the heels of the Node.js runtime going into beta on [Google App Engine](https://cloudplatform.googleblog.com/2016/03/Node.js-on-Google-App-Engine-goes-beta.html), 
-Nodej.js의 발뒤꿈치에서 실시간으로 베타 버전의 새로운 소식이 오고 있습니다.
-
-a platform that makes it easy to  build scalable web applications and mobile backends across a variety of programming languages.
-이것은 다양한 프로그래밍 언어를 넘나들며 가변 웹 어플리케이션과 모바일 백엔드의 빌드를 쉽게 만드는 플렛폼 입니다.
+Google Cloud Platform joined the Node.js Foundation today. This news comes on the heels of the Node.js runtime going into beta on [Google App Engine](https://cloudplatform.googleblog.com/2016/03/Node.js-on-Google-App-Engine-goes-beta.html), a platform that makes it easy to  build scalable web applications and mobile backends across a variety of programming languages.
 -->
+이제 구글 클라우드 플렛폼은 Node.js 재단에 소속되었습니다. 다양한 프로그래밍 언어를 아우르며 확장형(scalable) 웹 어플리케이션과 모바일 백엔드의 빌드를 쉽게 만드는 플렛폼의 실시간 Node.js 베타도 곧 나옵니다. [Google App Engine](https://cloudplatform.googleblog.com/2016/03/Node.js-on-Google-App-Engine-goes-beta.html) <!-- 해석이 이상합니다...ㅠ -->
 
 <!--
-In the industry, there’s been a lot of conversations around a third wave of cloud computing that focuses less on infrastructure and more on microservices and container architectures.
-
-산업계에서는, 적은 인프라스트럭처와 많은 마이크로 서비스와 컨테이너 아키텍쳐에 초첨을 맞춘 클라우드 컴퓨팅 서드 웨이브와 많은 대화가 있었습니다.
-
-
-Node.js, which is a cross-platform runtime environment that consists of open source modules, is a perfect platform for these types of environments.
-오픈 소스 모듈로 구성되어 있는 실시간 환경의 크로스 플렛폼(cross-platform) Node.js는 이러한 환경에 완벽한 플렛폼 입니다.
-
-It’s incredibly resource-efficient, high performing and well-suited to scalability.
-이것은 엄청나게 자원-효율적이고(resource-efficient), 높은 성능, 확장성에 완전히 적합합니다.
-
-This is one of the main reasons why Node.js is heavily used by IoT developers who are working with microservices environments. 
-이것의 주된 이유 중 하나는 마이크로서비스(microservices) 환경에서 작업을 하는 IoT 개발자가 사용하기에는 Node.js가 무겁기 때문입니다.
+In the industry, there’s been a lot of conversations around a third wave of cloud computing that focuses less on infrastructure and more on microservices and container architectures. Node.js, which is a cross-platform runtime environment that consists of open source modules, is a perfect platform for these types of environments. It’s incredibly resource-efficient, high performing and well-suited to scalability. This is one of the main reasons why Node.js is heavily used by IoT developers who are working with microservices environments. 
 -->
+
+업계에서는, 클라우드 컴퓨팅 서드 웨이브(third wave)들 간에 인프라스트럭처의 축소, 마이크로 서비스와 컨테이너 아키텍처의 확장에 초첨을 둔 많은 대화가 있었습니다. 오픈 소스 모듈로 구성되어 있는 실시간 환경의 크로스 플랫폼 Node.js는 이러한 환경을 위한 최적의 플랫폼 입니다. 이것은 놀랍도록 자원 효율적이고 높은 성능과 확장이 용이합니다. 이것은 마이크로서비스 환경에서 작업하는 IoT 개발자 대부분이 Node.js를 사용하는 주된 이유중 하나입니다.
+
 
 <!--
 “Node.js is emerging as the platform in the center of a broad full stack, consisting of front end, back end, devices and the cloud,” said Mikeal Rogers, community manager of the Node.js Foundation.
