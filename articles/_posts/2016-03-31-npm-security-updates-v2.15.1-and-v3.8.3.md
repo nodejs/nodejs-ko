@@ -25,22 +25,22 @@ This flaw allows an attacker to set up an HTTP server that could collect authent
 <!--
 This flaw has been fixed in [npm@2.15.1](https://github.com/npm/npm/commit/fea8cc92cee02c720b58f95f14d315507ccad401) (npm LTS) and [npm@3.8.3](https://github.com/npm/npm/commit/f67ecad59e99a03e5aad8e93cd1a086ae087cb29). The npm CLI team believes that the fix won't break any existing registry setups, but due to the large number of registry software suites in the wild, it's possible that this change will be breaking in some cases. If so, please [file an issue](https://github.com/npm/npm/issues/new) describing the software you're using and how it broke, and the team will work with you to mitigate the breakage.
 -->
-이 결함은 [npm@2.15.1](https://github.com/npm/npm/commit/fea8cc92cee02c720b58f95f14d315507ccad401)(npm LTS)과 [npm@3.8.3](https://github.com/npm/npm/commit/f67ecad59e99a03e5aad8e93cd1a086ae087cb29)에서 수정 되었습니다. npm CLI 팀은 npm 생태계의 수많은 소프트웨어 제품군 저장소가 있음에도 이 수정이 어떤 기존 저장소의 설정도 깨뜨리지 않을 것으로 믿지만, 어떤 경우에는 깨뜨리는 것도 가능하다고 생각하고 있습니다. 만약 그렇다면 [file an issue](https://github.com/npm/npm/issues/new)에 사용하는 소프트웨어와 어떻게 작동하지 않는지를 설명해주면, 해당 팀이 당신을 도와 손실을 줄여줄 것입니다.
+이 결함은 [npm@2.15.1](https://github.com/npm/npm/commit/fea8cc92cee02c720b58f95f14d315507ccad401)(npm LTS)과 [npm@3.8.3](https://github.com/npm/npm/commit/f67ecad59e99a03e5aad8e93cd1a086ae087cb29)에서 수정 되었습니다. npm CLI 팀은 npm 생태계의 수많은 소프트웨어 제품군 저장소가 있음에도 이 수정이 어떤 기존 저장소의 설정도 깨뜨리지 않을 것으로 믿지만, 어떤 경우에는 깨뜨리는 것도 가능하다고 생각하고 있습니다. 만약 그런경우 [이슈 등록](https://github.com/npm/npm/issues/new)에 사용하는 소프트웨어와 어떻게 작동하지 않는지를 설명해주면, 해당 팀이 당신을 도와 손실을 줄여줄 것입니다.
 
 <!--
 If you believe that your bearer token may have been leaked, it should be sufficient to [invalidate your current npm bearer tokens](https://www.npmjs.com/settings/tokens) and to rerun npm login to generate new tokens. Keep in mind that this may cause continuous integration builds in services like Travis to break, in which case you'll need to update the tokens in your CI server's configuration.
 -->
-만약 당신의 베어러 토큰이 유출되었다고 생각되면, [invalidate your current npm bearer tokens](https://www.npmjs.com/settings/tokens)을 사용할 수 있고, 새로운 토큰을 생성해 npm 로그인을 다시 실행해주시면 됩니다. 이 결함은 트레비스 같은 계속적 통합 빌드의 결함을 야기할 수 있음을 명심해야 하고, 이럴 경우 당신은 CI 서버의 환경 속 토큰들을 업데이트 해야 할 필요가 있습니다.
+만약 당신의 베어러 토큰이 유출되었다고 생각되면, [현재 사용중인 npm 베어러 토큰을 폐기](https://www.npmjs.com/settings/tokens)할 수 있고, 새로운 토큰을 생성해 npm 로그인을 다시 실행해주시면 됩니다. 이 결함은 트레비스(Travis) 같은 계속적 통합 빌드의 결함을 야기할 수 있음을 명심해야 하고, 이럴 경우 당신은 CI 서버의 환경 속 토큰들을 업데이트 해야 할 필요가 있습니다.
 
 <!--
 Thanks to Mitar, Will White & the team at Mapbox, Max Motovilov, and James Taylor for reporting this vulnerability to npm.
 -->
-npm의 이런 취약점을 제보해준 Mitar와 Will White & Mapbox 팀과 Max Motovilov 그리고 James Taylor에게 감사의 말씀을 드립니다.
+npm의 이런 취약점을 제보해준 Mitar와 Will White와 Mapbox팀, Max Motovilov James Taylor에게 감사의 말씀을 드립니다.
 
 <!--
 As Node.js ships with npm, releases for the active lines will be made available shortly for your convenience. Please watch the [Node.js news feed](https://nodejs.org/en/blog/) for the following releases:
 -->
-npm과 함께하는 Node.js는 당신의 편의를 위한 활성 라인은 곧 제공될 것입니다. 아래 릴리스를 위해 [Node.js news feed](https://nodejs.org/en/blog/)를 봐주시길 바랍니다.
+Node.js에 npm이 포함되어 배포되므로 편하게 사용할 수 있도록 곧 새로운 릴리즈가 이뤄질 예정입니다. 다음의 릴리즈에 대해서는 [Node.js 뉴스 피드](https://nodejs.org/en/blog/)를 봐주시길 바랍니다.
 
 <!--
 * **v0.10 (Maintenance)**: [Node.js v0.10.44](http://nodejs.org/en/blog/release/v0.10.44/) includes npm LTS v2.15.1. This is a major upgrade of npm from v1 which has previously been deprecated. No fix is being made available for npm v1, please upgrade to npm v2 as soon as possible.
@@ -48,7 +48,7 @@ npm과 함께하는 Node.js는 당신의 편의를 위한 활성 라인은 곧 �
 * **v4 (LTS "Argon")**: [Node.js v4.4.2](http://nodejs.org/en/blog/release/v4.4.2/) includes npm LTS v2.15.1.
 * **v5 (Stable)**: [Node.js v5.10.0](http://nodejs.org/en/blog/release/v5.10.0/) includes npm v3.8.3.
 -->
-* **v0.10 (유지)**: npm LTS v2.15.1을 포함한 [Node.js v0.10.44](http://nodejs.org/en/blog/release/v0.10.44/). 이것은 v1 이전에 사용이 중지된 npm의 주요 업그레이드입니다. 수정 없이 npm v1을 사용할 수 있도록 했고, 가능한 빠른 시일 내에 npm v2로 업그레이드하시기 바랍니다.
+* **v0.10(유지보수)**: npm LTS v2.15.1을 포함한 [Node.js v0.10.44](https://nodejs.github.io/nodejs-ko/articles/2016/04/01/release-v0.10.44/). 이것은 v1 이전에 사용이 중지된 npm의 주요 업그레이드입니다. 수정 없이 npm v1을 사용할 수 있도록 했고, 가능한 빠른 시일 내에 npm v2로 업그레이드하시기 바랍니다.
 * **v0.12 (LTS)**: npm LTS v2.15.1을 포함한 [Node.js v0.12.13](http://nodejs.org/en/blog/release/v0.12.13/).
 * **v4 (LTS "Argon")**: npm LTS v2.15.1을 포함한 [Node.js v4.4.2](http://nodejs.org/en/blog/release/v4.4.2/).
 * **v5 (안정)**: npm v3.8.3을 포함한 [Node.js v5.10.0](http://nodejs.org/en/blog/release/v5.10.0/).
