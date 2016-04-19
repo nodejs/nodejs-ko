@@ -11,6 +11,7 @@ translator:
 <!--
 # Node.js Foundation Welcomes Red Hat as Newest Platinum Member
 -->
+
 # Node.js 재단은 새 플래티넘 회원사 레드햇을 환영합니다
 
 <!--
@@ -54,6 +55,7 @@ Additional Resources
 <!--
 ### About Node.js Foundation
 -->
+
 ### Node.js 재단에 관하여
 
 <!--

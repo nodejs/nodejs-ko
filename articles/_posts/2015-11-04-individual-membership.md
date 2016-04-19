@@ -25,6 +25,7 @@ Contributors to the Node.js project, including all Working Groups and sub-projec
 
 You are required to have a GitHub account to register.
 -->
+
 ## 회원은 어떻게 될 수 있나요?
 
 회원비는 [연간 $100이며, 학생은 $25](https://identity.linuxfoundation.org/pid/99)입니다.
@@ -37,6 +38,7 @@ Any registered member.
 
 Keep in mind that every meeting of the Board must reach quorum in order to pass resolutions, so only people who can make themselves available on a recurring and consistent basis should consider running.
 -->
+
 ## 이사회는 누가 운영할 수 있나요?
 
 등록된 회원이라면 누구든지 가능합니다.
@@ -50,6 +52,7 @@ The Board meets every month to approve resolutions and discuss Node.js Foundatio
 
 The current board members are listed [here](../../../foundation/board).
 -->
+
 ## 이사회 회의에서는 무슨 일을 하나요?
 
 매달 이루어지는 이사회 회의에서는 Node.js 재단 관리 사항을 논의하고 이에 관한 결의안을 승인합니다.
@@ -65,6 +68,7 @@ The standard term length for those elected by the individual membership is 2 yea
 
 However, in the first election two representatives will be elected; the representative with the most votes will be elected for the standard 2 year term and the runner-up will serve a special 1-year term so that in 2017 we can elect a single new director for a 2 year staggered term.
 -->
+
 ## 임기는 얼마나 되나요?
 
 개인 회원이 선출한 대표의 임기는 2년입니다. 매해 선거를 통해 새 대표를 한 명 뽑을 때 임기를 새로이 정할 수 있습니다.
@@ -78,6 +82,7 @@ However, in the first election two representatives will be elected; the represen
 * A ballot will be distributed on January 20th.
 * The election will be completed by January 30th.
 -->
+
 ## 선거는 언제 하나요?
 
 * 1월 15일까지 후보 신청을 받습니다.
@@ -89,6 +94,7 @@ However, in the first election two representatives will be elected; the represen
 
 After you've registered as a member follow the instructions [here](https://github.com/nodejs/membership/issues/12).
 -->
+
 ## 2016년 선거에는 어떻게 참여할 수 있나요?
 
 회원으로 등록한 후에 [여기](https://github.com/nodejs/membership/issues/12)에 있는 안내를 따르면 됩니다.

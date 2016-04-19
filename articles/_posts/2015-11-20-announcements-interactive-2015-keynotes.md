@@ -69,6 +69,7 @@ Node.js Interactive에서는 차후 Node.js 개발에 도움이 될 인사이트
 
 In addition to keynotes, Node.js Foundation will have breakout sessions and panels discussing how Node.js is used in some of the largest and fastest growing organizations.
 -->
+
 ### 2일 차, 2015년 12월 9일
 
 * Mikeal Rogers, Linux 재단의 Node.js 재단 커뮤니티 관리자, "Node.js Foundation Growth and Goals"
@@ -131,6 +132,7 @@ Modulus Inc., Red Hat, 실버 스폰서사인 NodeSource, nearForm, npm과 Synch
 * Want to keep abreast of Node.js Foundation news? Sign up for our newsletter at the bottom of the [Node.js Foundation page](https://nodejs.org/en/foundation/).
 * Follow on [Twitter](https://twitter.com/nodejs?ref_src=twsrc^google|twcamp^serp|twgr^author) and [Google+](https://plus.google.com/u/1/100598160817214911030/posts).
 -->
+
 ### 추가 자료
 
 * [Node.js 재단](https://nodejs.org/en/foundation/)에 대해 더 알아보고 [프로젝트](https://nodejs.org/en/get-involved/)에 참여해 보세요.
@@ -142,6 +144,7 @@ About Node.js Foundation
 Node.js Foundation is a collaborative open source project dedicated to building and supporting the Node.js platform and other related modules. Node.js is used by tens of thousands of organizations in more than 200 countries and amasses more than 2 million downloads per month. It is the runtime of choice for high-performance, low latency applications, powering everything from enterprise applications, robots, API engines, cloud stacks and mobile websites. The Foundation is made up of a diverse group of companies including Platinum members Famous, IBM, Intel, Joyent, Microsoft, PayPal and Red Hat. Gold members include GoDaddy, NodeSource and Modulus/Progress Software, and Silver members include Apigee, Codefresh, DigitalOcean, Fidelity, Groupon, nearForm, npm, Sauce Labs, SAP, and YLD!. Get involved here: [http://nodejs.org](http://nodejs.org).
 The Node.js Foundation is a Collaborative Project at The Linux Foundation. Linux Foundation Collaborative Projects are independently funded software projects that harness the power of collaborative development to fuel innovation across industries and ecosystems. [https://nodejs.org/en/foundation/](https://nodejs.org/en/foundation/)
 -->
+
 ### Node.js 재단에 대해
 
 Node.js 재단은 Node.js 플랫폼과 그 외 관련 모듈을 만들고 지원하는데 집중하는 협업 오픈 소스
