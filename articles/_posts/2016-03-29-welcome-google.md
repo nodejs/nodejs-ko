@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 구글 클라우드 플랫폼, 환영합니다!
+author: Node.js Foundation
 ref: Welcome Google Cloud Platform!
 refurl: https://nodejs.org/en/blog/announcements/welcome-google/
 translator: <a href="https://github.com/napiera" target="_blank">napier</a>
