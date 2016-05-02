@@ -1,5 +1,5 @@
 ---
-layout: blog-post.hbs
+layout: post
 title: npm 보안 업데이트 v2.15.1 과 v3.8.3
 author: Forrest Norvell
 ref: npm security updates v2.15.1 and v3.8.3
