@@ -32,52 +32,49 @@ title: 번역 참여 가이드
     * 자동 파일 생성
         - 관례대로 파일을 자동으로 생성하려면 다음 명령어를 실행합니다.
 
-        ```
-        $ rake create:articles[URL]
-        ```
+                $ rake create:articles[URL]
 
         - 다음과 같이 사용합니다.
 
-        ```
-        $ rake create:articles[https://nodejs.org/en/blog/weekly-updates/weekly-update.2015-08-14/]
-        $ rake create:articles[https://nodejs.org/en/blog/announcements/interactive-2015/]
-        ```
+                $ rake create:articles[https://nodejs.org/en/blog/weekly-updates/weekly-update.2015-08-14/]
+                $ rake create:articles[https://nodejs.org/en/blog/announcements/interactive-2015/]
 
         - 이 명령어를 실행하면 각각 article이나 weekly에 관례에 맞는 파일이 자동으로 생성됩니다.
     * 번역문서
         - 파일 상단에는 YAML 형식으로 글의 메타정보를 작성합니다.
 
-        ```
-        ---
-        layout: post
-        title: 번역 글의 제목
-        author: 원 저자명
-        ref: 원문의 글 제목
-        refurl: 원문 링크
-        translator:
-          - <a href="GITHUB_URL" target="_blank">번역자 이름</a>
-          - <a href="GITHUB_URL" target="_blank">번역자 이름</a>
-        ---
-        ```
+                ---
+                layout: post
+                title: 번역 글의 제목
+                author: 원 저자명
+                ref: 원문의 글 제목
+                refurl: 원문 링크
+                translator:
+                  - <a href="GITHUB_URL" target="_blank">번역자 이름</a>
+                  - <a href="GITHUB_URL" target="_blank">번역자 이름</a>
+                ---
 
         - 번역자가 여러 명인 경우에는 `translator`에 여러 줄을 추가하면 됩니다.
         - 이곳에 작성한 메타정보는 각 글의 상단에 표시됩니다.
         - 문서는 [마크다운](https://help.github.com/articles/github-flavored-markdown/) 형식으로 작성합니다.
         - 이후 문서를 관리하기 위해 원문을 주석(`<!-- -->`)으로 추가하고 번역한 내용을 다음과 같이 작성합니다.
 
-        ```
-        <!--
-        # io.js 1.6 release
-        This week we had a two io.js releases [v1.6.1](https://iojs.org/dist/v1.6.1/) and  [v1.6.0](https://iojs.org/dist/v1.6.0/), complete changelog can be found [on GitHub](https://github.com/nodejs/io.js/blob/v1.x/CHANGELOG.md).
-        -->
+                <!--
+                # io.js 1.6 release
+                This week we had a two io.js releases [v1.6.1](https://iojs.org/dist/v1.6.1/) and  [v1.6.0](https://iojs.org/dist/v1.6.0/), complete changelog can be found [on GitHub](https://github.com/nodejs/io.js/blob/v1.x/CHANGELOG.md).
+                -->
 
-        # io.js 1.6 릴리스
-        이번 주에는 [v1.6.1](https://iojs.org/dist/v1.6.1/)과 [v1.6.0](https://iojs.org/dist/v1.6.0/) 두 번의 릴리스가 있었습니다. [GitHub](https://github.com/nodejs/io.js/blob/v1.x/CHANGELOG.md)에서 전체 변경사항을 볼 수 있습니다.
-        ```
+                # io.js 1.6 릴리스
+                이번 주에는 [v1.6.1](https://iojs.org/dist/v1.6.1/)과 [v1.6.0](https://iojs.org/dist/v1.6.0/) 두 번의 릴리스가 있었습니다. [GitHub](https://github.com/nodejs/io.js/blob/v1.x/CHANGELOG.md)에서 전체 변경사항을 볼 수 있습니다.
 
+1. `bundle install` 관련 라이브러리를 설치하고 `jekyll s`를 실행하면 로컬에서 실행해 볼 수 있습니다.
+   마크다운 문법 등이 깨진 곳이 없는지 확인합니다.
 1. 번역이 완료되면 해당 브랜치를 이용해서 풀 리퀘스트를 보냅니다.
     * 커밋 메시지나 풀 리퀘스트에 번역한 문서의 이슈번호를 추가합니다.
 1. 풀 리퀘스트는 리뷰 과정을 거치게 되고 이 과정에서 오타, 번역 문체 등을 다듬습니다.
+1. 2명 정도가 번역을 리뷰를 진행하고 리뷰 수정 후 1, 2일 후에 다른 얘기가 없으면 완료되었다고 판단합니다.
+   (처음 번역에 참여하시는 분은 몇 번 번역 과정에 익숙해 질 때까지는 직접 풀 리퀘스트를 머지 하지 않고
+   다른 사람이 머지해 주기를 기다립니다.)
 1. 리뷰가 완료되어 풀 리퀘스트가 머지되면 [블로그](https://nodejs.github.io/nodejs-ko/)에 적용됩니다.
 
 # 그 외 참고할 사항

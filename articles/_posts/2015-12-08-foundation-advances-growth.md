@@ -8,7 +8,7 @@ translator:
 - <a href="https://github.com/taggon" target="_blank">taggon</a>
 ---
 <!--
-> Node.js Platform Stronger Than Ever with New Node.js Foundation Members,  
+> Node.js Platform Stronger Than Ever with New Node.js Foundation Members,
 Community Contributions, and 100 Percent Year-Over-Year User Growth
 -->
 > 새로운 Node.js 재단 회원사, 커뮤니티의 공헌, 매해 100%씩 성장하는 사용자 수 덕분에 Node.js 플랫폼은 유례없이 강력해졌습니다
@@ -115,6 +115,7 @@ Synchro Labs는 2번 컨퍼런스 부스에서 새 플랫폼을 시연하고 있
 ### Community and Code Growth
 Since the independent Node.js Foundation launched earlier this year, development progress continues to accelerate with dramatic increases in contributions to the project. In the past eight months, the community has grown from 8 to more than 400 contributors, with first-time contributors as high as 63 percent per month. There are more than 3 million active users of Node.js, which has increased 100% year over year.
 -->
+
 ### 커뮤니티와 코드의 성장
 
 올해 초 독립적인 Node.js 재단이 출범한 후 Node.js 프로젝트에 대한 극적인 공헌 증가에 힘입어 개발 진행도 꾸준히 빨라졌습니다.
@@ -139,6 +140,7 @@ In addition, the Foundation announced three new Silver members to the team, Apig
 About Node.js Foundation
 Node.js Foundation is a collaborative open source project dedicated to building and supporting the Node.js platform and other related modules. Node.js is used by tens of thousands of organizations in more than 200 countries and amasses more than 2 million downloads per month. It is the runtime of choice for high-performance, low latency applications, powering everything from enterprise applications, robots, API engines, cloud stacks and mobile websites. The Foundation is made up of a diverse group of companies including Platinum members Famous, IBM, Intel, Joyent, Microsoft, PayPal and Red Hat. Gold members include GoDaddy, NodeSource and Modulus/Progress Software, and Silver members include Apigee, Codefresh, DigitalOcean, Fidelity, Groupon, nearForm, npm, RisingStack, Sauce Labs, SAP, StrongLoop (an IBM company), YLD!, and Yahoo. Get involved here: [http://nodejs.org](https://nodejs.org/en/).
 -->
+
 ### Node.js 재단에 대해
 
 Node.js 재단은 Node.js 플랫폼과 그 외 관련 모듈을 만들고 지원하는데 집중하는 협업 오픈 소스 프로젝트입니다.

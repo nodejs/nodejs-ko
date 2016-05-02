@@ -57,13 +57,14 @@ A bug exists in Node.js, all versions of v0.12.x through to v5.x inclusive, wher
 * Versions 4.x, including LTS Argon, of Node.js are ***vulnerable***.
 * Versions 5.x of Node.js are ***vulnerable***.
 -->
+
 ## CVE-2015-8027 서비스 거부(DoS) 취약점
 
 Node.js v0.12.x부터 v5.x까지 모든 버전에 외부 공격자가 서비스 거부(DoS)를 일으킬 수 있는 버그가 있습니다.
 이 문제의 심각도는 높게 평가되었으며 해당 버전을 사용하고 있는 사용자는 버그 픽스가 나오면 업그레이드 해야 합니다.
 
 * Node.js 0.10.x 버전은 **아무런 영향이 없습니다**.
-* Node.js 0.12.x 버전은 ***취약합니다***.   
+* Node.js 0.12.x 버전은 ***취약합니다***.
 * LTS Argon을 포함한 Node.js 4.x 버전은 ***취약합니다***.
 * Node.js 5.x 버전은 ***취약합니다***.
 
@@ -77,6 +78,7 @@ An additional bug exists in Node.js, all versions of v4.x and v5.x, whereby an a
 * Versions 4.x, including LTS Argon, of Node.js are ***vulnerable***.
 * Versions 5.x of Node.js are ***vulnerable***.
 -->
+
 ## CVE-2015-6764 V8 Out-of-bounds 접근 취약점
 
 Node.js v4.x와 v5.x 모든 버전에 응용 프로그램이 사용자가 제공한 자바스크립트를 실행할 수 있을 때 공격자가 out-of-bounds 접근과 서비스 거부 공격을 일으킬 수 있는 버그가 있습니다.
@@ -84,7 +86,7 @@ Node.js v4.x와 v5.x 모든 버전에 응용 프로그램이 사용자가 제공
 이 취약점에 관한 버그 픽스는 CVE-2015-8027에 관한 버그 픽스와 함께 v4.x와 v5.x 릴리스에 포함될 것입니다.
 
 * Node.js 0.10.x 버전은 **아무런 영향이 없습니다**.
-* Node.js 0.12.x 버전은 **아무런 영향이 없습니다**.   
+* Node.js 0.12.x 버전은 **아무런 영향이 없습니다**.
 * LTS Argon을 포함한 Node.js 4.x 버전은 ***취약합니다***.
 * Node.js 5.x 버전은 ***취약합니다***.
 
@@ -98,6 +100,7 @@ The OpenSSL project has [announced](https://mta.openssl.org/pipermail/openssl-an
 * Versions 4.x, including LTS Argon, of Node.js ***may be vulnerable***.
 * Versions 5.x of Node.js ***may be vulnerable***.
 -->
+
 ## OpenSSL 중간 심각도 업데이트
 
 OpenSSL 프로젝트는 "중간" 이하 심각도로 평가된 여러 취약점을 수정하여 릴리스 한다고 [발표했습니다](https://mta.openssl.org/pipermail/openssl-announce/2015-November/000045.html).
@@ -106,6 +109,6 @@ OpenSSL 프로젝트는 "중간" 이하 심각도로 평가된 여러 취약점�
 우리도 OpenSSL이 수정하는 문제의 특성을 자세히는 모르지만 가능한 빨리 업그레이드해야 할 것입니다.
 
 * Node.js 0.10.x 버전은 ***취약할 수 있습니다***.
-* Node.js 0.12.x 버전은 ***취약할 수 있습니다***.   
+* Node.js 0.12.x 버전은 ***취약할 수 있습니다***.
 * LTS Argon을 포함한 Node.js 4.x 버전은 ***취약할 수 있습니다***.
 * Node.js 5.x 버전은 ***취약할 수 있습니다***.

@@ -21,6 +21,7 @@ ECMAScript2015 (以下 ES2015 ) は今年の 6 月に公式に次の ECMAScript 
 
 また Ruby を記述している方々の中ではウェブのアプリケーションを構築されている方も多いと思いますが、この babel は次の Sprockets の v4.x で導入が検討されており、新しい Sprockets では ES6 で記述することもできる可能性があります。
 -->
+
 # 시작하며
 
 Node.js 일본 유저 그룹 대표인 후루카와(@yosuke_furukawa)입니다. 루비마에는 처음
@@ -57,6 +58,7 @@ ES2015 に対応した JavaScript を使うことで、ライブラリの機能�
 
 また数年後には ES2015 が広まっていることを考えるとその時までに ES2015 の新文法、新機能に慣れておいたほうがスムーズな移行が期待できます。
 -->
+
 # 트랜스파일러의 장점
 
 트랜스파일러란, ES2015 이후의 문법으로 적힌 JavaScript를 지금 사용 중인
@@ -236,6 +238,7 @@ require "sprockets/es6"
 
 これで使えるようになります。
 -->
+
 ## Sprockets에서 사용하기
 
 sprockets-es6를 사용합니다.
@@ -391,6 +394,7 @@ ES2015 の目標は先程のドラフトに記述されていて、
 
 では、これらの機能に対して一つ一つ紹介していきます。また、本当はこの他にも Template String Literals とか Arrow Functions などが定義されていますが、この記事では説明を省きます。
 -->
+
 # ECMAScript 2015에서 변하는 JavaScript의 문법
 
 ES2015에는 여기에 전부 다 소개하기 힘들 정도로 많은 기능이 들어있습니다.
@@ -441,6 +445,7 @@ ES2015 からはこのモジュール化をするための専用の構文 export
 
 基本的には commonjs と似ています、つまり、 export でオブジェクトを import できるようにして、require の代わりに import 構文でオブジェクトを利用できるようにします。
 -->
+
 ## 모듈화
 
 모듈을 나눌 수 있게 되었습니다. 여태까지 JavaScript에서는 언어 레벨의 모듈
@@ -653,6 +658,7 @@ console.log(Math.square(11));
 
 後述しますが、export default 構文は class 定義と組み合わせて使うことが多くなると思います。定義したクラスを default export して外から import できるようにする、という書き方が多くなると思われます。
 -->
+
 ### default export
 
 이전 문단에서는, module에 대해 설명했습니다. export에는 두 종류가 있습니다. 일반
@@ -802,6 +808,7 @@ console.log(yourMonster.health); //90
 
 これまでの function と prototype を使った書き方よりも直感的な書き方が期待できます。
 -->
+
 ## 클래스 정의
 
 JavaScript에서 클래스 비슷한 것을 만들 때에는, 생성자 함수를 정의해, prototype에
@@ -938,6 +945,7 @@ console.log(b);
 console.log(tmp);
 ```
 -->
+
 ## 블록 스코프 (let/const)
 
 let, const라는 새로운 변수선언을 사용할 수 있게 되었습니다. 이것은 블록 스코프라
@@ -1027,6 +1035,7 @@ for (let n of fibonacci) {
 }
 ```
 -->
+
 ## iterator, generator
 
 ES2015에서, 새로운 for of 문법이 추가되었습니다. 이것은 반복을 하는 for문의
@@ -1118,6 +1127,7 @@ function error() {
 timeout(100).then(log).catch(error)
 ```
 -->
+
 ## Promises
 
 Promise는 성공할지 실패할지 알 수 없는 비동기의 추상화된 상태를 가집니다.
@@ -1246,6 +1256,7 @@ var sqrt = function sqrt(s) {
 
 _sqrt 関数の再帰呼び出しが消えて while と ラベル付き continue を使ったループ処理に変換されていることが分かります。 再帰呼び出しは直感的で副作用を少なくすることができる書き方だと言われていますが、関数スタックサイズを消費してしまうため、実行コストがかかります。関数のコールスタックを減らして最適化するのが末尾呼び出し最適化であり、ES2015 の仕様として策定されています。
 -->
+
 ## 꼬리 재귀의 최적화
 
 함수의 꼬리 재귀 호출을 함수로 부르지 않고, 내부 루프로 바꾸어, 함수
@@ -1331,6 +1342,7 @@ babel を使って新しい JavaScript を学んでみたい方向けに tower-o
 ![tower-of-babel](/nodejs-ko/public/images/tower-of-babel.png)
 こちらも使ってみてください。
 -->
+
 # 이후의 ECMAScript2015의 전망
 
 위의 언급에서도 알 수 있듯이, JavaScript에 클래스나 모듈이 도입되어, 최적의
@@ -1359,7 +1371,7 @@ jsx와 함께 사용해 전에 있었던 E4X 같은 XML 리터럴을 사용할 �
 기능](http://babeljs.io/docs/usage/transformers/validation/undeclared-variable-check/)이라든가
 실행되지 않는 코드를 지우는 [데드 코드 삭제
 기능](http://babeljs.io/docs/usage/transformers/utility/dead-code-elimination/),
-[인라인 전개 
+[인라인 전개
 기능](http://babeljs.io/docs/usage/transformers/utility/inline-expressions) 등의
 최적화가 들어있어, 굉장히 많은 기능이 있습니다.
 
@@ -1379,6 +1391,7 @@ babel을 사용해 새로운 JavaScript를 배우고 싶으신 분들을 위해
 
 是非使ってみてください。
 -->
+
 # 정리
 
 앞으로의 JavaScript인 ES6의 이야기를 트랜스파일러인 babel과 함께 설명했습니다.

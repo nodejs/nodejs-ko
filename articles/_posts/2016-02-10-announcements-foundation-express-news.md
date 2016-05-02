@@ -78,6 +78,7 @@ Node.js 재단의 인큐베이터 프로그램은 작년부터 시작되었습�
 
 Node.js is used by tens of thousands of organizations in more than 200 countries and amasses more than 3 million active users per month. It is the runtime of choice for high-performance, low latency applications, powering everything from enterprise applications, robots, API engines, cloud stacks and mobile websites.
 -->
+
 ### Node.js 재단에 대해
 
 Node.js는 200여개국의 수만 개의 회사에서 사용되고 있고 월별 활성 사용자가 3백만 명이 넘습니다.

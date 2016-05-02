@@ -41,6 +41,7 @@ The new members are joining just in time for the inaugural Node.js Interactive e
 <!--
 More information about the newest Node.js Foundation members:
 -->
+
 ### 새롭게 합류한 Node.js 재단 회원사 소개
 
 <!--
@@ -92,6 +93,7 @@ Yahoo 기술 부사장인 Preeti Somal은
 Additional Resources
 * Learn more about the [Node.js Foundation](https://nodejs.org/en/foundation/) and get involved with [the project](https://nodejs.org/en/get-involved/).
 -->
+
 ### 추가 자료
 
 * [Node.js 재단](https://nodejs.org/en/foundation/)에 관해 더 알아보거나 [Node.js 프로젝트](https://nodejs.org/en/get-involved/)에 참여해보세요.
@@ -100,6 +102,7 @@ Additional Resources
 About Node.js Foundation
 Node.js Foundation is a collaborative open source project dedicated to building and supporting the Node.js platform and other related modules. Node.js is used by tens of thousands of organizations in more than 200 countries and amasses more than 2 million downloads per month. It is the runtime of choice for high-performance, low latency applications, powering everything from enterprise applications, robots, API engines, cloud stacks and mobile websites. The Foundation is made up of a diverse group of companies including Platinum members Famous, IBM, Intel, Joyent, Microsoft, PayPal and Red Hat. Gold members include GoDaddy, NodeSource and Modulus/Progress Software, and Silver members include Apigee, Codefresh, DigitalOcean, Fidelity, Groupon, nearForm, npm, RisingStack, Sauce Labs, SAP, StrongLoop (an IBM company), YLD!, and Yahoo. Get involved here: [http://nodejs.org](https://nodejs.org/en/).
 -->
+
 ### Node.js 재단에 대해
 
 Node.js 재단은 Node.js 플랫폼과 그 외 관련 모듈을 만들고 지원하는데 집중하는 협업 오픈 소스 프로젝트입니다.
