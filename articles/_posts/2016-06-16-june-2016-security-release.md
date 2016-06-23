@@ -28,13 +28,13 @@ We intend to make releases available on or soon after **Thursday, the 16th of Ju
 
 안타깝게도 보안 릴리스가 일주일 연기 되었다는 사실을 알립니다. 이번 주에 릴리스를 진행하면 의도했던 수정사항의 품질이 불필요하게 낮아질 수 있다는 결론을 내리게 되었습니다. 대신 우리는 Node.js 사용자들의 기대만큼의 안정성과 품질을 제공할 추가 시간을 가지게 되었습니다.
 
-우리는 가능하면 **UTC기준 2016년 06월 23일 화요일**혹은 직후에 배포를 준비하고 있습니다. 
+우리는 가능하면 **UTC기준 2016년 06월 23일 화요일**혹은 직후에 배포를 준비하고 있습니다.
 
 ***원본 글은 아래에 포함되어 있습니다.***
 
-Node.js 프로젝트는 모든 활성 릴리스에 한 개의 보안 관련 결함과 두 개의 보안 결함 패치를 위한 업데이트 스케쥴이 예정되어 있습니다. 중요한 업데이트는 고려하고 있지 않지만, 업데이트가 가능해지면 모든 Node.js를 업그레이드할 것을 권장합니다.  
+Node.js 프로젝트는 모든 활성 릴리스에 한 개의 보안 관련 결함과 두 개의 보안 결함 패치를 위한 업데이트 스케줄이 예정되어 있습니다. 중요한 업데이트는 고려하고 있지 않지만, 업데이트가 가능해지면 모든 Node.js를 업그레이드할 것을 권장합니다.
 
-우리는 가능하면 **UTC기준 2016년 06월 23일 화요일**혹은 직후에 배포를 준비하고 있습니다. 
+우리는 가능하면 **UTC기준 2016년 06월 23일 화요일**혹은 직후에 배포를 준비하고 있습니다.
 
 <!--
 We consider some of the patches in these releases to be API _breaking_ changes which would normally warrant an increase in the major-version number of Node.js. However, in accordance with our security procedures we will be delivering these changes in minor-version increases _(the y in x.y.z)_ where appropriate, and patch-version increases in v0.10 an v0.12 releases.
@@ -48,10 +48,10 @@ Therefore, we expect to be releasing:
 * Node.js v0.10.46 (Maintenance)
 -->
 
-이번 릴리스의 패치에서 _호환성이 깨지는_ API 변경사항을 생각하고 있습니다. 이는 일반적으로는 Node.js 주요 버전을 올려야 하지만 우리의 보안 절차에 따라 이 변경사항을 적절히 마이너 버젼 _(x.y.z 중 y)_ 증가로 제공할 예정이고, v0.10과 v0.12 릴리스에 패치 버전이 증가 될 것입니다.
+이번 릴리스의 패치에서 _호환성이 깨지는_ API 변경사항을 생각하고 있습니다. 이는 일반적으로는 Node.js 주요 버전을 올려야 하지만 우리의 보안 절차에 따라 이 변경사항을 적절히 마이너 버전 _(x.y.z 중 y)_ 증가로 제공할 예정이고, v0.10과 v0.12 릴리스에 패치 버전이 증가 될 것입니다.
 
 따라서 우리가 예상하는 릴리스는 아래와 같습니다.
- 
+
 * Node.js v6.3.0(최신 버전)
 * Node.js v5.12.0
 * Node.js v4.5.0(LTS "Argon")
@@ -182,10 +182,10 @@ Subscribe to the low-volume announcement-only nodejs-sec mailing list at https:/
 
 ## 연락처와 차기 업데이트
 
-정보 갱신을 위해 nodejs-sec 구글 그룹[https://groups.google.com/forum/#!forum/nodejs-sec](https://groups.google.com/forum/#!forum/nodejs-sec)과 릴리스 발표를 위한 Node.js 웹사이트 [https://nodejs.org/en/blog/](https://nodejs.org/en/blog/)를 확인 해주세요.
+정보 갱신을 위해 nodejs-sec 구글 그룹(<https://groups.google.com/forum/#!forum/nodejs-sec>)과 릴리스 발표를 위한 Node.js 웹사이트(<https://nodejs.org/en/blog/>)를 확인 해주세요.
 
 현재 버전의 Node.js 보안 정책은 <https://nodejs.org/en/security/>에서 보실 수 있습니다.
 
 Node.js의 취약점을 제보하고 싶다면 security@nodejs.org로 연락해주세요.
 
-보안 취약점, Node.js 보안 관련 릴리스, [nodejs GitHub 조직](http://github.com/nodejs/)내의 유지보수 되고 있는 프로젝트의 최신 상태를 위해 적은 양으로 통지만 하는 nodejs-sec 메일링 리스트 https://groups.google.com/forum/#!forum/nodejs-sec를 구독해 주세요.
+보안 취약점, Node.js 보안 관련 릴리스, [nodejs GitHub 조직](http://github.com/nodejs/)내의 유지보수 되고 있는 프로젝트의 최신 상태를 위해 적은 양으로 통지만 하는 nodejs-sec 메일링 리스트(<https://groups.google.com/forum/#!forum/nodejs-sec>)를 구독해 주세요.
