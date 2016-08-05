@@ -1,5 +1,6 @@
 ---
 layout: post
+category: articles
 title: io.js의 상태
 author: mikeal
 ref: State of io.js
