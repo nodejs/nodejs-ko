@@ -1,5 +1,5 @@
 ---
-layout: post
+category: articles
 title: Node.js 재단에서 Node.js Interactive의 프로그램을 발표했습니다
 author: Node
 ref: Node.js Foundation Announces Programming For Node.js Interactive
@@ -11,6 +11,7 @@ translator:
 <!--
 > Inaugural Conference to Advance the Use of Node.js Within Backend, Frontend, IoT Applications
 -->
+
 > 백엔드, 프론트엔드, IoT 애플리케이션의 Node.js 사용을 늘리는 최초의 콘퍼런스
 
 <!--
@@ -85,6 +86,7 @@ IoT Session Highlights:
 * Node.js Development for the Next Generation of IoT *with* Melissa Evers-Hood, Software Product Line Manager at Intel Corporation
 * Node.js While Crafting: Make Textile to Compute! *with* Mariko Kosaka, Javascript Engineer at Scripto
 -->
+
 주목할 만한 IoT 세션
 
 * Contributing to Node Core - NodeSource의 Node 코어 기여자 Jeremiah Senkpiel
@@ -98,6 +100,7 @@ IoT Session Highlights:
 <!--
 “Node.js has become pervasive within the last few years, with so many community accomplishments to highlight, including forming the new Node.js Foundation and the convergence of io.js and node.js,” said Mikeal Rogers, Community Manager, Node.js Foundation. “We created this conference to help showcase this growth, to accommodate the Node.js community’s many different needs, and to help accelerate adoption as it expands into enterprises.”
 -->
+
 "Node.js는 지난 몇 년 사이에 다양한 분야에 퍼지면서 많은 커뮤니티가 주목할 만한 성과를 이루었습니다.
 여기에는 새로운 Node.js 재단을 만들고 io.js와 node.js를 합친 성과도 포함됩니다."라고
 Node.js 재단의 커뮤니티 관리자 Mikeal Rogers가 얘기했다. "이러한 성장을 보여주고 Node.js
@@ -107,6 +110,7 @@ Node.js 재단의 커뮤니티 관리자 Mikeal Rogers가 얘기했다. "이러�
 <!--
 Early bird registration ends October 23, 2015. Standard registration closes November 21, 2015, after which the conference price will increase from $425 to $525. Discounted hotel rates are also available until Wednesday, November 11, 2015. To register visit [https://www.regonline.com/Register/Checkin.aspx?EventID=1753707](https://www.regonline.com/Register/Checkin.aspx?EventID=1753707).
 -->
+
 얼리버드 등록은 2015년 10월 23일에 끝나고 정식 등록은 2015년 11월 21일에 마감합니다. 이후에는
 콘퍼런스 가격이 $425에서 $525로 올라갈 예정입니다. 호텔 할인도 2015년 11월 11일(수요일)까지만
 가능합니다. 등록하려면 [https://www.regonline.com/Register/Checkin.aspx?EventID=1753707](https://www.regonline.com/Register/Checkin.aspx?EventID=1753707)에 방문해 보세요.
@@ -114,6 +118,7 @@ Early bird registration ends October 23, 2015. Standard registration closes Nove
 <!--
 Node.js Interactive is made possible by platinum sponsor IBM, gold sponsor Microsoft, and silver sponsors NodeSource and nearForm.
 -->
+
 Node.js Interactive는 플래티넘 후원사 IBM, 골드 후원사 Microsoft, 실버 후원사
 NodeSource와 nearForm 덕분에 개최할 수 있었습니다.
 
@@ -138,14 +143,15 @@ Node.js 재단의 뉴스를 계속해서 보고 싶은가요? [Node.js 재단 �
 [Twitter](https://twitter.com/nodejs?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor)와 [Google+](https://plus.google.com/u/1/100598160817214911030/posts)를 팔로우 하세요.
 
 <!--
-About Node.js Foundation Node.js Foundation is a collaborative open source project dedicated to building and supporting the Node.js platform and other related modules. Node.js is used by tens of thousands of organizations in more than 200 countries and amasses more than 2 million downloads per month. It is the runtime of choice for high-performance, low latency applications, powering everything from enterprise applications, robots, API engines, cloud stacks and mobile websites.
 -->
+
 Node.js 재단에 대해
 
 Node.js 재단은 Node.js 플랫폼과 그 외 관련 모듈을 만들고 지원하는데 집중하는 협업 오픈 소스
 프로젝트입니다. Node.js는 매달 2백만 건 이상의 다운로드가 이뤄지고 200여개국의 수만 개의 회사에서
 사용되고 있고 엔터프라이즈 애플리케이션, 로봇, API 엔진, 클라우드 스택, 모바일 웹사이트의 모든 것을
 운영하는 고성능, 저지연 애플리케이션의 런타임입니다.
+
 <!--
 The Foundation is made up of a diverse group of companies including Platinum members Famous, IBM, Intel, Joyent, Microsoft, PayPal and Red Hat. Gold members include GoDaddy, NodeSource and Modulus/Progress Software, and Silver members include Apigee, Codefresh, DigitalOcean, Fidelity, Groupon, nearForm, npm, Rising Stack, Sauce Labs, SAP, and YLD!. Get involved here: [http://nodejs.org](http://nodejs.org).
 The Node.js Foundation is a Collaborative Project at The Linux Foundation. Linux Foundation Collaborative Projects are independently funded software projects that harness the power of collaborative development to fuel innovation across industries and ecosystems. [https://nodejs.org/en/foundation/](https://nodejs.org/en/foundation/)
