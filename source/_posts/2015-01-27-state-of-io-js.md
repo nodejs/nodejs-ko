@@ -1,5 +1,4 @@
 ---
-layout: post
 category: articles
 title: io.js의 상태
 author: mikeal
