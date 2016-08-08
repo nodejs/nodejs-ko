@@ -32,19 +32,19 @@ title: 번역 참여 가이드
     * 자동 파일 생성
         - 관례대로 파일을 자동으로 생성하려면 다음 명령어를 실행합니다.
 
-                $ rake create:articles[URL]
+                $ npm run scaffold URL [DATE]
 
         - 다음과 같이 사용합니다.
 
-                $ rake create:articles[https://nodejs.org/en/blog/weekly-updates/weekly-update.2015-08-14/]
-                $ rake create:articles[https://nodejs.org/en/blog/announcements/interactive-2015/]
+                $ npm run scaffold https://raw.githubusercontent.com/nodejs/nodejs.org/master/locale/en/blog/weekly-updates/weekly-update.2016-07-22.md
+                $ npm run scaffold https://raw.githubusercontent.com/nodejs/nodejs.org/master/locale/en/blog/release/v6.3.0.md 2016-07-22
 
         - 이 명령어를 실행하면 각각 article이나 weekly에 관례에 맞는 파일이 자동으로 생성됩니다.
     * 번역문서
         - 파일 상단에는 YAML 형식으로 글의 메타정보를 작성합니다.
 
                 ---
-                layout: post
+                category: articles
                 title: 번역 글의 제목
                 author: 원 저자명
                 ref: 원문의 글 제목
@@ -67,7 +67,7 @@ title: 번역 참여 가이드
                 # io.js 1.6 릴리스
                 이번 주에는 [v1.6.1](https://iojs.org/dist/v1.6.1/)과 [v1.6.0](https://iojs.org/dist/v1.6.0/) 두 번의 릴리스가 있었습니다. [GitHub](https://github.com/nodejs/io.js/blob/v1.x/CHANGELOG.md)에서 전체 변경사항을 볼 수 있습니다.
 
-1. `bundle install` 관련 라이브러리를 설치하고 `jekyll s`를 실행하면 로컬에서 실행해 볼 수 있습니다.
+1. `npm install`으로 관련 라이브러리를 설치하고 `npm start`를 실행하면 로컬에서 실행해 볼 수 있습니다.
    마크다운 문법 등이 깨진 곳이 없는지 확인합니다.
 1. 번역이 완료되면 해당 브랜치를 이용해서 풀 리퀘스트를 보냅니다.
     * 커밋 메시지나 풀 리퀘스트에 번역한 문서의 이슈번호를 추가합니다.
