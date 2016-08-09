@@ -5,6 +5,12 @@ const URL = process.argv[2];
 const DATE = process.argv[3];
 const POST_PATH = "./source/_posts/";
 
+if (!URL) {
+  console.info("A github raw url needed.");
+  console.info("\tmore info) http://nodejs.github.io/nodejs-ko/CONTRIBUTING.html");
+  return;
+}
+
 class TranslateScaffold {
   constructor(url, date) {
     this.url = url;
