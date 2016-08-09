@@ -143,6 +143,9 @@ Node.js 재단의 뉴스를 계속해서 보고 싶은가요? [Node.js 재단 �
 [Twitter](https://twitter.com/nodejs?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor)와 [Google+](https://plus.google.com/u/1/100598160817214911030/posts)를 팔로우 하세요.
 
 <!--
+About Node.js Foundation
+
+Node.js Foundation is a collaborative open source project dedicated to building and supporting the Node.js platform and other related modules. Node.js is used by tens of thousands of organizations in more than 200 countries and amasses more than 2 million downloads per month. It is the runtime of choice for high-performance, low latency applications, powering everything from enterprise applications, robots, API engines, cloud stacks and mobile websites.
 -->
 
 Node.js 재단에 대해
