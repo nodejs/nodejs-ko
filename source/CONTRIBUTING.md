@@ -11,7 +11,7 @@ title: 번역 참여 가이드
   * 이슈의 제목을 원문의 제목으로 하고 본문에 링크를 입력합니다.
   * 번역 이슈에는 [translation](https://github.com/nodejs/nodejs-ko/labels/translation) 레이블을 붙입니다.
 
-# 번역에 참가하는 방법
+# 번역에 참여하는 방법
 
 * [이슈 #44](https://github.com/nodejs/nodejs-ko/issues/44)에서 신청을 하면 프로젝트의 Collaborators로 등록해 드립니다.
   * 꼭 등록하실 필요는 없습니다.
@@ -42,14 +42,13 @@ title: 번역 참여 가이드
     * 다음과 같이 사용합니다.
 
       ```bash
-      $ npm run scaffold https://raw.githubusercontent.com/nodejs/nodejs.org/master/locale/en/blog/weekly-updates/weekly-update.2016-07-22.md
-
+      $ npm run scaffold https://raw.githubusercontent.com/nodejs/nodejs.org/master/locale/en/blog/release/v6.3.0.md 2016-07-22
       ```
 
     * 주간뉴스는 날짜를 생략할 수 있습니다.
 
       ```bash
-      $ npm run scaffold https://raw.githubusercontent.com/nodejs/nodejs.org/master/locale/en/blog/release/v6.3.0.md 2016-07-22
+      $ npm run scaffold https://raw.githubusercontent.com/nodejs/nodejs.org/master/locale/en/blog/weekly-updates/weekly-update.2016-07-22.md
       ```
 
     * 이 명령어를 실행하면 관례에 맞는 파일이 자동으로 생성됩니다.
@@ -107,8 +106,8 @@ title: 번역 참여 가이드
   * `Stable`-> `안정 버전`
   * `LTS`-> `LTS`
   * `Maintenance`-> `유지보수 버전`
-* `Node v6.0.0 (Current)`같은 경우 `Node v6.0.0(최신버전)`로 번역합니다. 버전 번호와 괄호 사이에 공백을 제거합니다.
-* 괄호 뒤에 조사가 오면 괄호는 앞 단어에 붙여 씁니다. 또한, 조사는 괄호를 제외하고 읽었을 때 자연스럽도록 적습니다. 예시: `사물인터넷 (IoT)과` 대신 `사물인터넷(IoT)과` 라고 번역합니다.
+* `Node v6.0.0 (Current)` 같은 경우 `Node v6.0.0(최신 버전)`으로 번역합니다. 버전 번호와 괄호 사이에 공백을 제거합니다.
+* 괄호 뒤에 조사가 오면 괄호는 앞 단어에 붙여 씁니다. 또한, 조사는 괄호를 제외하고 읽었을 때 자연스럽도록 적습니다. 예시: `사물인터넷 (IoT)과` 대신 `사물인터넷(IoT)과`라고 번역합니다.
 * `릴리즈`가 아니라 `릴리스`로 표기합니다.
 * URL은 `< >`로 감싸줍니다. 예시: `<https://nodejs.github.io/nodejs-ko/>`
 * 마크다운의 헤딩을 의미하는 `#`, `##`, `###` 등의 윗줄에는 빈 줄을 추가합니다. 빈 줄이 없으면 스타일이 적용되지 않습니다.
@@ -127,7 +126,7 @@ title: 번역 참여 가이드
   ```
 
 * 목록을 나열하는 경우 영어 문장에 들어가는 `and`, `&`는 번역하지 않습니다. 예시: `A, B, C, and D`, `A, B, C, & D`는 `A, B, C 그리고 D`로 번역하지 않고 `A, B, C, D`로 번역합니다.
-* 영어 뒤에 조사가 올 때도 읽었을 때 되도록 읽기 자연스러운 방향으로 적습니다. 옛: `vm.createContext과`가 아니라 `vm.createContext와`라고 번역합니다.
+* 영어 뒤에 조사가 올 때도 읽었을 때 되도록 읽기 자연스러운 방향으로 적습니다. 예시: `vm.createContext과`가 아니라 `vm.createContext와`라고 번역합니다.
 * `Core Technical Committee`는 `코어 기술 위원회`라고 번역합니다.
 * Node.js의 새로운 버전 릴리스에 대한 공지의 경우 하단에 나오는 `Shasums` 부분 다음에 한 줄을 띄워 줍니다.
 
