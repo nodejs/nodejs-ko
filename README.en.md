@@ -14,6 +14,5 @@
 
 We have a [gitter](https://gitter.im/nodejs/nodejs-ko) channel.
 
-You can contact us also on the following social media:
-
-- Twitter : [@nodejs_ko](https://twitter.com/nodejs_ko)
+You can contact us also on the
+twitter([@nodejs_ko](https://twitter.com/nodejs_ko)).
