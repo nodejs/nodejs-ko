@@ -19,13 +19,13 @@ translator: marocchino
 * ***Revert*** "**repl,util**: insert carriage returns in output" (Evan Lucas) [#8143](https://github.com/nodejs/node/pull/8143)
 -->
 
-* **buffer**: v6.4.0부터 생긴 버퍼 끝에서 .write()를 방지하는 회귀 수정 (Anna Henningsen) [#8154](https://github.com/nodejs/node/pull/8154)
+* **buffer**: v6.4.0부터 생긴 버퍼 끝에서 .write()가 안 되는 회귀 수정 (Anna Henningsen) [#8154](https://github.com/nodejs/node/pull/8154)
 * **deps**: V8을 5.1.281.75로 업데이트 (Ali Ijaz Sheikh) [#8054](https://github.com/nodejs/node/pull/8054)
 * **inspector**:
-  * 연결종료시 인스팩터가 멈추는 문제 수정 (Aleksei Koziatinskii) [#8021](https://github.com/nodejs/node/pull/8021)
+  * 연결 종료 중 인스펙터가 멈추는 문제 수정 (Aleksei Koziatinskii) [#8021](https://github.com/nodejs/node/pull/8021)
   * 처리되지 않은 예외에 대한 지원 추가 (Aleksei Koziatinskii) [#8043](https://github.com/nodejs/node/pull/8043)
 * **repl**: `.save`의 수정 모드에서의 저장 텍스트 수정 (Prince J Wesley) [#8145](https://github.com/nodejs/node/pull/8145)
-* ***Revert*** "**repl,util**: 출력에 리턴 추가" (Evan Lucas) [#8143](https://github.com/nodejs/node/pull/8143)
+* "**repl,util**: 출력에 리턴 추가" ***되돌림*** (Evan Lucas) [#8143](https://github.com/nodejs/node/pull/8143)
 
 ### Commits
 
