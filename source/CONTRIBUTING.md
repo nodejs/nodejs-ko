@@ -128,21 +128,4 @@ title: 번역 참여 가이드
 * 목록을 나열하는 경우 영어 문장에 들어가는 `and`, `&`는 번역하지 않습니다. 예시: `A, B, C, and D`, `A, B, C, & D`는 `A, B, C 그리고 D`로 번역하지 않고 `A, B, C, D`로 번역합니다.
 * 영어 뒤에 조사가 올 때도 읽었을 때 되도록 읽기 자연스러운 방향으로 적습니다. 예시: `vm.createContext과`가 아니라 `vm.createContext와`라고 번역합니다.
 * `Core Technical Committee`는 `코어 기술 위원회`라고 번역합니다.
-* Node.js의 새로운 버전 릴리스에 대한 공지의 경우 하단에 나오는 `Shasums` 부분 다음에 한 줄을 띄워 줍니다.
-
-  ~~~md
-  Shasums (GPG signing hash: SHA512, file hash: SHA256):
-  ```
-  -----BEGIN PGP SIGNED MESSAGE-----
-  ~~~
-
-  원문은 위와 같이 되어 있는데 이 경우 코드 영역이 적용되지 않습니다. 다음과 같이 한 줄을 띄워 줍니다.
-
-  ~~~md
-  Shasums (GPG signing hash: SHA512, file hash: SHA256):
-
-  ```
-  -----BEGIN PGP SIGNED MESSAGE-----
-  ~~~
-
 * Node.js 공식 블로그의 특성상 비슷한 시기에 나온 글에는 중복되는 내용이 있는 경우가 많습니다. 특히 보안 업데이트 공지나 새 버전 릴리스의 경우 그렇습니다. 비슷한 문서의 다른 번역문을 참고하면 번역에 도움이 됩니다.
