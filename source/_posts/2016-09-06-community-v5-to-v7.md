@@ -30,10 +30,10 @@ The io.js diversion was useful for many reasons, including the opportunity we ha
 
 ![LTS 일정 요약](https://nodejs.org/static/images/blog/201609_lts_schedule_summary.gif)
 
-작년, 코어 팀은 Node.js 사용자가 원하는 다양한 요구사항을 맞출 수 있도록 장기지원(LTS)과 릴리스 일정을 추진했습니다. 이중 핵심을 다음과 같습니다.
+작년, 코어 팀은 Node.js 사용자가 원하는 다양한 요구사항을 맞출 수 있도록 장기지원(LTS)과 릴리스 일정을 추진했습니다. 이중 핵심은 다음과 같습니다.
 
 1. 안정성
-2. 발전
+2. 발전은
 
 io.js로 프로젝트가 갈라진 것은 "발전"하는 기회를 가지는 등 여러 이유로 유용했습니다. "안정성"과
 플랫폼의 빠른 반복사이에 필수불가결한 타협점이 있음을 배웠습니다. 이 중 어떤 것은 관리 가능하지만
