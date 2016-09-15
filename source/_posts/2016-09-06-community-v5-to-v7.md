@@ -26,6 +26,7 @@ Last year, the core team devised a Long-term Support (LTS) and release plan to b
 
 The io.js diversion was useful for many reasons, including the opportunity we had to lean into this "progress" thing. We learned that there is a necessary trade-off between "stability" and the rapid iteration of the platform. Some of it was manageable but much was unavoidable. Breaking the entire C++ add-on ecosystem each time we upgraded V8 turned out to be quite painful for the Node.js package ecosystem. This is due to the heavy reliance on compiled native components in Node.js userland and the difficulty Node.js has had in maintaining [API](https://en.wikipedia.org/wiki/Application_programming_interface) and [ABI](https://en.wikipedia.org/wiki/Application_binary_interface) stability while upgrading V8.
 -->
+
 ## 계획이 있습니다!
 
 ![LTS 일정 요약](https://nodejs.org/static/images/blog/201609_lts_schedule_summary.gif)
@@ -49,6 +50,7 @@ On the flip side, it was clear that v0.10 went on far too long and the slow down
 
 So, all this experience and history put us in a position to try and formulate a plan for combining both stability and progress. We didn't just find a compromise, we found a way that these often competing goals could coexist.
 -->
+
 반면, v0.10이 너무 오래 유지되었고 릴리스 주기가 느려지는 추세는 혁신적이면서 _현대적_인
 플랫폼의 명성에 해를 끼쳤고 Node.js에서 실제로 필요한 기능 개선과 버그 수정이 이뤄지지 않았습니다.
 이것이 io.js가 존재해야 했던 핵심 이유 중 하나입니다.
@@ -65,6 +67,7 @@ Each major version of Node.js has an active life of 6 months in what we are now 
 
 And this is exactly what happened to version 5. It lived as _Current_ for 6 months from October, 2015 to April, 2016 and then in a special Maintenance phase for another 2 months until June, 2016. At the end of June, we ceased supporting Node.js version 5 and it will no longer receive any fixes or updates from the core team _(although you're welcome to play with the `v5.x` branch on the [Node.js repository](https://github.com/nodejs/node) if it's important to you!)_
 -->
+
 ## Node.js v5에 어떤 일이 일어났는가
 
 6개월마다 새로운 Node.js의 _주_ 버전을 릴리스하는 계획을 세우고 있습니다.
@@ -85,6 +88,7 @@ Node.js의 각 주버전은 6개월의 활발한 생명주기를 가지게 되�
 유지된 후 2016년 6월까지 별도 2개월의 유지보수 기간을 가졌습니다. 6월 말 Node.js 버전 5의 지원을
 중단하고 코어 팀은 어떤 수정사항이나 업데이트도 하지 않을 것입니다.
 _(하지만 당신에게 중요한 부분이 있다면 [Node.js 저장소](https://github.com/nodejs/node)의 `v5.x` 브랜치에 작업을 하는 것은 환영합니다.)_
+
 <!--
 The core team is focusing all of its activities on the following release lines:
 
@@ -94,6 +98,7 @@ The core team is focusing all of its activities on the following release lines:
 * v6 which is still a Current release, due to become our second LTS release in October where its life will continue under Active LTS and Maintenance until April 2019.
 * v7 is being planned for a release in October this year at the same time that we switch v6 to LTS. You can already try out nightly builds from our `master` branch at <https://nodejs.org/download/nightly> but expect to see a focus on quality and stability of these in the coming months as we create a `v7.x` branch and becoming more choosy about what gets to make it in to v7.0.0.
 -->
+
 코어 팀은 다른 릴리스 라인에 모든 활동을 집중하고 있습니다.
 
 * v0.10는 현재 유지보수 단계로 필요할 때만 중요한 수정사항을 적용하고 올해 10월에 지원을
@@ -114,6 +119,7 @@ It sounds like a lot, but once we move beyond the legacy v0.12 and v0.10 release
 
 Armed with this knowledge, what's next for you? We suggest you make a judgement on the stability and quality requirements for your own use of Node.js and pick a release line that suits. For production deployments of Node.js we generally recommend version 4 where stability is taken very seriously. For everyday development, non-critical deployments and where Node.js is used as part of a toolchain (e.g. for building frontend components), a Current release should work just fine. We'd love your help testing nightly builds of the next major version of Node.js and while we do continuous unit testing and smoke testing of our `master` branch, we can't provide any assurances of stability or quality of these nightly builds, so buyer beware.
 -->
+
 꽤 복잡하게 보이지만 레거시인 v0.12와 v0.10 릴리스를 일단 넘어서게 되면 주 버전과
 그 외 다양한 릴리스를 이해하기 쉽도록 안정적으로 운영할 수 있기를 기대합니다.
 
