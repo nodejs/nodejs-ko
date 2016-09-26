@@ -78,3 +78,7 @@ The OpenSSL project has [announced](https://www.openssl.org/news/secadv/20160922
 OpenSSL 프로젝트는 Node.js v4 버전과 그 위의 버전에 포함된 [1.0.2i](https://www.openssl.org/news/openssl-1.0.2-notes.html)버전과 Node.js v0.10 버전과 v0.12버전에 보함된 [1.0.1u](https://www.openssl.org/news/openssl-1.0.1-notes.html)버전의 전반적인 유효성을 [발표](https://www.openssl.org/news/secadv/20160922.txt)했습니다. 저희 암호화 팀(Shigeki Ohtsu, Fedor Indutny, Ben Noordhuis)은 수행하고 있습니다. / OpenSSL 릴리스에서 제기한 결함의 분석
 
 https://raw.githubusercontent.com/nodejs/nodejs.org/master/locale/en/blog/vulnerability/september-2016-security-releases.md
+
+http://nodejs.github.io/nodejs-ko/articles/2016/06/16/june-2016-security-release/
+https://nodejs.org/en/blog/vulnerability/june-2016-security-releases/
+http://nodejs.github.io/nodejs-ko/CONTRIBUTING.html
