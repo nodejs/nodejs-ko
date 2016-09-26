@@ -1,37 +1,30 @@
-const { get } = require('https');
-const { createWriteStream } = require('fs');
+const get = require('https').get;
+const createWriteStream = require('fs').createWriteStream;
 const chalk = require('chalk');
 const replaceStream = require('replacestream');
 const URL = process.argv[2];
 const DATE = process.argv[3];
 const POST_PATH = "./source/_posts/";
 
-class TranslateScaffold {
-  constructor(url, date) {
-    this.url = url;
-    this.date = date;
-  }
+function TranslateScaffold(url, date) {
+  this.url = url;
+  this.date = date;
 
-  get isWeekly() {
-    return this.url.indexOf("weekly-updates") > -1;
-  }
+  this.isWeekly = this.url.indexOf("weekly-updates") > -1;
 
-  get fileName() {
+  this.fileName = (() => {
     if (this.isWeekly) {
       return `${this.url.match(/\d{4}-\d{2}-\d{2}/)[0]}-weekly.md`;
     } else {
       return this.url.match(/blog\/(.+)\.md/)[0].replace(/\//g, "-").replace("blog", this.date);
     }
-  }
-  get filePath() {
-    return `${POST_PATH}${this.fileName}`;
-  }
+  })();
 
-  get file() {
-    return createWriteStream(this.filePath);
-  }
+  this.filePath = `${POST_PATH}${this.fileName}`;
 
-  get replaceText() {
+  this.file = createWriteStream(this.filePath);
+
+  this.replaceText = (() => {
     if (this.isWeekly) {
       return replaceStream(/---\n((?:.+\n)+)---/m,
                            (_, head) => `---
@@ -53,7 +46,7 @@ refurl: https://nodejs.org/en/blog/${(this.url.match(/blog\/(.+)\.md/) || [ '', 
 translator:
 ---`)
     }
-  }
+  })();
 }
 
 if (!URL) {
