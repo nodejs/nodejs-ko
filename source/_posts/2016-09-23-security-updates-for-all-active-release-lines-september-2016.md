@@ -84,6 +84,7 @@ This flaw is labelled _high_ severity due to the ease of use for a DoS attack an
 **Assessment**: All versions of Node.js are **affected** by this vulnerability.
 -->
 ### [CVE-2016-6304](https://www.openssl.org/news/vulnerabilities.html#2016-6304): OCSP(온라인 인증서 상태 프로토콜) 상태 요청 연장으로 인한 무한 메모리 증가
+
 악성 클라이언트가 서버 메모리를 소모시켜, 한 세션에 매우 많은 OCSP 상태 요청을 보내 DoS(Denial of Service)를 유발합니다.
 이 결함은 DoS 공격의 용이성과 TLS를 사용하는 Node.js 서버들이 취약하여 _높은_ 심각성으로 분류되었습니다.
 **분석 결과**: Node.js의 모든 버전들은 이 취약점에 **영향**을 받습니다.
@@ -95,6 +96,7 @@ Node.js is not yet dependent on OpenSSL 1.1.0 so it is not impacted by this flaw
 **Assessment**: All versions of Node.js are believed to be **unaffected** by this vulnerability.
 -->
 ### [CVE-2016-6305](https://www.openssl.org/news/vulnerabilities.html#2016-6305): 빈 기록에 걸려 있는 SSL_peek()
+
 OpenSSL 1.1.0 SSL/TLS가 `SSL_peek()`로 요청을 보내는 동안 피어가 빈 기록을 보낼 때 걸려있습니다. 
 Node.js는 아직 OpenSSL 1.1.0에 의존하고 있지 않으므로 이 결함에 영향을 받지 않습니다.
 **분석 결과**: Node.js의 모든 버전들은 이 취약점에 **영향 받지 않습니다**.
@@ -106,6 +108,7 @@ As mitigation, OpenSSL has moved DES-based ciphers from the `HIGH` to `MEDIUM` g
 **Assessment**: All versions of Node.js are **affected** by this vulnerability.
 -->
 ### [CVE-2016-2183](https://www.openssl.org/news/vulnerabilities.html#2016-2183): SWEET32 제어/완화
+
 [SWEET32](https://sweet32.info) 는 64비트 사이즈의 블럭을 이용하는 오래된 블럭 사이퍼 알고리즘에 대한 새로운 공격입니다. 
 이를 완화하기 위해, OpenSSL은 DES 기반 사이퍼들을 `높은` 그룹에서 `중간`그룹으로 옮겼습니다. Node.js는 기본 스위트에 `중간`그룹은 제외하고, `높은` 그룹은 포함하여, 영향받는 사이퍼들은 기본 스위트를 사용하지 않는 이상 포함되지 않습니다. Node의 기본 TLS 사이퍼 스위트는 [API 문서](https://nodejs.org/api/tls.html#tls_modifying_the_default_tls_cipher_suite)에서 확인하실 수 있습니다.
 **분석 결과**: Node.js의 모든 버전들은 이 취약점에 **영향**을 받습니다.
@@ -117,6 +120,7 @@ Node.js is impacted by this flaw but due to the impracticalities of exploiting i
 **Assessment**: All versions of Node.js are **affected** by this vulnerability.
 -->
 ### [CVE-2016-6303](https://www.openssl.org/news/vulnerabilities.html#2016-6303): MDC2_Update() 에서 OOB 쓰기 오류
+
 특정 상황에 `MDC2_Update()`에서 OOB(대역 외) 에러를 초래하는 오버플로가 발생할 수 있습니다. 이 공격은 OOB 에러를 일으키기 위해 필요한 데이터의 사이즈 때문에 대부분의 플랫폼에서는 적용되지 않습니다. 
 Node.js는 이 결함에 영향을 받지만 이 에러를 이용하는 것의 비현실적인 부분과 MDC-2의 매우 낮은 이용 실태로, Node.js 이용자들에게 _매우 낮은_ 심각성으로 간주됩니다.
 **분석 결과**: 모든 버전의 Node.js는 이 취약점에 **영향**을 받습니다.
@@ -128,6 +132,7 @@ Node.js does not use SHA512 for session tickets and is therefore not impacted by
 **Assessment**: All versions of Node.js are believed to be **unaffected** by this vulnerability.
 -->
 ### [CVE-2016-6302](https://www.openssl.org/news/vulnerabilities.html#2016-6302): 기형의 SHA512 티켓 DoS 공격
+
 서버가 TLS 세션 티켓 HMAC에 SHA512를 이용한다면, 기형 티켓을 받아 충돌하여 DoS(서비스 거부)공격에 취약할 수 있습ㄴ다.
 Node.js는 세션 티켓에 SHA512를 사용하지 않으므로 이 결함에 영향을 받지 않습니다.
 **분석 결과**: 모든 버전의 Node.js는 이 취약점에 **영향 받지 않습니다**.
@@ -138,6 +143,7 @@ An out of bounds (OOB) write can occur in `BN_bn2dec()` if an application uses t
 **Assessment**: All versions of Node.js are believed to be **unaffected** by this vulnerability.
 -->
 ### [CVE-2016-2182](https://www.openssl.org/news/vulnerabilities.html#2016-2182): BN_bn2dec()에서 OOB 쓰기 오류
+
 애플리케이션이 매우 큰 `BIGNUM`과 함께 `BN_bn2dec()` 함수를 사용했을 때 OOB(대역 외) 에러가 발생할 수 있습니다. TLS는 기록의 한도가 구문 분석되기 전 크기가 큰 인증서를 거부를 하므로 영향을 받지 않습니다.
 **분석 결과**: 모든 버전의 Node.js는 이 취약점에 **영향 받지 않습니다**.
 
@@ -148,6 +154,7 @@ Node.js does not make use of the Time Stamp Authority functionality in OpenSSL a
 **Assessment**: All versions of Node.js are believed to be **unaffected** by this vulnerability.
 -->
 ### [CVE-2016-2180](https://www.openssl.org/news/vulnerabilities.html#2016-2180): TS_OBJ_print_bio()에서 OOB 읽기 오류
+
 OOB(대역 외) 읽기 오류가 `TS_OBJ_print_bio()` 함수를 통해 큰 개체 ID (OID)가 존재할 때 발생할 수 있습니다. 
 Node.js는 OpenSSL의 시간 스탬프 권한 (Time Stamp Authority)을 사용하지 않으므로 이 결함에 영향 받지 않는 것으로 보여집니다.
 **분석 결과**: 모든 버전의 Node.js는 이 취약점에 **영향 받지 않습니다**.
@@ -159,6 +166,7 @@ It is unlikely that Node.js users are directly impacted by this.
 **Assessment**: All versions of Node.js are believed to be **unaffected** by this vulnerability.
 -->
 ### [CVE-2016-2177](https://www.openssl.org/news/vulnerabilities.html#2016-2177): 포인터 산술의 정의되지 않은 거동
+
 이 프로그래밍 결함은 포스트 <https://www.openssl.org/blog/blog/2016/06/27/undefined-pointer-arithmetic/>에 설명되어 있습니다.
 Node.js 사용자들이 이 결함에 직접적인 영향을 받기 어려울 것으로 보여집니다.
 **분석 결과**: 모든 버전의 Node.js는 이 취약점에 **영향 받지 않습니다**.
@@ -171,6 +179,9 @@ This is _very low_ severity for Node.js users due to the difficulty in taking ad
 -->
 ### [CVE-2016-2178](https://www.openssl.org/news/vulnerabilities.html#2016-2178): DSA 서명에 시간 플레그 상수가 보전되지 않음.
 
+OpenSSL DSA 구현에 결함은 특정 작업에 따르는 비상수 시간 코드 경로를 의미합니다. 이 결함은 공격자가 개인 DSA 키를 복구하기 충분할 캐시 타이밍 공격을 통해 증명할 수 있습니다.
+DSA는 매우 드물게 이용되기 때문에 이 공격을 이용하기에 어려움이 있으므로 이 결함은 Node.js 사용자들에게 _매우 낮은_ 심각성입니다.
+**분석 결과**: 모든 버전의 Node.js는 이 취약점에 **영향**을 받습니다.
 
 <!--
 ### [CVE-2016-2179](https://www.openssl.org/news/vulnerabilities.html#2016-2179): DTLS buffered message DoS
@@ -178,7 +189,11 @@ In a DTLS connection where handshake messages are delivered out-of-order, those 
 As Node.js does not support DTLS, users are not impacted by this flaw.
 **Assessment**: All versions of Node.js are believed to be **unaffected** by this vulnerability.
 -->
+### [CVE-2016-2179](https://www.openssl.org/news/vulnerabilities.html#2016-2179): DTLS 버퍼 메세지 DoS
 
+DTLS 연결중에 핸드쉐이크 (handshake) 메세지가 비정상적으로 전달이 될 경우, OpenSSL이 아직 프로세스할 준비가 안된 메세지들은 나중에 쓰기 위해 버퍼됩니다. 이는 메모리를 소진해 DoS (Denial of Service)를 초래하도록 이용될 수 있습니다. 
+Node.js는 DTLS를 서포트하지 않으므로, 이용자들은 이 결함에 영향을 받지 않습니다.
+**분석 결과**: 모든 버전의 Node.js는 이 취약점에 **영향 받지 않습니다**.
 
 <!--
 ### [CVE-2016-2179](https://www.openssl.org/news/vulnerabilities.html#2016-2179): DTLS replay protection DoS
@@ -186,7 +201,11 @@ A flaw in the DTLS replay attack protection mechanism that would allow an attack
 As Node.js does not support DTLS, users are not impacted by this flaw.
 **Assessment**: All versions of Node.js are believed to be **unaffected** by this vulnerability.
 -->
+### [CVE-2016-2179](https://www.openssl.org/news/vulnerabilities.html#2016-2179): DTLS 재생방지(Replay Protection) DoS
 
+DTLS 재생 공격 방지 장치에 있는 이 결함은 공격자가 서버가 DTLS 연결에 평범한 패킷들을 떨어트리도록 만들 수 있도록 할 수 있으며, 결과적으로 연결에 DoS를 초래할 수 있습니다.
+Node.js는 DTLS를 서포트 하지 않으므로, 이용자들은 이 결함에는 영향을 받지 않습니다.
+**분석 결과**: 모든 버전의 Node.js는 이 취약점에 **영향 받지 않습니다**.
 
 <!--
 ### [CVE-2016-6306](https://www.openssl.org/news/vulnerabilities.html#2016-6306): Certificate message OOB reads
@@ -194,7 +213,11 @@ Some missing message length checks can result in out of bounds (OOB) reads of up
 Node.js is impacted by this _low_ severity flaw.
 **Assessment**: All versions of Node.js are **affected** by this vulnerability.
 -->
+### [CVE-2016-6306](https://www.openssl.org/news/vulnerabilities.html#2016-6306): 인증서 메세지 OOB 읽기 오류
 
+사라진 메세지 길이를 확인할 때 할당된 버퍼보다 최대 2바이트 정도의 OOB(대역 외) 읽기 오류가 생길 수 있습니다. 이론적인 DoS 위험이 있습니다. 이는 클라이언트와 서버 중 클라이언트 인증을 사용하는 쪽에만 영향을 줍니다.
+Node.js는 이 _낮은_ 심각성의 결함에 영향 받습니다.
+**분석 결과**: 모든 버전의 Node.js는 이 취약점에 **영향** 받습니다.
 
 <!--
 ### [CVE-2016-6307](https://www.openssl.org/news/vulnerabilities.html#2016-6307): Excessive allocation of memory in tls_get_message_header()
@@ -202,7 +225,11 @@ Excessive allocation of memory in OpenSSL 1.1.0 can be achieved by manipulating 
 Node.js is not yet dependent on OpenSSL 1.1.0 so it is not impacted by this flaw.
 **Assessment**: All versions of Node.js are believed to be **unaffected** by this vulnerability.
 -->
+### [CVE-2016-6307](https://www.openssl.org/news/vulnerabilities.html#2016-6307): tls_get_message_header()의 과대 메모리 할당
 
+OpenSSL 1.1.0 버전의 과대 메모리 할당은 TLS 헤더의 길이를 조작하여 만들 수 있습니다. 
+Node.js는 OpenSSL 1.1.0 버전에 아직 의존하지 않아 이 결함에 영향을 받지 않습니다.
+**분석 결과**: 모든 버전의 Node.js는 이 취약점에 **영향 받지 않습니다**.
 
 <!--
 ### [CVE-2016-6308](https://www.openssl.org/news/vulnerabilities.html#2016-6308): Excessive allocation of memory in dtls1_preprocess_fragment()
@@ -210,7 +237,11 @@ A flaw that is similar to CVE-2016-6307 but impacting DTLS.
 Node.js is not yet dependent on OpenSSL 1.1.0, nor does it implement DTLS, so it is not impacted by this flaw.
 **Assessment**: All versions of Node.js are believed to be **unaffected** by this vulnerability.
 -->
+### [CVE-2016-6308](https://www.openssl.org/news/vulnerabilities.html#2016-6308): dtls1_preprocess_fragment()의 과대 메모리 할당
 
+이 결함은 CVE-2016-6307의 결함과 비슷하지만 DTLS에 영향을 줍니다.
+Node.js는 OpenSSL 1.1.0 버전에 아직 의존하지 않고, DTLS를 도입하지 않아, 이 결함에 영향을 받지 않습니다.
+**분석 결과**: 모든 버전의 Node.js는 이 취약점에 **영향 받지 않습니다**.
 
 <!--
 ## Contact and future updates
@@ -219,11 +250,12 @@ The current Node.js security policy can be found at <https://nodejs.org/en/secur
 Please contact security@nodejs.org if you wish to report a vulnerability in Node.js.
 Subscribe to the low-volume announcement-only nodejs-sec mailing list at https://groups.google.com/forum/#!forum/nodejs-sec to stay up to date on security vulnerabilities and security-related releases of Node.js and the projects maintained in the [nodejs GitHub organisation](http://github.com/nodejs/).
 -->
+## 연락처와 차기 업데이트
 
+정보 갱신을 위해 nodejs-sec 구글 그룹<https://groups.google.com/forum/#!forum/nodejs-sec>과 릴리스 발표를 위한 Node.js 웹사이트<https://nodejs.org/en/blog/>를 확인 해주세요.
 
+현재 버전의 Node.js 보안 정책은 <https://nodejs.org/en/security/>에서 보실 수 있습니다.
 
-https://raw.githubusercontent.com/nodejs/nodejs.org/master/locale/en/blog/vulnerability/september-2016-security-releases.md
+Node.js의 취약점을 제보하고 싶다면 <security@nodejs.org>로 연락해주세요.
 
-http://nodejs.github.io/nodejs-ko/articles/2016/06/16/june-2016-security-release/
-https://nodejs.org/en/blog/vulnerability/june-2016-security-releases/
-http://nodejs.github.io/nodejs-ko/CONTRIBUTING.html
+보안 취약점, Node.js 보안 관련 릴리스, nodejs GitHub 조직내의 유지보수 되고 있는 프로젝트의 최신 상태를 위해 적은 양으로 통지만 하는 nodejs-sec 메일링 리스트<https://groups.google.com/forum/#!forum/nodejs-sec>를 구독해 주세요.
