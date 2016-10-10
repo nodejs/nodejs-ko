@@ -21,7 +21,7 @@ function TranslateScaffold(url, date) {
       }
     } catch(e) {
       console.error(`${chalk.red.bold('Error:')} 번역문서의 GitHub raw URL이 필요합니다.`);
-      console.error("자세한 내용은 http://nodejs.github.io/nodejs-ko/CONTRIBUTING.html 을 참고하세요.");
+      console.error("자세한 내용은 https://nodejs.github.io/nodejs-ko/CONTRIBUTING.html 을 참고하세요.");
       process.exit();
     }
   })();
@@ -55,15 +55,15 @@ translator:
 
 if (!URL) {
   console.error(`${chalk.red.bold('Error:')} 번역문서의 GitHub raw URL이 필요합니다.`);
-  console.error("자세한 내용은 http://nodejs.github.io/nodejs-ko/CONTRIBUTING.html 을 참고하세요.");
+  console.error("자세한 내용은 https://nodejs.github.io/nodejs-ko/CONTRIBUTING.html 을 참고하세요.");
   return;
 }
 
 const scaffold = new TranslateScaffold(URL, DATE);
 
 if (!scaffold.isWeekly && !DATE ) {
-	console.error(`${chalk.red.bold('Error:')} 주간 뉴스 외에는 url 뒤에 발행 일자를 전달해야 합니다.\n예시: npm run URL YYYY-MM-DD`);
-	return;
+  console.error(`${chalk.red.bold('Error:')} 주간 뉴스 외에는 url 뒤에 발행 일자를 전달해야 합니다.\n예시: npm run URL YYYY-MM-DD`);
+  return;
 }
 
 get(URL, function(response) {

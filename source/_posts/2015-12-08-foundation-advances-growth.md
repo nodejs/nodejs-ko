@@ -134,7 +134,7 @@ Currently the core Node.js repository includes 52 committers, while there’s be
 In addition, the Foundation announced three new Silver members to the team, Apigee, RisingStack, and Yahoo. You can find details of the new membership here.
 -->
 한편, Node.js 재단은 Apigee, RisingStack, Yahoo라는 신규 실버 회원사를 발표했습니다.
-새 회원사에 관한 자세한 내용은 [여기](http://nodejs.github.io/nodejs-ko/articles/2015/12/08/apigee-rising-stack-yahoo/)서 볼 수 있습니다.
+새 회원사에 관한 자세한 내용은 [여기](https://nodejs.github.io/nodejs-ko/articles/2015/12/08/apigee-rising-stack-yahoo/)서 볼 수 있습니다.
 
 <!--
 About Node.js Foundation
