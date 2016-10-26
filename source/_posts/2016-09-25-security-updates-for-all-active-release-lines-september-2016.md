@@ -33,7 +33,7 @@ These are the expected version numbers for the releases:
 -->
 릴리스가 예상되는 버전 넘버는 다음과 같습니다.
 
-* Node.js v6.7.0(최신 버전)
+* Node.js v6.7.0(현재 버전)
 * Node.js v4.6.0(LTS "Argon")
 * Node.js v0.12.16(유지보수 버전)
 * Node.js v0.10.46(유지보수 버전)
