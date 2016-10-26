@@ -52,7 +52,7 @@ Therefore, we expect to be releasing:
 
 따라서 우리가 예상하는 릴리스는 아래와 같습니다.
 
-* Node.js v6.3.0(최신 버전)
+* Node.js v6.3.0(현재 버전)
 * Node.js v5.12.0
 * Node.js v4.5.0(LTS "Argon")
 * Node.js v0.12.15(유지보수 버전)
