@@ -129,3 +129,21 @@ title: 번역 참여 가이드
 * 영어 뒤에 조사가 올 때도 읽었을 때 되도록 읽기 자연스러운 방향으로 적습니다. 예시: `vm.createContext과`가 아니라 `vm.createContext와`라고 번역합니다.
 * `Core Technical Committee`는 `코어 기술 위원회`라고 번역합니다.
 * Node.js 공식 블로그의 특성상 비슷한 시기에 나온 글에는 중복되는 내용이 있는 경우가 많습니다. 특히 보안 업데이트 공지나 새 버전 릴리스의 경우 그렇습니다. 비슷한 문서의 다른 번역문을 참고하면 번역에 도움이 됩니다.
+
+# 멤버 구분
+
+## nodejs-ko Collaborators
+* [nodejs-ko 저장소](https://github.com/nodejs/nodejs-ko)에 Collaboratios로 등록된 사용자를 말하며 nodejs 조직이나 [nodejs-ko 팀](https://github.com/orgs/nodejs/teams/nodejs-ko)에는 등록되지 않습니다.
+* [nodejs-ko 저장소](https://github.com/nodejs/nodejs-ko)에 저장소에 올라오는 이슈를 관리할 수 있고 번역문의 리뷰, 머지 권한을 가집니다.
+
+## nodejs-ko Maintainers
+* 메인테이너는 [nodejs-ko 팀](https://github.com/orgs/nodejs/teams/nodejs-ko)에 등록된 멤버를 의미합니다.
+* 메인테이너는 nodejs-ko 문서 번역, 번역문의 리뷰, 저장소 관리는 물론 Node.js 소속 다른 프로젝트에서 발생 또는 요청하는 한국어 관련 이슈에도 참여합니다.
+  * 다른 프로젝트에서 nodejs-ko 의 의견을 듣기 위해서 멘션을 하는 경우가 있습니다.
+* nodejs-ko 저장소 외에 [nodejs.org](https://github.com/nodejs/nodejs.org)의 한국어 번역과 검수에도 참여하고 있습니다.
+* nodejs-ko 저장소 관리를 위해 번역문이 아닌 간단한 맞춤법 오류, 서식 오류, 오타, 저장소 설정 등은 풀 리퀘스트를 거치지 않고 바로 수정할 수 있습니다.
+* 빠른 반영을 위해 간단한 오류 등은 다른 사람이 등록한 풀 리퀘스트를 직접 수정할 수 있습니다.
+* nodejs-ko의 메인테이너는 6개월마다 갱신하며 갱신 시점을 기준으로 최근 1년간 nodejs-ko 저장소에 기여한 사람을 메인테이너로 등록합니다.
+  * 메인테이너 명단은 Node.js 릴리스 주기에 맞춰서 매년 4월, 10월에 갱신합니다.
+  * [Graph](https://github.com/nodejs/nodejs-ko/graphs/contributors)를 기준으로 최근 1년간 커밋이 10개 이상인 사람을 메인테이너로 등록합니다.(풀 리퀘스트는 Squash로 머지합니다.)
+  * 현재는 nodejs-ko 팀 관리 권한 이슈로 nodejs 코어멤버들과 논의하는 중입니다. [관련 이슈](https://github.com/nodejs/nodejs-ko/issues/425) 참고.
