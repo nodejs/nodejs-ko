@@ -1063,7 +1063,7 @@ var fibonacci = {
   // Symbol.iterator 함수를 가지는 객체를 만듦.
   [Symbol.iterator]() {
     let pre = 0, cur = 1;
-    // iterator 객체는 next 메소드를 가지는 객체를 반환함
+    // iterator 객체는 next 메서드를 가지는 객체를 반환함
     return {
       next() {
         // next 안에서 반환 값(value)과 종료인지 아닌지 표시하는 속성(done)을
