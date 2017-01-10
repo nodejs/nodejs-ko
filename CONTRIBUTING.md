@@ -62,13 +62,33 @@ title: 번역 참여 가이드
       author: 원 저자명
       ref: 원문의 글 제목
       refurl: 원문 링크
+      translator: github_id
+      ---
+      ```
+
+    * 번역자의 이름은 문자열이나 key-value로 작성합니다.
+
+      ```yaml
+      translator: github_id
+      # or
       translator:
-        - <a href="GITHUB_URL" target="_blank">번역자 이름</a>
-        - <a href="GITHUB_URL" target="_blank">번역자 이름</a>
+        github_id: Real Name
       ---
       ```
 
     * 번역자가 여러 명인 경우에는 `translator`에 여러 줄을 추가하면 됩니다.
+
+      ```yaml
+      translator:
+      - github_id1
+      - github_id2
+      # or
+      translator:
+        github_id1: Real Name1
+        github_id2: Real Name2
+      ---
+      ```
+
     * 이곳에 작성한 메타정보는 각 글의 상단에 표시됩니다.
     * 문서는 [마크다운](https://help.github.com/articles/github-flavored-markdown/) 형식으로 작성합니다.
     * 이후 문서를 관리하기 위해 원문을 주석(`<!-- -->`)으로 추가하고 번역한 내용을 다음과 같이 작성합니다.
