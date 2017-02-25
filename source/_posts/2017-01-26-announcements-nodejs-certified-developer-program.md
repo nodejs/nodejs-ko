@@ -19,7 +19,7 @@ industry-backed consortium to advance the development of the Node.js platform,
 today announced development of the inaugural Node.js certification program
 aimed to establish a baseline competency in Node.js.
 -->
-**샌 프란시스코, 2017년 1월 26일** - Node.js 플랫폼의 개발을 개선하려고 커뮤니티와 기업이 함께 만든
+**샌프란시스코, 2017년 1월 26일** - Node.js 플랫폼의 개발을 개선하려고 커뮤니티와 기업이 함께 만든
 [Node.js 재단](https://nodejs.org/en/foundation/)에서 오늘 Node.js 분야의 자격 기준을 확립하기 위한 Node.js 인증 프로그램을 최초로 개발하겠다고 발표했다.
 
 <!--
