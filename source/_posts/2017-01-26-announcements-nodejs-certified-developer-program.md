@@ -11,7 +11,7 @@ translator: taggon
 _Node.js Foundation to launch
 vendor-neutral certification program for fastest growing platform _
 -->
-Node.js 재단이 가장 빠르게 성장하는 플랫폼 Node.js를 위한 기업 중립적인 인증 프로그램을 실시한다.
+Node.js 재단이 가장 빠르게 성장하는 플랫폼 Node.js를 위한 기업 중립적인 인증 프로그램을 시행한다.
 
 <!--
  **SAN FRANCISCO, Jan. 26, 2017** — [The Node.js Foundation](https://nodejs.org/en/foundation/), a community-led and
@@ -19,7 +19,7 @@ industry-backed consortium to advance the development of the Node.js platform,
 today announced development of the inaugural Node.js certification program
 aimed to establish a baseline competency in Node.js.
 -->
- **샌 프란시스코, 2017년 1월 26일** - Node.js 플랫폼의 개발을 개선하려고 커뮤니티와 기업이 함께 만든
+**샌 프란시스코, 2017년 1월 26일** - Node.js 플랫폼의 개발을 개선하려고 커뮤니티와 기업이 함께 만든
 [Node.js 재단](https://nodejs.org/en/foundation/)에서 오늘 Node.js 분야의 자격 기준을 확립하기 위한 Node.js 인증 프로그램을 최초로 개발하겠다고 발표했다.
 
 <!--
@@ -29,7 +29,7 @@ enterprises of all sizes today, organizations that are eager to expand their
 use of Node.js often struggle when retraining Java developers and recruiting
 new talent.
 -->
-Node.js는 월 평균 450만명 이상의 활성 사용자가 있는 가장 유명한 프로그래밍 언어 중 하나이다.
+Node.js는 월평균 450만명 이상의 활성 사용자가 있는 가장 유명한 프로그래밍 언어 중 하나이다.
 오늘날 Node.js는 다양한 규모의 기업에 상승세를 그리며 널리 사용되고 있지만,
 Node.js 사용을 확대하려는 기업에서는 Java 개발자를 재교육하거나 신규 직원을 고용하는데 어려움을 겪고 있다.
 
@@ -54,8 +54,8 @@ providing developers, contractors and consultants with a way to differentiate
 themselves in the market.
 -->
 Node.js 전문가와 공헌자들의 노력으로 만들어지는 Node.js 개발자 인증 프로그램은 2017년 2분기께 공개될 전망이다.
-이 프로그램은 일반적인 Node.js 자격에 관한 틀을 제시하며 기업에는 자격있는 Node.js 개발자를 빠르게 확인할 수 있도록 돕는 한편,
-개발자, 프리랜서, 컨설턴트에게는 시장에서 자신을 차별화 할 수 있는 방안이 되어줄 것이다.
+이 프로그램은 일반적인 Node.js 자격에 관한 틀을 제시하며 기업에는 자격 있는 Node.js 개발자를 빠르게 확인할 수 있도록 돕는 한편,
+개발자, 프리랜서, 컨설턴트에게는 시장에서 자신을 차별화 할 방안이 되어줄 것이다.
 
 <!--
 Node.js Foundation is worked closely with [The Linux Foundation](https://training.linuxfoundation.org/certification/why-certify-with-us) to create the blueprint
@@ -68,7 +68,7 @@ Applications for Linux](https://training.linuxfoundation.org/linux-courses/devel
 Fundamentals](https://training.linuxfoundation.org/linux-courses/system-administration-training/kubernetes-fundamentals); among many others.
 -->
 Node.js 재단은 인증 프로그램의 청사진과 관리 프로세스를 작성하기 위해 [리눅스 재단](https://training.linuxfoundation.org/certification/why-certify-with-us)과 긴밀히 협업했다.
-리눅스 재단은 오픈소스 커뮤니티와 밀접한 관련이 있어서 Node.js 교육과 인증 프로그램을 실시하기 위한 터전을 제공해주었다.
+리눅스 재단은 오픈소스 커뮤니티와 밀접한 관련이 있어서 Node.js 교육과 인증 프로그램을 시행하기 위한 터전을 제공해주었다.
 [리눅스 입문](https://www.edx.org/course/introduction-linux-linuxfoundationx-lfs101x-0), [DevOps 입문: 운영 혁신과 개선](https://www.edx.org/course/introduction-devops-transforming-linuxfoundationx-lfs161x), [리눅스 애플리케이션 개발](https://training.linuxfoundation.org/linux-courses/development-training/developing-applications-for-linux), [쿠버네티스(Kubernetes) 기초](https://training.linuxfoundation.org/linux-courses/system-administration-training/kubernetes-fundamentals)를 비롯한 여러 공개 온라인 코스(MOOC)가 제공될 것이다.
 
 <!--
@@ -86,7 +86,7 @@ contribute to the Node.js Foundation Certification Development Item Writing
 Workshop Sessions, fill out this [application](https://docs.google.com/a/linuxfoundation.org/forms/d/10X9RJ4oLu2IU7cXppnXmwDMdJTetq3i9focw-R7GB8s/viewform?edit_requested=true).
 -->
 현재 Node.js 재단은 커뮤니티와 함께 시험 문제를 작성하고 있다.
-Node.js 재단 인증 개발 문제 출제 워크샵 세션(Node.js Foundation Certification Development Item Writing Workshop Sessions)에 공헌하고 싶다면 [지원서](https://docs.google.com/a/linuxfoundation.org/forms/d/10X9RJ4oLu2IU7cXppnXmwDMdJTetq3i9focw-R7GB8s/viewform?edit_requested=true)를 작성해서 제출하면 된다.
+Node.js 재단 인증 개발 문제 출제 워크숍 세션(Node.js Foundation Certification Development Item Writing Workshop Sessions)에 공헌하고 싶다면 [지원서](https://docs.google.com/a/linuxfoundation.org/forms/d/10X9RJ4oLu2IU7cXppnXmwDMdJTetq3i9focw-R7GB8s/viewform?edit_requested=true)를 작성해서 제출하면 된다.
 
 <!--
 Exam topics will be published publically as will resources to help prepare for the
