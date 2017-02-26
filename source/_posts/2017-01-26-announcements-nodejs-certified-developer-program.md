@@ -29,7 +29,7 @@ enterprises of all sizes today, organizations that are eager to expand their
 use of Node.js often struggle when retraining Java developers and recruiting
 new talent.
 -->
-Node.js는 월평균 450만명 이상의 활성 사용자가 있는 가장 유명한 프로그래밍 언어 중 하나이다.
+Node.js는 월평균 450만 명 이상의 활성 사용자가 있는 가장 유명한 프로그래밍 언어 중 하나이다.
 오늘날 Node.js는 다양한 규모의 기업에 상승세를 그리며 널리 사용되고 있지만,
 Node.js 사용을 확대하려는 기업에서는 Java 개발자를 재교육하거나 신규 직원을 고용하는데 어려움을 겪고 있다.
 
