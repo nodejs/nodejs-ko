@@ -43,7 +43,8 @@ developer, possessing skills that are in high demand,” said Tracy Hinds,
 education community manager for the Node.js Foundation.
 -->
 Node.js 재단의 교육 커뮤니티 관리자인 Tracy Hinds는
-“숙련된 Node.js 전문 기술의 부족 현상을 개선하기 위해 Node.js 재단은 훌륭한 커뮤니티 회원 및 코어 전문가들의 도움을 받아 광범위한 인증 프로그램을 개발하고 있습니다.”
+“숙련된 Node.js 전문 기술의 부족 현상을 개선하기 위해 Node.js 재단은 훌륭한 커뮤니티 회원 및 코어 전문가들의 도움을 받아 광범위한 인증 프로그램을 개발하고 있습니다.
+기업 환경에서 일하든 프리랜서로 일하든 Node.js 인증 개발자가 된다면 수요가 많은 기술에 능숙한 Node.js 개발자로 성공하는 데 득이 될 것입니다.”
 라고 말했다.
 
 <!--
