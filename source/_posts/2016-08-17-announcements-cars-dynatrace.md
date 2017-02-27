@@ -37,7 +37,7 @@ stack, frontend and backend developers surveyed by StackOverflow in its 2016
 developer survey.
 -->
 
-기업용 도구 및 서비스 에코시스템은 Node.js를 중심으로 빠르게 융합되어 엔터프라이즈 애플리케이션, 로봇, API 엔진, 클라우드 스택, 모바일 웹사이트의 모든 것을 지원하는 범용 플랫폼으로 발전되었습니다. 자바스크립트 런타임 환경은 자원효율, 성능이 뛰어나며 확장성에 잘 어울려 애플리케이션 개발 및 마이크로 서비스 아키텍처를 위해 스타트업, 엔터프라이즈 기업에서 점차 대체되고 있습니다. 또한 Node.js는 StackOverflow가 조사한 2016년 개발자 설문조사에서 풀스택, 프론트엔드 및 맥엔드 개발자를 위한 상위 10개 언어 중 하나입니다.
+기업용 도구 및 서비스 에코시스템은 Node.js를 중심으로 빠르게 융합되어 엔터프라이즈 애플리케이션, 로봇, API 엔진, 클라우드 스택, 모바일 웹사이트의 모든 것을 지원하는 범용 플랫폼으로 발전되었습니다. 자바스크립트 런타임 환경은 자원 효율, 성능이 뛰어나며 확장성에 잘 어울려 애플리케이션 개발 및 마이크로 서비스 아키텍처를 위해 스타트업, 엔터프라이즈 기업에서 점차 대체되고 있습니다. 또한 Node.js는 StackOverflow가 조사한 2016년 개발자 설문조사에서 풀스택, 프론트엔드 및 맥엔드 개발자를 위한 상위 10개 언어 중 하나입니다.
 
 <!--
 More about today’s new Node.js Foundation members:
@@ -56,7 +56,7 @@ scale its high-trafficked website to meet its users’ demands and service
 expectations.
 -->
 
-1988년에 시작되어 시카고에 본사를 두고있는 Cars.com은 전문가와 소비자의 정보를 제공하여 자동차 구매자와 소유자가 자신의 차량을 구매, 판매 및 서비스 할 수 있도록 돕는 선도적 온라인 사이트입니다. 이 사이트는 수백만 개의 신규 및 중고 차량 목록, 소비자 리뷰, 연구 및 가격 책정 도구, 공정한 전문가 컨텐츠 및 차량을 판매 할 수 있는 다양한 옵션의 광범위한 데이터베이스를 제공합니다. Cars.com은 Node.js를 사용하여 트래픽이 많은 웹사이트를 확장하여 사용자의 요구와 서비스 기대치를 충족시켰습니다.
+1988년에 시작되어 시카고에 본사를 두고 있는 Cars.com은 전문가와 소비자의 정보를 제공하여 자동차 구매자와 소유자가 자신의 차량을 구매, 판매 및 서비스할 수 있도록 돕는 선도적 온라인 사이트입니다. 이 사이트는 수백만 개의 신규 및 중고 차량 목록, 소비자 리뷰, 연구 및 가격 책정 도구, 공정한 전문가 콘텐츠 및 차량을 판매할 수 있는 다양한 옵션의 광범위한 데이터베이스를 제공합니다. Cars.com은 Node.js를 사용하여 트래픽이 많은 웹사이트를 확장하여 사용자의 요구와 서비스 기대치를 충족시켰습니다.
 
 <!--
 “Prior to Node.js, we were using older content management solutions that were
@@ -69,7 +69,7 @@ community, extensive libraries, and excellent tooling, and we are excited to
 help fuel that growth through the Node.js Foundation.”
 -->
 
-Cars.com 소프트웨어 개발 관리자인 Darrel Pratt는 "Node.js 이전에는 Cars.com의 요구사항을 효과적으로 충족시키지 못하는 오래된 컨텐츠관리 솔루션을 사용하고 있었습니다. Cars.com은 매월 3,000~3,500만 건의 웹사이트 방문을 받고 있습니다."
+Cars.com 소프트웨어 개발 관리자인 Darrel Pratt는 "Node.js 이전에는 Cars.com의 요구 사항을 효과적으로 충족시키지 못하는 오래된 콘텐츠 관리 솔루션을 사용하고 있었습니다. Cars.com은 매월 3,000~3,500만 건의 웹사이트 방문을 받고 있습니다."
 "Node.js는 우리가 성장하고 마이크로 서비스 인프라로 변경할 수 있게 하는데 필요한 유틸리티를 제공합니다. 커뮤니티, 광범위한 라이브러리 및 뛰어난 도구를 통해 Node.js의 미래에는 많은 잠재력이 있으며 Node.js 재단을 통해 성적을 기여할 수 있게 되어 기쁩니다." 라고 말했습니다.
 
 <!--
@@ -81,7 +81,7 @@ ties frontend and backend systems together to provide an end-to-end view of
 application performance with the help of Dynatrace offerings.
 -->
 
-디지털 성능 관리 소프트웨어 회사인 [Dynatrace](https://www.dynatrace.com)는 Node.js 가 자사의 엔터프라이즈 고객을 위한 핵심구성요소라고 믿고 있습니다. 더 많은 기업들이 디지털 변환을 수행하고 마이크로 서비스 유형의 아키텍처를 구현하기 시작함에 따라, Node.js는 프론트엔드 및 백엔드 시스템을 결합하여 Dynatrace 오퍼링의 도움을 받아 애플리케이션 성능을 전체적으로 보여주는 핵심기술입니다
+디지털 성능 관리 소프트웨어 회사인 [Dynatrace](https://www.dynatrace.com)는 Node.js 가 자사의 엔터프라이즈 고객을 위한 핵심 구성요소라고 믿고 있습니다. 더 많은 기업들이 디지털 변환을 수행하고 마이크로 서비스 유형의 아키텍처를 구현하기 시작함에 따라, Node.js는 프론트엔드 및 백엔드 시스템을 결합하여 Dynatrace 오퍼링의 도움을 받아 애플리케이션 성능을 전체적으로 보여주는 핵심기술입니다
 
 <!--
 “Digital transformation is constantly changing how companies do business,
@@ -92,7 +92,7 @@ transformation process, so we are excited to actively contribute to the Node.js
 platform and help developers improve their monitoring capabilities.”
 -->
 
-Dynatrace 수석 기술 전략가인 Alois Reitbauer는 "디지털 혁신은 기업이 비즈니스를 영위하는 방식과 직접적으로 관련이 있으며, 기업들이 기업의 성능 모니터링 요구사항을 직접 추족할 수 있도록 조정하는 방식입니다." 라고 말했습니다.
+Dynatrace 수석 기술 전략가인 Alois Reitbauer는 "디지털 혁신은 기업이 비즈니스를 영위하는 방식과 직접적으로 관련이 있으며, 기업들이 기업의 성능 모니터링 요구 사항을 직접 충족할 수 있도록 조정하는 방식입니다." 라고 말했습니다.
 
 <!--
 “By joining the Node.js Foundation, companies are investing in the stability of
@@ -119,7 +119,7 @@ share best practices around tools, training and other services needed to
 optimize Node.js.
 -->
 
-Node.js 재단은 암스테르담에서 [Node.js Interactive Europe](http://events.linuxfoundation.org/events/node-interactive-europe) 을 9월 15-18일, 11월 29일부터 12월 2일까지 텍사스 주 오스틴 (Austin, Texas)에서 [Node.js Interactive North America](http://events.linuxfoundation.org/events/node-interactive) 를 개최했습니다. 이는 벤더 중립적인 이벤트로서, 앞으로 코드를 개발하는 개발자는 Node.js에 대해 깊이있게 살펴볼 수 있습니다. Node.js 핵심 기여자는 새로운 개발에 대한 통찰력을 제공하고, 엔터프라이즈 사용자 및 벤더는 Node.js를 최적화하는데 필요한 도구, 교육 및 기타 서비스에 대한 모범 사례를 공유합니다.
+Node.js 재단은 암스테르담에서 [Node.js Interactive Europe](http://events.linuxfoundation.org/events/node-interactive-europe) 을 9월 15-18일, 11월 29일부터 12월 2일까지 텍사스 주 오스틴 (Austin, Texas)에서 [Node.js Interactive North America](http://events.linuxfoundation.org/events/node-interactive)를 개최했습니다. 이는 벤더 중립적인 이벤트로서, 앞으로 코드를 개발하는 개발자는 Node.js에 대해 깊이 있게 살펴볼 수 있습니다. Node.js 핵심 기여자는 새로운 개발에 대한 통찰력을 제공하고, 엔터프라이즈 사용자 및 벤더는 Node.js를 최적화하는데 필요한 도구, 교육 및 기타 서비스에 대한 모범 사례를 공유합니다.
 
 <!--
 ### About the Node.js Foundation
