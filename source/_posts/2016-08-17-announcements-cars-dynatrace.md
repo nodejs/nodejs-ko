@@ -1,6 +1,6 @@
 ---
 category: articles
-title: Cars.com와 Dynatrace는 Node.js 플랫폼의 안정성과 성공을 지원하기 위해 재단에 참여합니다.
+title: Cars.com과 Dynatrace는 Node.js 플랫폼의 안정성과 성공을 지원하기 위해 재단에 참여합니다.
 author: 
 ref: Cars.com and Dynatrace join the Foundation to support the stability and success of the Node.js platform
 refurl: https://nodejs.org/en/blog/announcements/cars-dynatrace
@@ -11,7 +11,7 @@ translator: devjin0617
 > New Node.js Foundation Members Drive Enterprise Growth
 -->
 
-> 새로운 Node.js 회원이 기업성장을 주도합니다.
+> 새로운 Node.js 재단 회원이 기업성장을 주도합니다.
 
 <!--
 **SAN FRANCISCO, Aug. 17, 2016** —
@@ -23,7 +23,7 @@ Silver Members.
 -->
 
 **샌프란시스코, 2016년 8월 17일**
-Node.js 플랫폼 발전을 위해 지역사회 주도 기반의 컨소시엄인 [Node.js 재단](https://nodejs.org/en/foundation/)은 오늘 [Cars.com](https://www.cars.com/)과 [Dynatrace](https://www.dynatrace.com)가 재단에 실버회원으로 가입했습니다.
+Node.js 플랫폼의 개발을 개선하려고 커뮤니티와 기업이 함께 만든 [Node.js 재단](https://nodejs.org/en/foundation/)은 오늘 [Cars.com](https://www.cars.com/)과 [Dynatrace](https://www.dynatrace.com)가 재단에 실버회원으로 가입했습니다.
 
 <!--
 An ecosystem of tools and services for enterprises is rapidly coalescing around
@@ -43,7 +43,7 @@ developer survey.
 More about today’s new Node.js Foundation members:
 -->
 
-이번의 새 Node.js 재단 멤버에 대해 자세히 알아보겠습니다:
+이번의 새 Node.js 재단 멤버에 대해 자세히 알아보겠습니다.
 
 <!--
 Launched in 1998 and headquartered in Chicago, [Cars.com](https://www.cars.com/)
@@ -69,8 +69,8 @@ community, extensive libraries, and excellent tooling, and we are excited to
 help fuel that growth through the Node.js Foundation.”
 -->
 
-Cars.com 소프트웨어 개발 관리자인 Darrel Pratt는 "Node.js 이전에는 Cars.com의 요구 사항을 효과적으로 충족시키지 못하는 오래된 콘텐츠 관리 솔루션을 사용하고 있었습니다. Cars.com은 매월 3,000~3,500만 건의 웹사이트 방문을 받고 있습니다."
-"Node.js는 우리가 성장하고 마이크로 서비스 인프라로 변경할 수 있게 하는데 필요한 유틸리티를 제공합니다. 커뮤니티, 광범위한 라이브러리 및 뛰어난 도구를 통해 Node.js의 미래에는 많은 잠재력이 있으며 Node.js 재단을 통해 성적을 기여할 수 있게 되어 기쁩니다." 라고 말했습니다.
+Cars.com 소프트웨어 개발 관리자인 Darrell Pratt는 "Node.js 이전에는 Cars.com의 요구 사항을 효과적으로 충족시키지 못하는 오래된 콘텐츠 관리 솔루션을 사용하고 있었습니다. Cars.com은 매월 3,000~3,500만 건의 웹사이트 방문을 받고 있습니다."
+"Node.js는 우리가 성장하고 마이크로 서비스 인프라로 변경할 수 있게 하는데 필요한 유틸리티를 제공합니다. 커뮤니티, 광범위한 라이브러리 및 뛰어난 도구를 통해 Node.js의 미래에는 많은 잠재력이 있으며 Node.js 재단을 통해 성장에 기여할 수 있게 되어 기쁩니다."라고 말했습니다.
 
 <!--
 [Dynatrace](https://www.dynatrace.com), a digital performance management
@@ -81,7 +81,7 @@ ties frontend and backend systems together to provide an end-to-end view of
 application performance with the help of Dynatrace offerings.
 -->
 
-디지털 성능 관리 소프트웨어 회사인 [Dynatrace](https://www.dynatrace.com)는 Node.js 가 자사의 엔터프라이즈 고객을 위한 핵심 구성요소라고 믿고 있습니다. 더 많은 기업들이 디지털 변환을 수행하고 마이크로 서비스 유형의 아키텍처를 구현하기 시작함에 따라, Node.js는 프론트엔드 및 백엔드 시스템을 결합하여 Dynatrace 오퍼링의 도움을 받아 애플리케이션 성능을 전체적으로 보여주는 핵심기술입니다
+디지털 성능 관리 소프트웨어 회사인 [Dynatrace](https://www.dynatrace.com)는 Node.js가 자사의 엔터프라이즈 고객을 위한 핵심 구성요소라고 믿고 있습니다. 더 많은 기업들이 디지털 변환을 수행하고 마이크로 서비스 유형의 아키텍처를 구현하기 시작함에 따라, Node.js는 프론트엔드 및 백엔드 시스템을 결합하여 Dynatrace의 도움을 받아 애플리케이션 성능을 전체적으로 보여주는 핵심기술입니다.
 
 <!--
 “Digital transformation is constantly changing how companies do business,
@@ -92,7 +92,7 @@ transformation process, so we are excited to actively contribute to the Node.js
 platform and help developers improve their monitoring capabilities.”
 -->
 
-Dynatrace 수석 기술 전략가인 Alois Reitbauer는 "디지털 혁신은 기업이 비즈니스를 영위하는 방식과 직접적으로 관련이 있으며, 기업들이 기업의 성능 모니터링 요구 사항을 직접 충족할 수 있도록 조정하는 방식입니다." 라고 말했습니다.
+Dynatrace 수석 기술 전략가인 Alois Reitbauer는 "디지털 변환은 기업이 비즈니스를 영위하는 방식과 직접적으로 관련이 있으며, 기업들이 기업의 성능 모니터링 요구 사항을 직접 충족할 수 있도록 조정하는 방식입니다."라고 말했습니다.
 
 <!--
 “By joining the Node.js Foundation, companies are investing in the stability of
@@ -104,8 +104,8 @@ support the needs and demands of enterprise users.”
 -->
 
 Node.js 재단 커뮤니티 관리자인 Mikeal Rogers는
-"Node.js 재단에 합류함으로써 기업들은 안정성의 안정성을 높이고 광범위한 채택과 개발을 가속화하는 데 일조하고 있습니다."
-"Cars.com와 Dynatrace 같은 새로운 멤버들은 기업 사용자의 요구와 수요를 지원하는 서비스, 교육, 훈련 및 이벤트를 개발하기 위해 재단의 업무에 매우 중요합니다." 라고 말했습니다.
+"Node.js 재단에 합류함으로써 기업들은 Node.js의 안정성을 높이고 광범위한 채택과 개발을 가속화하는 데 일조하고 있습니다."
+"Cars.com과 Dynatrace 같은 새로운 멤버들은 기업 사용자의 요구와 수요를 지원하는 서비스, 교육, 훈련 및 이벤트를 개발하기 위해 재단의 업무에 매우 중요합니다."라고 말했습니다.
 
 <!--
 The Node.js Foundation will be holding
@@ -120,7 +120,7 @@ share best practices around tools, training and other services needed to
 optimize Node.js.
 -->
 
-Node.js 재단은 암스테르담에서 [Node.js Interactive Europe](http://events.linuxfoundation.org/events/node-interactive-europe) 을 9월 15-18일, 11월 29일부터 12월 2일까지 텍사스 주 오스틴 (Austin, Texas)에서 [Node.js Interactive North America](http://events.linuxfoundation.org/events/node-interactive)를 개최했습니다. 이는 벤더 중립적인 이벤트로서, 앞으로 코드를 개발하는 개발자는 Node.js에 대해 깊이 있게 살펴볼 수 있습니다. Node.js 핵심 기여자는 새로운 개발에 대한 통찰력을 제공하고, 엔터프라이즈 사용자 및 벤더는 Node.js를 최적화하는데 필요한 도구, 교육 및 기타 서비스에 대한 모범 사례를 공유합니다.
+Node.js 재단은 암스테르담에서 [Node.js Interactive Europe](http://events.linuxfoundation.org/events/node-interactive-europe)을 9월 15-18일, 텍사스 주 오스틴에서 [Node.js Interactive North America](http://events.linuxfoundation.org/events/node-interactive)를 11월 29일부터 12월 2일까지 개최했습니다. 이는 벤더 중립적인 이벤트로서, 앞으로 코드를 개발하는 개발자는 Node.js 미래에 대해 살펴볼 수 있습니다. Node.js 코어 기여자는 새로운 개발에 대한 통찰력을 제공하고, 엔터프라이즈 사용자 및 벤더는 Node.js를 최적화하는데 필요한 도구, 교육 및 기타 서비스에 대한 모범 사례를 공유합니다.
 
 <!--
 ### About the Node.js Foundation
@@ -132,10 +132,10 @@ Node.js 재단은 암스테르담에서 [Node.js Interactive Europe](http://even
 Node.js is used by tens of thousands of organizations in more than 200 countries and amasses more than 4 million active users per month. It is the runtime of choice for high-performance, low latency applications, powering everything from enterprise applications, robots, API engines, cloud stacks and mobile websites.
 -->
 
-Node.js는 200개 이상의 국가에서 수만 개의 조직이 사용하며 매달 400만 명 이상의 사용자가 활발히 사용합니다. 고성능, 낮은 지연 시간 애플리케이션, 엔터프라이즈 애플리케이션, 로봇, API 엔진, 클라우드 스택 및 모바일 웹사이트에서 모든 것을 선택할 수 있습니다.
+Node.js는 200개 이상의 국가에서 수만 개의 조직이 사용하며 매달 400만 명 이상의 사용자가 활발히 사용합니다. 고성능, 낮은 지연 시간 애플리케이션, 엔터프라이즈 애플리케이션, 로봇, API 엔진, 클라우드 스택 및 모바일 웹사이트 등을 위해 선택되는 런타임입니다.
 
 <!--
 The Foundation is made up of a diverse group of companies including Platinum members IBM, Intel, Joyent, Microsoft, PayPal and Red Hat. Gold members include GoDaddy and NodeSource, and Silver members include Apigee, AppDynamics, Cars.com, Codefresh, DigitalOcean, Dynatrace, Fidelity, Google, Groupon, nearForm, New Relic, npm, Opbeat, RisingStack, Sauce Labs, SAP, StrongLoop (an IBM company), Sphinx, YLD, and Yahoo!. Get involved here: https://nodejs.org.
 -->
 
-재단은 플래티넘 멤버인 IBM, Intel, Joyent, Microsoft, PayPal 및 Red Hat을 포함한 다양한 그룹의 회사로 구성되어 있습니다. 골드 회원은 Godaddy 및 NodeSource를 포함하고 실버 회원은 Apigee, AppDynamics, Cars.com, Codefresh, DigitalOcean, Dynatrace, Fidelity, Google, Groupon, nearForm, New Relic, npm, Opbeat, RisingStack, Sauce Labs, SAP, strongLoop (IBM 회사), Sphinx, YLD, Yahoo!. 여기에 참여하십시오: [https://nodejs.org](https://nodejs.org)
+재단은 플래티넘 멤버인 IBM, Intel, Joyent, Microsoft, PayPal, Red Hat, 골드 회원은 Godaddy, NodeSource, 실버 회원은 Apigee, AppDynamics, Cars.com, Codefresh, DigitalOcean, Dynatrace, Fidelity, Google, Groupon, nearForm, New Relic, npm, Opbeat, RisingStack, Sauce Labs, SAP, StrongLoop (IBM 회사), Sphinx, YLD, Yahoo!를 포함한 다양한 그룹의 회사로 구성되어 있습니다. 여기에서 참여하세요. [https://nodejs.org](https://nodejs.org)
