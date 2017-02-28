@@ -37,13 +37,13 @@ stack, frontend and backend developers surveyed by StackOverflow in its 2016
 developer survey.
 -->
 
-기업용 도구 및 서비스 에코시스템은 Node.js를 중심으로 빠르게 융합되어 엔터프라이즈 애플리케이션, 로봇, API 엔진, 클라우드 스택, 모바일 웹사이트의 모든 것을 지원하는 범용 플랫폼으로 발전되었습니다. 자바스크립트 런타임 환경은 자원 효율, 성능이 뛰어나며 확장성에 잘 어울려 애플리케이션 개발 및 마이크로 서비스 아키텍처를 위해 스타트업, 엔터프라이즈 기업에서 점차 대체되고 있습니다. 또한 Node.js는 StackOverflow가 조사한 2016년 개발자 설문조사에서 풀스택, 프론트엔드 및 맥엔드 개발자를 위한 상위 10개 언어 중 하나입니다.
+기업용 도구 및 서비스 에코시스템은 Node.js를 중심으로 빠르게 융합되어 엔터프라이즈 애플리케이션, 로봇, API 엔진, 클라우드 스택, 모바일 웹사이트의 모든 것을 지원하는 범용 플랫폼으로 발전되었습니다. 자바스크립트 런타임 환경은 자원 효율, 성능이 뛰어나며 확장성에 잘 어울려 애플리케이션 개발 및 마이크로 서비스 아키텍처를 위해 스타트업, 엔터프라이즈 기업에서 점차 대체되고 있습니다. 또한 Node.js는 StackOverflow가 조사한 2016년 개발자 설문조사에서 풀스택, 프론트엔드 및 백엔드 개발자를 위한 상위 10개 언어 중 하나입니다.
 
 <!--
 More about today’s new Node.js Foundation members:
 -->
 
-오늘의 새로운 Node.js 재단 멤버에 대해 자세히 알아보십시오:
+이번의 새 Node.js 재단 멤버에 대해 자세히 알아보겠습니다:
 
 <!--
 Launched in 1998 and headquartered in Chicago, [Cars.com](https://www.cars.com/)
@@ -103,8 +103,9 @@ Foundation's work to develop services, education, training and events that
 support the needs and demands of enterprise users.”
 -->
 
-Node.js 재단 커뮤니티 관리자인 Mikeal Rogers는 "Node.js 재단에 합류함으로써 기업들은 안정성의 안정성을 높이고 광범위한 채택과 개발을 가속화하는 데 일조하고 있습니다."
-"Cars.com와 Dynatrace 같은 새로운 멤버들은 기업 사용자의 요구와 수요를 지원하는 서비스, 교육, 훈련 및 이벤트를 개발하기 위해 재단의 업무에 매우 중요합니다."
+Node.js 재단 커뮤니티 관리자인 Mikeal Rogers는
+"Node.js 재단에 합류함으로써 기업들은 안정성의 안정성을 높이고 광범위한 채택과 개발을 가속화하는 데 일조하고 있습니다."
+"Cars.com와 Dynatrace 같은 새로운 멤버들은 기업 사용자의 요구와 수요를 지원하는 서비스, 교육, 훈련 및 이벤트를 개발하기 위해 재단의 업무에 매우 중요합니다." 라고 말했습니다.
 
 <!--
 The Node.js Foundation will be holding
