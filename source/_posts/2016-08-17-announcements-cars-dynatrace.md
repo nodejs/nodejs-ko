@@ -92,7 +92,8 @@ transformation process, so we are excited to actively contribute to the Node.js
 platform and help developers improve their monitoring capabilities.”
 -->
 
-Dynatrace 수석 기술 전략가인 Alois Reitbauer는 "디지털 변환은 기업이 비즈니스를 영위하는 방식과 직접적으로 관련이 있으며, 기업들이 기업의 성능 모니터링 요구 사항을 직접 충족할 수 있도록 조정하는 방식입니다."라고 말했습니다.
+Dynatrace 수석 기술 전략가인 Alois Reitbauer는 "디지털 변환은 기업이 비즈니스를 영위하는 방식과 직접적으로 관련이 있으며, 기업들이 기업의 성능 모니터링 요구 사항을 직접 충족할 수 있도록 조정하는 방식입니다."
+"Node.js는 변환 과정에서 중요한 역할을 하므로 Node.js 플랫폼에 활발하게 기여하고 개발자들이 모니터링 능력을 향상시키는데 도움을 줄 수 있게 되어 매우 기쁩니다."라고 말했습니다.
 
 <!--
 “By joining the Node.js Foundation, companies are investing in the stability of
