@@ -23,7 +23,7 @@ Silver Members.
 -->
 
 **샌프란시스코, 2016년 8월 17일**
-Node.js 플랫폼의 개발을 개선하려고 커뮤니티와 기업이 함께 만든 [Node.js 재단](https://nodejs.org/en/foundation/)은 오늘 [Cars.com](https://www.cars.com/)과 [Dynatrace](https://www.dynatrace.com)가 재단에 실버회원으로 가입했습니다.
+Node.js 플랫폼의 개발을 개선하려고 커뮤니티와 기업이 함께 만든 [Node.js 재단](https://nodejs.org/en/foundation/)은 오늘 [Cars.com](https://www.cars.com/)과 [Dynatrace](https://www.dynatrace.com)가 재단에 실버회원으로 가입했다고 발표했습니다.
 
 <!--
 An ecosystem of tools and services for enterprises is rapidly coalescing around
@@ -37,7 +37,8 @@ stack, frontend and backend developers surveyed by StackOverflow in its 2016
 developer survey.
 -->
 
-기업용 도구 및 서비스 에코시스템은 Node.js를 중심으로 빠르게 융합되어 엔터프라이즈 애플리케이션, 로봇, API 엔진, 클라우드 스택, 모바일 웹사이트의 모든 것을 지원하는 범용 플랫폼으로 발전되었습니다. 자바스크립트 런타임 환경은 자원 효율, 성능이 뛰어나며 확장성에 잘 어울려 애플리케이션 개발 및 마이크로 서비스 아키텍처를 위해 스타트업, 엔터프라이즈 기업에서 점차 대체되고 있습니다. 또한 Node.js는 StackOverflow가 조사한 2016년 개발자 설문조사에서 풀스택, 프론트엔드 및 백엔드 개발자를 위한 상위 10개 언어 중 하나입니다.
+기업용 도구 및 서비스 에코시스템은 Node.js를 중심으로 빠르게 융합되어 Node.js는 엔터프라이즈 애플리케이션, 로봇, API 엔진, 클라우드 스택, 모바일 웹사이트의 모든 것을 지원하는 범용 플랫폼으로 발전했습니다.
+Node.js는 자원 효율, 성능이 뛰어나며 확장성에 잘 어울려 애플리케이션 개발 및 마이크로 서비스 아키텍처를 위해 스타트업, 엔터프라이즈 기업에서 점차 대체되고 있습니다. 또한 Node.js는 StackOverflow가 조사한 2016년 개발자 설문조사에서 풀스택, 프론트엔드 및 백엔드 개발자를 위한 상위 10개 언어 중 하나입니다.
 
 <!--
 More about today’s new Node.js Foundation members:
