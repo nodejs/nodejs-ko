@@ -51,26 +51,26 @@ Node.js v7이 다음 주 베타 버전으로 바뀝니다. 이것은 버전 테�
 
 Citgm은 Node.js 생태계에서 다양한 모듈의 단위 테스트를 자동화하는 스모크 테스팅 유틸리티입니다. 생태계와 노드 코어 자체에 걸친 모든 종류의 퇴행을 찾아내는 엄청난 성공을 거두었습니다.
 
-### Adopting Web Standards
+### 웹 표준 채택
 
-To keep up with the changing needs of the web, the Node.js project will be including WHATWG URL parsing — standardizing parsing to be the same in Node.js as it is on the browser; improved HTTP 1.1 spec compliance for better input validation and enhanced security, and future support for HTTP/2.
+웹의 변화하는 요구 사항을 따라 가기 위해 Node.js 프로젝트에는 WHATWG URL 파싱이 포함될 것입니다. 파싱을 브라우저에서 처럼 Node.js와 동일하게 표준화해야합니다; 향상된 입력 검증 및 강화된 보안 및 HTTP/2에 대한 향후 지원을 위해 개선된 HTTP 1.1 사양 준수.
 
-### Node.js Everywhere
+### 어디서나 Node.js
 
-Node.js has historically been a good fit for the IoT space as it is great at single processes and has a small memory footprint. There’s incredible growth opportunity for Node.js in this area and the Node.js project is working closely with members of the IoT and Electron communities to make embedding Node.js easier.
+Node.js는 역사적으로 단일 프로세스에서 훌륭하고 메모리 사용량이 적기 때문에 IoT 영역에 적합합니다. 이 영역에서 Node.js의 놀라운 성장 기회가 있으며 Node.js 프로젝트는 IoT 및 Electron 커뮤니티 구성원과 긴밀하게 협력하여 Node.js를 보다 쉽게 임베드 할 수 있도록합니다.
 
-### Continued Growth Internally for VM Neutrality and API Development
+### VM 중립성 및 API 개발을위한 내부 성장 지속
 
-The ultimate goal of Node.js is to become fully VM agnostic. The first major step in this areas has been Microsoft getting Node.js to run on Chakra. There is working being done to create a VM neutral ABI and a prototype is currently available.
+Node.js의 궁극적인 목표는 완전히 VM을 인식하지 못하게 하는 것입니다. 이 분야의 첫 번째 주요 단계는 Microsoft가 Node.js를 Chakra에서 실행하도록 하는 것입니다. VM 중립적인 ABI를 만드는 작업이 진행 중이며 현재 프로토타입이 사용 가능합니다.
 
-### Inclusivity is Needed to Create Diversity
+### 다양성을 창출하는 포괄성
 
-Node.js is working hard to become a more diverse and inclusive community. Diverse ecosystems are better for the community and better for the platform. They allow people to learn and grow from others, and be exposed to perspectives other than their own. So how do we create diversity in the Node.js community?
+Node.js는 보다 다양하고 포괄적인 커뮤니티가 되기 위해 열심히 노력하고 있습니다. 다양한 생태계는 지역 사회에 더 좋고 플랫폼에도 더 좋습니다. 그들은 사람들이 다른 사람들로부터 배우고 성장할 수 있게 하며, 그들 자신의 시각 이외의 다른 시각에 노출되게합니다. 그렇다면 우리는 Node.js 커뮤니티에서 다양성을 어떻게 창출 할 수 있을까요?
 
-A key benefit of Node.js is that it is relatively easy to learn. The barriers to entry are not in understanding how the technology works, but rather in creating inclusive environments where people feel valued and can join in and grow their involvement over time. Node Together, an initiative launched this year, showed that in creating an inclusive environment, underrepresented groups can join, learn and flourish within our community.
+Node.js의 주요 이점은 배우기가 상대적으로 쉽다는 것입니다. 진입 장벽은 기술 작동 방식을 이해하는 것이 아니라 사람들이 소중하게 여기고 참여하고 시간을 두고 참여를 확대 할 수 있는 포괄적인 환경을 조성하는 데 있습니다. 올해 함께 시작된 이니셔티브인 Together Together는 포괄적인 환경을 조성함에 있어 부족한 그룹이 커뮤니티에 가입하고 배우고 번창 할 수 있음을 보여주었습니다.
 
-The Node.js Foundation is teaming up with experts in the field to better understand how to actively diversify the makeup of the Node.js community. This initiative is very serious to the growth and future of the community.
+Node.js 재단은 Node.js 커뮤니티의 구성을 적극적으로 다양화하는 방법을 더 잘 이해하기 위해 이 분야의 전문가들과 팀을 구성하고 있습니다. 이 사업은 지역 사회의 성장과 미래에 매우 중요합니다.
 
-If you were not able to see the keynotes yesterday, tune in today at 4:00pm CEST/10am EST to see the remaining keynotes on the state of npm and Express. In addition, all keynotes as well as sessions are being recorded and will be available soon on the Node.js Foundation’s YouTube page here.
+어제 기조 연설을 보지 못했다면 오늘 오후 4시 CEST/오전 10시 (동부 표준시)에 튜닝하여 npm 및 Express 상태에 대한 나머지 기조 연설을 확인하십시오. 또한 세션뿐만 아니라 모든 기조 연설이 녹화되고 있으며 Node.js 재단의 YouTube 페이지에서 곧 사용할 수 있습니다.
 
-*This article was updated September 26,2016 with a few changes to the API development section, improved language support and modular section.
+*이 기사는 API 개발 섹션, 향상된 언어 지원 및 모듈 섹션의 몇 가지 변경 사항으로 2016 9월 26일에 업데이트되었습니다.
