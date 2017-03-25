@@ -13,7 +13,7 @@ Foundation Individual Director is the Node.js project’s community voice on the
 board. There are two individual directors that sit on the Node.js Foundation
 board and they serve a two-year term.
 -->
-Node.js 재단은 회원이 지원하는 조직입니다. Node.js 재단 개별 이사는 Node.js 프로젝트 커뮤니티의 목소리입니다.
+Node.js 재단은 회원이 지원하는 조직입니다. Node.js 재단의 개인 회원 이사는 Node.js 프로젝트 커뮤니티의 목소리를 이사회에 전달하는 역할을 합니다.
 Node.js 재단에는 두 명의 개별 이사가 있으며, 그들은 2년의 임기를 가집니다.
 
 <!--
@@ -57,7 +57,7 @@ Node.js Foundation Board of
 Directors?”](https://medium.com/@nodejs/whats-it-like-being-on-the-node-js-foundation-board-of-directors-f9456b8b7c4d).
 -->
 여기에는 이사회 회의에 참여하고 투표하는 것, Node.js 프로젝트의 임무를 포착하는 결론을 내리는 선도적인 노력을 소개하는 것,
-그리고 연설 참여 시 이사회를 대표하는 것이 포함됩니다.(이는 포괄적인 목록이 아닙니다) 더 자세히 알아보려면 ["What’s it like being on the Node.js Foundation Board of Directors?"](https://medium.com/@nodejs/whats-it-like-being-on-the-node-js-foundation-board-of-directors-f9456b8b7c4d)
+연설 참여 시 이사회를 대표하는 것이 포함됩니다.(이는 포괄적인 목록이 아닙니다) 더 자세히 알아보려면 ["What’s it like being on the Node.js Foundation Board of Directors?"](https://medium.com/@nodejs/whats-it-like-being-on-the-node-js-foundation-board-of-directors-f9456b8b7c4d)를 읽어보세요.
 
 <!--
 ### What does the Board of Directors do?
@@ -75,7 +75,7 @@ The current board members are listed
 여기에는 법적 고려 사항, 예산 책정 및 재단 주도 회의 및 기타 이니셔티브 승인이 포함됩니다.
 기술 거버넌스는 이사회가 아닌 TSC가 감독합니다.
 
-현재 이사회 멤버가 [여기](https://nodejs.org/en/foundation/board)에 나열되어 있습니다.
+현재 이사회 멤버는 [여기](https://nodejs.org/en/foundation/board)에 나열되어 있습니다.
 
 <!--
 ### Who is running for the Individual Membership Director seat?
@@ -134,7 +134,7 @@ required to have a GitHub account to register.
 ### 회원이 되려면 어떻게 해야 합니까?
 연간 회원 비용 [연 100$, 또는 학생용 25$](https://identity.linuxfoundation.org/pid/99).
 모든 워킹 그룹 및 하위 프로젝트를 포함하여 Node.js 프로젝트 참여자는 무료 회원 자격을 얻을 수 있습니다.
-할인 코드는 [contact us](mailto : membership@nodejs.org)로 문의해주십시오.
+할인 코드는 [저희에게 문의](mailto : membership@nodejs.org) 해 주십시오.
 등록하려면 GitHub 계정이 있어야 합니다.
 
 <!--
@@ -145,7 +145,7 @@ required to have a GitHub account to register.
 -->
 ### 개별 회원이 되는 것의 이점은 무엇입니까?
 - 위에서 언급한 두 명의 선출된 개별 회원 이사를 통해 Node.js 재단 이사회에서 투표와 목소리를 낼 수 있습니다.
-- Node Interactive 2017에 정기 가격 20% 할인
+- Node Interactive 2017를 정기 가격의 20% 할인됩니다.
 
 <!-- See you at the (digital)poll? -->
 (디지털)설문 조사에서 만나요.
