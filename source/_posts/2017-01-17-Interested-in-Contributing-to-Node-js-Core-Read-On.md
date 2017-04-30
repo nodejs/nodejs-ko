@@ -25,7 +25,7 @@ Node.js 핵심 기술위원회 멤버인 Rich Trott는 이 Node.js Interactive N
 <!--
 He decided to host a Sideway conversation with Node.js collaborators, Anna Henningsen and Bryan English to help answer additional questions from those that are looking to participate in the Node.js Project.
 -->
-그는 Node.js 공동 작업자인 Anna Henningsen과 Bryan English와 Sideway 대화를 주최하기로 결정하여 Node.js 프로젝트에 참여하고자하는 사람들로부터 추가 질문에 답할 수 있도록 했습니다.
+그는 Node.js 공동 작업자인 Anna Henningsen, Bryan English와 Sideway에서 대화를 진행해서 Node.js 프로젝트에 참여하고자하는 사람들로부터 추가 질문에 답할 수 있도록 했습니다.
 
 <!--
 Below is a condensed version of the conversation. Do you have more questions on this topic? Please ask Anna, Bryan or Rich on Twitter or GitHub.
@@ -50,18 +50,17 @@ Rich: Node.js Core에 기여하는 사람들을 돕는 것이 적어도 두 가�
 <!--
 - Second, it’s a moral imperative (in my opinion). Being energetic in the pursuit of contributors hopefully means we’re not being exclusionary, or at least being less exclusionary than we’d be if we weren’t trying to help new and existing contributors.
 -->
-- 둘째로, 그것은 도덕적인 명령입니다(사견으로는). 기여를 추구하는 데 열정을 가지고 있다면, 우리가 새로운 기존 기여자를 도우려 하지 않는다면 우리가 배타적이지 않고 적어도 배타적이지 않다는 것을 의미합니다.
-<!--이부분에 대한 해석이 어렵네요. 도움을 부탁드립니다.-->
+- 둘째로, 이것은 (사견으로는)도덕적인 책임입니다. 기여자를 도우려고 열정적이라면 이는 우리가 배타적이지 않음을 의미합니다. 최소한 새로운 기여자나 기존의 겨여자를 도우라고 하지 않는 것 보다는 덜 배타적이라는 것을 의미합니다.
 
 <!--
 Bryan: I’d add that it’s important to me that people treat the project as part of their application, and not just as a upstream chunk of code written by “other” people. Getting more people contributing is a big part of that.
 -->
-Bryan: 저는 사람들이 프로젝트를 "다른"사람들이 작성한 코드의 업스트림 덩어리가 아니라 응용 프로그램의 일부로 취급하는 것이 중요하다고 저에게 덧붙였습니다. 더 많은 사람들을 기여하게 하는 것은 그것의 중요한 부분입니다.
+Bryan: 저는 사람들이 프로젝트를 "다른" 사람들이 작성한 코드의 업스트림 덩어리가 아니라 자신의 응용 프로그램으로 생각하는 것이 중요하다고 얘기하고 싶습니다. 그래서 더 많은 사람들을 기여하도록 하는 것이 중요합니다.
 
 <!--
 Anna: That’s a perfect addition, yes — It’s a problem that Node.js Core has been having in the past and imho this is an important way of working on it!
 -->
-Anna: 완벽한 추가입니다. Node.js Core가 과거와 현재 가지고 있었던 문제입니다. 이 작업의 중요한 방법입니다!
+Anna: 좋은 의견입니다. Node.js 코어가 과거에 가지고 있던 문제이고 저는 이 부분이 실제로 동작하게 하는 중요한 방법이라고 생각합니다!
 
 <!--
 ### Question: How can someone who isn’t a strong developer contribute back to Node.js Core?
@@ -71,22 +70,22 @@ Anna: 완벽한 추가입니다. Node.js Core가 과거와 현재 가지고 있�
 <!--
 Rich: I think there’s two ways to answer that question: One if we’re talking about someone who is essentially not a developer and not particularly interested in being a developer. And the other answer would be for people who are developers, just not very experienced.
 -->
-Rich: 저는 그 질문에 두 가지 방법이 있다고 생각합니다. 하나는 개발자가 아니며 개발자가 되는 데 관심이 없는 사람에 대한 이야기입니다. 그리고 다른 대답은 경험이 별로 없는 개발자들에게 달려 있습니다.
+Rich: 그 질문에는 두 가지 답변이 있다고 생각합니다. 하나는 개발자가 아니면서 개발자가 되는 데 관심이 없는 사람이고 다른 하나는 개발자이지만 경험이 많지 않은 사람들입니다.
 
 <!--
 Anna: So, if you’re not a developer: You can always try to look at the documentation side of things, watch out for typos and passages that seem unclear to you (especially if you’re not a developer or not a particularly experienced one!)
 -->
-Anna: 개발자가 아닌 경우 항상 설명서의 주변을 살펴보고, 개발자에게 알 수 없는 오타 및 구절을 주의해야 합니다.(특히 개발자가 아니거나 경험이 없는 개발자의 경우)
+Anna: 개발자가 아닌 경우 항상 문서를 찾아보고 자신에게 명확하지 않은 오타나 구절을 찾아봐야 합니다.(특히 개발자가 아니거나 경험이 없는 개발자의 경우)
 
 <!--
 William Kapke gave a [great talk at Node Interactive in Austin, TX](https://www.youtube.com/watch?v=SV0p3ET1vpU) on how he contributes (invaluably!) to the Node project without writing any code in Node.js Core itself — if you have the time, it’s worth listening to.
 -->
-William Kapke는 Node.js Core 자체에 코드를 작성하지 않고 Node 프로젝트에 기여하는 방법에 대해 이야기합니다. [great talk at Node Interactive in Austin, TX](https://www.youtube.com/watch?v=SV0p3ET1vpU) - 시간이 있다면 들을 만한 가치가 있습니다.
+William Kapke는 Node.js Core 자체에 코드를 작성하지 않고 Node 프로젝트에 기여하는 방법에 대해 이야기합니다. [텍사스 오스틴에서 열린 Node Interactive의 발표](https://www.youtube.com/watch?v=SV0p3ET1vpU) - 시간이 있다면 들을 만한 가치가 있습니다.
 
 <!--
 Rich: If your English is strong, there are a bunch of things that we could use help with in the docs: there is way too much abuse of hyphens; there are tons of comma splices; overuse of passive voice; tons of stuff that is too wordy and needs to be edited down… And of course, doc omissions and errors. Please fix those.
 -->
-Rich: 당신이 영어를 잘한다면, 문서에서 도움을 받을 수 있는 여러 가지가 있습니다. 하이픈의 너무 많은 남용, 많은 쉼표와 이어쓰기, 수동적인 목소리의 남용, 너무 장황하고 편집할 필요가 있는 수 많은 것들... 이러한 문서 누락과 오류를 고쳐주세요.
+Rich: 영어를 잘한다면 문서에서 도울 수 있는 부분이 많습니다. 하이픈의 남용, 많은 쉼표와 이어쓰기, 수동문의 남용, 너무 장황하고 편집할 필요가 있는 많은 부분들... 물론 문서의 누락과 오류도 여기에 포함됩니다. 이런 부분을 고쳐주세요.
 
 <!--
 If you are strong in a language other than English, translation help is always needed/welcome. (Unfortunately, non-English docs are in separate repositories on a per-language basis, I believe.)
@@ -96,22 +95,22 @@ If you are strong in a language other than English, translation help is always n
 <!--
 Anna: If you are eager to get going on this, the source files for the docs are at https://github.com/nodejs/node/tree/master/doc
 -->
-Anna: 이 작업에 열심인 경우 문서의 소스 파일은 다음 위치에 있습니다. https://github.com/nodejs/node/tree/master/doc
+Anna: 이 작업에 열심인 경우 문서의 소스 파일은 다음 위치에 있습니다. <https://github.com/nodejs/node/tree/master/doc>
 
 <!--
 Rich: I would also add that I consider just opening issues for bugs you find to be a form of contributing to Node.js Core. A good bug report (emphasis on good) is incredibly valuable.
 -->
-Rich: 저는 또한 여러분이 Node.js Core에 기여하는 형태로 발견한 버그에 대한 이슈를 추가할 것입니다. 좋은 버그 리포트 (좋은에 강조)는 믿을 수 없을 정도로 가치가 있습니다.
+Rich: 발견한 버그에 대한 이슈를 등록하는 것도 Node.js Core에 기여하는 방법에 포함시키고 싶습니다. 좋은 버그 리포트(좋은에 강조)는 아주 가치있습니다.
 
 <!--
 On the other question of how to contribute code if you’re not very experienced, I try to set people up with code cleanup on tests. That’s my go-to for first-time contributors. It’s a good thing to start with, whether you are experienced or not, because it’s a good idea to focus on the process the first time you contribute anyway, rather than focusing on how the code works.
 -->
-경험이 별로 없다면 코드를 제공하는 방법에 대한 다른 질문에서 테스트에서 코드 정리를 사용하여 사람들을 설정하려고 합니다. 그것은 처음으로 기여한 사람들을 위한 것입니다. 경험이 있건 없건 간에 처음부터 시작하는 것은 좋은 일입니다. 왜냐하면 코드가 어떻게 작동하는지에 초점을 맞추는 것이 아니라 처음 기여할 때 프로세스에 집중하는 것이 바람직하기 때문입니다.
+경험이 별로 없다면 코드 기여를 하는 방법에 관한 다른 질문으로 테스트에서 코드를 정리하는데 사람들을 배정하려고 합니다. 이는 첫 기여자에게 좋다고 믿습니다. 경험이 있던 없던 이는 시작하기 좋은 지점입니다. 왜냐하면 코드가 어떻게 작동하는지에 초점을 맞추는 것이 아니라 처음 기여할 때 프로세스에 집중하는 것이 바람직하기 때문입니다.
 
 <!--
 Tests are usually understandable, and even when they’re not, you can still feel pretty secure changing some instances of var to const and updating a few assert.equal() instances to assert.strictEqual().
 -->
-테스트는 대개 이해할 수 있으며, 그렇지 않은 경우에도 const의 일부 인스턴스를 const로 변경하고 assert.strictEqual()에 몇 개의 assert.equal() 인스턴스를 업데이트하는 것이 매우 안전하다고 느낄 수 있습니다.
+테스트는 대개 이해할 수 있으며, 그렇지 않은 경우에도 var의 일부 인스턴스를 const로 변경하고 assert.strictEqual()에 몇 개의 assert.equal() 인스턴스를 업데이트하는 것이 매우 안전하다고 느낄 수 있습니다.
 
 <!--
 I have a Twitter handle (@NodeTodo) and an email address (help@[nodetodo.org](https://sidewayembed.com/redirect?url=unknown%3A%2F%2Fnodetodo.org)) that anyone who has never contributed to Node.js can use to request a simple first commit.
@@ -151,7 +150,7 @@ Anna: 맞습니다. ;) 버그가 발생하는 경우 - 감당하지 못할 것�
 <!--
 Rich: Good question from someone who has been doing a ton of test cleanup. :-D
 -->
-Rich: 테스트 정리를 해본 적이 있는 사람이 본 좋은 질문입니다. :-D
+Rich: 테스트 정리를 해본 적이 있는 사람의 좋은 질문입니다. :-D
 
 <!--
 Anna (with some contributions from others as well) set up [coverage.nodejs.org](https://sidewayembed.com/redirect?url=unknown%3A%2F%2Fcoverage.nodejs.org). I often tell people to look at the test coverage to find a good second commit after they’ve landed their first commit. That will get you out of cleaning up existing tests and into writing new tests.
@@ -179,17 +178,17 @@ Bryan: 좋은 적용 범위에서도 일부 코드 경로가 누락될 수 있�
 <!--
 Rich: I should also mention that I have a definite bias towards tests. I don’t think tests were my first contribution to Node.js, but they definitely are where I have spent the most time, overwhelmingly. Asking someone else might get a different answer. One place you can always ask is #node-dev on Freenode IRC. That’s for Node.js Core discussions. General Node.js questions should go to #Node.js instead.
 -->
-Rich: 테스트에 확실한 편견이 있음을 언급해야 합니다. 나는 테스트가 Node.js에 처음 기여한 것이 아니라고 생각하지만, 그것은 내가 가장 많은 시간을 압도적으로 보낸 곳입니다. 다른 사람에게 묻는 것은 다른 대답을 얻을 수 있습니다. 항상 물어볼 수 있는 장소는 Freenode IRC의 #node-dev입니다. 이곳은 Node.js Core 토론을 위한 곳입니다. 일반 Node.js 질문은 #Node.js로 이동해야 합니다.
+Rich: 저는 테스트에 확실히 편견이 있습니다. Node.js에 처음 기여한 것이 테스트는 아니었지만 압도적으로 많은 시간을 소비한 것은 확실합니다. 다른 사람에게 묻는 것은 다른 대답을 얻을 수 있습니다. Freenode IRC의 #node-dev 채널에서 언제든 질문할 수 있고 여기는 Node.js Core를 논의하는 곳입니다. 일반적인 Node.js 질문은 #Node.js을 이용해야 합니다.
 
 <!--
 ### Question: I have contributed once on a simple issue. Will @NodeTodo keep me in the loop on newer simpler issues?
 -->
-### 질문: 나는 간단한 문제에 한 번 기여했다. @NodeTodo 가 새로운 간단한 문제에 대한 관심을 내게 갖게 할까요?
+### 질문: 간단한 이슈에 한 번 기여했습니다. @NodeTodo에서 다시 더 새롭고 간단한 이슈를 찾아야 하나요?
 
 <!--
 Rich: I try not to hand out specific second commits via NodeTodo too much. I try to direct people to coverage.nodejs.org or otherwise have them come up with their own issues. I try to keep stuff in reserve for first-timers. I’m not sure I have a good concrete reason for that. It just feels right, I guess. But I’m happy to help anyone figure out a second (or third or fourth) commit. It will just take longer and be more effort.
 -->
-Rich: NodeTodo를 통해 특정 두 번째 커밋을 너무 많이 넘겨서는 안 됩니다. 나는 사람들을 coverage.nodejs.org로 안내하거나 그렇지 않으면 그들 자신의 문제를 생각하지 못합니다. 초보자를 위해 예비로 커밋을 보관하려고 합니다. 나는 그것이 좋은 이유가 확실하지 않습니다. 그냥 옳은 것 같아요. 그러나 두 번째 (또는 세 번째 또는 네 번째) 커밋을 알아내는 사람을 도와 드리겠습니다. 그냥 오래 걸리고 더 많은 노력을 기울일 것입니다.
+Rich: 저는 NodeTodo으로 특정 두 번째 커밋을 너무 많이 분배하려고 하지 않습니다. 사람들이 coverage.nodejs.org로 가게 하거나 자신의 이슈로 돌아올 수 있게 노력합니다. NodeTodo는 처음 기여하는 사람들을 위한 예비 커밋으로 유지하려고 합니다. 이렇게 하는 좋은 이유에 대한 확신은 없지만 저는 이게 옳다고 믿습니다. 하지만 두 번째 (혹은 세 번째나 네 번째) 커밋을 사람들이 찾아낼 수 있도록 돕고 싶습니다. 이는 더 오래 걸리고 더 많은 노력이 필요할 것입니다.
 
 <!--
 ### Question: Is the roadmap for Node well-defined? Do you accept feature requests from the community or do most of the ideas come from the core group?
@@ -199,7 +198,7 @@ Rich: NodeTodo를 통해 특정 두 번째 커밋을 너무 많이 넘겨서는 
 <!--
 Anna: We don’t have a fixed, centralized roadmap, and we definitely want to talk about feature requests from and with the community; but keep in mind that a lot of people would prefer to have those things in Node core that can’t be easily implemented and maintained in userland (= outside of Node core, for example as an npm package).
 -->
-Anna: 우리는 고정된 중앙 집중식 로드맵을 가지고 있지 않으며 커뮤니티와의 기능 요청에 대해 분명히 이야기하고 싶습니다. 그러나 많은 사람들이 Node core에서 쉽게 구현하고 유지할 수 없는 것을 userland(예 : npm 패키지와 같은 Node core의 외부)에 가지고 싶어 합니다.
+Anna: 우리는 고정된 중앙 집중식 로드맵을 가지고 있지 않으며 커뮤니티와의 기능 요청에 대해 분명히 이야기하고 싶습니다. 그러나 많은 사람들이 Node core에서 쉽게 구현하고 유지할 수 없는 것을 유저랜드(예 : npm 패키지와 같은 Node core의 외부)에 가지고 싶어 합니다.
 
 <!--
 Rich: You shouldn’t feel shy about opening an issue and asking, though.
@@ -212,7 +211,7 @@ Rich: 문제를 열어서 묻는 것에 부끄러워하지 않아야 합니다.
 
 예, 문제 추적기에 기능 요청 라벨이 있으므로 기능 요청을 환영합니다.
 
-또한 구체적인 아이디어, 구현 설계 및 모든 것이 있으면 https://github.com/nodejs/node-eps 를 살펴보십시오.
+또한 구체적인 아이디어, 구현 설계 및 모든 것이 있으면 <https://github.com/nodejs/node-eps>를 살펴보십시오.
 
 <!--
 Anna: That node-eps is for the really large and wide-reaching changes — I wouldn’t recommend going there first, actually. If you want to see a feature implemented, go to nodejs/node, and we’ll see where to go from there :)
@@ -227,12 +226,12 @@ Rich: 네, node-eps 저장소는 확실히 첫 정류장이 아닙니다.
 <!--
 ### Question: How much of the core effort is C++ vs JS?
 -->
-### 질문: 얼마나 많은 노력이 core에 들어갔나요? C++ vs JS
+### 질문: C++와 JS 중 어느 부분에 노력이 더 많이 필요한가요?
 
 <!--
 Anna: I’m pretty sure the overwhelming majority of code in Node core is written in JS, and you definitely do not need any C++ knowledge to contribute to Node! The same goes the other way around: You probably don’t actually need to know JS for contributing to the C++ side of things.
 -->
-Anna: Node core의 코드 대부분이 JS로 작성되었으며, Node에 기여하기 위해 C++ 지식이 필요 없다는 것을 확신합니다! 그 반대의 경우도 마찬가지입니다. 실제로 C++ 측면에 기여한 JS를 실제로 알 필요는 없습니다.
+Anna: Node core의 코드 대부분이 JS로 작성되었으며, Node에 기여하기 위해 C++ 지식이 필요 없다고 확신합니다! 그 반대의 경우도 마찬가지입니다. 실제로 C++ 측면에 기여한 JS를 실제로 알 필요는 없습니다.
 
 <!--
 That being said, there’s much more activity around the JS parts of Node, and a lot more people are involved on that side.
@@ -247,7 +246,7 @@ Bryan: 제가 핵심으로 본 C++ 코드의 대부분은 글루 코드입니다
 <!--
 ### Question: I’m just starting with PR’s to bigger public node based projects. I’ve done a number of small PR’s, I’m working on a PR for ‘got’ currently but would also definitely like to contribute to node core in the future. A question I struggled with slightly is that a PR can be a lot of work. Especially when submitting something that isn’t ‘your first PR’. For a younger developer, this can be intimidating because of the fear your PR gets outright rejected. Fixing a comparison is one thing, but many issues require more than a couple lines. Would you encourage us young ones to power on and accept sometimes you will lose time with little return, submitting code that’s subpar? Or alternatively encourage discussion on the issue and perhaps prematurely opening a PR to get some direction and work on with confidence?
 -->
-### 질문: 나는 더 큰 공개 노드 기반 프로젝트에 대한 홍보로 시작하고 있습니다. 나는 작은 PR을 했습니다. 현재 '있어'에 대한 홍보를 하고 있지만, 앞으로는 핵심 노드에 기여하고 싶습니다. 제가 약간 어려움을 겪었던 질문은 PR이 많은 일이 될 수 있다는 것입니다. 특히 '첫 PR'이 아닌 것을 제출할 때. 젊은 개발자의 경우 PR이 완전히 거부되는 두려움 때문에 위협할 수 있습니다. 비교 문제를 해결하는 것이 한 가지이지만 많은 문제는 몇 줄 이상을 필요로 합니다. 우리는 젊은 사람들에게 권한을 행사하도록 권하고, 때로는 작은 수익을 내면서 시간을 잃을 것입니다. 또는 문제에 대한 논의를 장려하고 PR을 조기에 열어 어떤 방향을 찾고 자신감을 가지고 작업할 수 있습니까?
+### 질문: 저는 크고 공개적인 Node 기반 프로젝에 PR을 작업하고 있습니다. 다수의 작은 PR을 마무리했고 현재 '가진' PR을 작업하고 있지만 미래에는 Node 코어에도 기여하고 싶습니다. 제가 약간 어려움을 겪었던 질문은 PR은 많은 작업이 필요하다는 것입니다. 특히 '당신의 첫 PR'이 아닌 어떤 작업을 제출할 때 많은 작업이 필요합니다. PR이 노골적으로 거절될 수 있으므로 젊은 개발자들은 이 부분이 두려울 수 있습니다. 하나의 비교를 수정하는 것은 간단하지만 많은 이슈들은 많은 줄의 수정이 필요합니다. 저 같은 젊은 개발자가 힘을 얻고 때로는 수준 이하의 코드를 제출해서 이득은 적지만 시간을 잃더라도 받아들일 수 있도록 격려할 수 있을까요? 아니면 이슈에서 토론을 권장하거나 어떤 방향을 갖기 위해 일찍 PR을 열거나 자신감을 갖고 작업할 수 있게 할 수 있을까요?
 
 <!--
 Rich: There are two approaches that I can think of offhand:
@@ -258,7 +257,7 @@ Rich: 제가 생각하기엔 두 가지 접근 방식이 있습니다.
 - One is to hop on IRC (or Slack or whatever) and chat with devs on the project. Obviously that will only work if the project in question has devs available that way and if the right people are available when you come to ask questions. So, that can be a bit of toss of the dice.
 - Another approach (which you touch on) is issue tracker based. Of course, comments and back-and-forth and “here’s a little bit of code, does this look like the right approach” can help.
 -->
-- 하나는 IRC (또는 Slack 또는 무엇이든)를 뛰어다니고 프로젝트에서 devs와 채팅하는 것입니다. 분명히 문제의 프로젝트가 devs를 사용할 수 있고 질문할 때 올바른 사람들이 사용할 수 있는 경우에만 작동합니다. 그래서 주사위를 던질 수 있습니다.
+- 하나는 IRC (또는 Slack 이나 다른 무엇이든)를 뛰어다니고 프로젝트에서 개발자들과 채팅하는 것입니다. 분명히 문제의 프로젝트가 개발자들과 사용할 수 있고 질문할 때 올바른 사람들이 사용할 수 있는 경우에만 작동합니다. 그래서 주사위를 던질 수 있습니다.
 - 다른 접근법 (당신이 다루는)은 이슈 트래커를 기반으로 합니다. 물론, 주석과 앞뒤 및 "여기에 약간의 코드가 있습니다. 올바른 접근 방식처럼 보입니다."가 도움이 될 수 있습니다.
 
 <!--
@@ -338,7 +337,7 @@ NodeSchool은 또한 커뮤니티 노력이지만 Node.js core를 시작하고 �
 <!--
 Rich: My incredibly brief answer to the easiest way to find things you could possibly contribute to Node core is: http://nodetodo.org/getting-started/
 -->
-Rich: 노드 코어에 기여할 수 있는 것들을 찾는 가장 쉬운 방법에 대한 내 간단한 대답은 다음과 같습니다. http://nodetodo.org/getting-started/
+Rich: 노드 코어에 기여할 수 있는 것들을 찾는 가장 쉬운 방법에 대한 내 간단한 대답은 다음과 같습니다. <http://nodetodo.org/getting-started/>
 
 <!--
 But that interprets the question with emphasis on the “easiest” part. I suspect Tierney may have intended the emphasis to be on “possibly”. That is, instead of “how do I find something, anything, easily”, it may have been “how can I find all the things where contributing is possible”.
