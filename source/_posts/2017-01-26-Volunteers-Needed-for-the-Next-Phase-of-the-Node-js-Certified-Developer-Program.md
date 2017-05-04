@@ -9,28 +9,34 @@ translator: pineoc
 <!--
 We (The Node.js Foundation) held an in-person development workshop with the community at Node.js Interactive in November to accelerate work on the new Node.js Certified Developer program.
 -->
+우리 (The Node.js Foundation)는 새로운 Node.js 개발 인증 프로그램에 대한 작업을 가속화하기 위해 11월에 Node.js Interactive에서 커뮤니티와 함께 직접 개발 워크샵을 개최했습니다.
 
 <!--
 The certification program aims to establish a baseline competency in Node.js. While not an expert in all areas, developers who pass the certification will be able to hit the ground running with Node.js.
 -->
+인증 프로그램은 Node.js의 기준 역량을 수립하는 것을 목표로 합니다. 모든 분야의 전문가는 아니지만 인증을 통과한 개발자는 Node.js 분야에서 열정적으로 일을 시작할 수 있을 것 입니다.
 
 <!--
 In the in-person development workshop, those involved in the program determined specific topics for the exam and the skills, knowledge and abilities a certified candidate should be able to demonstrate to become a Node.js Certified Developer.
 -->
+개발 워크샵에서 인증 후보자가 Node.js 인증 개발자가 될 수 있어야하는 시험, 기술, 지식 및 능력에 대한 구체적인 주제를 결정했습니다.
 
 <!--
 Currently we are working with the community to determine specific questions that will be asked on the exam. To contribute to the Node.js Foundation Certification Development Item Writing Workshop Sessions, fill out this application.
 -->
+현재 우리는 커뮤니티와 협력하여 시험에서 요구되는 특정 문제를 고려하고 있습니다. 워크샵 세션을 작성하는 Node.js Foundation 인증 개발 항목에 기여하려면 신청서를 작성하십시오.
 
 ![](https://cdn-images-1.medium.com/max/800/1*42wGvCqcxEx2UO2g6OFZyw.jpeg)
 
 <!--
 Expected to launch in Q2 this year, pricing for the self-paced, online exam is still to be determined. The exam is expected to take about 3.5 hours. The topics that will be covered on the exam will be published publically as will resources to help prepare for the certification, allowing others to leverage the source materials for their own Node.js learning.
 -->
+올해 2분기에 출시 될 것으로 예상되며, 자체 진행 온라인 시험의 가격은 아직 결정되지 않았습니다. 시험은 약 3.5 시간이 걸릴 것으로 예상됩니다. 시험에서 다루게 될 주제는 인증을 준비하는 데 도움이 되는 자원으로 공개적으로 게시되며, 다른 사람들이 자신의 Node.js 학습을 위해 소스 자료를 활용할 수 있도록 합니다.
 
 <!--
 Below are more details on the goals for the certification program, work that has been done so far and how you can get involved.
 -->
+아래는 인증 프로그램의 목표, 지금까지 수행된 작업 및 참여 방법에 대한 자세한 내용입니다.
 
 <!--
 ### Who Benefits from the Certification?
