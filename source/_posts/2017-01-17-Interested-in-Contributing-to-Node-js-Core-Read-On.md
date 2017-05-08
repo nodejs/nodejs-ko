@@ -186,11 +186,7 @@ Rich: 저는 테스트에 확실히 편견이 있습니다. Node.js에 처음 �
 <!--
 Rich: I try not to hand out specific second commits via NodeTodo too much. I try to direct people to coverage.nodejs.org or otherwise have them come up with their own issues. I try to keep stuff in reserve for first-timers. I’m not sure I have a good concrete reason for that. It just feels right, I guess. But I’m happy to help anyone figure out a second (or third or fourth) commit. It will just take longer and be more effort.
 -->
-<<<<<<< HEAD
-Rich: 저는 NodeTodo으로 특정 두 번째 커밋을 너무 많이 분배하려고 하지 않습니다. 사람들이 coverage.nodejs.org로 가게 하거나 자신의 이슈로 돌아올 수 있게 노력합니다. NodeTodo는 처음 기여하는 사람들을 위한 예비 커밋으로 유지하려고 합니다. 이렇게 하는 좋은 이유에 대한 확신은 없지만 저는 이게 옳다고 믿습니다. 하지만 두 번째 (혹은 세 번째나 네 번째) 커밋을 사람들이 찾아낼 수 있도록 돕고 싶습니다. 이는 더 오래 걸리고 더 많은 노력이 필요할 것입니다.
-=======
 Rich: 저는 NodeTodo로 특정 두 번째 커밋을 너무 많이 분배하려고 하지 않습니다. 사람들이 coverage.nodejs.org로 가게 하거나 자신의 이슈로 돌아올 수 있게 노력합니다. NodeTodo는 처음 기여하는 사람들을 위한 예비 커밋으로 유지하려고 합니다. 이렇게 하는 좋은 이유에 대한 확신은 없지만 저는 이게 옳다고 믿습니다. 하지만 두 번째 (혹은 세 번째나 네 번째) 커밋을 사람들이 찾아낼 수 있도록 돕고 싶습니다. 이는 더 오래 걸리고 더 많은 노력이 필요할 것입니다.
->>>>>>> nodejs/master
 
 <!--
 ### Question: Is the roadmap for Node well-defined? Do you accept feature requests from the community or do most of the ideas come from the core group?
@@ -200,11 +196,7 @@ Rich: 저는 NodeTodo로 특정 두 번째 커밋을 너무 많이 분배하려�
 <!--
 Anna: We don’t have a fixed, centralized roadmap, and we definitely want to talk about feature requests from and with the community; but keep in mind that a lot of people would prefer to have those things in Node core that can’t be easily implemented and maintained in userland (= outside of Node core, for example as an npm package).
 -->
-<<<<<<< HEAD
-Anna: 우리는 고정된 중앙 집중식 로드맵을 가지고 있지 않으며 커뮤니티와의 기능 요청에 대해 분명히 이야기하고 싶습니다. 그러나 많은 사람들이 Node core에서 쉽게 구현하고 유지할 수 없는 것을 유저랜드(예 : npm 패키지와 같은 Node core의 외부)에 가지고 싶어 합니다.
-=======
 Anna: 우리는 고정된 중앙 집중식 로드맵을 가지고 있지 않으며 커뮤니티와의 기능 요청에 대해 분명히 이야기하고 싶습니다. 그러나 많은 사람들이 Node core에서 쉽게 구현하고 유지할 수 없는 것을 유저랜드(예: npm 패키지와 같은 Node core의 외부)에 가지고 싶어 합니다.
->>>>>>> nodejs/master
 
 <!--
 Rich: You shouldn’t feel shy about opening an issue and asking, though.
