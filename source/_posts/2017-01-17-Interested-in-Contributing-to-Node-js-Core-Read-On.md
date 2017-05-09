@@ -205,9 +205,9 @@ Yeah, there’s a feature request label on the issue tracker, so feature request
 
 Also, if you have a concrete idea, implementation design and all, take a look at https://github.com/nodejs/node-eps.
 -->
-Rich: 문제를 열어서 묻는 것에 부끄러워하지 않아야 합니다.
+Rich: 이슈를 열어서 묻는 것에 부끄러워하지 않아야 합니다.
 
-예, 문제 추적기에 기능 요청 라벨이 있으므로 기능 요청을 환영합니다.
+예, 이슈 트래커에 기능 요청 라벨이 있으므로 기능 요청을 환영합니다.
 
 또한 구체적인 아이디어, 구현 설계 및 모든 것이 있으면 <https://github.com/nodejs/node-eps>를 살펴보십시오.
 
