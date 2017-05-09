@@ -1,6 +1,6 @@
 ---
 category: articles
-title: Node.js 공식 개발자 프로그램의 다음 단계에 필요한 지원자
+title: Node.js 개발자 인증 프로그램이 다음 단계로 나아가기 위해 지원자가 필요합니다.
 author: Node.js Foundation
 ref: Volunteers Needed for the Next Phase of the Node.js Certified Developer Program
 refurl: https://medium.com/@nodejs/volunteers-needed-for-the-next-phase-of-the-node-js-certified-developer-program-eeb631effc49#.tzasgab43
@@ -9,7 +9,7 @@ translator: pineoc
 <!--
 We (The Node.js Foundation) held an in-person development workshop with the community at Node.js Interactive in November to accelerate work on the new Node.js Certified Developer program.
 -->
-우리 (The Node.js Foundation)는 새로운 Node.js 개발 인증 프로그램에 대한 작업을 가속화하기 위해 11월에 Node.js Interactive에서 커뮤니티와 함께 직접 개발 워크숍을 개최했습니다.
+우리 (The Node.js 재단)는 새로운 Node.js 개발자 인증 프로그램에 대한 작업을 가속화하기 위해 11월에 Node.js Interactive에서 커뮤니티와 함께 직접 개발 워크숍을 개최했습니다.
 
 <!--
 The certification program aims to establish a baseline competency in Node.js. While not an expert in all areas, developers who pass the certification will be able to hit the ground running with Node.js.
@@ -24,7 +24,7 @@ In the in-person development workshop, those involved in the program determined 
 <!--
 Currently we are working with the community to determine specific questions that will be asked on the exam. To contribute to the Node.js Foundation Certification Development Item Writing Workshop Sessions, fill out this application.
 -->
-현재 우리는 커뮤니티와 협력하여 시험에서 요구되는 특정 문제를 고려하고 있습니다. 워크숍 세션을 작성하는 Node.js Foundation 인증 개발 항목에 기여하려면 신청서를 작성하세요.
+현재 우리는 커뮤니티와 협력하여 시험에서 요구되는 특정 문제를 고려하고 있습니다. 워크숍 세션을 작성하는 Node.js 재단 인증 개발 항목에 기여하려면 신청서를 작성하세요.
 
 ![](https://cdn-images-1.medium.com/max/800/1*42wGvCqcxEx2UO2g6OFZyw.jpeg)
 
@@ -74,12 +74,12 @@ Node.js 사용자의 규모와 필요성을 감안할 때 현재 한 달에 4.5 
 <!--
 We worked closely with [The Linux Foundation](https://training.linuxfoundation.org/certification/why-certify-with-us) to create the [blueprint](https://github.com/nodejs/education/blob/master/certification.md#nodejs-certified-developer) and process for administering the program. The Linux Foundation offers a neutral home for running training and certification programs, thanks to its close involvement with the open source community. It offers several online courses and certifications, including [Kubernetes Fundamentals](https://training.linuxfoundation.org/linux-courses/system-administration-training/kubernetes-fundamentals); [Linux Foundation Certified System Administrator (LFCS)](https://training.linuxfoundation.org/certification/lfcs); [Linux Foundation Certified Engineer (LFCE)](https://training.linuxfoundation.org/certification/lfce); among many others.
 -->
-우리는 [The Linux Foundation](https://training.linuxfoundation.org/certification/why-certify-with-us)과 긴밀하게 협력하여 [blueprint](https://github.com/nodejs/education/blob/master/certification.md#nodejs-certified-developer)를 만들고 프로그램 관리 프로세스를 진행했습니다. Linux Foundation은 오픈 소스 커뮤니티와의 긴밀한 관계 덕분에 교육 및 인증 프로그램을 운영 할 수있는 중립적인 장소를 제공합니다. [Kubernetes Fundamentals](https://training.linuxfoundation.org/linux-courses/system-administration-training/kubernetes-fundamentals)를 포함한 몇 가지 온라인 코스 및 자격증을 제공합니다. 다른 많은 것들 중에, [Linux Foundation 인증 시스템 관리자 (LFCS)](https://training.linuxfoundation.org/certification/lfcs), [Linux Foundation 인증 엔지니어 (LFCE)](https://training.linuxfoundation.org/certification/lfce)가 있습니다.
+우리는 [The Linux 재단](https://training.linuxfoundation.org/certification/why-certify-with-us)과 긴밀하게 협력하여 [청사진](https://github.com/nodejs/education/blob/master/certification.md#nodejs-certified-developer)을 만들고 프로그램 관리 프로세스를 진행했습니다. Linux 재단은 오픈 소스 커뮤니티와의 긴밀한 관계 덕분에 교육 및 인증 프로그램을 운영 할 수있는 중립적인 장소를 제공합니다. [Kubernetes 기초](https://training.linuxfoundation.org/linux-courses/system-administration-training/kubernetes-fundamentals)를 포함한 몇 가지 온라인 코스 및 자격증을 제공합니다. 다른 많은 것들 중에, [Linux 재단 인증 시스템 관리자(LFCS)](https://training.linuxfoundation.org/certification/lfcs), [Linux 재단 인증 엔지니어(LFCE)](https://training.linuxfoundation.org/certification/lfce)가 있습니다.
 
 <!--
 As part of its work with The Linux Foundation, we launched a working group in July to:
 -->
-The Linux Foundation의 일환으로 우리는 7월에 워킹 그룹을 시작하여 다음과 같은 작업을 수행했습니다.
+The Linux 재단의 일환으로 우리는 7월에 워킹 그룹을 시작하여 다음과 같은 작업을 수행했습니다.
 
 <!--
 - Define Certification(s): the number of levels, titles, program goals;
@@ -95,12 +95,12 @@ The Linux Foundation의 일환으로 우리는 7월에 워킹 그룹을 시작�
 <!--
 This group has had many virtual meetings and held an in-person Job Task Analysis (JTA) workshop at Node.js Interactive North America. The JTA helped the group determine the skills, knowledge and abilities a certified candidate should be able to demonstrate with the outcome of the JTA being an exam blueprint.
 -->
-이 그룹에는 많은 가상 회의가 있었고 Interactive North America의 Node.js에서 직접 작업 태스크 분석 (JTA) 워크숍을 개최했습니다. JTA는 인증된 응시자가 시험 청사진인 JTA의 결과를 통해 보여줄 수 있어야 하는 기술, 지식 및 능력을 그룹이 결정할 수 있도록 도움을 주었습니다.
+이 그룹에는 많은 가상 회의가 있었고 북미 Node.js Interactive에서 직접 작업 태스크 분석 (JTA) 워크숍을 개최했습니다. JTA는 인증된 응시자가 시험 청사진인 JTA의 결과를 통해 보여줄 수 있어야 하는 기술, 지식 및 능력을 그룹이 결정할 수 있도록 도움을 주었습니다.
 
 <!--
 The workshop and the progress we’ve made is only possible through the help of many individuals in the community: Tierney Coren, Ryan Lewis, Fabio Fonseca, Rajat Kumar, Charlie Robbins, Brad Farias, David Clements, Nathan White, Lawrence Grant, and Chase Moody.
 -->
-워크숍과 진행 상황은 Tierney Coren, Ryan Lewis, Fabio Fonseca, Rajat Kumar, Charlie Robbins, Brad Farias, David Clements, Nathan White, Lawrence Grant, Chase Moody와 같은 많은 개인의 도움을 통해서만 가능합니다.
+워크숍과 지금까지의 진척 상황은 Tierney Coren, Ryan Lewis, Fabio Fonseca, Rajat Kumar, Charlie Robbins, Brad Farias, David Clements, Nathan White, Lawrence Grant, Chase Moody와 같은 많은 개인의 도움으로 가능했습니다.
 
 <!--
 Thank you! Thank you! Thank you for all your help!
@@ -125,4 +125,4 @@ Each item-writer will only be able to write one question and is limited to viewi
 <!--
 If you are interested in participating in this process, please apply to the Node.js Foundation Certification Development Item Writing Workshop Sessions [here](https://docs.google.com/a/linuxfoundation.org/forms/d/10X9RJ4oLu2IU7cXppnXmwDMdJTetq3i9focw-R7GB8s/viewform?edit_requested=true). If you are looking to stay informed with what is happening with the certification program or general educational initiatives around Node.js, check out our [education page](https://nodejs.org/en/foundation/education/) or subscribe to our community [newsletter](http://bit.ly/2hml18m).
 -->
-이 과정에 참여하고 싶다면 Node.js Foundation 개발 인증 항목 작성 워크숍 세션에 [여기](https://docs.google.com/a/linuxfoundation.org/forms/d/10X9RJ4oLu2IU7cXppnXmwDMdJTetq3i9focw-R7GB8s/viewform?edit_requested=true)를 통해 참여하세요. Node.js 주변의 인증 프로그램이나 일반 교육 이니셔티브에 대한 정보를 얻으려면 [교육 페이지](https://nodejs.org/en/foundation/education/)를 확인하거나 커뮤니티 [뉴스 레터](http://bit.ly/2hml18m)에 가입하십시오.
+이 과정에 참여하고 싶다면 Node.js 재단 개발 인증 항목 작성 [워크숍 세션](https://docs.google.com/a/linuxfoundation.org/forms/d/10X9RJ4oLu2IU7cXppnXmwDMdJTetq3i9focw-R7GB8s/viewform?edit_requested=true)에 참여하세요. Node.js 주변의 인증 프로그램이나 일반 교육 이니셔티브에 대한 정보를 얻으려면 [교육 페이지](https://nodejs.org/en/foundation/education/)를 확인하거나 커뮤니티 [뉴스 레터](http://bit.ly/2hml18m)에 가입하십시오.

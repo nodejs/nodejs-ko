@@ -209,7 +209,6 @@ Rich: 문제를 열어서 묻는 것에 부끄러워하지 않아야 합니다.
 
 예, 문제 추적기에 기능 요청 라벨이 있으므로 기능 요청을 환영합니다.
 
-
 또한 구체적인 아이디어, 구현 설계 및 모든 것이 있으면 <https://github.com/nodejs/node-eps>를 살펴보십시오.
 
 <!--
@@ -256,7 +255,6 @@ Rich: 제가 생각하기엔 두 가지 접근 방식이 있습니다.
 - One is to hop on IRC (or Slack or whatever) and chat with devs on the project. Obviously that will only work if the project in question has devs available that way and if the right people are available when you come to ask questions. So, that can be a bit of toss of the dice.
 - Another approach (which you touch on) is issue tracker based. Of course, comments and back-and-forth and “here’s a little bit of code, does this look like the right approach” can help.
 -->
-
 - 하나는 IRC(또는 Slack 이나 다른 무엇이든)를 뛰어다니고 프로젝트에서 개발자들과 채팅하는 것입니다. 분명히 문제의 프로젝트가 개발자들과 사용할 수 있고 질문할 때 올바른 사람들이 사용할 수 있는 경우에만 작동합니다. 그래서 이것은 주사위를 던지는 행위일 수 있습니다.
 - 다른 접근법(당신이 다루는)은 이슈 트래커를 기반으로 합니다. 댓글, 대화, "여기 이 코드의 접근 방식이 올바른가요?" 등은 당연히 도움이 됩니다.
 
