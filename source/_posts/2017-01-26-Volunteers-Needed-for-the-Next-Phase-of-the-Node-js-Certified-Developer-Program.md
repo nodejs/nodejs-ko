@@ -9,7 +9,7 @@ translator: pineoc
 <!--
 We (The Node.js Foundation) held an in-person development workshop with the community at Node.js Interactive in November to accelerate work on the new Node.js Certified Developer program.
 -->
-우리 (The Node.js 재단)는 새로운 Node.js 개발자 인증 프로그램에 대한 작업을 가속화하기 위해 11월에 Node.js Interactive에서 커뮤니티와 함께 직접 개발 워크숍을 개최했습니다.
+우리(The Node.js 재단)는 새로운 Node.js 개발자 인증 프로그램에 대한 작업을 가속화하기 위해 11월에 Node.js Interactive에서 커뮤니티와 함께 직접 개발 워크숍을 개최했습니다.
 
 <!--
 The certification program aims to establish a baseline competency in Node.js. While not an expert in all areas, developers who pass the certification will be able to hit the ground running with Node.js.
@@ -74,12 +74,12 @@ Node.js 사용자의 규모와 필요성을 감안할 때 현재 한 달에 4.5 
 <!--
 We worked closely with [The Linux Foundation](https://training.linuxfoundation.org/certification/why-certify-with-us) to create the [blueprint](https://github.com/nodejs/education/blob/master/certification.md#nodejs-certified-developer) and process for administering the program. The Linux Foundation offers a neutral home for running training and certification programs, thanks to its close involvement with the open source community. It offers several online courses and certifications, including [Kubernetes Fundamentals](https://training.linuxfoundation.org/linux-courses/system-administration-training/kubernetes-fundamentals); [Linux Foundation Certified System Administrator (LFCS)](https://training.linuxfoundation.org/certification/lfcs); [Linux Foundation Certified Engineer (LFCE)](https://training.linuxfoundation.org/certification/lfce); among many others.
 -->
-우리는 [The Linux 재단](https://training.linuxfoundation.org/certification/why-certify-with-us)과 긴밀하게 협력하여 [청사진](https://github.com/nodejs/education/blob/master/certification.md#nodejs-certified-developer)을 만들고 프로그램 관리 프로세스를 진행했습니다. Linux 재단은 오픈 소스 커뮤니티와의 긴밀한 관계 덕분에 교육 및 인증 프로그램을 운영 할 수있는 중립적인 장소를 제공합니다. [Kubernetes 기초](https://training.linuxfoundation.org/linux-courses/system-administration-training/kubernetes-fundamentals)를 포함한 몇 가지 온라인 코스 및 자격증을 제공합니다. 다른 많은 것들 중에, [Linux 재단 인증 시스템 관리자(LFCS)](https://training.linuxfoundation.org/certification/lfcs), [Linux 재단 인증 엔지니어(LFCE)](https://training.linuxfoundation.org/certification/lfce)가 있습니다.
+우리는 [Linux 재단](https://training.linuxfoundation.org/certification/why-certify-with-us)과 긴밀하게 협력하여 [청사진](https://github.com/nodejs/education/blob/master/certification.md#nodejs-certified-developer)을 만들고 프로그램 관리 프로세스를 진행했습니다. Linux 재단은 오픈 소스 커뮤니티와의 긴밀한 관계 덕분에 교육 및 인증 프로그램을 운영 할 수 있는 중립적인 장소를 제공합니다. [Kubernetes 기초](https://training.linuxfoundation.org/linux-courses/system-administration-training/kubernetes-fundamentals)를 포함한 몇 가지 온라인 코스 및 자격증을 제공합니다. 다른 많은 것들 중에, [Linux 재단 인증 시스템 관리자(LFCS)](https://training.linuxfoundation.org/certification/lfcs), [Linux 재단 인증 엔지니어(LFCE)](https://training.linuxfoundation.org/certification/lfce)가 있습니다.
 
 <!--
 As part of its work with The Linux Foundation, we launched a working group in July to:
 -->
-The Linux 재단의 일환으로 우리는 7월에 워킹 그룹을 시작하여 다음과 같은 작업을 수행했습니다.
+Linux 재단의 일환으로 우리는 7월에 워킹 그룹을 시작하여 다음과 같은 작업을 수행했습니다.
 
 <!--
 - Define Certification(s): the number of levels, titles, program goals;
@@ -95,7 +95,7 @@ The Linux 재단의 일환으로 우리는 7월에 워킹 그룹을 시작하여
 <!--
 This group has had many virtual meetings and held an in-person Job Task Analysis (JTA) workshop at Node.js Interactive North America. The JTA helped the group determine the skills, knowledge and abilities a certified candidate should be able to demonstrate with the outcome of the JTA being an exam blueprint.
 -->
-이 그룹에는 많은 가상 회의가 있었고 북미 Node.js Interactive에서 직접 작업 태스크 분석 (JTA) 워크숍을 개최했습니다. JTA는 인증된 응시자가 시험 청사진인 JTA의 결과를 통해 보여줄 수 있어야 하는 기술, 지식 및 능력을 그룹이 결정할 수 있도록 도움을 주었습니다.
+이 그룹에는 많은 가상 회의가 있었고 북미 Node.js Interactive에서 직접 작업 태스크 분석(JTA) 워크숍을 개최했습니다. JTA는 인증된 응시자가 시험 청사진인 JTA의 결과를 통해 보여줄 수 있어야 하는 기술, 지식 및 능력을 그룹이 결정할 수 있도록 도움을 주었습니다.
 
 <!--
 The workshop and the progress we’ve made is only possible through the help of many individuals in the community: Tierney Coren, Ryan Lewis, Fabio Fonseca, Rajat Kumar, Charlie Robbins, Brad Farias, David Clements, Nathan White, Lawrence Grant, and Chase Moody.
@@ -115,12 +115,12 @@ Thank you! Thank you! Thank you for all your help!
 <!--
 The next phase of work will be finalizing the specific questions for the topics that the exam will focus on (item-writers needed!). We are looking for folks who are intermediate to advanced in their understanding of Node.js to get involved in this work. You should be experienced enough to be very comfortable with the question you are writing and know the “gotchas” involved with the domain.
 -->
-다음 작업 단계에서는 시험에 중점을 둘 주제 (항목 작성자가 필요합니다!)에 대한 구체적인 질문을 마무리합니다. 우리는 이 작업에 참여하기 위해 Node.js에 대한 이해가 중급 정도인 사람들을 찾고 있습니다. 당신은 글쓰기에 관한 질문에 매우 익숙해져야 하며, 도메인에 관련된 "어려움"을 알아야 합니다.
+다음 작업 단계에서는 시험에 중점을 둘 주제(항목 작성자가 필요합니다!)에 대한 구체적인 질문을 마무리합니다. 우리는 이 작업에 참여하기 위해 Node.js에 대한 이해가 중급 정도인 사람들을 찾고 있습니다. 당신은 글쓰기에 관한 질문에 매우 익숙해져야 하며, 도메인에 관련된 "어려움"을 알아야 합니다.
 
 <!--
 Each item-writer will only be able to write one question and is limited to viewing only a few questions, to maintain eligibility in receiving their own certification. The time commitment for this is a 1.5 hour intro webinar, which will review the format and how to write the question, as well as 2–5 hours​ to cover writing and reviewing the question with the Core Item Review team.
 -->
-각 항목 작성자는 하나의 질문만 작성할 수 있으며 자신의 인증을 받을 수 있는 자격을 유지하기 위해 몇 가지 질문만 볼 수 있습니다. 이 시간 약속은 1.5 시간의 소개 웹 세미나로, 형식 및 질문 작성 방법을 검토하고 핵심 항목 검토 팀에 서면 작성 및 질문 검토에 2-5 시간을 복습합니다.
+각 항목 작성자는 하나의 질문만 작성할 수 있으며 자신의 인증을 받을 수 있는 자격을 유지하기 위해 몇 가지 질문만 볼 수 있습니다. 형식 및 질문 작성 방법을 검토하는 소개 웹 세미나에 1.5시간, 핵심 항목 검토 팀과 함께 질문을 작성하고 검토하는 데 2-5시간 제공될 것입니다.
 
 <!--
 If you are interested in participating in this process, please apply to the Node.js Foundation Certification Development Item Writing Workshop Sessions [here](https://docs.google.com/a/linuxfoundation.org/forms/d/10X9RJ4oLu2IU7cXppnXmwDMdJTetq3i9focw-R7GB8s/viewform?edit_requested=true). If you are looking to stay informed with what is happening with the certification program or general educational initiatives around Node.js, check out our [education page](https://nodejs.org/en/foundation/education/) or subscribe to our community [newsletter](http://bit.ly/2hml18m).
