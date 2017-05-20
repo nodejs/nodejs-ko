@@ -9,7 +9,7 @@ translator: pineoc
 <!--
 We (The Node.js Foundation) held an in-person development workshop with the community at Node.js Interactive in November to accelerate work on the new Node.js Certified Developer program.
 -->
-우리(The Node.js 재단)는 새로운 Node.js 개발자 인증 프로그램에 대한 작업을 가속화하기 위해 11월에 Node.js Interactive에서 커뮤니티와 함께 직접 개발 워크숍을 개최했습니다.
+우리(Node.js 재단)는 새로운 Node.js 개발자 인증 프로그램에 대한 작업을 촉진하기 위해 11월에 Node.js Interactive에서 커뮤니티와 함께 직접 개발 워크숍을 개최했습니다.
 
 <!--
 The certification program aims to establish a baseline competency in Node.js. While not an expert in all areas, developers who pass the certification will be able to hit the ground running with Node.js.
@@ -19,7 +19,7 @@ The certification program aims to establish a baseline competency in Node.js. Wh
 <!--
 In the in-person development workshop, those involved in the program determined specific topics for the exam and the skills, knowledge and abilities a certified candidate should be able to demonstrate to become a Node.js Certified Developer.
 -->
-개발 워크숍에서 인증 후보자가 Node.js 인증 개발자가 될 수 있어야 하는 시험, 기술, 지식 및 능력에 대한 구체적인 주제를 결정했습니다.
+직접 모여 이루어진 개발 워크숍에서 인증 후보자가 Node.js 인증 개발자가 되는 것을 검증할 수 있는 시험, 기술에 대한 구체적인 주제를 포함하여, 지식 및 능력에 대한 구체적인 주제를 결정했습니다.
 
 <!--
 Currently we are working with the community to determine specific questions that will be asked on the exam. To contribute to the Node.js Foundation Certification Development Item Writing Workshop Sessions, fill out this application.
