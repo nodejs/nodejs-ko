@@ -1,8 +1,8 @@
 ---
 category: articles
-title: Node.js 8 디버깅과 네이티브 모듈 생태계의 많은 개선점
+title: "Node.js 8: 디버깅과 네이티브 모듈 생태계의 많은 개선점"
 author: Node.js Foundation
-ref: Node.js 8 Big Improvements for the Debugging and Native Module Ecosystem
+ref: "Node.js 8: Big Improvements for the Debugging and Native Module Ecosystem"
 refurl: https://medium.com/the-node-js-collection/node-js-8-big-improvements-for-the-debugging-and-native-module-ecosystem-58454861f2fc
 translator: <a href="https://github.com/kazikai" target="_blank">kazikai</a>
 ---
