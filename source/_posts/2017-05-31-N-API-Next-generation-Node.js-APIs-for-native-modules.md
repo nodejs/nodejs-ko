@@ -65,9 +65,9 @@ N-API 함수의 세부 사항은 [N-API documentation](https://aka.ms/napi-docs)
 While the C-based API helps to maintain the ABI stability and makes it easy to understand the surface area provided by N-API, in some cases it is simpler to develop with C++ APIs. In order to support these cases, and to make it as easy as possible to transition from NAN, there is an optional C++ wrapper available as a npm module to provide syntactic sugar over the C APIs. While the wrapper is not considered a part of the N-API, it’s designed to be fully inlinable, and doesn’t have any additional link-time dependencies beyond N-API, so module authors can maintain ABI stability while using it. Here’s a comparison of C and C++ usage of N-API:
 -->
 
+C-기반의 API는 N-API가 제공하는 표면 계층을 쉽게 이해하거나 ABI의 안전성의 유지를 쉽게 해주지만, 종종 C++ API를 이용하는 것이 간단할 때가 있습니다. 이런 경우를 지원하기 위해 그리고 NAN에서의 변경은 가능한 쉽게 하기 위해서 옵션으로 C API를 C++로 감싸는 [npm 모듈](https://www.npmjs.com/package/node-addon-api) 을 이용하는 것이 가능합니다. 이것은 N-API의 고려 대상이 아니고 전체적으로 내부에 삽입하기 위해 설계돼 N-API 외부의 추가적인 링크-타임 의존성이 전혀 없고 모듈 작성자는 동시에 ABI 안전성을 유지할 수 있습니다. 아래는 C와 C++를 이용한 N-API 비교입니다.
 
-
-<!-- -->
+<!--
 C API
 #define CHECK_STATUS \
  if (status != napi_ok) { \
@@ -98,9 +98,48 @@ Napi::Value Shutdown(const Napi::CallbackInfo& info) {
  int how = info[1]->As<Napi::Number>();
  return Napi::Number::New(info.Env(), nn_shutdown(s, how));
 }
+-->
+
+C API
+#define CHECK_STATUS \
+ if (status != napi_ok) { \
+ napi_throw_error(env, “N-API call failed”); \
+return; \
+ }
+napi_value Shutdown(napi_env env, napi_callback_info info) {
+ napi_status status;
+ int s;
+ int how;
+ napi_value ret;
+ napi_value args[2];
+ size_t argc = 2;
+status = napi_get_cb_info(env, info, &argc, args, NULL, NULL);
+ CHECK_STATUS;
+status = napi_get_value_int32(env, args[0], &s);
+ CHECK_STATUS;
+ status = napi_get_value_int32(env, args[1], &how)
+ CHECK_STATUS;
+status = napi_create_number(env, nn_shutdown(s, how), &ret); 
+ CHECK_STATUS;
+ status = napi_set_return_value(env, info, ret);
+ CHECK_STATUS;
+}
+C++ Wrapper
+Napi::Value Shutdown(const Napi::CallbackInfo& info) {
+ int s = info[0]->As<Napi::Number>();
+ int how = info[1]->As<Napi::Number>();
+ return Napi::Number::New(info.Env(), nn_shutdown(s, how));
+}
+
+<!--
 Current State: Experimental
 The current state of N-API in Node.js v8.0 is experimental. However, as reflected in the chart below, N-API provides 100% coverage for V8 APIs used in 5 or more of the top 30 depended-on modules. While there remain some gaps in the coverage, we believe there is a good foundation available for people to try it out. So far, we have successfully ported 5 modules to use N-API, namely Node-Sass, Canvas, LevelDown, Nanomsg and IoTivity. These ports can serve as examples for developers looking start out on their own porting projects.
+-->
 
+현재 상태: 실험 중
+Node.js 8.0버전 내의 N-API의 현재 상태는 실험적입니다. 그러나, 아래 차트를 보면 N-API는 V8 API를 사용한 상위 30개의 의존이 있는 모듈 중 5개 이상에서 100% 커버리지를 제공합니다. 커버리지에는 조금의 차이가 남아있지만 우리는 사람들이 사용해볼 만한 기반을 다졌다고 믿고 있습니다. 우리는 지금까지 N-API를 사용하기 위해 5개의 모듈( [Node-Sass](https://github.com/boingoing/node-sass), [Canvas](https://github.com/jasongin/node-canvas), [LevelDown](https://github.com/boingoing/leveldown/), [Nanomsg](https://github.com/sampsongao/node-nanomsg), [IoTivity](https://github.com/gabrielschulhof/iotivity-node/tree/abi-stable))을 이식했습니다. 이를 사용하려는 개발자들이 이식하려는 프로젝트를 위해 예제를 제공할 수 있습니다.
+
+<!-- -->
 Support for older Node versions
 The value of N-API shines when native modules need to be supported across Node.js versions. We plan to port N-API to older Node.js LTS lines after it stabilizes in Node.js 8.0. In the meantime, the node-addon-api module provides source compatibility with older versions of Node.js. You can check out the instructions on the repo for more details.
 How to get started
