@@ -101,7 +101,7 @@ Napi::Value Shutdown(const Napi::CallbackInfo& info) {
 **C API**  
 <pre>
 <code>
-#define CHECK_STATUS  
+\#define CHECK_STATUS  
 if (status != napi_ok) {  
   napi_throw_error(env, "N-API call failed");   
   return;  
@@ -193,6 +193,6 @@ This work is an example of great community collaboration. It would not have been
 
 * N-API 작업 그룹 가입: N-API 나 [C++ 래퍼](https://github.com/nodejs/node-api)를 구성하는 데 도움을 주세요. 우리는 큰 전진을 이뤄냈지만, 코드는 항상 더 많은 눈과 기여자들로부터 이익을 얻습니다. N-API와 함께한 경험이나 팀이 어떻게 일하고 있는지 듣고 싶다면 우리의 [주간 회의](https://plus.google.com/u/0/events/c0eevtrlajniu7h8cjrdk0f56c8?authkey=COH04YCalJS8Ug)에 참여하세요.
 
-작업 중 어떤 문제를 발견한다면 [nodejs 저장소]에 `n-api:`란 머리말로 이슈를 열어주세요.
+작업 중 어떤 문제를 발견한다면 [nodejs 저장소]에 \`n-api:\`란 머리말로 이슈를 열어주세요.
 
 이 작업은 큰 커뮤니티 협력의 예입니다. 각각의 Node.js 기여자나 Google, IBM, Intel, Microsoft, nearForm, NodeSource의 참가자를 포함한 CTC 멤버의 참여가 없이는 가능하지 않았을 것입니다. 우리는 커뮤니티가 이 작업의 가치를 찾길 바라고 가까운 미래에 Node.js 생태계를 새로운 성장과 더 나은 플랫폼을 만들기를 기대합니다.
