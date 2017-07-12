@@ -16,14 +16,12 @@ Today, we are excited to announce that N-API is available in Node.js 8.0 as an e
 Demo code available at: https://github.com/boingoing/napi_demo
 -->
 
-N-API: 네이티브 모듈을 위한 다음 세대의 Node.js API
+**N-API: 네이티브 모듈을 위한 다음 세대의 Node.js API**
 
-N-API: 네이티브 모듈을 위한 Node.js의 다음 세대
-
-이 블로그는 마이크로소프트 Chakra의 시니어 프로그램 메니저 Arunesh Chandra와 IBM의 Node.js 테크 리드 Michael Dawson이 작성했습니다.
-Node.js는 활발한 모듈 생태계를 가지고 있고 이는 계속 성장하고 인기를 얻는 주요 원인입니다. 이 생태계는 자바스크립트와 네이티브 애드온 모듈을 포함하고 있습니다. 네이티브 모듈은 C/C++로 작성되었고 V8 또는 NAN APIs에 직접 의존합니다. 이 의존의 결과는 API/ABI의 안전성 보장의 결여와 모든 Node.js의 주요 릴리스의 재컴파일 또는 네이티브 애드온의 업데이트를 해야 합니다. 이 효과는 직/간접적으로 모듈 생태계의 약 30%에 영향을 미친다는 의견이 있습니다. 이는 네이티브 모듈 관리자의 유지보수 수고뿐만 아니라 제품에 아주 중요한 네이티브 코드 의존성을 가지고 있어 Node.js 버전을 업그레이드해야 하는 모듈 사용자에게도 주요 걸림돌이 됩니다.
-다음 세대에는 네이티브 모듈을 위한 ABI-stable Node.js API 또는 N-API에 자바스크립트 VMs 내의 네이티브 API를 위한 ABI-stable 추상 계층을 제공해 이 문제를 해결하는 것을 목표로 하고 있습니다. 이는 네이티브 모듈 작성자가 플랫폼마다 모듈을 컴파일하거나 설계하거나 N-API를 구현한 모든 버전의 Node.js에 모듈 사용이 가능하게 하도록 할 것입니다. 이를테면 Node-ChakraCore 같은 다른 VM과 함께 빌드된 버전의 Node.js에서도 마찬가지입니다.
-오늘은 N-API가 Node.js 8.0내에서 사용 가능하다는 것을 알리게 되어 기쁘고, 전체 ABI의 안정화를 얻기 위한 Node.js의 여정의 중요한 이정표로 만들 것 입니다. 이것은 긴 여정의 첫걸음이고 심화를 위해 더 많은 커뮤니티 참가자들을 초대할 것입니다. 이 시기는 네이티브 모듈 관리자가 N-API를 사용해보고 API와의 차이, 성능, 애드온 배포 작업 흐름 등의 피드백을 제공하기 매우 좋은 시기입니다.
+이 블로그는 마이크로소프트 Chakra의 시니어 프로그램 메니저 [Arunesh Chandra](https://twitter.com/aruneshc)와 IBM의 Node.js 테크 리드 [Michael Dawson](https://twitter.com/mhdawson1)이 작성했습니다.
+Node.js는 활발한 모듈 생태계를 가지고 있고 이는 계속 성장하고 인기를 얻는 주요 원인입니다. 이 생태계는 자바스크립트와 네이티브 애드온 모듈을 포함하고 있습니다. 네이티브 모듈은 C/C++로 작성되었고 V8 또는 [NAN](https://github.com/nodejs/nan) APIs에 직접 의존합니다. 이 의존의 결과는 API/ABI의 안전성 보장의 결여와 모든 Node.js의 주요 릴리스의 재컴파일 또는 네이티브 애드온의 업데이트를 해야 합니다. 이 효과는 직/간접적으로 모듈 생태계의 약 30%에 영향을 미친다는 의견이 있습니다. 이는 네이티브 모듈 관리자의 유지보수 수고뿐만 아니라 제품에 아주 중요한 네이티브 코드 의존성을 가지고 있어 Node.js 버전을 업그레이드해야 하는 모듈 사용자에게도 주요 [걸림돌](https://twitter.com/dshaw/status/848974711337897984)이 됩니다.
+다음 세대에는 네이티브 모듈을 위한 ABI-stable Node.js API 또는 N-API에 자바스크립트 VMs 내의 네이티브 API를 위한 ABI-stable 추상 계층을 제공해 이 문제를 해결하는 것을 목표로 하고 있습니다. 이는 네이티브 모듈 작성자가 플랫폼마다 모듈을 컴파일하거나 설계하거나 N-API를 구현한 모든 버전의 Node.js에 모듈 사용이 가능하게 하도록 할 것입니다. 이를테면 [Node-ChakraCore](https://github.com/nodejs/node-chakracore/) 같은 다른 VM과 함께 빌드된 버전의 Node.js에서도 마찬가지입니다.
+오늘은 **N-API가 Node.js 8.0내에서 사용 가능하다는 것**을 알리게 되어 기쁘고, 전체 ABI의 안정화를 얻기 위한 Node.js의 여정의 중요한 이정표로 만들 것 입니다. 이것은 긴 여정의 첫걸음이고 심화를 위해 더 많은 커뮤니티 참가자들을 초대할 것입니다. 이 시기는 네이티브 모듈 관리자가 N-API를 사용해보고 API와의 차이, 성능, 애드온 배포 작업 흐름 등의 피드백을 제공하기 매우 좋은 시기입니다.
 
 ![](https://youtu.be/nmXhJ88nZsk)
 데모 코드: [https://github.com/boingoing/napi_demo](https://github.com/boingoing/napi_demo)
@@ -33,7 +31,7 @@ What does the API look like?
 The core API inside Node.js is available as a collection of C APIs. The following snippet shows an example of the API shape and error handling constructs. All of the ABI stable APIs follow the same pattern, returning a status code indicating success or the error that occurred, and optionally providing an out parameter to return a result.
 -->
 
-API는 어떤 모습인가요?
+**API는 어떤 모습인가요?**
 코어 API는 C API의 컬렉션처럼 사용 가능합니다. 아래 짤막한 코드는 API 모양과 에러 핸들링 조합을 보여줍니다. 모든 ABI는 성공 또는 장애를 나타내는 상태 코드를 반환하고, 반환 결과에 기타 파라미터를 선택적으로 제공하는 안정적인 API 패턴을 따릅니다.
 
 <!--
@@ -100,36 +98,40 @@ Napi::Value Shutdown(const Napi::CallbackInfo& info) {
 }
 -->
 
-C API
-#define CHECK_STATUS \
- if (status != napi_ok) { \
- napi_throw_error(env, “N-API call failed”); \
-return; \
- }
-napi_value Shutdown(napi_env env, napi_callback_info info) {
- napi_status status;
- int s;
- int how;
- napi_value ret;
- napi_value args[2];
- size_t argc = 2;
-status = napi_get_cb_info(env, info, &argc, args, NULL, NULL);
- CHECK_STATUS;
-status = napi_get_value_int32(env, args[0], &s);
- CHECK_STATUS;
- status = napi_get_value_int32(env, args[1], &how)
- CHECK_STATUS;
-status = napi_create_number(env, nn_shutdown(s, how), &ret); 
- CHECK_STATUS;
- status = napi_set_return_value(env, info, ret);
- CHECK_STATUS;
-}
-C++ Wrapper
-Napi::Value Shutdown(const Napi::CallbackInfo& info) {
- int s = info[0]->As<Napi::Number>();
- int how = info[1]->As<Napi::Number>();
- return Napi::Number::New(info.Env(), nn_shutdown(s, how));
-}
+**C API**  
+<pre>
+<code>
+#define CHECK_STATUS  
+if (status != napi_ok) {  
+  napi_throw_error(env, "N-API call failed");   
+  return;  
+}  
+napi_value Shutdown(napi_env env, napi_callback_info info) {  
+ napi_status status;  
+ int s;  
+ int how;  
+ napi_value ret;  
+ napi_value args[2];  
+ size_t argc = 2;  
+status = napi_get_cb_info(env, info, &argc, args, NULL, NULL);  
+ CHECK_STATUS;  
+status = napi_get_value_int32(env, args[0], &s);  
+ CHECK_STATUS;  
+ status = napi_get_value_int32(env, args[1], &how)  
+ CHECK_STATUS;  
+status = napi_create_number(env, nn_shutdown(s, how), &ret);   
+ CHECK_STATUS;  
+ status = napi_set_return_value(env, info, ret);  
+ CHECK_STATUS;  
+}  
+**C++ Wrapper**  
+Napi::Value Shutdown(const Napi::CallbackInfo& info) {  
+  int s = info[0]->As<Napi::Number>();  
+  int how = info[1]->As<Napi::Number>();  
+  return Napi::Number::New(info.Env(), nn_shutdown(s, how));  
+}  
+</code>
+</pre>
 
 <!--
 Current State: Experimental
