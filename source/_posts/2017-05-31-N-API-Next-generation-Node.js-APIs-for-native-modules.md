@@ -166,7 +166,7 @@ After you are done creating or migrating your N-API module we recommend you foll
 
 * N-API 모듈을 생성하거나 이전한 후에는 @n-api 태그와 함께 npm 저장소에 당신의 모듈을 공개하기 위한 [과정](https://nodejs.org/en/docs/guides/publishing-napi-modules/)을 추천합니다. 태그를 사용하면 당신의 N-API가 아닌 릴리스 순번에 영향을 미치지 않고 N-API 버전을 공개할 수 있습니다.
 
-<!-- -->
+<!--
 How to get involved
 If you’ve been reading up to this point and have been thinking “this is so great, how can I help out?” We are happy to hear that. There are several ways that you can get involved which include:
 Helping improve the documentation: Read through the documentation and provide feedback. We’ve tried hard to make it clear and easy to read, but everybody has a different perspective and adding yours will make the documentation clearer to a broader audience.
@@ -176,3 +176,21 @@ Porting a module: Do you have a favorite module or do you maintain one or more n
 Joining the N-API Working Group: Helping build N-API and/or the C++ wrapper. We’ve made great progress but code always benefits from more eyes and contributors. Join us at our weekly meeting to share your experience with N-API or to just hear more about what the team’s working on.
 If you find issues in N-API during any of these activities please open an issue in the nodejs repo and prefix the title with `n-api:’.
 This work is an example of great community collaboration. It would not have been possible without the engagement of individual Node.js Collaborators and CTC members including participants from Google, IBM, Intel, Microsoft, nearForm and NodeSource. We hope that the community will find this work valuable and get engaged to take the Node.js ecosystem to new heights and make it an even better platform in the future.
+-->
+
+참여 방법
+만약 여기까지 읽고 "오! 좋은데, 참여해 볼까?"라고 생각한다면 우리는 기쁠 것입니다. 아래를 포함한 여러 가지 방법으로 참여할 수 있습니다.
+
+* 문서 개선: 문서를 읽고 의견을 제공하세요. 우리는 문서를 깔끔하고 읽기 쉽게 만들려고 노력하고 있지만 모든 사람은 다른 견해를 가지고 있고 당신의 견해를 추가하는 것은 더 많은 독자에게 문서가 명확해지도록 만듭니다.
+
+* 이식된 모듈 사용하기: [abi-stable-node 저장소](https://github.com/nodejs/abi-stable-node/blob/doc/README.md)에는 이미 언급된 N-API 검증 완료 이식 모듈을 포크할 수 있는 링크가 있습니다. 만약 우리가 제공한 N-API로 이식된 버전의 모듈 중 하나를 사용한 애플리케이션이 있다면 한번 사용해 보세요. 그리고 어떤 문제가 있든지 우리에게 알려주세요.
+
+* 테스트 커버리지 증진: 테스트 커버리지를 채우는 것은 N-API 함수의 세부 사항을 배우고 기여하기 좋은 방법입니다. [coverage.node.org](https://coverage.nodejs.org/)의 주 N-API 구현 파일(node_api.cc)코드 커버리지 결과와 커버리지가 좋지 않은 함수를 보는 것으로 시작하세요. 덧붙여, [C++ 래퍼](https://github.com/nodejs/node-api)를 위한 테스트 커버리지를 추가하는 것으로도 도울 수 있습니다. N-API 팀은 전 영역의 커버리지를 증진하기 위해 노력하고 있지만, 이는 돕고 참여하기 좋은 장소(시기?)입니다.
+
+* 모듈 이식: 좋아하는 모듈이나 유지하고 있는 하나 이상의 네이티브 모듈이 있나요? N-API로 이식하고 실험 버전으로 공개하는 것을 고려해주세요. 우리는 당신의 의견이 필요합니다. 더 다양한 이식된 모듈 세트와 사용할 준비가 되었다는 것은 우리가 옳은 API 표면 계층을 가졌다는 것을 확신하게 해줍니다. 이식에 관한 도움이 필요하다면 관리자가 함께 도울 수 있도록 우리에게 알려주세요.
+
+* N-API 작업 그룹 가입: N-API 나 [C++ 래퍼](https://github.com/nodejs/node-api)를 구성하는 데 도움을 주세요. 우리는 큰 전진을 이뤄냈지만, 코드는 항상 더 많은 눈과 기여자들로부터 이익을 얻습니다. N-API와 함께한 경험이나 팀이 어떻게 일하고 있는지 듣고 싶다면 우리의 [주간 회의](https://plus.google.com/u/0/events/c0eevtrlajniu7h8cjrdk0f56c8?authkey=COH04YCalJS8Ug)에 참여하세요.
+
+작업 중 어떤 문제를 발견한다면 [nodejs 저장소]에 `n-api:`란 머리말로 이슈를 열어주세요.
+
+이 작업은 큰 커뮤니티 협력의 예입니다. 각각의 Node.js 기여자나 Google, IBM, Intel, Microsoft, nearForm, NodeSource의 참가자를 포함한 CTC 멤버의 참여가 없이는 가능하지 않았을 것입니다. 우리는 커뮤니티가 이 작업의 가치를 찾길 바라고 가까운 미래에 Node.js 생태계를 새로운 성장과 더 나은 플랫폼을 만들기를 기대합니다.
