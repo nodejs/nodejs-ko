@@ -1,11 +1,10 @@
 ---
 category: articles
-title: Node.js 8: 디버깅과 네이티브 모듈 생태계의 많은 개선점
+title: "Node.js 8: 디버깅과 네이티브 모듈 생태계의 많은 개선점"
 author: Node.js Foundation
-ref: Node.js 8: Big Improvements for the Debugging and Native Module Ecosystem
+ref: "Node.js 8: Big Improvements for the Debugging and Native Module Ecosystem"
 refurl: https://medium.com/the-node-js-collection/node-js-8-big-improvements-for-the-debugging-and-native-module-ecosystem-58454861f2fc
-translator:
-<a href="https://github.com/kazikai" target="_blank">kazikai</a>
+translator: <a href="https://github.com/kazikai" target="_blank">kazikai</a>
 ---
 <!--
 We are excited to announce Node.js 8.0.0 today. The new improvements and features of this release create the best workflow for Node.js developers to date. Highlighted updates and features include adding Node.js API for native module developers, async_hooks, JS bindings for the inspector, zero-filling Buffers, util.promisify and more.
