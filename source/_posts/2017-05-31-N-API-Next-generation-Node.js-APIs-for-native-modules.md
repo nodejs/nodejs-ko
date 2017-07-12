@@ -18,14 +18,17 @@ Demo code available at: https://github.com/boingoing/napi_demo
 
 N-API: 네이티브 모듈을 위한 다음 세대의 Node.js API
 
-이 블로그는 마이크로소프트 Chakra의 시니어 프로그램 메니져 Arunesh Chandra와 IBM의 Node.js 테크 리드 Michael Dawson이 작성했습니다.
-Node.js는 활발한 모듈 생태계를 가지고 있고 이는 계속 성장하고 인기를 얻는 주요 원인입니다. 이 생태계는 자바스크립트와 네이티브 애드온 모듈을 포함하고 있습니다. 네이티브 모듈은 C/C++로 작성되었고 V8 또는 NAN APIs에 직접 의존합니다. 이 의존의 결과는 API/ABI의 안전성 보장의 결여와 모든 Node.js의 주요 릴리스의 재 컴파일 또는 네이티브 애드온의 업데이트를 필요로 합니다. 이 효과는 직/간접적으로 모듈 생태계의 약 30%에 영향을 미친다는 의견이 있습니다. 이는 네이티브 모듈 관리자의 유지보수 수고뿐만 아니라 제품에 아주 중요한 네이티브 코드 의존성을 가지고 있어 Node.js 버전을 업그레이드 해야 하는 모듈 사용자 에게도 주요 장애물이 됩니다.
-다음 세대에는 네이티브 모듈을 위한 ABI-stable Node.js API 또는 N-API에 자바스크립트 VM(가상머신?)s내의 네이티브 API를 위한 ABI-stable 추상 레이어를 제공해 이 문제를 해결하는것을 목표로 하고있습니다. 이는 네이티브 모듈 작성자가 플랫폼 마다 모듈을 컴파일 하거나 설계하거나 N-API를 구현한 모든 버전의 Node.js에 모듈 사용이 가능하게 하도록 할 것입니다. 이를테면 Node-ChakraCore 같은 다른 VM과 함께 빌드된 버전의 Node.js에서도 마찬가지 입니다.
-오늘은 N-API가 Node.js 8.0내에서 사용 가능하다는 것을 알리게 되어 기쁘고, 전체 ABI의 안정화를 얻기위한 Node.js의 여정의 중요한 이정표로 만들것 입니다. 이것은 긴 여정의 첫 걸음이고 심화를 위해 더 많은 커뮤니티 참가자들을 초대할 것입니다. 이 시기는 네이티브 모듈 관리자가 N-API를 사용해보고 API와의 차이, 성능, 애드온 배포 작업 흐름 등의 피드백을 제공하기 매우 좋은 시기입니다.
-<iframe width="700" height="393" src="https://www.youtube.com/embed/nmXhJ88nZsk?ecver=1" frameborder="0" allowfullscreen></iframe>
-데모 코드: https://github.com/boingoing/napi_demo
+N-API: 네이티브 모듈을 위한 Node.js의 다음 세대
 
-<!-- -->
+이 블로그는 마이크로소프트 Chakra의 시니어 프로그램 메니저 Arunesh Chandra와 IBM의 Node.js 테크 리드 Michael Dawson이 작성했습니다.
+Node.js는 활발한 모듈 생태계를 가지고 있고 이는 계속 성장하고 인기를 얻는 주요 원인입니다. 이 생태계는 자바스크립트와 네이티브 애드온 모듈을 포함하고 있습니다. 네이티브 모듈은 C/C++로 작성되었고 V8 또는 NAN APIs에 직접 의존합니다. 이 의존의 결과는 API/ABI의 안전성 보장의 결여와 모든 Node.js의 주요 릴리스의 재컴파일 또는 네이티브 애드온의 업데이트를 해야 합니다. 이 효과는 직/간접적으로 모듈 생태계의 약 30%에 영향을 미친다는 의견이 있습니다. 이는 네이티브 모듈 관리자의 유지보수 수고뿐만 아니라 제품에 아주 중요한 네이티브 코드 의존성을 가지고 있어 Node.js 버전을 업그레이드해야 하는 모듈 사용자에게도 주요 걸림돌이 됩니다.
+다음 세대에는 네이티브 모듈을 위한 ABI-stable Node.js API 또는 N-API에 자바스크립트 VMs 내의 네이티브 API를 위한 ABI-stable 추상 계층을 제공해 이 문제를 해결하는 것을 목표로 하고 있습니다. 이는 네이티브 모듈 작성자가 플랫폼마다 모듈을 컴파일하거나 설계하거나 N-API를 구현한 모든 버전의 Node.js에 모듈 사용이 가능하게 하도록 할 것입니다. 이를테면 Node-ChakraCore 같은 다른 VM과 함께 빌드된 버전의 Node.js에서도 마찬가지입니다.
+오늘은 N-API가 Node.js 8.0내에서 사용 가능하다는 것을 알리게 되어 기쁘고, 전체 ABI의 안정화를 얻기 위한 Node.js의 여정의 중요한 이정표로 만들 것 입니다. 이것은 긴 여정의 첫걸음이고 심화를 위해 더 많은 커뮤니티 참가자들을 초대할 것입니다. 이 시기는 네이티브 모듈 관리자가 N-API를 사용해보고 API와의 차이, 성능, 애드온 배포 작업 흐름 등의 피드백을 제공하기 매우 좋은 시기입니다.
+
+<iframe width="700" height="393" src="https://www.youtube.com/embed/nmXhJ88nZsk?ecver=1" frameborder="0" allowfullscreen></iframe>
+데모 코드: [https://github.com/boingoing/napi_demo](https://github.com/boingoing/napi_demo)
+
+<!--
 What does the API look like?
 The core API inside Node.js is available as a collection of C APIs. The following snippet shows an example of the API shape and error handling constructs. All of the ABI stable APIs follow the same pattern, returning a status code indicating success or the error that occurred, and optionally providing an out parameter to return a result.
 NAPI_EXTERN napi_status napi_create_array(napi_env env, napi_value* result);
@@ -37,6 +40,11 @@ NODE_EXTERN napi_status napi_get_and_clear_last_exception(napi_env e, napi_value
 NODE_EXTERN napi_status napi_throw(napi_env e, napi_value error);
 For a full description of the N-API functions checkout the N-API documentation.
 While the C-based API helps to maintain the ABI stability and makes it easy to understand the surface area provided by N-API, in some cases it is simpler to develop with C++ APIs. In order to support these cases, and to make it as easy as possible to transition from NAN, there is an optional C++ wrapper available as a npm module to provide syntactic sugar over the C APIs. While the wrapper is not considered a part of the N-API, it’s designed to be fully inlinable, and doesn’t have any additional link-time dependencies beyond N-API, so module authors can maintain ABI stability while using it. Here’s a comparison of C and C++ usage of N-API:
+-->
+
+
+
+<!-- -->
 C API
 #define CHECK_STATUS \
  if (status != napi_ok) { \
