@@ -31,6 +31,12 @@ Node.js는 활발한 모듈 생태계를 가지고 있고 이는 계속 성장�
 <!--
 What does the API look like?
 The core API inside Node.js is available as a collection of C APIs. The following snippet shows an example of the API shape and error handling constructs. All of the ABI stable APIs follow the same pattern, returning a status code indicating success or the error that occurred, and optionally providing an out parameter to return a result.
+-->
+
+API는 어떤 모습인가요?
+코어 API는 C API의 컬렉션처럼 사용 가능합니다. 아래 짤막한 코드는 API 모양과 에러 핸들링 조합을 보여줍니다. 모든 ABI는 성공 또는 장애를 나타내는 상태 코드를 반환하고, 반환 결과에 기타 파라미터를 선택적으로 제공하는 안정적인 API 패턴을 따릅니다.
+
+<!--
 NAPI_EXTERN napi_status napi_create_array(napi_env env, napi_value* result);
 For a non-zero status code, additional details can be obtained using the following API function:
 NAPI_EXTERN napi_status napi_get_last_error_info(napi_env e, const napi_extended_error_info** result);
@@ -39,6 +45,23 @@ NODE_EXTERN napi_status napi_is_exception_pending(napi_env e, bool* result);
 NODE_EXTERN napi_status napi_get_and_clear_last_exception(napi_env e, napi_value* result);
 NODE_EXTERN napi_status napi_throw(napi_env e, napi_value error);
 For a full description of the N-API functions checkout the N-API documentation.
+-->
+
+NAPI_EXTERN napi_status napi_create_array(napi_env env, napi_value* result);
+
+0이 아닌 상태 코드를 위해 추가적인 세부 사항은 아래 API 함수를 사용함으로써 얻을 수 있습니다.
+
+NAPI_EXTERN napi_status napi_get_last_error_info(napi_env e, const napi_extended_error_info** result);
+
+API 함수의 반환 값으로 상태 코드를 추가할 수 있고 VM이 던진 자바스크립트 예외를 다룰 수 있는 API가 있습니다.
+
+NODE_EXTERN napi_status napi_is_exception_pending(napi_env e, bool* result);
+NODE_EXTERN napi_status napi_get_and_clear_last_exception(napi_env e, napi_value* result);
+NODE_EXTERN napi_status napi_throw(napi_env e, napi_value error);
+
+N-API 함수의 세부 사항은 [N-API documentation](https://aka.ms/napi-docs)에서 확인하세요.
+
+<!--
 While the C-based API helps to maintain the ABI stability and makes it easy to understand the surface area provided by N-API, in some cases it is simpler to develop with C++ APIs. In order to support these cases, and to make it as easy as possible to transition from NAN, there is an optional C++ wrapper available as a npm module to provide syntactic sugar over the C APIs. While the wrapper is not considered a part of the N-API, it’s designed to be fully inlinable, and doesn’t have any additional link-time dependencies beyond N-API, so module authors can maintain ABI stability while using it. Here’s a comparison of C and C++ usage of N-API:
 -->
 
