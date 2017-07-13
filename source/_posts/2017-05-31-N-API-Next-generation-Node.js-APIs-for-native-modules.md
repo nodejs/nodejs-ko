@@ -16,8 +16,6 @@ Today, we are excited to announce that N-API is available in Node.js 8.0 as an e
 Demo code available at: https://github.com/boingoing/napi_demo
 -->
 
-**N-API: 네이티브 모듈을 위한 다음 세대의 Node.js API**
-
 이 블로그는 마이크로소프트 Chakra의 시니어 프로그램 메니저 [Arunesh Chandra](https://twitter.com/aruneshc)와 IBM의 Node.js 테크 리드 [Michael Dawson](https://twitter.com/mhdawson1)이 작성했습니다.
 Node.js는 활발한 모듈 생태계를 가지고 있고 이는 계속 성장하고 인기를 얻는 주요 원인입니다. 이 생태계는 자바스크립트와 네이티브 애드온 모듈을 포함하고 있습니다. 네이티브 모듈은 C/C++로 작성되었고 V8 또는 [NAN](https://github.com/nodejs/nan) APIs에 직접 의존합니다. 이 의존의 결과는 API/ABI의 안전성 보장의 결여와 모든 Node.js의 주요 릴리스의 재컴파일 또는 네이티브 애드온의 업데이트를 해야 합니다. 이 효과는 직/간접적으로 모듈 생태계의 약 30%에 영향을 미친다는 의견이 있습니다. 이는 네이티브 모듈 관리자의 유지보수 수고뿐만 아니라 제품에 아주 중요한 네이티브 코드 의존성을 가지고 있어 Node.js 버전을 업그레이드해야 하는 모듈 사용자에게도 주요 [걸림돌](https://twitter.com/dshaw/status/848974711337897984)이 됩니다.
 다음 세대에는 네이티브 모듈을 위한 ABI-stable Node.js API 또는 N-API에 자바스크립트 VMs 내의 네이티브 API를 위한 ABI-stable 추상 계층을 제공해 이 문제를 해결하는 것을 목표로 하고 있습니다. 이는 네이티브 모듈 작성자가 플랫폼마다 모듈을 컴파일하거나 설계하거나 N-API를 구현한 모든 버전의 Node.js에 모듈 사용이 가능하게 하도록 할 것입니다. 이를테면 [Node-ChakraCore](https://github.com/nodejs/node-chakracore/) 같은 다른 VM과 함께 빌드된 버전의 Node.js에서도 마찬가지입니다.
