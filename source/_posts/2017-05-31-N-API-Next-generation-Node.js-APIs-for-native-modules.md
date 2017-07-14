@@ -21,7 +21,7 @@ Node.js는 활발한 모듈 생태계를 가지고 있고 이는 계속 성장�
 다음 세대에는 네이티브 모듈을 위한 ABI-stable Node.js API 또는 N-API에 자바스크립트 VM 내의 네이티브 API를 위한 ABI-stable 추상 계층을 제공해 이 문제를 해결하는 것을 목표로 하고 있습니다. 이는 네이티브 모듈 작성자가 플랫폼마다 모듈을 컴파일하거나 설계하거나 N-API를 구현한 모든 버전의 Node.js에 모듈 사용이 가능하게 하도록 할 것입니다. 이를테면 [Node-ChakraCore](https://github.com/nodejs/node-chakracore/) 같은 다른 VM과 함께 빌드된 버전의 Node.js에서도 마찬가지입니다.
 오늘은 **N-API가 Node.js 8.0내에서 사용 가능하다는 것**을 알리게 되어 기쁘고, 전체 ABI의 안정화를 얻기 위한 Node.js의 여정의 중요한 이정표로 만들 것입니다. 이것은 긴 여정의 첫걸음이고 심화를 위해 더 많은 커뮤니티 참가자들을 초대할 것입니다. 이 시기는 네이티브 모듈 관리자가 N-API를 사용해보고 API와의 차이, 성능, 애드온 배포 작업 흐름 등의 피드백을 제공하기 매우 좋은 시기입니다.
 
-[Demo showing N-API the Next generation Node.js APIs - 동영상 링](https://youtu.be/nmXhJ88nZsk)
+[Demo showing N-API the Next generation Node.js APIs - 동영상 링크](https://youtu.be/nmXhJ88nZsk)
 데모 코드: <https://github.com/boingoing/napi_demo>
 
 <!--
@@ -145,7 +145,7 @@ Current State: Experimental
 The current state of N-API in Node.js v8.0 is experimental. However, as reflected in the chart below, N-API provides 100% coverage for V8 APIs used in 5 or more of the top 30 depended-on modules. While there remain some gaps in the coverage, we believe there is a good foundation available for people to try it out. So far, we have successfully ported 5 modules to use N-API, namely Node-Sass, Canvas, LevelDown, Nanomsg and IoTivity. These ports can serve as examples for developers looking start out on their own porting projects.
 -->
 
-##현재 상태: 실험적
+## 현재 상태: 실험적
 Node.js 8.0버전 내의 N-API의 현재 상태는 실험적입니다. 그러나, 아래 차트를 보면 N-API는 V8 API를 사용한 상위 30개의 의존이 있는 모듈 중 5개 이상에서 100% 커버리지를 제공합니다. 커버리지에는 조금의 차이가 남아있지만 우리는 사람들이 사용해볼 만한 기반을 다졌다고 믿고 있습니다. 우리는 지금까지 N-API를 사용하기 위해 5개의 모듈([Node-Sass](https://github.com/boingoing/node-sass), [Canvas](https://github.com/jasongin/node-canvas), [LevelDown](https://github.com/boingoing/leveldown/), [Nanomsg](https://github.com/sampsongao/node-nanomsg), [IoTivity](https://github.com/gabrielschulhof/iotivity-node/tree/abi-stable))을 이식했습니다. 이를 사용하려는 개발자들이 이식하려는 프로젝트를 위해 예제를 제공할 수 있습니다.
 
 ![](https://cdn-images-1.medium.com/max/1600/0*XYRRg73SOxUMG9-F.)
@@ -155,7 +155,7 @@ Support for older Node versions
 The value of N-API shines when native modules need to be supported across Node.js versions. We plan to port N-API to older Node.js LTS lines after it stabilizes in Node.js 8.0. In the meantime, the node-addon-api module provides source compatibility with older versions of Node.js. You can check out the instructions on the repo for more details.
 -->
 
-##이전 버전의 Node 지원
+## 이전 버전의 Node 지원
 N-API의 가치는 네이티브 모듈이 Node.js 버전을 교차 지원할 필요가 있을 때 빛납니다. 우리는 Node.js 8.0내에서 N-API가 안정된 후 오래된 Node.js LTS 라인으로 이식할 계획이 있습니다. 한편으로 [node-addon-api](https://www.npmjs.com/package/node-addon-api) 모듈은 구버전의 Node.js와 소스 호환성을 제공합니다. 자세한 사항은 [저장소 내의 지침](https://github.com/nodejs/node-addon-api)을 확인해주세요.
 
 <!--
@@ -166,7 +166,7 @@ If you want to start fresh with a native Node.js addon project with N-API, check
 After you are done creating or migrating your N-API module we recommend you follow these instructions for publishing it to the npm repository with a @n-api tag. Using the tag will allow you to publish an N-API version without influencing the sequencing of your non-N-API releases.
 -->
 
-##시작 방법
+## 시작 방법
 처음은 N-API의 상세 설명과 사용 예제 등이 있는 [N-API 문서](https://aka.ms/napi-docs)를 추천합니다. N-API를 대신 사용하는 NAN 애드온 [예제](https://github.com/nodejs/abi-stable-node-addon-examples)를 보는 것이 도움이 될 것입니다. 덧붙여서 시작할 때 유용한 몇 가지 도구가 있습니다.
 
 * 당신의 기존 NAN-기반의 네이티브 애드온을 N-API로 전환해주는 [이식 유틸리티](https://github.com/nodejs/node-api)가 있습니다. 100% 전환을 제공해주지는 않지만 쉽게 기존 프로젝트의 전환을 시작할 수 있도록 도와줍니다.
@@ -187,10 +187,10 @@ If you find issues in N-API during any of these activities please open an issue 
 This work is an example of great community collaboration. It would not have been possible without the engagement of individual Node.js Collaborators and CTC members including participants from Google, IBM, Intel, Microsoft, nearForm and NodeSource. We hope that the community will find this work valuable and get engaged to take the Node.js ecosystem to new heights and make it an even better platform in the future.
 -->
 
-##참여 방법
+## 참여 방법
 만약 여기까지 읽고 "오! 좋은데, 참여해 볼까?"라고 생각한다면 우리는 기쁠 것입니다. 아래를 포함한 여러 가지 방법으로 참여할 수 있습니다.
 
-* 문서 개선: 문서를 읽고 의견을 제공하세요. 우리는 문서를 깔끔하고 읽기 쉽게 만들려고 노력하고 있지만 모든 사람은 다른 견해를 가지고 있고 당신의 견해를 추가하는 것은 더 많은 독자에게 문서가 명확해지도록 만듭니다.
+* **문서 개선:** 문서를 읽고 의견을 제공하세요. 우리는 문서를 깔끔하고 읽기 쉽게 만들려고 노력하고 있지만 모든 사람은 다른 견해를 가지고 있고 당신의 견해를 추가하는 것은 더 많은 독자에게 문서가 명확해지도록 만듭니다.
 
 * **이식된 모듈 사용하기:** [abi-stable-node 저장소](https://github.com/nodejs/abi-stable-node/blob/doc/README.md)에는 이미 언급된 N-API 검증 완료 이식 모듈을 포크할 수 있는 링크가 있습니다. 만약 우리가 제공한 N-API로 이식된 버전의 모듈 중 하나를 사용한 애플리케이션이 있다면 한번 사용해 보세요. 그리고 어떤 문제가 있든지 우리에게 알려주세요.
 
