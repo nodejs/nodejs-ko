@@ -21,8 +21,8 @@ Node.js는 활발한 모듈 생태계를 가지고 있고 이는 계속 성장�
 다음 세대에는 네이티브 모듈을 위한 ABI-stable Node.js API 또는 N-API에 자바스크립트 VM 내의 네이티브 API를 위한 ABI-stable 추상 계층을 제공해 이 문제를 해결하는 것을 목표로 하고 있습니다. 이는 네이티브 모듈 작성자가 플랫폼마다 모듈을 컴파일하거나 설계하거나 N-API를 구현한 모든 버전의 Node.js에 모듈 사용이 가능하게 하도록 할 것입니다. 이를테면 [Node-ChakraCore](https://github.com/nodejs/node-chakracore/) 같은 다른 VM과 함께 빌드된 버전의 Node.js에서도 마찬가지입니다.
 오늘은 **N-API가 Node.js 8.0내에서 사용 가능하다는 것**을 알리게 되어 기쁘고, 전체 ABI의 안정화를 얻기 위한 Node.js의 여정의 중요한 이정표로 만들 것입니다. 이것은 긴 여정의 첫걸음이고 심화를 위해 더 많은 커뮤니티 참가자들을 초대할 것입니다. 이 시기는 네이티브 모듈 관리자가 N-API를 사용해보고 API와의 차이, 성능, 애드온 배포 작업 흐름 등의 피드백을 제공하기 매우 좋은 시기입니다.
 
-![](https://youtu.be/nmXhJ88nZsk)
-데모 코드: [https://github.com/boingoing/napi_demo](https://github.com/boingoing/napi_demo)
+[Demo showing N-API the Next generation Node.js APIs - 동영상 링](https://youtu.be/nmXhJ88nZsk)
+데모 코드: <https://github.com/boingoing/napi_demo>
 
 <!--
 What does the API look like?
