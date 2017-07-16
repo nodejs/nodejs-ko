@@ -1,8 +1,8 @@
 ---
 category: articles
-title: N-API: 네이티브 모듈을 위한 다음 세대의 Node.js API
+title: "N-API: 네이티브 모듈을 위한 다음 세대의 Node.js API"
 author: Node.js Foundation
-ref: N-API: Next generation Node.js APIs for native modules
+ref: "N-API: Next generation Node.js APIs for native modules"
 refurl: https://medium.com/the-node-js-collection/n-api-next-generation-node-js-apis-for-native-modules-169af5235b06
 translator: freenice12(LEEjeyeon)
 ---
@@ -17,11 +17,13 @@ Demo code available at: https://github.com/boingoing/napi_demo
 -->
 
 이 글은 마이크로소프트 Chakra의 시니어 프로그램 매니저 [Arunesh Chandra](https://twitter.com/aruneshc)와 IBM의 Node.js 테크 리드 [Michael Dawson](https://twitter.com/mhdawson1)이 작성했습니다.
+
 Node.js는 활발한 모듈 생태계를 가지고 있고 이는 계속 성장하고 인기를 얻는 주요 원인입니다. 이 생태계는 자바스크립트와 네이티브 애드온 모듈을 포함하고 있습니다. 네이티브 모듈은 C/C++로 작성되었고 V8 또는 [NAN](https://github.com/nodejs/nan) API에 직접 의존합니다. 이 의존의 결과는 API/ABI의 안전성 보장의 결여와 모든 Node.js의 주요 릴리스의 재컴파일 또는 네이티브 애드온의 업데이트를 해야 합니다. 이 효과는 직/간접적으로 모듈 생태계의 약 30%에 영향을 미친다는 의견이 있습니다. 이는 네이티브 모듈 관리자의 유지보수 수고뿐만 아니라 제품에 아주 중요한 네이티브 코드 의존성을 가지고 있어 Node.js 버전을 업그레이드해야 하는 모듈 사용자에게도 주요 [걸림돌](https://twitter.com/dshaw/status/848974711337897984)이 됩니다.
 다음 세대에는 네이티브 모듈을 위한 ABI-stable Node.js API 또는 N-API에 자바스크립트 VM 내의 네이티브 API를 위한 ABI-stable 추상 계층을 제공해 이 문제를 해결하는 것을 목표로 하고 있습니다. 이는 네이티브 모듈 작성자가 플랫폼마다 모듈을 컴파일하거나 설계하거나 N-API를 구현한 모든 버전의 Node.js에 모듈 사용이 가능하게 하도록 할 것입니다. 이를테면 [Node-ChakraCore](https://github.com/nodejs/node-chakracore/) 같은 다른 VM과 함께 빌드된 버전의 Node.js에서도 마찬가지입니다.
+
 오늘은 **N-API가 Node.js 8.0내에서 사용 가능하다는 것**을 알리게 되어 기쁘고, 전체 ABI의 안정화를 얻기 위한 Node.js의 여정의 중요한 이정표로 만들 것입니다. 이것은 긴 여정의 첫걸음이고 심화를 위해 더 많은 커뮤니티 참가자들을 초대할 것입니다. 이 시기는 네이티브 모듈 관리자가 N-API를 사용해보고 API와의 차이, 성능, 애드온 배포 작업 흐름 등의 피드백을 제공하기 매우 좋은 시기입니다.
 
-[Demo showing N-API the Next generation Node.js APIs - 동영상 링크](https://youtu.be/nmXhJ88nZsk)
+<iframe width="640" height="360" src="https://www.youtube.com/embed/nmXhJ88nZsk?rel=0" frameborder="0" allowfullscreen></iframe>
 데모 코드: <https://github.com/boingoing/napi_demo>
 
 <!--
@@ -198,7 +200,7 @@ This work is an example of great community collaboration. It would not have been
 
 * **모듈 이식:** 좋아하는 모듈이나 유지하고 있는 하나 이상의 네이티브 모듈이 있나요? N-API로 이식하고 실험 버전으로 공개하는 것을 고려해주세요. 우리는 당신의 의견이 필요합니다. 더 다양한 이식된 모듈 세트와 사용할 준비가 되었다는 것은 우리가 옳은 API 표면 계층을 가졌다는 것을 확신하게 해줍니다. 이식에 관한 도움이 필요하다면 관리자가 함께 도울 수 있도록 우리에게 알려주세요.
 
-* **N-API 작업 그룹 가입:** N-API 나 [C++ 래퍼](https://github.com/nodejs/node-api)를 구성하는 데 도움을 주세요. 우리는 큰 전진을 이뤄냈지만, 코드는 항상 더 많은 눈과 기여자들로부터 이익을 얻습니다. N-API와 함께한 경험이나 팀이 어떻게 일하고 있는지 듣고 싶다면 우리의 [주간 회의](https://plus.google.com/u/0/events/c0eevtrlajniu7h8cjrdk0f56c8?authkey=COH04YCalJS8Ug)에 참여하세요.
+* **N-API 작업 그룹 가입:** N-API 나 [C++ 래퍼](https://github.com/nodejs/node-api)를 구성하는 데 도움을 주세요. 큰 전진을 이뤄냈지만, 코드는 항상 더 많은 눈과 기여자들로부터 이익을 얻습니다. N-API와 함께한 경험이나 팀이 어떻게 일하고 있는지 듣고 싶다면 [주간 회의](https://plus.google.com/u/0/events/c0eevtrlajniu7h8cjrdk0f56c8?authkey=COH04YCalJS8Ug)에 참여하세요.
 
 작업 중 어떤 문제를 발견한다면 [nodejs 저장소]에 `n-api:`란 머리말로 이슈를 열어주세요.
 
