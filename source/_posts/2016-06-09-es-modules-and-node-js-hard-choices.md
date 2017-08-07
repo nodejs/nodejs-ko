@@ -681,7 +681,7 @@ Node.js EP와 _In Defense of .js_ 를 포함한 대부분의 제안에서 Node.j
 지원하는 패키지가 트랜스파일 메커니즘을 사용할 것이라고 가정하고 있습니다. `.mjs` 방법에서
 ES Modules은 원래의 파일과 함께 `.js` 파일로 트랜스파일되고 Node.js의 다른 버전은 적합한 파일을
 사용할 것입니다. _In Defense of .js_ 에서 ES Modules는 `"modules.root"`에서 지정한
-하위 디렉터리에 있고 이는 부모 디렉토리에서 CommonJS 형식으로 트랜스파일 될 것입니다. 게다가
+하위 디렉터리에 있고 이는 부모 디렉터리에서 CommonJS 형식으로 트랜스파일 될 것입니다. 게다가
 `package.json`은 `"main"`과 `"module"` 진입점을 모두 가질 것입니다.
 
 <!--
