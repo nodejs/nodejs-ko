@@ -13,12 +13,8 @@ title: 번역 참여 가이드
 
 # 번역에 참여하는 방법
 
-* [이슈 #44](https://github.com/nodejs/nodejs-ko/issues/44)에서 신청을 하면 프로젝트의 Collaborators로 등록해 드립니다.
-  * 꼭 등록하실 필요는 없습니다.
 * [이슈](https://github.com/nodejs/nodejs-ko/issues) 중에서 [translation 레이블이 붙은 이슈](https://github.com/nodejs/nodejs-ko/labels/translation)가 번역할 문서입니다.
-* 번역하겠다는 의사를 밝힙니다.
-  * Collaborators라면 이슈를 자신에게 할당합니다.
-  * 그냥 댓글로 남기셔도 됩니다.
+* 댓글로 번역하겠다는 의사를 밝힙니다.
 * 이슈를 할당하면 번역의 진행을 위해서 1주일 안에 번역 작업을 합니다. 1주일이 지나면 다른 사람에게 이슈가 넘어갈 수 있습니다.
 
 # 번역 방법
