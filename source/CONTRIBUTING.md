@@ -13,12 +13,8 @@ title: 번역 참여 가이드
 
 # 번역에 참여하는 방법
 
-* [이슈 #44](https://github.com/nodejs/nodejs-ko/issues/44)에서 신청을 하면 프로젝트의 Collaborators로 등록해 드립니다.
-  * 꼭 등록하실 필요는 없습니다.
 * [이슈](https://github.com/nodejs/nodejs-ko/issues) 중에서 [translation 레이블이 붙은 이슈](https://github.com/nodejs/nodejs-ko/labels/translation)가 번역할 문서입니다.
-* 번역하겠다는 의사를 밝힙니다.
-  * Collaborators라면 이슈를 자신에게 할당합니다.
-  * 그냥 댓글로 남기셔도 됩니다.
+* 댓글로 번역하겠다는 의사를 밝힙니다.
 * 이슈를 할당하면 번역의 진행을 위해서 1주일 안에 번역 작업을 합니다. 1주일이 지나면 다른 사람에게 이슈가 넘어갈 수 있습니다.
 
 # 번역 방법
@@ -62,13 +58,33 @@ title: 번역 참여 가이드
       author: 원 저자명
       ref: 원문의 글 제목
       refurl: 원문 링크
+      translator: github_id
+      ---
+      ```
+
+    * 번역자의 이름은 문자열이나 key-value로 작성합니다.
+
+      ```yaml
+      translator: github_id
+      # or
       translator:
-        - <a href="GITHUB_URL" target="_blank">번역자 이름</a>
-        - <a href="GITHUB_URL" target="_blank">번역자 이름</a>
+        github_id: Real Name
       ---
       ```
 
     * 번역자가 여러 명인 경우에는 `translator`에 여러 줄을 추가하면 됩니다.
+
+      ```yaml
+      translator:
+      - github_id1
+      - github_id2
+      # or
+      translator:
+        github_id1: Real Name1
+        github_id2: Real Name2
+      ---
+      ```
+
     * 이곳에 작성한 메타정보는 각 글의 상단에 표시됩니다.
     * 문서는 [마크다운](https://help.github.com/articles/github-flavored-markdown/) 형식으로 작성합니다.
     * 이후 문서를 관리하기 위해 원문을 주석(`<!-- -->`)으로 추가하고 번역한 내용을 다음과 같이 작성합니다.
@@ -87,10 +103,11 @@ title: 번역 참여 가이드
 1. 번역이 완료되면 해당 브랜치를 이용해서 풀 리퀘스트를 보냅니다.
   * 커밋 메시지나 풀 리퀘스트에 번역한 문서의 이슈번호를 추가합니다.
 1. 풀 리퀘스트는 리뷰 과정을 거치게 되고 이 과정에서 오타, 번역 문체 등을 다듬습니다.
-1. 2명 정도가 번역을 리뷰를 진행하고 리뷰 수정 후 1, 2일 후에 다른 얘기가 없으면 완료되었다고 판단합니다.
-   (처음 번역에 참여하시는 분은 몇 번 번역 과정에 익숙해 질 때까지는 직접 풀 리퀘스트를 머지 하지 않고
-   다른 사람이 머지해 주기를 기다립니다.)
-1. 리뷰가 완료되어 풀 리퀘스트가 머지되면 하루 이내에 Collaborator가 디플로이해 [블로그](https://nodejs.github.io/nodejs-ko/)에 적용됩니다.
+1. 2명 이상이 GitHub의 리뷰 기능을 사용해 승인하면 바로 머지할 수 있습니다.
+   다른 수정을 기다려야 하거나 이슈가 있는 경우가 아니라면 2명 이상이 승인한 경우 누구나
+   머지할 수 있습니다. 일반적으로 두 번째 리뷰 승인자가 머지합니다.
+1. 풀 리퀘스트가 머지되면 CI가 자동으로 [블로그](https://nodejs.github.io/nodejs-ko/)에
+   발행합니다.
 
 # 그 외 참고할 사항
 
@@ -129,3 +146,22 @@ title: 번역 참여 가이드
 * 영어 뒤에 조사가 올 때도 읽었을 때 되도록 읽기 자연스러운 방향으로 적습니다. 예시: `vm.createContext과`가 아니라 `vm.createContext와`라고 번역합니다.
 * `Core Technical Committee`는 `코어 기술 위원회`라고 번역합니다.
 * Node.js 공식 블로그의 특성상 비슷한 시기에 나온 글에는 중복되는 내용이 있는 경우가 많습니다. 특히 보안 업데이트 공지나 새 버전 릴리스의 경우 그렇습니다. 비슷한 문서의 다른 번역문을 참고하면 번역에 도움이 됩니다.
+* `메소드`가 아니라 `메서드`로 표기합니다. <http://www.insightbook.co.kr/9688>
+
+# 멤버 구분
+
+## nodejs-ko Collaborators
+* [nodejs-ko 저장소](https://github.com/nodejs/nodejs-ko)에 Collaboratios로 등록된 사용자를 말하며 nodejs 조직이나 [nodejs-ko 팀](https://github.com/orgs/nodejs/teams/nodejs-ko)에는 등록되지 않습니다.
+* [nodejs-ko 저장소](https://github.com/nodejs/nodejs-ko)에 저장소에 올라오는 이슈를 관리할 수 있고 번역문의 리뷰, 머지 권한을 가집니다.
+
+## nodejs-ko Maintainers
+* 메인테이너는 [nodejs-ko 팀](https://github.com/orgs/nodejs/teams/nodejs-ko)에 등록된 멤버를 의미합니다.
+* 메인테이너는 nodejs-ko 문서 번역, 번역문의 리뷰, 저장소 관리는 물론 Node.js 소속 다른 프로젝트에서 발생 또는 요청하는 한국어 관련 이슈에도 참여합니다.
+  * 다른 프로젝트에서 nodejs-ko 의 의견을 듣기 위해서 멘션을 하는 경우가 있습니다.
+* nodejs-ko 저장소 외에 [nodejs.org](https://github.com/nodejs/nodejs.org)의 한국어 번역과 검수에도 참여하고 있습니다.
+* nodejs-ko 저장소 관리를 위해 번역문이 아닌 간단한 맞춤법 오류, 서식 오류, 오타, 저장소 설정 등은 풀 리퀘스트를 거치지 않고 바로 수정할 수 있습니다.
+* 빠른 반영을 위해 간단한 오류 등은 다른 사람이 등록한 풀 리퀘스트를 직접 수정할 수 있습니다.
+* nodejs-ko의 메인테이너는 6개월마다 갱신하며 갱신 시점을 기준으로 최근 1년간 nodejs-ko 저장소에 기여한 사람을 메인테이너로 등록합니다.
+  * 메인테이너 명단은 Node.js 릴리스 주기에 맞춰서 매년 4월, 10월에 갱신합니다.
+  * [Graph](https://github.com/nodejs/nodejs-ko/graphs/contributors)를 기준으로 최근 1년간 커밋이 10개 이상인 사람을 메인테이너로 등록합니다.(풀 리퀘스트는 Squash로 머지합니다.)
+  * 현재는 nodejs-ko 팀 관리 권한 이슈로 nodejs 코어멤버들과 논의하는 중입니다. [관련 이슈](https://github.com/nodejs/nodejs-ko/issues/425) 참고.
