@@ -152,7 +152,7 @@ title: 번역 참여 가이드
 
 ## nodejs-ko Collaborators
 * [nodejs-ko 저장소](https://github.com/nodejs/nodejs-ko)에 Collaboratios로 등록된 사용자를 말하며 nodejs 조직이나 [nodejs-ko 팀](https://github.com/orgs/nodejs/teams/nodejs-ko)에는 등록되지 않습니다.
-* [nodejs-ko 저장소](https://github.com/nodejs/nodejs-ko)에 저장소에 올라오는 이슈를 관리할 수 있고 번역문의 리뷰, 머지 권한을 가집니다.
+* [nodejs-ko 저장소](https://github.com/nodejs/nodejs-ko)에 올라오는 이슈를 관리할 수 있고 번역문의 리뷰, 머지 권한을 가집니다.
 
 ## nodejs-ko Maintainers
 * 메인테이너는 [nodejs-ko 팀](https://github.com/orgs/nodejs/teams/nodejs-ko)에 등록된 멤버를 의미합니다.
