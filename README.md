@@ -19,3 +19,21 @@ is also available.
 
 Node.js 한국 커뮤니티의 소식은
 트위터([@nodejs_ko](https://twitter.com/nodejs_ko))를 통해서도 접할 수 있습니다.
+
+## [nodejs-ko](https://github.com/orgs/nodejs/teams/nodejs-ko)
+<!-- team:nodejs-ko - all @mentions in this section will be added to the team by the bot -->
+@napiera
+@taggon
+@outsideris
+@marocchino
+@mingyu-lee
+@devjin0617
+@yous
+@kazikai
+@KyoungRan
+@freenice12
+@lucykang
+@TanChoi
+@sungjungkim
+@asbubam
+<!-- team -->
