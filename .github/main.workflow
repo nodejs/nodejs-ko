@@ -7,9 +7,7 @@ workflow "Deploy on master" {
 
 action "Master" {
   uses = "actions/bin/filter@24a566c2524e05ebedadef0a285f72dc9b631411"
-  runs = "ls"
-
-  # args = "branch master"
+  args = "branch master"
 }
 
 action "Add rsa key" {
