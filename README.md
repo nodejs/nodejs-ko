@@ -5,6 +5,8 @@
 The [English version](https://github.com/nodejs/nodejs-ko/blob/master/README.en.md)
 is also available.
 
+Den [Svenska versionen](https://github.com/nodejs/nodejs-ko/blob/master/README.sv.md) är också tillgänglig.
+
 [Node.js](https://nodejs.org/) 한국 커뮤니티
 
 ## [참여자](https://github.com/nodejs/nodejs-ko/graphs/contributors)
