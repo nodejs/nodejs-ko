@@ -8,23 +8,14 @@ jobs:
     name: build & deploy
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - name: npm install
-        uses: actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
         with:
-          args: install
-      - name: Generate
-        uses: actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680
-        with:
-          args: run generate
-      - name: Add rsa key
-        uses: actions/bin/sh@24a566c2524e05ebedadef0a285f72dc9b631411
+          node-version: '10.x'
+      - run: npm install
+      - run: npm run generate
+      - run: ./bin/generate_rsa
         env:
           ID_RSA: ${{ secrets.ID_RSA }}
           KNOWN_HOSTS: ${{ secrets.KNOWN_HOSTS }}
-        with:
-          entrypoint: ./bin/generate_rsa
-      - name: Publish
-        uses: actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680
-        with:
-          args: run publish
+      - run: npm run publish
