@@ -5,12 +5,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+      - uses: actions/cache@v1
+        id: cache
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
       - name: npm install
-        uses: actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680
-        with:
-          args: install
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
       - name: Generate
-        uses: actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680
-        with:
-          args: run generate
+        run: npm run generate
