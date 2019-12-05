@@ -11,10 +11,21 @@ jobs:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
-          node-version: '10.x'
-      - run: npm install
-      - run: npm run generate
-      - run: npm run publish
+          node-version: '12.x'
+      - uses: actions/cache@v1
+        id: cache
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+      - name: npm install
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
+      - name: Generate
+        run: npm run generate
+      - name: Publish
+        run: npm run publish
         env:
           ID_RSA: ${{ secrets.ID_RSA }}
           KNOWN_HOSTS: ${{ secrets.KNOWN_HOSTS }}
