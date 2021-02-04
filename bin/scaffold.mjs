@@ -4,7 +4,7 @@ import { Transform } from 'stream';
 import path from 'path';
 import chalk from 'chalk';
 import { parse } from '@textlint/markdown-to-ast';
-import { __ } from './translate.js';
+import { __ } from './translate.mjs';
 
 function main() {
   const [URL, DATE] = process.argv.slice(2);
