@@ -1,5 +1,3 @@
-import { josa, 을, 로 } from 'hangul-josa';
-
 const simpleDict = {
   Current: '현재 버전',
   Maintenance: '유지보수 버전',
@@ -16,34 +14,47 @@ const simpleDict = {
 const patterns = [
   // upgrade x to y
   [
-    /\* [Uu]pgrade ([\w-]+) to v?(\d[\d\.]*)/,
-    (_, name, ver) => josa`* ${name}의 버전을 ${ver}${로} 업그레이드했습니다.`
+    /\b[Uu]pgrade ([\w-]+) to (v?\d[\d\.]*)/,
+    (_, name, ver) => josa(`${name}의 버전을 ${ver}[[로]] 업그레이드했습니다.`)
   ],
   // upgrade to new version
   [
-    /\* [Uu]pgrade to ([\w-]+ v?\d[\d\.]*)/,
-    '* $1 버전으로 업그레이드했습니다.'
+    /\b[Uu]pgrade to ([\w-]+ v?\d[\d\.]*)/,
+    '$1 버전으로 업그레이드했습니다.'
   ],
   // new collaborator
   [
-    /add (@?\w+) to collaborators/,
-    (_, name) => josa`${name}${을} 협력자로 추가했습니다.`
+    /\b[Aa]dd (@?[\w ]+) to collaborators/,
+    (_, name) => josa(`${name}[[을]] 협력자로 추가했습니다.`)
   ],
 ];
+
+function josa(str) {
+  const josas = '이,가,을,를,와,과,으로,로'.split(',');
+  const getPP = (pp, hasFinal) => Math.floor(josas.indexOf(pp)/2)*2 + (hasFinal ? 0 : 1);
+
+  return str.replace(/(?:([a-z]+)|([가-힣])|(\d))(\([^\)]+\))?\[\[(이|가|와|과|을|를|으?로)\]\]/gi, ($0, en, ko, num, paren, pp) => {
+    if (num) return num + paren + getPP(pp, /[136780]/.test(num));  
+    if (ko) return num + paren + getPP(pp, (han.charCodeAt(0) - 0xac00) % 28 > 0);
+
+    // !Experimental - maybe need to improve
+    if (en) return en + paren + getPP(pp, /(?:m|n|ck|ng|th|[^aeiouy]e|SSL)$/.test(en));
+
+    return $0;
+  });
+}
 
 export function translate(key) {
   if (simpleDict[key]) {
     return simpleDict[key];
   }
 
-  let content = key;
-  for (let i=0; i < patterns.length; i++) {
-    if (patterns[i][0].test(content)) {
-      content = content.replace(patterns[i][0], patterns[i][1]);
+  return patterns.reduce((content, [pattern, replacer]) => {
+    if (pattern.test(content)) {
+      return content.replace(pattern, replacer);
     }
-  }
-
-	return content;
+    return content;
+  }, key);
 }
 
 export const __ = translate;

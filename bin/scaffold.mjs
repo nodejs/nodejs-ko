@@ -8,30 +8,30 @@ import { __ } from './translate.mjs';
 
 function main() {
   const [URL, DATE] = process.argv.slice(2);
-  const POST_PATH = path.resolve( 'source', '_posts');
+  const POST_PATH = path.resolve('source', '_posts');
   
   if (!URL) {
-    console.error(`${chalk.red.bold('Error:')} 번역문서의 GitHub raw URL이 필요합니다.`);
-    console.error("자세한 내용은 https://nodejs.github.io/nodejs-ko/CONTRIBUTING.html 을 참고하세요.");
+    console.error(`🚨  번역문서의 GitHub raw URL이 필요합니다.`);
+    printGuide();
     return;
   }
 
   if (isWeeklyUpdate(URL) && !DATE) {
-    console.error(`${chalk.red.bold('Error:')} 주간 뉴스 외에는 url 뒤에 발행 일자를 전달해야 합니다.`);
-    console.error(`예시: npm run scafolld URL YYYY-MM-DD`);
+    console.error(`🚨  주간 뉴스 외에는 url 뒤에 발행 일자를 전달해야 합니다.`);
+    printGuide();
     return;
   }
   
   const fileName = getFileName(URL, DATE);
   if (!fileName) {
-    console.error(`${chalk.red.bold('Error:')} 지원하지 않는 형식의 URL입니다.`);
-    console.error("자세한 내용은 https://nodejs.github.io/nodejs-ko/CONTRIBUTING.html 을 참고하세요.");
+    console.error(`🚨  지원하지 않는 형식의 URL입니다.`);
+    printGuide();
     return;
   }
 
   if (!process.env.NODE_TRANSLATOR) {
-    console.warn(`${chalk.cyan.bold('Info: ')} 번역자의 사용자명이 설정되어 있지 않습니다. ${chalk.italic('NODE_TRANSLATOR')} 환경 변수의 값을 설정하세요.`);
-    console.warn('e.g. NODE_TRANSLATOR=username npm run scaffold ...');
+    console.warn(`ℹ️  번역자의 사용자명이 설정되어 있지 않습니다. ${chalk.italic('NODE_TRANSLATOR')} 환경 변수의 값을 설정하세요.`);
+    console.warn('e.g. NODE_TRANSLATOR=username npm run scaffold ...\n');
   }
   
   const filePath = `${POST_PATH}/${fileName}`;
@@ -40,10 +40,16 @@ function main() {
     resp
       .pipe(transformer(URL))
       .pipe(createWriteStream(filePath));
+
+    console.log(`✅ 번역 파일이 생성되었습니다: ${filePath}`);
   });
 }
 
 main();
+
+function printGuide() {
+  console.error('자세한 내용은 https://nodejs.github.io/nodejs-ko/CONTRIBUTING.html 을 참고하세요.\n');
+}
 
 function isWeeklyUpdate(url) {
   return url.includes('weekly-updates');
@@ -54,7 +60,7 @@ function getFileName(url, date) {
     if (isWeeklyUpdate(url)) {
       return `${url.match(/\d{4}-\d{2}-\d{2}/)[0]}-weekly.md`;
     }
-    return url.match(/blog\/(.+)\.md/)[0].replace(/\//g, '-').replace('blog', date);
+    return url.match(/blog\/.+\.md/)[0].replace(/\//g, '-').replace('blog', date);
   } catch(e) {
     return;
   }
@@ -63,7 +69,7 @@ function getFileName(url, date) {
 function transformer(url) {
   let buffer = '';
   
-  function transform(chunk, enc, cb) {
+  function transform(chunk, _, cb) {
     buffer += chunk.toString();
     cb();
   }
@@ -84,7 +90,7 @@ function transformer(url) {
 function processAst(ast, url) {
   let result = [];
 
-  for(let i=0; i < ast.children.length; i++) {
+  for(let i = 0; i < ast.children.length; i++) {
     const cur = ast.children[i];
     switch(cur.type) {
       case 'Yaml': // header
@@ -146,7 +152,7 @@ function translateTitle(title) {
   // Security releases
   if (match = /^(?<date>[A-Za-z]+ \d+) Security Releases$/.exec(title)) {
     const date = new Date(`1 ${match.groups.date}`);
-    return `${date.getFullYear()}년 ${date.getMonth()+1}월 보안 릴리스`;
+    return `${date.getFullYear()}년 ${date.getMonth() + 1}월 보안 릴리스`;
   }
   
   return '';
@@ -169,7 +175,7 @@ function processContent(blocks) {
     const header = blocks[0].raw.trim();
     
     // Do not translate these blocks
-    if (/\b[cC]ommits|SHASUMS$/.test(header)) {
+    if (/\b[Cc]ommits|SHASUMS$/.test(header)) {
       return rawContent;
     }
     
