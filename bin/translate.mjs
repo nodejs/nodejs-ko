@@ -31,14 +31,14 @@ const patterns = [
 
 function josa(str) {
   const josas = '이,가,을,를,와,과,으로,로'.split(',');
-  const getPP = (pp, hasFinal) => Math.floor(josas.indexOf(pp) / 2) * 2 + (hasFinal ? 0 : 1);
+  const getPP = (pp, hasFinal) => josas[Math.floor(josas.indexOf(pp) / 2) * 2 + (hasFinal ? 0 : 1)];
 
-  return str.replace(/(?:([a-z]+)|([가-힣])|(\d))(\([^\)]+\))?\[\[(이|가|와|과|을|를|으?로)\]\]/gi, ($0, en, ko, num, paren, pp) => {
-    if (num) return num + paren + getPP(pp, /[136780]/.test(num));  
+  return str.replace(/(?:([a-z]+)|([가-힣])|(\d))(\([^\)]*\))?\[\[(이|가|와|과|을|를|으?로)\]\]/gi, ($0, en, ko, num, paren = '', pp) => {
+    if (num) return num + paren + getPP(pp, /[136780]/.test(num));
     if (ko) return ko + paren + getPP(pp, (ko.charCodeAt(0) - 0xac00) % 28 > 0);
 
     // !Experimental - maybe need to improve
-    if (en) return en + paren + getPP(pp, /(?:m|n|ck|ng|th|[^aeiouy]e|SSL)$/.test(en));
+    if (en) return en + paren + getPP(pp, /(?:[nml]|ck|ng|th|[^aeiouy]e|SSL)$/.test(en));
 
     return $0;
   });
