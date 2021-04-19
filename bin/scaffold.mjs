@@ -9,20 +9,27 @@ import { __ } from './translate.mjs';
 function main() {
   const [URL, DATE] = process.argv.slice(2);
   const POST_PATH = path.resolve('source', '_posts');
-  
+
   if (!URL) {
-    console.error(`🚨  번역문서의 GitHub raw URL이 필요합니다.`);
+    console.error(`🚨  번역할 nodejs.org의 블로그 글 URL이 필요합니다.`);
     printGuide();
     return;
   }
 
-  if (isWeeklyUpdate(URL) && !DATE) {
+  const urlDelimiter = '/en/blog/';
+  let urlPostfix = URL.split(urlDelimiter)[1];
+  if (urlPostfix.endsWith('/')) {
+    urlPostfix = urlPostfix.substr(0, urlPostfix.length - 1);
+  }
+  const rawURL = `https://raw.githubusercontent.com/nodejs/nodejs.org/master/locale${urlDelimiter}${urlPostfix}.md`;
+
+  if (isWeeklyUpdate(rawURL) && !DATE) {
     console.error(`🚨  주간 뉴스 외에는 url 뒤에 발행 일자를 전달해야 합니다.`);
     printGuide();
     return;
   }
   
-  const fileName = getFileName(URL, DATE);
+  const fileName = getFileName(rawURL, DATE);
   if (!fileName) {
     console.error(`🚨  지원하지 않는 형식의 URL입니다.`);
     printGuide();
@@ -36,9 +43,9 @@ function main() {
   
   const filePath = `${POST_PATH}/${fileName}`;
   
-  get(URL, resp => {
+  get(rawURL, resp => {
     resp
-      .pipe(transformer(URL))
+      .pipe(transformer(rawURL))
       .pipe(createWriteStream(filePath));
 
     console.log(`✅ 번역 파일이 생성되었습니다: ${filePath}`);
