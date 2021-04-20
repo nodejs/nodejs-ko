@@ -16,12 +16,7 @@ function main() {
     return;
   }
 
-  const urlDelimiter = '/en/blog/';
-  let urlPostfix = URL.split(urlDelimiter)[1];
-  if (urlPostfix.endsWith('/')) {
-    urlPostfix = urlPostfix.substr(0, urlPostfix.length - 1);
-  }
-  const rawURL = `https://raw.githubusercontent.com/nodejs/nodejs.org/master/locale${urlDelimiter}${urlPostfix}.md`;
+  const rawURL = URL.replace(/^https:\/\/nodejs.org(\/en\/blog\/.+?)\/?$/, "https://raw.githubusercontent.com/nodejs/nodejs.org/master/locale$1.md")
 
   if (isWeeklyUpdate(rawURL) && !DATE) {
     console.error(`🚨  주간 뉴스 외에는 url 뒤에 발행 일자를 전달해야 합니다.`);
