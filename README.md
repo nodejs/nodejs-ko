@@ -2,7 +2,7 @@
 
 [![Join the chat at https://gitter.im/nodejs/nodejs-ko](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/nodejs/nodejs-ko?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-The [English version](https://github.com/nodejs/nodejs-ko/blob/master/README.en.md)
+The [English version](https://github.com/nodejs/nodejs-ko/blob/main/README.en.md)
 is also available.
 
 [Node.js](https://nodejs.org/) 한국 커뮤니티
