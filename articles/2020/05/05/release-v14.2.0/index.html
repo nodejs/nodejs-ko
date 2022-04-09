@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  
+  <title>Node v14.2.0(현재 버전) | Node.js 한국 커뮤니티</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1234567891011121314151617181920const assert &#x3D; require(&amp;#x27;assert&amp;#x27;);const tracker &#x3D; new assert.CallTracker();function func() &amp;#123;&amp;#125;const callsfunc &#x3D; tracker.calls(func);console.log(track">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node v14.2.0(현재 버전)">
+<meta property="og:url" content="https://nodejs.github.io/nodejs-ko/articles/2020/05/05/release-v14.2.0/index.html">
+<meta property="og:site_name" content="Node.js 한국 커뮤니티">
+<meta property="og:description" content="1234567891011121314151617181920const assert &#x3D; require(&amp;#x27;assert&amp;#x27;);const tracker &#x3D; new assert.CallTracker();function func() &amp;#123;&amp;#125;const callsfunc &#x3D; tracker.calls(func);console.log(track">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-05-05T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-09T18:30:15.213Z">
+<meta property="article:author" content="Node.js 한국어 번역팀">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@nodejs_ko">
+  
+    <link rel="alternate" href="/nodejs-ko/atom.xml" title="Node.js 한국 커뮤니티" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/nodejs-ko/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/nodejs-ko/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/nodejs-ko/" id="logo">Node.js 한국 커뮤니티</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/nodejs-ko/">Home</a>
+        
+          <a class="main-nav-link" href="/nodejs-ko/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/nodejs-ko/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://nodejs.github.io/nodejs-ko"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-release-v14.2.0" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <a href="/nodejs-ko/articles/2020/05/05/release-v14.2.0/" class="article-date">
+    <time datetime="2020-05-05T00:00:00.000Z" itemprop="datePublished">2020-05-05</time>
+  </a>
+
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/nodejs-ko/categories/articles/">articles</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Node v14.2.0(현재 버전)
+    </h1>
+  
+  <ul>
+    <li>작성자: <strong>Michaël Zasso</strong></li>
+    <li>
+      원문: <strong><a target="_blank" rel="noopener" href="https://nodejs.org/en/blog/release/v14.2.0" taret="_blank">
+        Node v14.2.0 (Current)
+      </a></strong>
+    </li>
+    <li>
+      번역:
+      <strong><a target="_blank" rel="noopener" href="https://github.com/marocchino">marocchino</a></strong>
+    </li>
+  </ul>
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--
+### Notable Changes
+
+#### Track function calls with `assert.CallTracker` (experimental)
+
+`assert.CallTracker` is a new experimental API that allows to track and later
+verify the number of times a function was called. This works by creating a
+`CallTracker` object and using its `calls` method to create wrapper functions
+that will count each time they are called. Then the `verify` method can be used
+to assert that the expected number of calls happened:
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> assert = <span class="built_in">require</span>(<span class="string">&#x27;assert&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> tracker = <span class="keyword">new</span> assert.<span class="title class_">CallTracker</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">func</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line"><span class="comment">// callsfunc() must be called exactly twice before tracker.verify().</span></span><br><span class="line"><span class="keyword">const</span> callsfunc = tracker.<span class="title function_">calls</span>(func, <span class="number">2</span>);</span><br><span class="line"><span class="title function_">callsfunc</span>();</span><br><span class="line"><span class="title function_">callsfunc</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">otherFunc</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line"><span class="comment">// The second parameter defaults to `1`.</span></span><br><span class="line"><span class="keyword">const</span> callsotherFunc = tracker.<span class="title function_">calls</span>(otherFunc);</span><br><span class="line"><span class="title function_">callsotherFunc</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// Calls tracker.verify() and verifies if all tracker.calls() functions have</span></span><br><span class="line"><span class="comment">// been called the right number of times.</span></span><br><span class="line">process.<span class="title function_">on</span>(<span class="string">&#x27;exit&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  tracker.<span class="title function_">verify</span>();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>Additionally, <code>tracker.report()</code> will return an array which contains information<br>
+about the errors, if there are any:</p>
+<p>–&gt;</p>
+<!-- eslint-disable max-len -->
+<!--
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> assert = <span class="built_in">require</span>(<span class="string">&#x27;assert&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> tracker = <span class="keyword">new</span> assert.<span class="title class_">CallTracker</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">func</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line"><span class="keyword">const</span> callsfunc = tracker.<span class="title function_">calls</span>(func);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(tracker.<span class="title function_">report</span>());</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">[</span></span><br><span class="line"><span class="comment">  &#123;</span></span><br><span class="line"><span class="comment">    message: &#x27;Expected the func function to be executed 1 time(s) but was executed 0 time(s).&#x27;,</span></span><br><span class="line"><span class="comment">    actual: 0,</span></span><br><span class="line"><span class="comment">    expected: 1,</span></span><br><span class="line"><span class="comment">    operator: &#x27;func&#x27;,</span></span><br><span class="line"><span class="comment">    stack: Error</span></span><br><span class="line"><span class="comment">        ...</span></span><br><span class="line"><span class="comment">  &#125;</span></span><br><span class="line"><span class="comment">]</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>Contributed by ConorDavenport - <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/31982">#31982</a>.<br>
+–&gt;</p>
+<h3 id="주요-변경-사항-75">주요 변경 사항</h3>
+<h4 id="assert-CallTracker를-통한-함수-호출-추적-실험적"><code>assert.CallTracker</code>를 통한 함수 호출 추적 (실험적)</h4>
+<p><code>assert.CallTracker</code>는 함수가 호출된 횟수를 추적하고 나중에 확인할 수 있는 새로운<br>
+실험적 API입니다. 이것은 <code>CallTracker</code> 객체를 생성하고 <code>calls</code> 메서드를 사용하여<br>
+호출될 때마다 계산되는 래퍼 함수를 생성함으로써 작동합니다. 그런 다음 <code>verify</code><br>
+메서드를 사용하여 예상되는 호출 수가 발생했는지 확인할 수 있습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> assert = <span class="built_in">require</span>(<span class="string">&#x27;assert&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> tracker = <span class="keyword">new</span> assert.<span class="title class_">CallTracker</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">func</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line"><span class="comment">// callsfunc()은 tracker.verify() 전에 정확히 두 번만 호출되어야 한다.</span></span><br><span class="line"><span class="keyword">const</span> callsfunc = tracker.<span class="title function_">calls</span>(func, <span class="number">2</span>);</span><br><span class="line"><span class="title function_">callsfunc</span>();</span><br><span class="line"><span class="title function_">callsfunc</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">otherFunc</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line"><span class="comment">// 두 번째 파라미터의 기본 값은 `1`이다.</span></span><br><span class="line"><span class="keyword">const</span> callsotherFunc = tracker.<span class="title function_">calls</span>(otherFunc);</span><br><span class="line"><span class="title function_">callsotherFunc</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// tracker.verify()를 호출하고 tracker.calls()가 정확히 몇 번 호출되었는지 검증한다.</span></span><br><span class="line">process.<span class="title function_">on</span>(<span class="string">&#x27;exit&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  tracker.<span class="title function_">verify</span>();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>덧붙여, <code>tracker.report()</code>는 에러가 있다면 에러의 정보가 담겨있는 배열을 반환합니다.</p>
+<!-- eslint-disable max-len -->
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> assert = <span class="built_in">require</span>(<span class="string">&#x27;assert&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> tracker = <span class="keyword">new</span> assert.<span class="title class_">CallTracker</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">func</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line"><span class="keyword">const</span> callsfunc = tracker.<span class="title function_">calls</span>(func);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(tracker.<span class="title function_">report</span>());</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">[</span></span><br><span class="line"><span class="comment">  &#123;</span></span><br><span class="line"><span class="comment">    message: &#x27;Expected the func function to be executed 1 time(s) but was executed 0 time(s).&#x27;,</span></span><br><span class="line"><span class="comment">    actual: 0,</span></span><br><span class="line"><span class="comment">    expected: 1,</span></span><br><span class="line"><span class="comment">    operator: &#x27;func&#x27;,</span></span><br><span class="line"><span class="comment">    stack: Error</span></span><br><span class="line"><span class="comment">        ...</span></span><br><span class="line"><span class="comment">  &#125;</span></span><br><span class="line"><span class="comment">]</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>ConorDavenport가 기여하였습니다.<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/31982">#31982</a>.</p>
+<!--
+#### Console `groupIndentation` option
+
+The Console constructor (`require('console').Console`) now supports different group indentations.
+
+This is useful in case you want different grouping width than 2 spaces.
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; <span class="title class_">Console</span> &#125; = <span class="built_in">require</span>(<span class="string">&#x27;console&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> customConsole = <span class="keyword">new</span> <span class="title class_">Console</span>(&#123;</span><br><span class="line">  <span class="attr">stdout</span>: process.<span class="property">stdout</span>,</span><br><span class="line">  <span class="attr">stderr</span>: process.<span class="property">stderr</span>,</span><br><span class="line">  <span class="attr">groupIndentation</span>: <span class="number">10</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">customConsole.<span class="title function_">log</span>(<span class="string">&#x27;foo&#x27;</span>);</span><br><span class="line"><span class="comment">// &#x27;foo&#x27;</span></span><br><span class="line">customConsole.<span class="title function_">group</span>();</span><br><span class="line">customConsole.<span class="title function_">log</span>(<span class="string">&#x27;foo&#x27;</span>);</span><br><span class="line"><span class="comment">//           &#x27;foo&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>Contributed by rickyes - <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/32964">#32964</a>.<br>
+–&gt;</p>
+<h4 id="콘솔-groupIndentation-옵션">콘솔 <code>groupIndentation</code> 옵션</h4>
+<p>콘솔 생성자(<code>require('console').Console</code>)가 이제 그룹 인덴트를 지원합니다.</p>
+<p>이 기능은 공백 2칸이 아닌 그룹 너비를 원할 때 유용합니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; <span class="title class_">Console</span> &#125; = <span class="built_in">require</span>(<span class="string">&#x27;console&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> customConsole = <span class="keyword">new</span> <span class="title class_">Console</span>(&#123;</span><br><span class="line">  <span class="attr">stdout</span>: process.<span class="property">stdout</span>,</span><br><span class="line">  <span class="attr">stderr</span>: process.<span class="property">stderr</span>,</span><br><span class="line">  <span class="attr">groupIndentation</span>: <span class="number">10</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">customConsole.<span class="title function_">log</span>(<span class="string">&#x27;foo&#x27;</span>);</span><br><span class="line"><span class="comment">// &#x27;foo&#x27;</span></span><br><span class="line">customConsole.<span class="title function_">group</span>();</span><br><span class="line">customConsole.<span class="title function_">log</span>(<span class="string">&#x27;foo&#x27;</span>);</span><br><span class="line"><span class="comment">//           &#x27;foo&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>rickyes가 기여하였습니다.<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/32964">#32964</a>.</p>
+<h3 id="Commits-270">Commits</h3>
+<h4 id="Semver-minor-commits">Semver-minor commits</h4>
+<ul>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/c87ed21fdf"><code>c87ed21fdf</code></a>] - <strong>(SEMVER-MINOR)</strong> <strong>assert</strong>: port common.mustCall() to assert (ConorDavenport) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/31982">#31982</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/c49e3ea20c"><code>c49e3ea20c</code></a>] - <strong>(SEMVER-MINOR)</strong> <strong>console</strong>: support console constructor groupIndentation option (rickyes) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/32964">#32964</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/bc9e413dae"><code>bc9e413dae</code></a>] - <strong>(SEMVER-MINOR)</strong> <strong>worker</strong>: add stack size resource limit option (Anna Henningsen) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33085">#33085</a></li>
+</ul>
+<h4 id="Semver-patch-commits-2">Semver-patch commits</h4>
+<ul>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/f62d92b900"><code>f62d92b900</code></a>] - <strong>build</strong>: add --error-on-warn configure flag (Daniel Bevenius) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/32685">#32685</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/db293c47dd"><code>db293c47dd</code></a>] - <strong>cluster</strong>: fix error on worker disconnect/destroy (Santiago Gimeno) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/32793">#32793</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/83e165bf88"><code>83e165bf88</code></a>] - <strong>crypto</strong>: check DiffieHellman p and g params (Ben Noordhuis) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/32739">#32739</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/e07cca6af6"><code>e07cca6af6</code></a>] - <strong>crypto</strong>: generator must be int32 in DiffieHellman() (Ben Noordhuis) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/32739">#32739</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/637442fec9"><code>637442fec9</code></a>] - <strong>crypto</strong>: key size must be int32 in DiffieHellman() (Ben Noordhuis) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/32739">#32739</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/c5a4534d5c"><code>c5a4534d5c</code></a>] - <strong>deps</strong>: V8: backport e29c62b74854 (Anna Henningsen) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33125">#33125</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/8325c29e92"><code>8325c29e92</code></a>] - <strong>deps</strong>: update to uvwasi 0.0.8 (Colin Ihrig) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33078">#33078</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/2174159598"><code>2174159598</code></a>] - <strong>esm</strong>: improve commonjs hint on module not found (Daniele Belardi) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/31906">#31906</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/74b0e8c3a8"><code>74b0e8c3a8</code></a>] - <strong>http</strong>: ensure client request emits close (Robert Nagy) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33178">#33178</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/a4ec01c55b"><code>a4ec01c55b</code></a>] - <strong>http</strong>: simplify sending header (Robert Nagy) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33200">#33200</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/451993ea94"><code>451993ea94</code></a>] - <strong>http</strong>: set default timeout in agent keepSocketAlive (Owen Smith) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33127">#33127</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/3cb1713a59"><code>3cb1713a59</code></a>] - <strong>http2,doc</strong>: minor fixes (Alba Mendez) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/28044">#28044</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/eab4be1b93"><code>eab4be1b93</code></a>] - <strong>lib</strong>: cosmetic change to builtinLibs list for maintainability (James M Snell) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33106">#33106</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/542da430ff"><code>542da430ff</code></a>] - <strong>lib</strong>: fix validateport error message when allowZero is false (rickyes) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/32861">#32861</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/5eccf1e9ad"><code>5eccf1e9ad</code></a>] - <strong>module</strong>: no type module resolver side effects (Guy Bedford) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33086">#33086</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/466213d726"><code>466213d726</code></a>] - <strong>n-api</strong>: simplify uv_idle wrangling (Ben Noordhuis) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/32997">#32997</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/ed45b51642"><code>ed45b51642</code></a>] - <strong>path</strong>: fix comment grammar (thecodrr) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/32942">#32942</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/bb2d2f6e0e"><code>bb2d2f6e0e</code></a>] - <strong>src</strong>: remove unused v8 Message namespace (Adrian Estrada) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33180">#33180</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/de643bc325"><code>de643bc325</code></a>] - <strong>src</strong>: use unique_ptr for CachedData in ContextifyScript::New (Anna Henningsen) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33113">#33113</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/f61928ba35"><code>f61928ba35</code></a>] - <strong>src</strong>: return undefined when validation err == 0 (James M Snell) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33107">#33107</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/f4e5ab14da"><code>f4e5ab14da</code></a>] - <strong>src</strong>: crypto::UseSNIContext to use BaseObjectPtr (James M Snell) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33107">#33107</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/541ea035bf"><code>541ea035bf</code></a>] - <strong>src</strong>: separate out NgLibMemoryManagerBase (James M Snell) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33104">#33104</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/10a87c81cf"><code>10a87c81cf</code></a>] - <strong>src</strong>: remove unnecessary fully qualified names (rickyes) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33077">#33077</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/45032a39e8"><code>45032a39e8</code></a>] - <strong>stream</strong>: fix stream.finished on Duplex (Robert Nagy) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33133">#33133</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/4cfa7e0716"><code>4cfa7e0716</code></a>] - <strong>stream</strong>: simplify Readable push/unshift logic (himself65) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/32899">#32899</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/bc40ed31b3"><code>bc40ed31b3</code></a>] - <strong>stream</strong>: add null check in Readable.from (Pranshu Srivastava) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/32873">#32873</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/b183d0a18a"><code>b183d0a18a</code></a>] - <strong>stream</strong>: let Duplex re-use Writable properties (Robert Nagy) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33079">#33079</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/ec24577406"><code>ec24577406</code></a>] - <strong>v8</strong>: use AliasedBuffers for passing heap statistics around (Joyee Cheung) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/32929">#32929</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/d39254ada6"><code>d39254ada6</code></a>] - <strong>vm</strong>: fix vm.measureMemory() and introduce execution option (Joyee Cheung) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/32988">#32988</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/4423304ac4"><code>4423304ac4</code></a>] - <strong>vm</strong>: throw error when duplicated exportNames in SyntheticModule (himself65) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/32810">#32810</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/3866dc1311"><code>3866dc1311</code></a>] - <strong>wasi</strong>: use free() to release preopen array (Anna Henningsen) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33110">#33110</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/d7d9960d38"><code>d7d9960d38</code></a>] - <strong>wasi</strong>: update start() behavior to match spec (Colin Ihrig) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33073">#33073</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/8d5ac1bbf0"><code>8d5ac1bbf0</code></a>] - <strong>wasi</strong>: rename __wasi_unstable_reactor_start() (Colin Ihrig) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33073">#33073</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/c6d632a72a"><code>c6d632a72a</code></a>] - <strong>worker</strong>: unify custom error creation (Anna Henningsen) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33084">#33084</a></li>
+</ul>
+<h4 id="Documentation-commits">Documentation commits</h4>
+<ul>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/6925b358f9"><code>6925b358f9</code></a>] - <strong>doc</strong>: mark assert.CallTracker experimental (Ruben Bridgewater) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33124">#33124</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/413f5d3581"><code>413f5d3581</code></a>] - <strong>doc</strong>: add missing deprecation not (Robert Nagy) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33203">#33203</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/7893bde07e"><code>7893bde07e</code></a>] - <strong>doc</strong>: fix a typo in crypto.generateKeyPairSync() (himself65) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33187">#33187</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/d02ced8af6"><code>d02ced8af6</code></a>] - <strong>doc</strong>: add util.types.isArrayBufferView() (Kevin Locke) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33092">#33092</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/36d50027af"><code>36d50027af</code></a>] - <strong>doc</strong>: clarify when not to run CI on docs (Juan José Arboleda) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33101">#33101</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/a99013718c"><code>a99013718c</code></a>] - <strong>doc</strong>: fix the spelling error in <a target="_blank" rel="noopener" href="http://stream.md">stream.md</a> (白一梓) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/31561">#31561</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/23962191c1"><code>23962191c1</code></a>] - <strong>doc</strong>: correct Nodejs to Node.js spelling (Nick Schonning) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33088">#33088</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/de15edcfc0"><code>de15edcfc0</code></a>] - <strong>doc</strong>: improve worker pool example (Ranjan Purbey) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33082">#33082</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/289a5c8dfb"><code>289a5c8dfb</code></a>] - <strong>doc</strong>: some grammar fixes (Chris Holland) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33081">#33081</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/82e459d9af"><code>82e459d9af</code></a>] - <strong>doc</strong>: don’t check links in tmp dirs (Ben Noordhuis) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/32996">#32996</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/c5a2f9a02a"><code>c5a2f9a02a</code></a>] - <strong>doc</strong>: fix markdown parsing on doc/api/os.md (Juan José Arboleda) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33067">#33067</a></li>
+</ul>
+<h4 id="Other-commits">Other commits</h4>
+<ul>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/60ebbc4386"><code>60ebbc4386</code></a>] - <strong>test</strong>: update c8 ignore comment (Benjamin Coe) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33151">#33151</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/e276524fcc"><code>e276524fcc</code></a>] - <strong>test</strong>: skip memory usage tests when ASAN is enabled (Anna Henningsen) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33129">#33129</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/89ed7a5862"><code>89ed7a5862</code></a>] - <strong>test</strong>: move test-process-title to sequential (Anna Henningsen) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33150">#33150</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/af7da46d9b"><code>af7da46d9b</code></a>] - <strong>test</strong>: fix out-of-bound reads from invalid sizeof usage (Anna Henningsen) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33115">#33115</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/9ccb6b2e8c"><code>9ccb6b2e8c</code></a>] - <strong>test</strong>: add missing calls to napi_async_destroy (Anna Henningsen) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33114">#33114</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/3c2f608a8d"><code>3c2f608a8d</code></a>] - <strong>test</strong>: correct typo in test name (Colin Ihrig) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33083">#33083</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/92c7e0620f"><code>92c7e0620f</code></a>] - <strong>test</strong>: check args on SourceTextModule cachedData (Juan José Arboleda) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/32956">#32956</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/f79ef96fea"><code>f79ef96fea</code></a>] - <strong>test</strong>: mark test flaky on freebsd (Sam Roberts) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/32849">#32849</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/aced1f5d70"><code>aced1f5d70</code></a>] - <strong>test</strong>: flaky test-stdout-close-catch on freebsd (Sam Roberts) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/32849">#32849</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/6734cc43df"><code>6734cc43df</code></a>] - <strong>tools</strong>: bump remark-preset-lint-node to 1.15.0 (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33157">#33157</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/a87d371014"><code>a87d371014</code></a>] - <strong>tools</strong>: fix redundant-move warning in inspector (Daniel Bevenius) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/32685">#32685</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/12426f59f5"><code>12426f59f5</code></a>] - <strong>tools</strong>: update remark-preset-lint-node@1.14.0 (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33072">#33072</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/8c40ffc329"><code>8c40ffc329</code></a>] - <strong>tools</strong>: update broken types in type parser (Colin Ihrig) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33068">#33068</a></li>
+</ul>
+<p>Windows 32-bit Installer: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v14.2.0/node-v14.2.0-x86.msi">https://nodejs.org/dist/v14.2.0/node-v14.2.0-x86.msi</a><br><br>
+Windows 64-bit Installer: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v14.2.0/node-v14.2.0-x64.msi">https://nodejs.org/dist/v14.2.0/node-v14.2.0-x64.msi</a><br><br>
+Windows 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v14.2.0/win-x86/node.exe">https://nodejs.org/dist/v14.2.0/win-x86/node.exe</a><br><br>
+Windows 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v14.2.0/win-x64/node.exe">https://nodejs.org/dist/v14.2.0/win-x64/node.exe</a><br><br>
+macOS 64-bit Installer: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v14.2.0/node-v14.2.0.pkg">https://nodejs.org/dist/v14.2.0/node-v14.2.0.pkg</a><br><br>
+macOS 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v14.2.0/node-v14.2.0-darwin-x64.tar.gz">https://nodejs.org/dist/v14.2.0/node-v14.2.0-darwin-x64.tar.gz</a><br><br>
+Linux 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v14.2.0/node-v14.2.0-linux-x64.tar.xz">https://nodejs.org/dist/v14.2.0/node-v14.2.0-linux-x64.tar.xz</a><br><br>
+Linux PPC LE 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v14.2.0/node-v14.2.0-linux-ppc64le.tar.xz">https://nodejs.org/dist/v14.2.0/node-v14.2.0-linux-ppc64le.tar.xz</a><br><br>
+Linux s390x 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v14.2.0/node-v14.2.0-linux-s390x.tar.xz">https://nodejs.org/dist/v14.2.0/node-v14.2.0-linux-s390x.tar.xz</a><br><br>
+AIX 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v14.2.0/node-v14.2.0-aix-ppc64.tar.gz">https://nodejs.org/dist/v14.2.0/node-v14.2.0-aix-ppc64.tar.gz</a><br><br>
+ARMv7 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v14.2.0/node-v14.2.0-linux-armv7l.tar.xz">https://nodejs.org/dist/v14.2.0/node-v14.2.0-linux-armv7l.tar.xz</a><br><br>
+ARMv8 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v14.2.0/node-v14.2.0-linux-arm64.tar.xz">https://nodejs.org/dist/v14.2.0/node-v14.2.0-linux-arm64.tar.xz</a><br><br>
+Source Code: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v14.2.0/node-v14.2.0.tar.gz">https://nodejs.org/dist/v14.2.0/node-v14.2.0.tar.gz</a><br><br>
+Other release files: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v14.2.0/">https://nodejs.org/dist/v14.2.0/</a><br><br>
+Documentation: <a target="_blank" rel="noopener" href="https://nodejs.org/docs/v14.2.0/api/">https://nodejs.org/docs/v14.2.0/api/</a></p>
+<h3 id="SHASUMS-43">SHASUMS</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">-----BEGIN PGP SIGNED MESSAGE-----</span><br><span class="line">Hash: SHA256</span><br><span class="line"></span><br><span class="line">9b4461a1af6d6fc012db5c580ece88bb72aaf33307974fe7736e83ec4bca1788  node-v14.2.0-aix-ppc64.tar.gz</span><br><span class="line">2447241aefe71dea8ba1552549e4df2e894d1ac12203630db3af63d4ae35c016  node-v14.2.0-darwin-x64.tar.gz</span><br><span class="line">3caec491f8f8a46c0c88eeebfff6616c7fdbca9695b1e74cb70354507ac3bfd4  node-v14.2.0-darwin-x64.tar.xz</span><br><span class="line">16158ba804b9d4877624477b706a82796c5895a1f130eada3546dd6070f76b73  node-v14.2.0-headers.tar.gz</span><br><span class="line">f6ca257360e99cb8158ef9cd432f7620aba4f8635dcf9fe0a9c5da1747fe2614  node-v14.2.0-headers.tar.xz</span><br><span class="line">2fd9bf7b3fc8a0e72ec27f1d274b8eedd1c81e8af3f82739c787ddc288037a4c  node-v14.2.0-linux-arm64.tar.gz</span><br><span class="line">4587d2c52cd348094bd46ee4ee8cdfeb549462ead9b4aadc9cfc3c5fc3ba7215  node-v14.2.0-linux-arm64.tar.xz</span><br><span class="line">5d898328e8985cd2714a56800766e27d5dbecf3c7ba953e1df9d155328b3ee76  node-v14.2.0-linux-armv7l.tar.gz</span><br><span class="line">530df44de700ced3ee09f77c84a9ec75f4b6e2842ae970a71f6082874f84e966  node-v14.2.0-linux-armv7l.tar.xz</span><br><span class="line">45c6a4edfd3179e9f53fc76faa0bd3c255022e6491d9961d9ff0caca9947bd98  node-v14.2.0-linux-ppc64le.tar.gz</span><br><span class="line">426aad83e3399c9bb9c5972781eba2536cc2244013ee293bbecd7f15830f76b6  node-v14.2.0-linux-ppc64le.tar.xz</span><br><span class="line">47843ea36678a898679b934347f2ab4471b227cc088f57a53afd502d37009cf6  node-v14.2.0-linux-s390x.tar.gz</span><br><span class="line">936acec34a3225c27cea055cd55d775f9b0bfa4c87f8f184c93932058908094d  node-v14.2.0-linux-s390x.tar.xz</span><br><span class="line">3307d8b95014e78b43f85242a03fe3b28edfb90cc15e1d26393dcbbc51d05c8e  node-v14.2.0-linux-x64.tar.gz</span><br><span class="line">468cbd92271da8c0cacaa3fa432a73a332e398bade8ad7359a94aa8ab3cc3cca  node-v14.2.0-linux-x64.tar.xz</span><br><span class="line">ade90531fb98d5ba5fb58df42e0e1aebd8c11ae1e67c3c720135887a3431adea  node-v14.2.0.pkg</span><br><span class="line">8c9aa909567589e97a22b2df1cf6a8d61e0a546b4c784703e6722f13da259493  node-v14.2.0.tar.gz</span><br><span class="line">8efdcc3ae381909cc9c4bd08644481a594e08b5a6a7d05814e1c32b1279e16cf  node-v14.2.0.tar.xz</span><br><span class="line">51cc7f4a712cb969a4153ca5c2ebfe8c052987fa4e025d3d98b1c7b1240f06f2  node-v14.2.0-win-x64.7z</span><br><span class="line">99085f45a894e257123d7c729113cc00ed1413df432dbdce5fe53867e7c53b11  node-v14.2.0-win-x64.zip</span><br><span class="line">9d616effae140f8f53b5659f07bb0dd5bc3af00b06dfd649401403416ea0e5b3  node-v14.2.0-win-x86.7z</span><br><span class="line">ec5a318016e91a6bb38adb95f9890a483f70e522f4bf97229fe85eb19cd0dd2e  node-v14.2.0-win-x86.zip</span><br><span class="line">f855ba61fad5ba16756b47038a1e4c5cb50685dbe2f5a1876c05fbc7300e6ea9  node-v14.2.0-x64.msi</span><br><span class="line">82a93917b3025575ce5436c5cba7aead7876a89289f3ed189444a065d8b57324  node-v14.2.0-x86.msi</span><br><span class="line">fc3481a669f071e6a1977ff348ae072f324610dc0a92d051d772b594c6988638  win-x64/node.exe</span><br><span class="line">0084f3d15cc6ca50db917c684941a85f8c4c901f726e1c74bbe57431a1479211  win-x64/node.lib</span><br><span class="line">6ef164e08b2edd08240bb3a465726fb801e766166293355153c641a55d815768  win-x64/node_pdb.7z</span><br><span class="line">8a49eed2e4a93f290d874009a1d96c377495c931b159895bdcadc7fd4554b411  win-x64/node_pdb.zip</span><br><span class="line">02900d6f56eb7820df1c75400f7bc839df50fe70f326dfa2621055c13bd4a725  win-x86/node.exe</span><br><span class="line">b4287d2e5632595de8078815d3b7cd63396c8674146896e17c736c9fead23eae  win-x86/node.lib</span><br><span class="line">8a9a50dc90a1ec43e0e9ecc890a52441c8395fd14a264808ec71e7e6c848fed3  win-x86/node_pdb.7z</span><br><span class="line">9b25070a4c10b289fb6cab40a25078ad198d6fbf13e483768387fbdc12d98a51  win-x86/node_pdb.zip</span><br><span class="line">-----BEGIN PGP SIGNATURE-----</span><br><span class="line"></span><br><span class="line">iQIzBAEBCAAdFiEEj8yhP+8dDC6RAI4Jdw96mlrhVgAFAl6xr94ACgkQdw96mlrh</span><br><span class="line">VgAGIA/7BfKeeB0R7n03c+NsoL5XoPzdGVA/ZGJbLrWB0gawIIcYeFv4+AHiSSLy</span><br><span class="line">wmECt/whwgsGUBdtfjXa7uBhD0Cq56sybQfQrIPFIt5xJO5HH/hFaRe0qqHuL0tb</span><br><span class="line">GWzjaNGZawgfS5DXka1fJ1AnqBWMkeaJKQB8owy5Jrzmphd37Pee6Wn+Ik5xSx3h</span><br><span class="line">swNTNn1JyagtorfHdHsaAA2kectcyeUJQ9TOzEdxhbrGBehtGyPYGI1gq+seQsTi</span><br><span class="line">f2IvftJNH8I4b+gwBI8hLE6kuZ6spC+VtWSV8K1LTboDgkroPcdQ6oOhiQW10WV6</span><br><span class="line">XQzwDtFvok03O7yWtaA5mvb1fVgffXCXlytCET3ibiaEtyMblnVnOul7x98MHf6E</span><br><span class="line">p1S2OLuu5Xl63yTXTwmvypppTVRMG+kNCJOWMwf+wz+c2nyfDKmXpaDFsACBKCQm</span><br><span class="line">92c0vwoTZKLK2xB/cNrnHm2QmfAqGIiDaTURO6XNKtHTDEwlHfAvM9DzzVnA9WDL</span><br><span class="line">q9bGAiAllUExnA4vuTMSsFHrUSnEfoF3+4xpeyZqy3+QWNbnwn5q8XmJWE/jWtLb</span><br><span class="line">7lmG0DL39kY6IyKupTWjoBtZVLFLGTT/1Xt9KVKbQRhCCRp26aRchVzqKe/neYDq</span><br><span class="line">roC9JLqdcLeE+UEXCGBR+WL8FrAmKZmeRN0mGJwVdTJJZXOOkKE=</span><br><span class="line">=uF86</span><br><span class="line">-----END PGP SIGNATURE-----</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://nodejs.github.io/nodejs-ko/articles/2020/05/05/release-v14.2.0/" data-id="cl1s6zrtj00oba3oq5ksic8wz" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/nodejs-ko/articles/2020/05/19/release-v14.3.0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Node v14.3.0 (현재 버전)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/nodejs-ko/articles/2020/04/30/release-v13.14.0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Node v13.14.0(현재 버전)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title">Menu</h3>
+  <div class="widget">
+    <ul class="category-list">
+      <li class="category-list-item">
+        <a href="/nodejs-ko/">Home</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/CONTRIBUTING.html">번역 참여 가이드</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/about.html">소개</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/categories/articles">글 모음</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/categories/weekly">주간 뉴스</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/archives">보관함</a>
+      </li>
+      <li class="category-list-item">
+        <a href="https://github.com/nodejs/nodejs-ko" target="_blank">GitHub project</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+  
+</aside>
+
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Node.js 한국어 번역팀<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/nodejs-ko/" class="mobile-nav-link">Home</a>
+  
+    <a href="/nodejs-ko/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/nodejs-ko/fancybox/jquery.fancybox.css">
+
+  
+<script src="/nodejs-ko/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/nodejs-ko/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>

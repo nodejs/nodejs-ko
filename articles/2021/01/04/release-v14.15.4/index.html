@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  
+  <title>Node v14.15.4(LTS) | Node.js 한국 커뮤니티</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="주요 변경 사항 이번 릴리스는 보안 릴리스입니다. 다음 취약점을 수정했습니다.   CVE-2020-1971: OpenSSL - EDIPARTYNAME NULL 포인터 역참조 (높음)  이 문제는 Node.js를 통해 악용될 수 있는 OpenSSL의 취약점입니다. 더 자세한 정보는 https:&#x2F;&#x2F;www.openssl.org&#x2F;news&#x2F;secadv&#x2F;202012">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node v14.15.4(LTS)">
+<meta property="og:url" content="https://nodejs.github.io/nodejs-ko/articles/2021/01/04/release-v14.15.4/index.html">
+<meta property="og:site_name" content="Node.js 한국 커뮤니티">
+<meta property="og:description" content="주요 변경 사항 이번 릴리스는 보안 릴리스입니다. 다음 취약점을 수정했습니다.   CVE-2020-1971: OpenSSL - EDIPARTYNAME NULL 포인터 역참조 (높음)  이 문제는 Node.js를 통해 악용될 수 있는 OpenSSL의 취약점입니다. 더 자세한 정보는 https:&#x2F;&#x2F;www.openssl.org&#x2F;news&#x2F;secadv&#x2F;202012">
+<meta property="og:locale">
+<meta property="article:published_time" content="2021-01-04T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-09T18:30:15.217Z">
+<meta property="article:author" content="Node.js 한국어 번역팀">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@nodejs_ko">
+  
+    <link rel="alternate" href="/nodejs-ko/atom.xml" title="Node.js 한국 커뮤니티" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/nodejs-ko/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/nodejs-ko/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/nodejs-ko/" id="logo">Node.js 한국 커뮤니티</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/nodejs-ko/">Home</a>
+        
+          <a class="main-nav-link" href="/nodejs-ko/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/nodejs-ko/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://nodejs.github.io/nodejs-ko"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-release-v14.15.4" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <a href="/nodejs-ko/articles/2021/01/04/release-v14.15.4/" class="article-date">
+    <time datetime="2021-01-04T00:00:00.000Z" itemprop="datePublished">2021-01-04</time>
+  </a>
+
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/nodejs-ko/categories/articles/">articles</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Node v14.15.4(LTS)
+    </h1>
+  
+  <ul>
+    <li>작성자: <strong>Bethany Nicolle Griggs</strong></li>
+    <li>
+      원문: <strong><a target="_blank" rel="noopener" href="https://nodejs.org/en/blog/release/v14.15.4" taret="_blank">
+        Node v14.15.4 (LTS)
+      </a></strong>
+    </li>
+    <li>
+      번역:
+      <strong><a target="_blank" rel="noopener" href="https://github.com/outsideris">outsideris</a></strong>
+    </li>
+  </ul>
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--
+### Notable Changes
+
+Vulnerabilities fixed:
+
+* **CVE-2020-1971**: OpenSSL - EDIPARTYNAME NULL pointer de-reference (High)
+  * This is a vulnerability in OpenSSL which may be exploited through
+  Node.js. You can read more about it in
+  https://www.openssl.org/news/secadv/20201208.txt
+
+* **CVE-2020-8265**: use-after-free in TLSWrap (High)
+  * Affected Node.js versions are vulnerable to a use-after-free bug in
+  its TLS implementation. When writing to a TLS enabled socket,
+  node::StreamBase::Write calls node::TLSWrap::DoWrite with a freshly
+  allocated WriteWrap object as first argument. If the DoWrite method
+  does not return an error, this object is passed back to the caller as
+  part of a StreamWriteResult structure. This may be exploited to
+  corrupt memory leading to a Denial of Service or potentially other
+  exploits.
+
+* **CVE-2020-8287**: HTTP Request Smuggling in nodejs (Low)
+  * Affected versions of Node.js allow two copies of a header field in
+  a http request. For example, two Transfer-Encoding header fields. In
+  this case Node.js identifies the first header field and ignores the
+  second. This can lead to HTTP Request Smuggling
+  (https://cwe.mitre.org/data/definitions/444.html).
+-->
+<h3 id="주요-변경-사항-80">주요 변경 사항</h3>
+<p>이번 릴리스는 보안 릴리스입니다.</p>
+<p>다음 취약점을 수정했습니다.</p>
+<ul>
+<li>
+<p><strong>CVE-2020-1971</strong>: OpenSSL - EDIPARTYNAME NULL 포인터 역참조 (높음)</p>
+<ul>
+<li>이 문제는 Node.js를 통해 악용될 수 있는 OpenSSL의 취약점입니다. 더 자세한 정보는<br>
+<a target="_blank" rel="noopener" href="https://www.openssl.org/news/secadv/20201208.txt">https://www.openssl.org/news/secadv/20201208.txt</a>에서 읽을 수 있습니다.</li>
+</ul>
+</li>
+<li>
+<p><strong>CVE-2020-8265</strong>: TLSWrap의 use-after-free (높음)</p>
+<ul>
+<li>영향을 받는 Node.js 버전은 TLS 구현 부분에 있는 use-after-free 버그에 취약합니다.<br>
+TLS 가능한 소켓에 데이터를 쓸 때 node::StreamBase::Write는 node::TLSWrap::DoWrite를 호출하며,<br>
+이때 첫 번째 인수로 새롭게 할당된 WriteWrap 객체를 전달합니다. 이 객체는 DoWrite 메서드가 에러를 반환하지 않으면<br>
+호출한 함수에게 StreamWriteResult 구조체의 일부를 반환합니다. 이는 서비스 거부 혹은 잠재적인 다른 보안 문제를<br>
+일으키는 메모리 오염으로 악용될 수 있습니다.</li>
+</ul>
+</li>
+<li>
+<p><strong>CVE-2020-8287</strong>: Node.js의 HTTP 요청 스머글링(Smuggling)</p>
+<ul>
+<li>영향을 받는 Node.js 버전은 하나의 HTTP 요청에 두 개의 동일한 헤더 필드를 허용합니다.<br>
+예를 들어 두 개의 Transfer-Encoding 헤더 필드가 존재할 수 있습니다. 이 경우 Node.js는<br>
+첫 번째 헤더 필드를 사용하고 두 번째 헤더 필드는 무시합니다. 이 문제는 HTTP 요청 스머글링 문제를<br>
+일으킬 수 있습니다. (<a target="_blank" rel="noopener" href="https://cwe.mitre.org/data/definitions/444.html">https://cwe.mitre.org/data/definitions/444.html</a>)</li>
+</ul>
+</li>
+</ul>
+<h3 id="Commits-310">Commits</h3>
+<ul>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/305c0f4977"><code>305c0f4977</code></a>] - <strong>deps</strong>: upgrade npm to 6.14.10 (Ruy Adorno) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/36571">#36571</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/d62c650f75"><code>d62c650f75</code></a>] - <strong>deps</strong>: update archs files for OpenSSL-1.1.1i (Myles Borins) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/36521">#36521</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/2de2672eb5"><code>2de2672eb5</code></a>] - <strong>deps</strong>: upgrade openssl sources to 1.1.1i (Myles Borins) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/36521">#36521</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/7ecac8143f"><code>7ecac8143f</code></a>] - <strong>http</strong>: add test for http transfer encoding smuggling (Matteo Collina) <a target="_blank" rel="noopener" href="https://github.com/nodejs-private/node-private/pull/228">nodejs-private/node-private#228</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/641f786bb1"><code>641f786bb1</code></a>] - <strong>http</strong>: unset <code>F_CHUNKED</code> on new <code>Transfer-Encoding</code> (Matteo Collina) <a target="_blank" rel="noopener" href="https://github.com/nodejs-private/node-private/pull/228">nodejs-private/node-private#228</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/4f8772f9b7"><code>4f8772f9b7</code></a>] - <strong>src</strong>: retain pointers to WriteWrap/ShutdownWrap (James M Snell) <a target="_blank" rel="noopener" href="https://github.com/nodejs-private/node-private/pull/23">nodejs-private/node-private#23</a></li>
+</ul>
+<p>Windows 32-bit Installer: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v14.15.4/node-v14.15.4-x86.msi">https://nodejs.org/dist/v14.15.4/node-v14.15.4-x86.msi</a><br><br>
+Windows 64-bit Installer: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v14.15.4/node-v14.15.4-x64.msi">https://nodejs.org/dist/v14.15.4/node-v14.15.4-x64.msi</a><br><br>
+Windows 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v14.15.4/win-x86/node.exe">https://nodejs.org/dist/v14.15.4/win-x86/node.exe</a><br><br>
+Windows 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v14.15.4/win-x64/node.exe">https://nodejs.org/dist/v14.15.4/win-x64/node.exe</a><br><br>
+macOS 64-bit Installer: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v14.15.4/node-v14.15.4.pkg">https://nodejs.org/dist/v14.15.4/node-v14.15.4.pkg</a><br><br>
+macOS 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v14.15.4/node-v14.15.4-darwin-x64.tar.gz">https://nodejs.org/dist/v14.15.4/node-v14.15.4-darwin-x64.tar.gz</a><br><br>
+Linux 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v14.15.4/node-v14.15.4-linux-x64.tar.xz">https://nodejs.org/dist/v14.15.4/node-v14.15.4-linux-x64.tar.xz</a><br><br>
+Linux PPC LE 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v14.15.4/node-v14.15.4-linux-ppc64le.tar.xz">https://nodejs.org/dist/v14.15.4/node-v14.15.4-linux-ppc64le.tar.xz</a><br><br>
+Linux s390x 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v14.15.4/node-v14.15.4-linux-s390x.tar.xz">https://nodejs.org/dist/v14.15.4/node-v14.15.4-linux-s390x.tar.xz</a><br><br>
+AIX 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v14.15.4/node-v14.15.4-aix-ppc64.tar.gz">https://nodejs.org/dist/v14.15.4/node-v14.15.4-aix-ppc64.tar.gz</a><br><br>
+ARMv7 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v14.15.4/node-v14.15.4-linux-armv7l.tar.xz">https://nodejs.org/dist/v14.15.4/node-v14.15.4-linux-armv7l.tar.xz</a><br><br>
+ARMv8 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v14.15.4/node-v14.15.4-linux-arm64.tar.xz">https://nodejs.org/dist/v14.15.4/node-v14.15.4-linux-arm64.tar.xz</a><br><br>
+Source Code: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v14.15.4/node-v14.15.4.tar.gz">https://nodejs.org/dist/v14.15.4/node-v14.15.4.tar.gz</a><br><br>
+Other release files: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v14.15.4/">https://nodejs.org/dist/v14.15.4/</a><br><br>
+Documentation: <a target="_blank" rel="noopener" href="https://nodejs.org/docs/v14.15.4/api/">https://nodejs.org/docs/v14.15.4/api/</a></p>
+<h3 id="SHASUMS-85">SHASUMS</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">-----BEGIN PGP SIGNED MESSAGE-----</span><br><span class="line">Hash: SHA256</span><br><span class="line"></span><br><span class="line">03ac3f7d33f17b762d676988b725c58140b5f9a131c849f9b78cbe7f7f84c234  node-v14.15.4-aix-ppc64.tar.gz</span><br><span class="line">6b0e19e5c2601ef97510f7eb4f52cc8ee261ba14cb05f31eb1a41a5043b0304e  node-v14.15.4-darwin-x64.tar.gz</span><br><span class="line">3078556d474a3e3cd6845d79577ca78c14a3c0ef78d569ae3644834584235e88  node-v14.15.4-darwin-x64.tar.xz</span><br><span class="line">3eb7d4ec4964b10a48987c35c37b3e7720735cf3b9806fe40a805fa1d49a9c7d  node-v14.15.4-headers.tar.gz</span><br><span class="line">048e5486c86c8e9396a5b765744fad85b9a3ae5ba99f7dd472b41fee16446233  node-v14.15.4-headers.tar.xz</span><br><span class="line">b681bda8eaa1ed2ac85e0ed2c2041a0408963c2198a24da183dc3ab60d93d975  node-v14.15.4-linux-arm64.tar.gz</span><br><span class="line">b990bd99679158c3164c55a20c2a6677c3d9e9ffdfa0d4a40afe9c9b5e97a96f  node-v14.15.4-linux-arm64.tar.xz</span><br><span class="line">ffce90b07675434491361dfc74eee230f9ffc65c6c08efb88a18781bcb931871  node-v14.15.4-linux-armv7l.tar.gz</span><br><span class="line">bafe4bfb22b046cdda3475d23cd6999c5ea85180c180c4bbb94014920aa7231b  node-v14.15.4-linux-armv7l.tar.xz</span><br><span class="line">d8b92d3826b7a04b886da92275a64978431fde1b47cc92de48f5fb16131bebb2  node-v14.15.4-linux-ppc64le.tar.gz</span><br><span class="line">b2456aa4fbfeeea2aae2a0b969c0fc45c12cd218ca48461c6031f590c2ee8495  node-v14.15.4-linux-ppc64le.tar.xz</span><br><span class="line">c13f16657074437fd66f888736260af486df89a7d77d8b323655cee6408a8084  node-v14.15.4-linux-s390x.tar.gz</span><br><span class="line">29f794d492eccaf0b08e6492f91162447ad95cfefc213fc580a72e29e11501a9  node-v14.15.4-linux-s390x.tar.xz</span><br><span class="line">b51c033d40246cd26e52978125a3687df5cd02ee532e8614feff0ba6c13a774f  node-v14.15.4-linux-x64.tar.gz</span><br><span class="line">ed01043751f86bb534d8c70b16ab64c956af88fd35a9506b7e4a68f5b8243d8a  node-v14.15.4-linux-x64.tar.xz</span><br><span class="line">86e42bb639ea69165a1527a8af5bcf8908633750645198b1c373be6c6ea9db31  node-v14.15.4.pkg</span><br><span class="line">8610d81b2d4afc3a79afbe6209d510125131c45cae22cac63bb767dcfec1cbf0  node-v14.15.4.tar.gz</span><br><span class="line">adb7ecf66c74b52a14a08cc22bb0f9aedc157cac1ac93240f7f455e8c8edec9c  node-v14.15.4.tar.xz</span><br><span class="line">1da86f92f158e53ee79469daf5e6a3e3f2e6e7c233bbf4b91ab12e1ca9503444  node-v14.15.4-win-x64.7z</span><br><span class="line">b2a0765240f8fbd3ba90a050b8c87069d81db36c9f3745aff7516e833e4d2ed6  node-v14.15.4-win-x64.zip</span><br><span class="line">e631956bbf65cb046c7d38d0f0a4633755e86df1ff5f37c3610d55f706c1f0c0  node-v14.15.4-win-x86.7z</span><br><span class="line">49b2ee6106192894809ce14a2932dca41a6bcf5602ce19413fcb3a477f8613b2  node-v14.15.4-win-x86.zip</span><br><span class="line">346a053dcd7508f1e5fbb2da0e34cbb3da206ab2439c4bab5a219c3b75e62475  node-v14.15.4-x64.msi</span><br><span class="line">2e91ec4aca9bccf105d920bf46b4fbe219aa9dd5439e006f65dc426273cbbdfa  node-v14.15.4-x86.msi</span><br><span class="line">dc105951e62ca3be85b6d42ce1db5dc0fce6adac90c76861d9e62302a43ac6b6  win-x64/node.exe</span><br><span class="line">632ef6fd3d8e23c8b333e0dde5a802c80e5bb08e572ac184d9c8ebf47db2be96  win-x64/node.lib</span><br><span class="line">79aaa8027f4e98bfc3448d2282dde4678bbb345c1639eae2380ffc9d81ee4581  win-x64/node_pdb.7z</span><br><span class="line">54ab0ed636dffac1335b7ac29e045ace732f6eef513fa2c549f6a00e367ecdcc  win-x64/node_pdb.zip</span><br><span class="line">89ceec9ba49002797ab4f0e9753f4eae9f415d773aaf65b41b15640a4313d407  win-x86/node.exe</span><br><span class="line">a6670b0a10985f58d1a66467041926060c16cc6932d3ba490a020f4cb3fd6280  win-x86/node.lib</span><br><span class="line">ed7d37ade431e53738d6ef1481a05ad1cfcbea1aaa20289a134a43b01cdcc5b5  win-x86/node_pdb.7z</span><br><span class="line">81f8634988510fd63fb85eb8ade339c252ce35d8b0a5620b6046e29061b00f87  win-x86/node_pdb.zip</span><br><span class="line">-----BEGIN PGP SIGNATURE-----</span><br><span class="line"></span><br><span class="line">iQEzBAEBCAAdFiEETtd49TnjY0x3nIfG1wYoSKGrAFwFAl/zWvQACgkQ1wYoSKGr</span><br><span class="line">AFwWTwgAtMV70O16Du5ZGlsQau42xBvMeAN8AvpkkUE7wX/r87cU90gScFKrVTvJ</span><br><span class="line">URYmSu7AI7+nS3euqHU0AFqWEHOWSRXZ/1c83Bb0imLpfYlt6nTE8EZdVI8ul2T5</span><br><span class="line">dyQZe95f/TR+NhjnoC+1Acqstf37BZ96aDSMkEcNWrjNA/jwFgK0ut8juRTefZaZ</span><br><span class="line">3jUMBL3apZosxmw3CR5sbtDJM2c0LX1/5dRajmNnfnSHVvTor2YgRWI++DVrgMz3</span><br><span class="line">bFiwwabKKrFs7ICFOpEzZVADOO84pE/G6wiSP4SkKTjxO6E2JPJNE2bXoPVK3VB3</span><br><span class="line">cuDMZNhKfyg2HxVvy4R6aGwCnF9Big==</span><br><span class="line">=YV6/</span><br><span class="line">-----END PGP SIGNATURE-----</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://nodejs.github.io/nodejs-ko/articles/2021/01/04/release-v14.15.4/" data-id="cl1s6zrv200qya3oqdf48dygr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/nodejs-ko/articles/2021/01/04/release-v12.20.1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Node v12.20.1(LTS)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/nodejs-ko/articles/2021/01/04/release-v15.5.1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Node v15.5.1(현재 버전)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title">Menu</h3>
+  <div class="widget">
+    <ul class="category-list">
+      <li class="category-list-item">
+        <a href="/nodejs-ko/">Home</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/CONTRIBUTING.html">번역 참여 가이드</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/about.html">소개</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/categories/articles">글 모음</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/categories/weekly">주간 뉴스</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/archives">보관함</a>
+      </li>
+      <li class="category-list-item">
+        <a href="https://github.com/nodejs/nodejs-ko" target="_blank">GitHub project</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+  
+</aside>
+
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Node.js 한국어 번역팀<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/nodejs-ko/" class="mobile-nav-link">Home</a>
+  
+    <a href="/nodejs-ko/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/nodejs-ko/fancybox/jquery.fancybox.css">
+
+  
+<script src="/nodejs-ko/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/nodejs-ko/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  
+  <title>io.js 주간 뉴스 2015년 3월 6일 | Node.js 한국 커뮤니티</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Buffer.indexOf(), Tessel 2 그리고 다른 것들.  io.js 1.5.0 릴리스 3월 16일 금요일에 @rvagg가 io.js v1.5.0을 배포하였습니다. 모든 변경 기록은 GitHub에서 확인할 수 있습니다.  주요 변경 사항  buffer: 새로운 Buffer#indexOf() 메서드가 Array#indexOf()를 대체하였습니다.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="io.js 주간 뉴스 2015년 3월 6일">
+<meta property="og:url" content="https://nodejs.github.io/nodejs-ko/weekly/2015/03/06/weekly/index.html">
+<meta property="og:site_name" content="Node.js 한국 커뮤니티">
+<meta property="og:description" content="Buffer.indexOf(), Tessel 2 그리고 다른 것들.  io.js 1.5.0 릴리스 3월 16일 금요일에 @rvagg가 io.js v1.5.0을 배포하였습니다. 모든 변경 기록은 GitHub에서 확인할 수 있습니다.  주요 변경 사항  buffer: 새로운 Buffer#indexOf() 메서드가 Array#indexOf()를 대체하였습니다.">
+<meta property="og:locale">
+<meta property="article:published_time" content="2015-03-06T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-09T18:30:15.153Z">
+<meta property="article:author" content="Node.js 한국어 번역팀">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@nodejs_ko">
+  
+    <link rel="alternate" href="/nodejs-ko/atom.xml" title="Node.js 한국 커뮤니티" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/nodejs-ko/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/nodejs-ko/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/nodejs-ko/" id="logo">Node.js 한국 커뮤니티</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/nodejs-ko/">Home</a>
+        
+          <a class="main-nav-link" href="/nodejs-ko/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/nodejs-ko/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://nodejs.github.io/nodejs-ko"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-weekly" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <a href="/nodejs-ko/weekly/2015/03/06/weekly/" class="article-date">
+    <time datetime="2015-03-06T00:00:00.000Z" itemprop="datePublished">2015-03-06</time>
+  </a>
+
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/nodejs-ko/categories/weekly/">weekly</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      io.js 주간 뉴스 2015년 3월 6일
+    </h1>
+  
+  <ul>
+    <li>작성자: <strong>iojs</strong></li>
+    <li>
+      원문: <strong><a target="_blank" rel="noopener" href="https://medium.com/node-js-javascript/io-js-week-of-march-6th-2f9344688277" taret="_blank">
+        io.js Week of March 6th - Buffer.indexOf(), Tessel 2 and more.
+      </a></strong>
+    </li>
+    <li>
+      번역:
+      <strong><a href="https://github.com/xarus01" target="_blank">xarus01</a></strong>
+    </li>
+  </ul>
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Buffer.indexOf(), Tessel 2 그리고 다른 것들.</p>
+<!--
+# io.js 1.5.0 Release
+
+On Friday, March 6th, [@rvagg](https://github.com/rvagg) released io.js [**v1.5.0**](https://iojs.org/dist/latest/).  The complete change log can be found [on GitHub](https://github.com/nodejs/node/blob/v1.x/CHANGELOG.md).
+-->
+<h1>io.js 1.5.0 릴리스</h1>
+<p>3월 16일 금요일에 <a target="_blank" rel="noopener" href="https://github.com/rvagg">@rvagg</a>가 io.js <a target="_blank" rel="noopener" href="https://iojs.org/dist/latest/"><strong>v1.5.0</strong></a>을 배포하였습니다. 모든 변경 기록은 <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/blob/v1.x/CHANGELOG.md">GitHub</a>에서 확인할 수 있습니다.</p>
+<!--
+### Notable changes
+
+* **buffer**: New `Buffer#indexOf()` method, modelled off [`Array#indexOf()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf). Accepts a String, Buffer or a Number. Strings are interpreted as UTF8. (Trevor Norris) [#561](https://github.com/nodejs/node/pull/561)
+* **fs**: `options` object properties in `'fs'` methods no longer perform a `hasOwnProperty()` check, thereby allowing options objects to have prototype properties that apply. (Jonathan Ong) [#635](https://github.com/nodejs/node/pull/635)
+* **tls**: A likely TLS memory leak was reported by PayPal. Some of the recent changes in **stream_wrap** appear to be to blame. The initial fix is in [#1078](https://github.com/nodejs/node/pull/1078), you can track the progress toward closing the leak at [#1075](https://github.com/nodejs/node/issues/1075) (Fedor Indutny).
+* **npm**: Upgrade npm to 2.7.0. See [npm CHANGELOG.md](https://github.com/npm/npm/blob/master/CHANGELOG.md#v270-2015-02-26) for details including why this is a semver-minor when it could have been semver-major.
+* **TC**: Colin Ihrig (@cjihrig) resigned from the TC due to his desire to do more code and fewer meetings.
+-->
+<h3 id="주요-변경-사항-2">주요 변경 사항</h3>
+<ul>
+<li><strong>buffer</strong>: 새로운 <code>Buffer#indexOf()</code> 메서드가 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf"><code>Array#indexOf()</code></a>를 대체하였습니다. 인수로 String, Buffer, 또는 Number를 받을 수 있습니다. String은 UTF8 문자열로 처리됩니다. (Trevor Norris) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/561">#561</a></li>
+<li><strong>fs</strong>: <code>'fs'</code> 메서드 내의 <code>options</code> 오브젝트 속성은 더는 <code>hasOwnProperty()</code> 검사를 수행하지 않으며, 따라서 <code>options</code> 오브젝트가 알맞은 prototype 속성도 가질 수 있습니다. (Jonathan Ong) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/635">#635</a></li>
+<li><strong>tls</strong>: TLS 메모리 누수로 생각되는 현상이 PayPal에 의해서 보고되었습니다. 최근의 <strong>stream_wrap</strong> 상의 변경사항들 중 일부가 그 이유인 것으로 보입니다. 첫 버그 수정은 <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/1078">#1078</a>에서 이루어졌고, 전체 과정은 <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/issues/1075">#1075</a>에서 볼 수 있습니다. (Fedor Indutny)</li>
+<li><strong>npm</strong>: npm을 2.7.0으로 업그레이드했습니다. <a target="_blank" rel="noopener" href="https://github.com/npm/npm/blob/master/CHANGELOG.md#v270-2015-02-26">npm CHANGELOG.md</a>에서 왜 이것이 유의적 버전의 주 버전업이 될 수 있었음에도 부 버전업으로 처리되었는지에 대한 이유와 다른 세부사항을 확인할 수 있습니다.</li>
+<li><strong>TC</strong>: Colin Ihrig(@cjihrig)가 회의보다는 코딩에 집중 하고자 TC에서 사임하였습니다.</li>
+</ul>
+<!--
+### Known issues
+
+* Possible TLS-related memory leak, details at [#1075](https://github.com/nodejs/node/issues/1075).
+* Windows still reports some minor test failures and we are continuing to address all of these as a priority. See [#1005](https://github.com/nodejs/node/issues/1005).
+* Surrogate pair in REPL can freeze terminal [#690](https://github.com/nodejs/node/issues/690)
+* Not possible to build io.js as a static library [#686](https://github.com/nodejs/node/issues/686)
+* `process.send()` is not synchronous as the docs suggest, a regression introduced in 1.0.2, see [#760](https://github.com/nodejs/node/issues/760) and fix in [#774](https://github.com/nodejs/node/issues/774)
+-->
+<h3 id="알려진-이슈">알려진 이슈</h3>
+<ul>
+<li>TLS와 관련된 메모리 누수가 있을 수 있습니다. 자세한 사항은 <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/issues/1075">#1075</a>를 참조하세요.</li>
+<li>아직 윈도우에서 통과하지 못하는 사소한 테스트들이 있습니다. 저희는 이들을 우선적으로 처리하는 중입니다. <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/issues/1005">#1005</a>를 확인해 보세요.</li>
+<li>대화형 셸에서 서러게이트 페어(Surrogate pair)가 터미널을 정지시킬 수 있습니다. <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/issues/690">#690</a></li>
+<li><code>process.send()</code>는 문서에서 설명된 바와는 다르게 동기적이지 않습니다. 이 회귀는 1.0.2에서 발생했습니다. <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/issues/760">#760</a>에서 확인 가능하며 <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/issues/774">#774</a>에서 수정하고 있습니다.</li>
+</ul>
+<!--
+# Community Updates
+
+* You can relax knowing that io.js and latest node.js [**are not affected**](https://strongloop.com/strongblog/are-node-and-io-js-affected-by-the-freak-attack-openssl-vulnerability/) by the [FREAK Attack](https://freakattack.com/).  You are running io.js or the latest version of node.js, right?
+
+* Walmart is now sponsoring a build machine for the io.js Jenkins CI system.  The @iojs/build team is working on creating io.js SunOS binaries (like you can get from nodejs.org).  A V8 fix ([iojs/io.js#1079](https://github.com/nodejs/node/pull/1079)) needs to be landed first before more progress can be made.
+* We would also like to thank the following companies for contributing hardware and related technology/support/engineering for io.js builds:
+  * **Digital Ocean** (mainly Linux)
+  * **Rackspace** (mainly Windows)
+  * **Voxer** (OS X and FreeBSD)
+  * **NodeSource** (ARMv6 & ARMv7)
+  * **Linaro** (ARMv8)
+  * **Walmart** (SmartOS / Solaris)
+* The io.js community has been hard at work on the internationalization of all of its content.  There are now over 20 active languages published on [iojs.org](http://iojs.org) and i18n community sites.  Additionally, i18n links ([iojs/website#258](https://github.com/nodejs/website/pull/258)) have been added to the website footer for easy access.  Are we missing your language?  [Help us add it!](https://github.com/nodejs/website/blob/master/TRANSLATION.md)
+* Speaking of translations, the [io.js roadmap presentation](http://roadmap.iojs.org/) has been updated to link to other language versions.
+
+* It seems that **PayPal** is running an experiment comparing [Kappa](https://www.npmjs.com/package/kappa)  on io.js vs node.js 0.12 vs node.js v0.10.  The PayPal team identified a likely TLS memory leak. Initial fix is in [#1078](https://github.com/nodejs/node/pull/1078) and progress towards closing is in [#1075](https://github.com/nodejs/node/issues/1075)
+
+* [**NodeSource**](http://nodesource.com) is now providing io.js [Linux binary](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories) packages for Ubuntu/Debian as well as RHEL/Fedora distributions.
+* The io.js [Docker build](https://registry.hub.docker.com/u/library/iojs/) is one of thirteen new [official Docker repositories](http://blog.docker.com/2015/03/thirteen-new-official-repositories-added-in-january-and-february/) added in January and February.
+
+* NodeBots and IoT people should be happy to hear that the just-announced [**Tessel2**](http://blog.technical.io/post/112787427217/tessel-2-new-hardware-for-the-tessel-ecosystem) runs [io.js natively](http://blog.technical.io/post/112888410737/moving-faster-with-io-js).
+* [**@maxbeatty**](https://twitter.com/maxbeatty) is working on a new version of the [jsperf.com](http://jsperf.com/) backend, running on io.js and it is entirely [open source](https://github.com/jsperf/jsperf.com).  Contributions are welcome!
+
+* [@eranhammer](https://twitter.com/eranhammer) wrote a blog post called [The Node Version Dilemma](http://hueniverse.com/2015/03/02/the-node-version-dilemma/) which discusses the various node.js / io.js versions and proposes which ones to use and when to use them.
+-->
+<h1>커뮤니티 업데이트</h1>
+<ul>
+<li>
+<p>io.js와 최신의 node.js는 <a target="_blank" rel="noopener" href="https://freakattack.com/">FREAK Attack</a>에 의해 <a target="_blank" rel="noopener" href="https://strongloop.com/strongblog/are-node-and-io-js-affected-by-the-freak-attack-openssl-vulnerability/"><strong>영향을 받지 않으니</strong></a> 모두 안심해도 좋습니다. 물론 io.js나 node.js의 최신 버전을 사용하고 계시겠지요?</p>
+</li>
+<li>
+<p>Walmart가 io.js Jenkins CI 시스템을 위한 서버를 만드는 일을 후원하고 있습니다. @iojs/build 팀이 (여러분이 nodejs.org에서 내려받을 수 있는 것과 같은) io.js SunOS 바이너리를 만들고 있습니다.</p>
+</li>
+<li>
+<p>아래의 회사들도 io.js 빌드를 위한 하드웨어와 그와 관련된 기술/지원/엔지니어링을 제공해주셨습니다. 감사드립니다.</p>
+<ul>
+<li><strong>Digital Ocean</strong> (대부분 리눅스 관련)</li>
+<li><strong>Rackspace</strong> (대부분 윈도우 관련)</li>
+<li><strong>Voxer</strong> (OS X와 FreeBSD)</li>
+<li><strong>NodeSource</strong> (ARMv6 &amp; ARMv7)</li>
+<li><strong>Linaro</strong> (ARMv8)</li>
+<li><strong>Walmart</strong> (SmartOS / 솔라리스)</li>
+</ul>
+</li>
+<li>
+<p>io.js 커뮤니티는 관련 콘텐츠를 매우 열심히 국제화 하였습니다. 이제 <a target="_blank" rel="noopener" href="http://iojs.org">iojs.org</a>와 i18n 커뮤니티 사이트들에서 20개가 넘는 언어로 게시되고 있습니다. 덧붙이자면 더욱 나은 접근성을 위해서 i18n 링크들(<a target="_blank" rel="noopener" href="https://github.com/nodejs/website/pull/258">iojs/website#258</a>)이 웹사이트 바닥 글에 추가되었습니다. 빠진 언어가 있나요? <a target="_blank" rel="noopener" href="https://github.com/nodejs/website/blob/master/TRANSLATION.md">추가하도록 도와주세요!</a></p>
+</li>
+<li>
+<p>번역에 대해서 말하자면 <a target="_blank" rel="noopener" href="http://roadmap.iojs.org/">io.js 로드맵 발표 자료</a>가 영어 외의 다른 언어들도 표시하도록 업데이트되었습니다.</p>
+</li>
+<li>
+<p><strong>PayPal</strong>이 io.js와 node.js v0.12, node.js v0.10 상에서 <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/kappa">Kappa</a>를 비교하는 실험을 하고 있는 것으로 보입니다. 페이팔 팀은 TLS와 관련된 것으로 생각되는 메모리 누수를 찾아냈습니다. 첫 버그 수정은 <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/1078">#1078</a>에서 이루어졌고, 전체 과정은 <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/issues/1075">#1075</a>에서 볼 수 있습니다.</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="http://nodesource.com"><strong>NodeSource</strong></a>가 이제 우분투/데비안뿐만 아니라 RHEL/페도라 배포판을 위한 io.js <a target="_blank" rel="noopener" href="https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories">리눅스 바이너리</a>를 제공합니다.</p>
+</li>
+<li>
+<p>io.js <a target="_blank" rel="noopener" href="https://registry.hub.docker.com/u/library/iojs/">도커 빌드</a>는 1월과 2월에 추가된 13개의 <a target="_blank" rel="noopener" href="http://blog.docker.com/2015/03/thirteen-new-official-repositories-added-in-january-and-february/">공식 도커 저장소</a> 중 하나입니다.</p>
+</li>
+<li>
+<p>NodeBots와 IoT 관련자는 <a target="_blank" rel="noopener" href="http://blog.technical.io/post/112787427217/tessel-2-new-hardware-for-the-tessel-ecosystem"><strong>Tessel2</strong></a>이 <a target="_blank" rel="noopener" href="http://blog.technical.io/post/112888410737/moving-faster-with-io-js">io.js를 네이티브로</a> 실행한다는 소식에 매우 기쁠 것입니다.</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://twitter.com/maxbeatty"><strong>@maxbeatty</strong></a>가 io.js 상에서 실행되는 <a target="_blank" rel="noopener" href="http://jsperf.com/">jsperf.com</a>의 새 버전을 개발하고 있으며, 이것은 완전히 <a target="_blank" rel="noopener" href="https://github.com/jsperf/jsperf.com">오픈 소스 기반</a>으로 진행됩니다. 프로젝트에 대한 기여는 언제든지 환영합니다!</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://twitter.com/eranhammer">@eranhammer</a>가 <a target="_blank" rel="noopener" href="http://hueniverse.com/2015/03/02/the-node-version-dilemma/">The Node Version Dilemma</a>라는 제목의 글을 썼습니다. 이 글에서는 다양한 node.js / io.js 버전을 다루며 어떤 것을 언제 써야 할지에 대한 방안을 제시합니다.</p>
+</li>
+</ul>
+<!--
+# io.js Support Added
+
+* **[scrypt](https://npmjs.com/scrypt)** now supports io.js. Learn more from this [GitHub issue](https://github.com/barrysteyn/node-scrypt/issues/39)
+* **[proxyquire](https://github.com/thlorenz/proxyquire)** v1.3.2 published with support for iojs.
+-->
+<h1>io.js 지원 추가</h1>
+<ul>
+<li>**<a target="_blank" rel="noopener" href="https://npmjs.com/scrypt">scrypt</a>**가 이제 io.js를 지원합니다. 자세한 내용은 <a target="_blank" rel="noopener" href="https://github.com/barrysteyn/node-scrypt/issues/39">GitHub issue</a>에서 확인할 수 있습니다.</li>
+<li>**<a target="_blank" rel="noopener" href="https://github.com/thlorenz/proxyquire">proxyquire</a>**가 v1.3.2부터 iojs에 대한 지원을 포함합니다.</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://nodejs.github.io/nodejs-ko/weekly/2015/03/06/weekly/" data-id="cl1s6zrj6000ga3oq0mc2512d" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/nodejs-ko/weekly/2015/03/13/weekly/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          io.js 주간 뉴스 2015년 3월 13일
+        
+      </div>
+    </a>
+  
+  
+    <a href="/nodejs-ko/articles/2015/02/27/reconciliation-proposal/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">화해 제안</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title">Menu</h3>
+  <div class="widget">
+    <ul class="category-list">
+      <li class="category-list-item">
+        <a href="/nodejs-ko/">Home</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/CONTRIBUTING.html">번역 참여 가이드</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/about.html">소개</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/categories/articles">글 모음</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/categories/weekly">주간 뉴스</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/archives">보관함</a>
+      </li>
+      <li class="category-list-item">
+        <a href="https://github.com/nodejs/nodejs-ko" target="_blank">GitHub project</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+  
+</aside>
+
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Node.js 한국어 번역팀<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/nodejs-ko/" class="mobile-nav-link">Home</a>
+  
+    <a href="/nodejs-ko/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/nodejs-ko/fancybox/jquery.fancybox.css">
+
+  
+<script src="/nodejs-ko/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/nodejs-ko/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>

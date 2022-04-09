@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  
+  <title>Node v4.1.0 (안정 버전) | Node.js 한국 커뮤니티</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="2015-09-17, 4.1.0 (안정 버전), @Fishrock123  주요 변경 사항  buffer:  버퍼는 이제 C++가 아닌 자바스크립트에서 만들어집니다. 이 변경은 버퍼의 생성 속도를 향상시킵니다. (Trevor Norris) #2866. Buffer#slice()는 현재 slice()의 성능을 높이기 위해 내부적으로 Uint8Array#sub">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node v4.1.0 (안정 버전)">
+<meta property="og:url" content="https://nodejs.github.io/nodejs-ko/articles/2015/09/17/release-v4.1.0/index.html">
+<meta property="og:site_name" content="Node.js 한국 커뮤니티">
+<meta property="og:description" content="2015-09-17, 4.1.0 (안정 버전), @Fishrock123  주요 변경 사항  buffer:  버퍼는 이제 C++가 아닌 자바스크립트에서 만들어집니다. 이 변경은 버퍼의 생성 속도를 향상시킵니다. (Trevor Norris) #2866. Buffer#slice()는 현재 slice()의 성능을 높이기 위해 내부적으로 Uint8Array#sub">
+<meta property="og:locale">
+<meta property="article:published_time" content="2015-09-17T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-09T18:30:15.157Z">
+<meta property="article:author" content="Node.js 한국어 번역팀">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@nodejs_ko">
+  
+    <link rel="alternate" href="/nodejs-ko/atom.xml" title="Node.js 한국 커뮤니티" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/nodejs-ko/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/nodejs-ko/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/nodejs-ko/" id="logo">Node.js 한국 커뮤니티</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/nodejs-ko/">Home</a>
+        
+          <a class="main-nav-link" href="/nodejs-ko/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/nodejs-ko/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://nodejs.github.io/nodejs-ko"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-release-v4.1.0" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <a href="/nodejs-ko/articles/2015/09/17/release-v4.1.0/" class="article-date">
+    <time datetime="2015-09-17T00:00:00.000Z" itemprop="datePublished">2015-09-17</time>
+  </a>
+
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/nodejs-ko/categories/articles/">articles</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Node v4.1.0 (안정 버전)
+    </h1>
+  
+  <ul>
+    <li>작성자: <strong>Node</strong></li>
+    <li>
+      원문: <strong><a target="_blank" rel="noopener" href="https://nodejs.org/en/blog/release/v4.1.0/" taret="_blank">
+        Node v4.1.0 (Stable)
+      </a></strong>
+    </li>
+    <li>
+      번역:
+      <strong><a href="https://github.com/outsideris" target="_blank">Outsider</a></strong>
+    </li>
+  </ul>
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--
+## 2015-09-17, Version 4.1.0 (Stable), @Fishrock123
+-->
+<h2 id="2015-09-17-4-1-0-안정-버전-Fishrock123">2015-09-17, 4.1.0 (안정 버전), @Fishrock123</h2>
+<!--
+### Notable changes
+
+* **buffer**:
+  - Buffers are now created in JavaScript, rather than C++. This increases the speed of buffer creation (Trevor Norris) [#2866](https://github.com/nodejs/node/pull/2866).
+  - `Buffer#slice()` now uses `Uint8Array#subarray()` internally, increasing `slice()` performance (Karl Skomski) [#2777](https://github.com/nodejs/node/pull/2777).
+* **fs**:
+  - `fs.utimes()` now properly converts numeric strings, `NaN`, and `Infinity` (Yazhong Liu) [#2387](https://github.com/nodejs/node/pull/2387).
+  - `fs.WriteStream` now implements `_writev`, allowing for super-fast bulk writes (Ron Korving) [#2167](https://github.com/nodejs/node/pull/2167).
+* **http**: Fixed an issue with certain `write()` sizes causing errors when using `http.request()` (Fedor Indutny) [#2824](https://github.com/nodejs/node/pull/2824).
+* **npm**: Upgrade to version 2.14.3, see https://github.com/npm/npm/releases/tag/v2.14.3 for more details (Kat Marchán) [#2822](https://github.com/nodejs/node/pull/2822).
+* **src**: V8 cpu profiling no longer erroneously shows idle time (Oleksandr Chekhovskyi) [#2324](https://github.com/nodejs/node/pull/2324).
+* **timers**: `#ref()` and `#unref()` now return the timer they belong to (Sam Roberts) [#2905](https://github.com/nodejs/node/pull/2905).
+* **v8**: Lateral upgrade to 4.5.103.33 from 4.5.103.30, contains minor fixes (Ali Ijaz Sheikh) [#2870](https://github.com/nodejs/node/pull/2870).
+  - This fixes a previously known bug where some computed object shorthand properties did not work correctly ([#2507](https://github.com/nodejs/node/issues/2507)).
+-->
+<h3 id="주요-변경-사항-21">주요 변경 사항</h3>
+<ul>
+<li><strong>buffer</strong>:
+<ul>
+<li>버퍼는 이제 C++가 아닌 자바스크립트에서 만들어집니다. 이 변경은 버퍼의 생성 속도를 향상시킵니다. (Trevor Norris) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2866">#2866</a>.</li>
+<li><code>Buffer#slice()</code>는 현재 <code>slice()</code>의 성능을 높이기 위해 내부적으로 <code>Uint8Array#subarray()</code>를 사용합니다. (Karl Skomski) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2777">#2777</a>.</li>
+</ul>
+</li>
+<li><strong>fs</strong>:
+<ul>
+<li><code>fs.utimes()</code>는 숫자 문자열과 <code>NaN</code>, <code>Infinity</code>를 적절히 변환합니다. (Yazhong Liu) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2387">#2387</a>.</li>
+<li><code>fs.WriteStream</code>에 매우 빠른 대용량 쓰기를 허용하는 <code>_writev</code>를 구현했습니다. (Ron Korving) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2167">#2167</a>.</li>
+</ul>
+</li>
+<li><strong>http</strong>: <code>http.request()</code>를 사용할 때 에러를 유발하는 <code>write()</code>의 정확한 크기에 관한 문제를 수정했습니다. (Fedor Indutny) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2824">#2824</a>.</li>
+<li><strong>npm</strong>: 2.14.3 버전으로 업그레이드했습니다, 자세한 사항은 <a target="_blank" rel="noopener" href="https://github.com/npm/npm/releases/tag/v2.14.3">https://github.com/npm/npm/releases/tag/v2.14.3</a>을 참조하세요. (Kat Marchán) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2822">#2822</a>.</li>
+<li><strong>src</strong>: V8 cpu 정보 수집은 대기 상태일 때 더 이상 잘못 표기되지 않습니다. (Oleksandr Chekhovskyi) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2324">#2324</a>.</li>
+<li><strong>timers</strong>: <code>#ref()</code>와 <code>#unref()</code>는 그들이 속한 타이머를 반환합니다. (Sam Roberts) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2905">#2905</a>.</li>
+<li><strong>v8</strong>: 4.5.103.30에서 4.5.103.33으로 사소한 수정사항을 포함한 업그레이드가 있었습니다. (Ali Ijaz Sheikh) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2870">#2870</a>.
+<ul>
+<li>일부 계산된 객체의 단축 속성이 제대로 작동하지 않는 이전에 알려진 오류를 수정했습니다. (<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/issues/2507">#2507</a>).</li>
+</ul>
+</li>
+</ul>
+<!--
+### Known issues
+
+See https://github.com/nodejs/node/labels/confirmed-bug for complete and current list of known issues.
+
+* Some problems with unreferenced timers running during `beforeExit` are still to be resolved. See [#1264](https://github.com/nodejs/node/issues/1264).
+* Surrogate pair in REPL can freeze terminal. [#690](https://github.com/nodejs/node/issues/690)
+* Calling `dns.setServers()` while a DNS query is in progress can cause the process to crash on a failed assertion. [#894](https://github.com/nodejs/node/issues/894)
+* `url.resolve` may transfer the auth portion of the url when resolving between two full hosts, see [#1435](https://github.com/nodejs/node/issues/1435).
+-->
+<h3 id="알려진-이슈-23">알려진 이슈</h3>
+<p>현재 알려진 이슈의 전체 목록은<br>
+<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/labels/confirmed-bug">https://github.com/nodejs/node/labels/confirmed-bug</a>에서 확인할 수 있습니다.</p>
+<ul>
+<li><code>beforeExit</code> 중에 참조 해제된 타이머에 대한 문제가 아직 남아 있습니다. <a target="_blank" rel="noopener" href="https://github.com/nodejs/io.js/issues/1264">#1264</a></li>
+<li>REPL에 입력된 서로게이트 페어가 터미널을 얼릴 수 있습니다. <a target="_blank" rel="noopener" href="https://github.com/nodejs/io.js/issues/690">#690</a></li>
+<li>DNS 질의 진행 중에 호출된 <code>dns.setServers()</code>가 단언문 실패로 프로세스를 크래시시킬 수 있습니다. <a target="_blank" rel="noopener" href="https://github.com/nodejs/io.js/issues/894">#894</a></li>
+<li><code>url.resolve</code>가 다른 두 호스트 사이를 해석하는 중 URL의 인증 정보 부분을 교환할 수 있습니다. <a target="_blank" rel="noopener" href="https://github.com/nodejs/io.js/issues/1435">#1435</a></li>
+</ul>
+<h3 id="Commits-2">Commits</h3>
+<ul>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/b1abe812cd"><code>b1abe812cd</code></a>] - Working on 4.0.1 (Rod Vagg)</li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/f9f8378853"><code>f9f8378853</code></a>] - 2015-09-08, Version 4.0.0 (Stable) Release (Rod Vagg)</li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/9683e5df51"><code>9683e5df51</code></a>] - <strong>bindings</strong>: close after reading module struct (Fedor Indutny) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2792">#2792</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/4b4cfa2d44"><code>4b4cfa2d44</code></a>] - <strong>buffer</strong>: always allocate typed arrays outside heap (Trevor Norris) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2893">#2893</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/7df018a29b"><code>7df018a29b</code></a>] - <strong>buffer</strong>: construct Uint8Array in JS (Trevor Norris) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2866">#2866</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/43397b204e"><code>43397b204e</code></a>] - <strong>(SEMVER-MINOR)</strong> <strong>build</strong>: Updates to enable AIX support (Michael Dawson) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2364">#2364</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/e35b1fd610"><code>e35b1fd610</code></a>] - <strong>build</strong>: clean up the generated tap file (Sakthipriyan Vairamani) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2837">#2837</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/96670ebe37"><code>96670ebe37</code></a>] - <strong>deps</strong>: backport 6d32be2 from v8’s upstream (Michaël Zasso) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2916">#2916</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/94972d5b13"><code>94972d5b13</code></a>] - <strong>deps</strong>: backport 0d01728 from v8’s upstream (Fedor Indutny) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2912">#2912</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/7ebd881c29"><code>7ebd881c29</code></a>] - <strong>deps</strong>: upgrade V8 to 4.5.103.33 (Ali Ijaz Sheikh) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2870">#2870</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/ed47ab6e44"><code>ed47ab6e44</code></a>] - <strong>deps</strong>: upgraded to node-gyp@3.0.3 in npm (Kat Marchán) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2822">#2822</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/f4641ae875"><code>f4641ae875</code></a>] - <strong>deps</strong>: upgrade to npm 2.14.3 (Kat Marchán) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2822">#2822</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/8119693a3d"><code>8119693a3d</code></a>] - <strong>deps</strong>: update libuv to version 1.7.4 (Saúl Ibarra Corretgé) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2817">#2817</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/6098504685"><code>6098504685</code></a>] - <strong>deps</strong>: cherry-pick 6da51b4 from v8’s upstream (Fedor Indutny) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2801">#2801</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/bf42cc8dba"><code>bf42cc8dba</code></a>] - <strong>doc</strong>: process exit event is not guaranteed to fire (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2861">#2861</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/bb0f869f67"><code>bb0f869f67</code></a>] - <strong>doc</strong>: remove incorrect reference to TCP in net docs (Sam Roberts) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2903">#2903</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/302d59dce8"><code>302d59dce8</code></a>] - <strong>doc</strong>: correct buffer.slice arg syntax (Sam Roberts) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2903">#2903</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/74db9637b7"><code>74db9637b7</code></a>] - <strong>doc</strong>: describe spawn option.detached (Sam Roberts) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2903">#2903</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/a7bd897273"><code>a7bd897273</code></a>] - <strong>doc</strong>: rename from iojs(1) to node(1) in benchmarks (Dmitry Vasilyev) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2884">#2884</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/cd643d7c37"><code>cd643d7c37</code></a>] - <strong>doc</strong>: add missing backtick in buffer.markdown (Sven Slootweg) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2881">#2881</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/e8a206e802"><code>e8a206e802</code></a>] - <strong>doc</strong>: fix broken link in repl.markdown (Danny Nemer) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2827">#2827</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/7ee36d61f7"><code>7ee36d61f7</code></a>] - <strong>doc</strong>: fix typos in README (Ionică Bizău) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2852">#2852</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/4d1ae26196"><code>4d1ae26196</code></a>] - <strong>doc</strong>: add tunniclm as a collaborator (Mike Tunnicliffe) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2826">#2826</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/2d77d03643"><code>2d77d03643</code></a>] - <strong>doc</strong>: fix two doc errors in stream and process (Jeremiah Senkpiel) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2549">#2549</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/55ac24f721"><code>55ac24f721</code></a>] - <strong>doc</strong>: fixed io.js references in process.markdown (Tristian Flanagan) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2846">#2846</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/cd1297fb57"><code>cd1297fb57</code></a>] - <strong>doc</strong>: use “Calls” over “Executes” for consistency (Minwoo Jung) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2800">#2800</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/d664b95581"><code>d664b95581</code></a>] - <strong>doc</strong>: use US English for consistency (Anne-Gaelle Colom) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2784">#2784</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/82ba1839fb"><code>82ba1839fb</code></a>] - <strong>doc</strong>: use 3rd person singular for consistency (Anne-Gaelle Colom) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2765">#2765</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/432cce6e95"><code>432cce6e95</code></a>] - <strong>doc</strong>: describe process API for IPC (Sam Roberts) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/1978">#1978</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/1d75012b9d"><code>1d75012b9d</code></a>] - <strong>doc</strong>: fix comma splice in Assertion Testing doc (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2728">#2728</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/6108ea9bb4"><code>6108ea9bb4</code></a>] - <strong>fs</strong>: consider NaN/Infinity in toUnixTimestamp (Yazhong Liu) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2387">#2387</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/2b6aa9415f"><code>2b6aa9415f</code></a>] - <strong>(SEMVER-MINOR)</strong> <strong>fs</strong>: implemented WriteStream#writev (Ron Korving) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2167">#2167</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/431bf74c55"><code>431bf74c55</code></a>] - <strong>http</strong>: default Agent.getName to ‘localhost’ (Malcolm Ahoy) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2825">#2825</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/ea15d71c16"><code>ea15d71c16</code></a>] - <strong>http_server</strong>: fix resume after socket close (Fedor Indutny) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2824">#2824</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/8e5843405b"><code>8e5843405b</code></a>] - <strong>src</strong>: null env_ field from constructor (Trevor Norris) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2913">#2913</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/0a5f80a11f"><code>0a5f80a11f</code></a>] - <strong>src</strong>: use subarray() in Buffer#slice() for speedup (Karl Skomski) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2777">#2777</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/57707e2490"><code>57707e2490</code></a>] - <strong>src</strong>: use ZCtxt as a source for v8::Isolates (Roman Klauke) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2547">#2547</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/b0df2273ab"><code>b0df2273ab</code></a>] - <strong>src</strong>: fix v8::CpuProfiler idle sampling (Oleksandr Chekhovskyi) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2324">#2324</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/eaa8e60b91"><code>eaa8e60b91</code></a>] - <strong>streams</strong>: refactor LazyTransform to internal/ (Brendan Ashworth) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2566">#2566</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/648c003e14"><code>648c003e14</code></a>] - <strong>test</strong>: use tmp directory in chdir test (Sakthipriyan Vairamani) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2589">#2589</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/079a2173d4"><code>079a2173d4</code></a>] - <strong>test</strong>: fix Buffer OOM error message (Trevor Norris) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2915">#2915</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/52019a1b21"><code>52019a1b21</code></a>] - <strong>test</strong>: fix default value for additional param (Sakthipriyan Vairamani) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2553">#2553</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/5df5d0423a"><code>5df5d0423a</code></a>] - <strong>test</strong>: remove disabled test (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2841">#2841</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/9e5f0995bd"><code>9e5f0995bd</code></a>] - <strong>test</strong>: split up internet dns tests (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2802">#2802</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/41f2dde51a"><code>41f2dde51a</code></a>] - <strong>test</strong>: increase dgram timeout for armv6 (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2808">#2808</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/6e2fe1c21a"><code>6e2fe1c21a</code></a>] - <strong>test</strong>: remove valid hostname check in test-dns.js (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2785">#2785</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/779e14f1a7"><code>779e14f1a7</code></a>] - <strong>test</strong>: expect error for test_lookup_ipv6_hint on FreeBSD (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2724">#2724</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/f931b9dd95"><code>f931b9dd95</code></a>] - <strong>(SEMVER-MINOR)</strong> <strong>timer</strong>: ref/unref return self (Sam Roberts) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2905">#2905</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/59d03738cc"><code>59d03738cc</code></a>] - <strong>tools</strong>: enable arrow functions in .eslintrc (Sakthipriyan Vairamani) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2840">#2840</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/69e7b875a2"><code>69e7b875a2</code></a>] - <strong>tools</strong>: open <code>test.tap</code> file in write-binary mode (Sakthipriyan Vairamani) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2837">#2837</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/ff6d30d784"><code>ff6d30d784</code></a>] - <strong>tools</strong>: add missing tick processor polyfill (Matt Loring) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2694">#2694</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/519caba021"><code>519caba021</code></a>] - <strong>tools</strong>: fix flakiness in test-tick-processor (Matt Loring) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2694">#2694</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/ac004b8555"><code>ac004b8555</code></a>] - <strong>tools</strong>: remove hyphen in TAP result (Sakthipriyan Vairamani) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2718">#2718</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/ba47511976"><code>ba47511976</code></a>] - <strong>tsc</strong>: adjust TSC membership for IBM+StrongLoop (James M Snell) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2858">#2858</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/e035266805"><code>e035266805</code></a>] - <strong>win,msi</strong>: fix documentation shortcut url (Brian White) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/2781">#2781</a></li>
+</ul>
+<p>Windows 32-bit Installer: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v4.1.0/node-v4.1.0-x86.msi">https://nodejs.org/dist/v4.1.0/node-v4.1.0-x86.msi</a></p>
+<p>Windows 64-bit Installer: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v4.1.0/node-v4.1.0-x64.msi">https://nodejs.org/dist/v4.1.0/node-v4.1.0-x64.msi</a></p>
+<p>Windows 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v4.1.0/win-x86/node.exe">https://nodejs.org/dist/v4.1.0/win-x86/node.exe</a></p>
+<p>Windows 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v4.1.0/win-x64/node.exe">https://nodejs.org/dist/v4.1.0/win-x64/node.exe</a></p>
+<p>Mac OS X 64-bit Installer: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v4.1.0/node-v4.1.0.pkg">https://nodejs.org/dist/v4.1.0/node-v4.1.0.pkg</a></p>
+<p>Mac OS X 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v4.1.0/node-v4.1.0-darwin-x64.tar.gz">https://nodejs.org/dist/v4.1.0/node-v4.1.0-darwin-x64.tar.gz</a></p>
+<p>Linux 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v4.1.0/node-v4.1.0-linux-x86.tar.gz">https://nodejs.org/dist/v4.1.0/node-v4.1.0-linux-x86.tar.gz</a></p>
+<p>Linux 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v4.1.0/node-v4.1.0-linux-x64.tar.gz">https://nodejs.org/dist/v4.1.0/node-v4.1.0-linux-x64.tar.gz</a></p>
+<p>SmartOS 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v4.1.0/node-v4.1.0-sunos-x86.tar.gz">https://nodejs.org/dist/v4.1.0/node-v4.1.0-sunos-x86.tar.gz</a></p>
+<p>SmartOS 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v4.1.0/node-v4.1.0-sunos-x64.tar.gz">https://nodejs.org/dist/v4.1.0/node-v4.1.0-sunos-x64.tar.gz</a></p>
+<p>ARMv6 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v4.1.0/node-v4.1.0-linux-armv6l.tar.gz">https://nodejs.org/dist/v4.1.0/node-v4.1.0-linux-armv6l.tar.gz</a></p>
+<p>ARMv7 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v4.1.0/node-v4.1.0-linux-armv7.tar.gz">https://nodejs.org/dist/v4.1.0/node-v4.1.0-linux-armv7.tar.gz</a></p>
+<p>ARMv8 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v4.1.0/node-v4.1.0-linux-arm64.tar.gz">https://nodejs.org/dist/v4.1.0/node-v4.1.0-linux-arm64.tar.gz</a></p>
+<p>Source Code: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v4.1.0/node-v4.1.0.tar.gz">https://nodejs.org/dist/v4.1.0/node-v4.1.0.tar.gz</a></p>
+<p>Other release files: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v4.1.0/">https://nodejs.org/dist/v4.1.0/</a></p>
+<p>Documentation: <a target="_blank" rel="noopener" href="https://nodejs.org/docs/v4.1.0/api/">https://nodejs.org/docs/v4.1.0/api/</a></p>
+<p>Shasums (GPG signing hash: SHA512, file hash: SHA256):</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">-----BEGIN PGP SIGNED MESSAGE-----</span><br><span class="line">Hash: SHA512</span><br><span class="line"></span><br><span class="line">ff1c4b13a10c0789709cd73980a496b27e434207802989377ec4cb56302a1ebc  node-v4.1.0-darwin-x64.tar.gz</span><br><span class="line">11d8d7367a7a7c91eb0ea7d8bdca7d24a9b944bf7a9c84389fbc3d3d35cb31a2  node-v4.1.0-darwin-x64.tar.xz</span><br><span class="line">1ba579ead4cc6a70b1d74bbc3591ca9c9c46e4254ff6cebc9dedfaf98e1657aa  node-v4.1.0-headers.tar.gz</span><br><span class="line">550a3023531f8387dcd7b632ceda6b613e0464a78aba0c4ee30dcb69026829dd  node-v4.1.0-headers.tar.xz</span><br><span class="line">d27001f51d75c43cc1f444eab8aef0ced4ac4d162598be7eccf58790127e5368  node-v4.1.0-linux-arm64.tar.gz</span><br><span class="line">8c0abe5f89ae9530751188cfef9640fa774c9812c15f7e168207d0adf51d8fff  node-v4.1.0-linux-arm64.tar.xz</span><br><span class="line">3b728cdb93d155cf532a8a7f57f5a86f6f67a73e57a7abe657ff88166995e99e  node-v4.1.0-linux-armv7.tar.gz</span><br><span class="line">3e1618a9c276fdcef45993ede68221667ef39c39356e8bc6f91c9ebf7310e8db  node-v4.1.0-linux-armv7.tar.xz</span><br><span class="line">7c6055e08127143d9a8f779aa56f3fe42035fff8843c2652b0b2726204556382  node-v4.1.0-linux-x64.tar.gz</span><br><span class="line">0f062984d1f7ce40cd902120b40b916b50df8041adb851373dce178f5ea959a3  node-v4.1.0-linux-x64.tar.xz</span><br><span class="line">2ceaf5e66993da50e4514ddc5c270dc15ee712d00c29a2108655d9d259b3b9bb  node-v4.1.0-linux-x86.tar.gz</span><br><span class="line">ac21e4c3628acfcd7df14cb4127691a4c55b9c7dbd5b1cba73c592f848e61cac  node-v4.1.0-linux-x86.tar.xz</span><br><span class="line">9df8830c12bd28a5c1a0e1355cad9f50546e40ce681061d62f7a16e351272764  node-v4.1.0.pkg</span><br><span class="line">b9b176f4e54422ab73458dcc36eec34149ffb298a9f5a5aa042c4b7e59860113  node-v4.1.0-sunos-x64.tar.gz</span><br><span class="line">dfdead90e1c0e9760aeef0acf198fd1450b9c2b7dd32b42bae6f9ee6e0046566  node-v4.1.0-sunos-x64.tar.xz</span><br><span class="line">ed6c5163b3cb2e452e8e9bf4e3857af9e65eccd7fce0959fb97dcf03547c726a  node-v4.1.0-sunos-x86.tar.gz</span><br><span class="line">856e7478a237495ec1586054722b853a1b1f21dd29442fade9f8d2259967c214  node-v4.1.0-sunos-x86.tar.xz</span><br><span class="line">453005f64ee529f7dcf1237eb27ee2fa2415c49f5c9e7463e8b71fba61c5b408  node-v4.1.0.tar.gz</span><br><span class="line">2e153aaa72d73578e2ef68bd943e629904f00897769c2a2992ff4561d742772d  node-v4.1.0.tar.xz</span><br><span class="line">ebf934575177def034130e2adea292567956be7ef4ed6c11fe645bc59a6ace06  node-v4.1.0-x64.msi</span><br><span class="line">4c6fae187c23b15ec1689d25ac0000d2902d8d5f6c64710ed4ad9e2166f6580f  node-v4.1.0-x86.msi</span><br><span class="line">95199ec14462edc982e01538d81ecd9af35ae3f9ef18c33be53102a5f93053e0  win-x64/node.exe</span><br><span class="line">a00d40f053c7926f0999279c987cbd293a630853bb5565b0a07e61bece80fe34  win-x64/node.lib</span><br><span class="line">62dca0c50648c3b87d9af1e469f290e82ab009f60892b164e1d1f6655c7310e3  win-x86/node.exe</span><br><span class="line">6f84367eb539f230eef02714703d8a817b1c956ad302def07034f3cd310461df  win-x86/node.lib</span><br><span class="line">-----BEGIN PGP SIGNATURE-----</span><br><span class="line">Comment: GPGTools - https://gpgtools.org</span><br><span class="line"></span><br><span class="line">iQIcBAEBCgAGBQJV+k2+AAoJEEX17r2BPa6OJjQP/1IAMo0X/9rSMwy8grbaj5Iy</span><br><span class="line">E5sZTrTVZ7Xddzqu3c6zn/M9poK28aQUEPAkgXrICTXrmD6zM8In2wrmRMmcQkOn</span><br><span class="line">iuS9rl7wsSLzfha2QnBbnl9XxEvSlf7csXsWuHKOk/MSPTqdowGbcWZhs2wsHpgX</span><br><span class="line">Wv7yhaygvWZtboeZ3KTJsh48AcEru+Azm2jjU6/toBRCTTLWwXIYU8v1QdYhVVbM</span><br><span class="line">A5nufi2tlpY4cBMZBOeEN/rFfCxoXvk8t0kR82qIGz28292p9anYt1I0MDMbK6Dq</span><br><span class="line">N+ex02SQNcA+4+PMMBP5IyQXXIvi+jBzbDIxAHI/B3b+k5ZQXtV44sB+kiPS1H9Z</span><br><span class="line">KHaC7ccom9Oo9lvU9KElTRJGD9JWdLvAENvsJO9CUFbR+NCcfk+amCcqK/UZxQeq</span><br><span class="line">4s7cqnyM99oacX1fqqj+dMh8YxWB10lqz4ttdgkGX4yZtJQdp1OZ6F1NQuu839e7</span><br><span class="line">TNUMa4MI0eZ/BjnocqlKnlCyMWQmWBPRIzfFXnRu+Q3Mq+3tpi6qKhE1Zda/E4Ow</span><br><span class="line">+zUgRBDd94rE84rQNp9QLuEY0yhWWI2QQOOnBIRlfZPfDLcr12eSVm41yOYbL9pZ</span><br><span class="line">wbF5+3DHMvjCC0IjcnFAja16joTps27eBsn2dNI72wyQod06W2qLZFS+Xt+AO6Tb</span><br><span class="line">cFwYASzhWAmlr+3T6kFK</span><br><span class="line">=VJ63</span><br><span class="line">-----END PGP SIGNATURE-----</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://nodejs.github.io/nodejs-ko/articles/2015/09/17/release-v4.1.0/" data-id="cl1s6zrka002na3oqcty534ih" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/nodejs-ko/weekly/2015/09/18/weekly/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Node.js 주간 뉴스 2015년 9월 18일
+        
+      </div>
+    </a>
+  
+  
+    <a href="/nodejs-ko/articles/2015/09/14/announcements-foundation-v4-announce/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Node.js 재단이 새로운 릴리스에서 Node.js와 io.js를 하나의 코드로 합쳤다.</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title">Menu</h3>
+  <div class="widget">
+    <ul class="category-list">
+      <li class="category-list-item">
+        <a href="/nodejs-ko/">Home</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/CONTRIBUTING.html">번역 참여 가이드</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/about.html">소개</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/categories/articles">글 모음</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/categories/weekly">주간 뉴스</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/archives">보관함</a>
+      </li>
+      <li class="category-list-item">
+        <a href="https://github.com/nodejs/nodejs-ko" target="_blank">GitHub project</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+  
+</aside>
+
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Node.js 한국어 번역팀<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/nodejs-ko/" class="mobile-nav-link">Home</a>
+  
+    <a href="/nodejs-ko/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/nodejs-ko/fancybox/jquery.fancybox.css">
+
+  
+<script src="/nodejs-ko/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/nodejs-ko/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>

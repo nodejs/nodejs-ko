@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  
+  <title>ES Modules와 Node.js: 쉽지 않은 선택 | Node.js 한국 커뮤니티</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Yosuke Furukawa는 Node.js 핵심 기여자이고 일본 Node.js 커뮤니티에서 가장 열정 있는 사람 중 하나입니다. 최근 Yosuke가 Node.js에서 ES Modules 지원에 대해 직면한 고민에 대해서 일본어로 글을 작성했습니다. Node.js에서 ES Modules에 대한 의사결정에 포함된 복잡한 요소들을 설명하는 간결한 정보가 부족">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES Modules와 Node.js: 쉽지 않은 선택">
+<meta property="og:url" content="https://nodejs.github.io/nodejs-ko/articles/2016/06/09/es-modules-and-node-js-hard-choices/index.html">
+<meta property="og:site_name" content="Node.js 한국 커뮤니티">
+<meta property="og:description" content="Yosuke Furukawa는 Node.js 핵심 기여자이고 일본 Node.js 커뮤니티에서 가장 열정 있는 사람 중 하나입니다. 최근 Yosuke가 Node.js에서 ES Modules 지원에 대해 직면한 고민에 대해서 일본어로 글을 작성했습니다. Node.js에서 ES Modules에 대한 의사결정에 포함된 복잡한 요소들을 설명하는 간결한 정보가 부족">
+<meta property="og:locale">
+<meta property="og:image" content="http://cdn-ak.f.st-hatena.com/images/fotolife/y/yosuke_furukawa/20160509/20160509010917.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/yosuke-furukawa/esmodules_on_node/master/images/output.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/yosuke-furukawa/esmodules_on_node/master/images/output.png">
+<meta property="article:published_time" content="2016-06-09T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-09T18:30:15.165Z">
+<meta property="article:author" content="Node.js 한국어 번역팀">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://cdn-ak.f.st-hatena.com/images/fotolife/y/yosuke_furukawa/20160509/20160509010917.png">
+<meta name="twitter:creator" content="@nodejs_ko">
+  
+    <link rel="alternate" href="/nodejs-ko/atom.xml" title="Node.js 한국 커뮤니티" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/nodejs-ko/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/nodejs-ko/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/nodejs-ko/" id="logo">Node.js 한국 커뮤니티</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/nodejs-ko/">Home</a>
+        
+          <a class="main-nav-link" href="/nodejs-ko/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/nodejs-ko/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://nodejs.github.io/nodejs-ko"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-es-modules-and-node-js-hard-choices" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <a href="/nodejs-ko/articles/2016/06/09/es-modules-and-node-js-hard-choices/" class="article-date">
+    <time datetime="2016-06-09T00:00:00.000Z" itemprop="datePublished">2016-06-09</time>
+  </a>
+
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/nodejs-ko/categories/articles/">articles</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ES Modules와 Node.js: 쉽지 않은 선택
+    </h1>
+  
+  <ul>
+    <li>작성자: <strong>Rod Vagg</strong></li>
+    <li>
+      원문: <strong><a target="_blank" rel="noopener" href="https://nodesource.com/blog/p/d3b00779-9a82-43d1-b067-21ff2d436449/" taret="_blank">
+        ES Modules and Node.js: Hard Choices
+      </a></strong>
+    </li>
+    <li>
+      번역:
+      <strong><a href="https://github.com/outsideris" target="_blank">Outsider</a></strong>
+    </li>
+  </ul>
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--
+Yosuke Furukawa is a Node.js Core Collaborator and one of the passionate champions of the Japanese Node.js community.
+
+Yosuke recently published a blog post in Japanese regarding the challenges Node.js was facing with considering ES Modules support. As there is a lack of concise information laying out the complex factors involved in making decisions around ES Modules in Node.js, we asked him if we could publish his post in English. We have worked with him to translate and update the content to reflect the current state of events and hope you find this article instructive.
+-->
+<p><a target="_blank" rel="noopener" href="https://twitter.com/yosuke_furukawa">Yosuke Furukawa</a>는 Node.js 핵심 기여자이고<br>
+일본 Node.js 커뮤니티에서 가장 열정 있는 사람 중 하나입니다.</p>
+<p>최근 Yosuke가 Node.js에서 ES Modules 지원에 대해 직면한 고민에 대해서<br>
+<a target="_blank" rel="noopener" href="http://yosuke-furukawa.hatenablog.com/entry/2016/05/10/111102">일본어로 글</a>을<br>
+작성했습니다. Node.js에서 ES Modules에 대한 의사결정에 포함된 복잡한 요소들을 설명하는 간결한<br>
+정보가 부족했으므로 Yosuke의 글을 영어로 번역해도 되는지 문의했습니다. Yosuke와 함께 글을 번역하고<br>
+현재 상황을 반영해서 문서를 갱신했습니다. 이 문서에서 유용한 정보를 얻기를 바랍니다.</p>
+<hr>
+<!--
+ECMAScript 2015 (ES2015, formerly ES6) was published almost a year ago. Node.js v6 supports 93% of the ES2015 syntax and features and most modern browsers exceed 90%. However, no JavaScript runtime currently supports ES Modules. (Note that kangax's compatibility table does not yet have an ES Modules column.)
+
+![](http://cdn-ak.f.st-hatena.com/images/fotolife/y/yosuke_furukawa/20160509/20160509010917.png)
+-->
+<p>ECMAScript 2015(ES2015, 이전에는 ES6)는 거의 1년 전에 발표되었습니다. Node.js v6는<br>
+ES2015 문법과 기능의 93%를 지원하고 대부분의 현대 브라우저는 90% 이상을 지원합니다. 하지만<br>
+ES Modules를 지원하는 JavaScript 런타임은 현재 없습니다.<br>
+(<a target="_blank" rel="noopener" href="https://kangax.github.io/compat-table/es6/">kangax의 호환성 표</a>에는<br>
+아직 ES Modules 항목이 없습니다.)</p>
+<p><img src="http://cdn-ak.f.st-hatena.com/images/fotolife/y/yosuke_furukawa/20160509/20160509010917.png" alt=""></p>
+<!--
+ECMAScript 2015 defines the ES Modules syntax but ECMAScript does not define a "Loader" specification which determines how Modules are inserted into the runtime. The Loader spec is being defined by WHATWG, but is not yet finalized.
+
+The WHATWG Loader spec needs to define the following items for Milestone 0 on its roadmap:
+
+* Name resolution (relative and absolute URLs and paths)
+* Fetch integration
+* How to describe script tag: <script type="module">
+* Memoization / caching
+
+The Module script tag has been defined, but the other items are still under discussion. You can check the status of this discussion on GitHub. Some browsers have started implementation, but most are waiting for finalization of the Loader spec.
+-->
+<p>ECMAScript 2015에 ES Modules가 정의되어 있지만 ECMAScript는 모듈을 런타임에 추가하는 방법을<br>
+결정하는 “Loader” 명세는 정의하지 않았습니다. Loader 명세는<br>
+<a target="_blank" rel="noopener" href="https://whatwg.github.io/loader/">WHATWG에서 정의</a>하고 있지만, 아직 완료되지 않았습니다.</p>
+<p>WHATWG Loader 명세는 로드맵의<br>
+<a target="_blank" rel="noopener" href="https://github.com/whatwg/loader/blob/master/roadmap.md">마일스톤 0</a>에서<br>
+다음 요소를 정의해야 합니다.</p>
+<ul>
+<li>이름 처리 (상대적, 절대적 URL과 경로)</li>
+<li>Fetch 통합</li>
+<li>script 태그를 설명하는 방법: <code>&lt;script type=&quot;module&quot;&gt;</code></li>
+<li>메모이제이션 / 캐싱</li>
+</ul>
+<p>Module 스크립트 태그는 <a target="_blank" rel="noopener" href="https://blog.whatwg.org/js-modules">정의되었지만</a>, 다른 요소는<br>
+아직 논의 중입니다.<br>
+<a target="_blank" rel="noopener" href="https://github.com/whatwg/loader/issues?utf8=%E2%9C%93&amp;q=is%3Aissue+is%3Aopen+milestone+0+">GitHub</a>에서<br>
+이 논의의 상황을 볼 수 있습니다. 일부 브라우저는 구현하기 시작했지만, 대부분은 Loader 명세가<br>
+완료되기를 기다리고 있습니다.</p>
+<!--
+## Why does Node.js need ES Modules?
+
+When Node.js came into existence, an ES Modules proposal didn't exist. Node.js decided to use CommonJS Modules. While CommonJS as an organization is no longer an active concern, Node.js and npm have evolved the specification to create a very large JavaScript ecosystem. Browserify and more recently webpack bring Node's version of CommonJS to the browser and solve module problems gracefully. As a result, the Node/npm JavaScript module ecosystem spans both server and client and is growing rapidly.
+
+But how do we deal with interoperability between standard ES Modules and CommonJS-style modules in such a big ecosystem? This question has been debated heavily since the beginning of the ES Modules spec process.
+-->
+<h2 id="왜-Node-js에서-ES-Modules가-필요한가">왜 Node.js에서 ES Modules가 필요한가?</h2>
+<p>Node.js가 등장했을 때 ES Modules 제안은 없었습니다. Node.js는<br>
+<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/CommonJS">CommonJS</a> 모듈을 사용하기로 했습니다.<br>
+CommonJS 조직이 활발하게 진행되지 않는 상황에서 Node.js와 npm이 매우 큰 JavaScript 생태계를<br>
+만들려고 CommonJS 명세를 발전시켰습니다. <a target="_blank" rel="noopener" href="http://browserify.org/">Browserify</a>와 더 최근에는<br>
+<a target="_blank" rel="noopener" href="https://webpack.github.io/">webpack</a>이 CommonJS의 Node 버전을 브라우저로 가져옴으로써<br>
+모듈 문제를 잘 해결했습니다. 그 결과 Node/npm JavaScript 모듈 생태계는 서버와 클라이언트 모두에<br>
+적용되었고 빠르게 성장하고 있습니다.</p>
+<p>하지만 지금과 같이 큰 생태계에서 표준 ES Modules와 CommonJS 형식의 모듈 간의 상호운용성을 어떻게<br>
+다루어야 할까요? ES Modules 명세 작업이 시작된 이후 이 질문에 대해 많은 논의가 이뤄졌습니다.</p>
+<!--
+Browserify and webpack currently bridge the gap between browser and server to make JavaScript development easy and somewhat unified. If we lose interoperability, we increase the friction between the existing ecosystem and new standard. If front-end developers choose ES Modules as their preferred default and server-side engineers continue to use Node's CommonJS, the gap will only widen.
+-->
+<p>Browserify와 webpack은 현재 브라우저와 서버에서 JavaScript 개발을 쉽게 하는 다리 역할을 하고<br>
+있고 어느 정도는 통합되었습니다. 상호운용성을 잃어버린다면 기존의 생태계와 새로운 표준사이의 마찰이<br>
+증가할 것입니다. 프론트엔드 개발자가 기본으로 ES Modules를 선택하고 서버 사이드 엔지니어가 Node의<br>
+CommonJS를 계속 사용한다면 그 차이는 더 넓어질 것입니다.</p>
+<!--
+## An interoperability proposal for Node.js
+
+Bradley Farias (a.k.a Bradley Meck) has written a proposal for interoperability between CommonJS and ES Modules. The proposal is presented in the form of a Node.js EP (Enhancement Proposal) and the pull request generated record amounts of discussion but also helped shape and tune the proposal. The EP was merged but still retains DRAFT status, indicating a preference rather than a clear intention to even implement ES Modules in Node.js. You can read the proposal here: https://github.com/nodejs/node-eps/blob/master/002-es6-modules.md.
+
+Discussion and options explored during the development of this proposal are mostly found throughout the initial pull request comments thread but a partial summary can be found on the Node.js wiki.
+-->
+<h2 id="Node-js의-상호운용성-제안">Node.js의 상호운용성 제안</h2>
+<p><a target="_blank" rel="noopener" href="https://twitter.com/bradleymeck">Bradley Farias(혹은 Bradley Meck)</a>가<br>
+CommonJS와 ES Modules의 상호운용성에 대한 제안을 작성했습니다. 이 제안은<br>
+Node.js EP(Enhancement Proposal) 형식으로 작성되어<br>
+<a target="_blank" rel="noopener" href="https://github.com/nodejs/node-eps/pull/3">풀 리퀘스트</a>가 등록되어 많은 논의가 이뤄져서<br>
+제안을 다듬는 데 도움이 되었습니다. 이 EP는 머지되었지만 아직 DRAFT 상태로 남아있어서 Node.js에서<br>
+ES Modules를 구현하려는 명백한 의도보다는 선호를 나타낸다고 할 수 있습니다.<br>
+<a target="_blank" rel="noopener" href="https://github.com/nodejs/node-eps/blob/master/002-es6-modules.md">https://github.com/nodejs/node-eps/blob/master/002-es6-modules.md</a>에서<br>
+제안을 볼 수 있습니다.</p>
+<p>이 제안을 개발하는 동안 이뤄진 논의와 선택사항은 최초 풀 리퀘스트의 댓글에서 주로 볼 수 있지만,<br>
+부분적인 요약은<br>
+<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/wiki/ES6-Module-Detection-in-Node">Node.js 위키</a>에서<br>
+볼 수 있습니다.</p>
+<!--
+The biggest challenge for Node.js is that it doesn't have the luxury of a <script type="module"> tag to tell it whether any given file is in CommonJS format or an ES Module. Unfortunately you can't even be sure in all cases what type of file you have simply by parsing it as the Modules spec presents us with some ambiguities in the distinction. It's clear that we need some signal that Node.js can use to determine whether to load a file as CommonJS (a "Script") or as an ES Module.
+-->
+<p>Node.js의 가장 큰 도전은 해당 파일이 CommonJS 형식인지 ES Module인지를 알려주는<br>
+<code>&lt;script type=&quot;module&quot;&gt;</code> 태그 같은 좋은 방법이 없다는 것입니다. 안타깝게도 Modules 명세에서<br>
+구별방법에 모호함이 있으므로 파일을 파싱하는 것만으로 해당 파일이 어떤 형식인지 모든 상황에서 알아낼<br>
+수가 없습니다. Node.js가 파일을 CommonJS(“Script”)로 로드할지 ES Module로 로드할지 결정하기<br>
+위한 어떤 신호가 필요하다는 것은 확실합니다.</p>
+<!--
+Some constraints that were applied in the decision making process include:
+
+* Avoiding a "boilerplate tax" (e.g. "use module")
+* Avoiding double-parsing if possible as Modules and Scripts parse differently
+* Don't make it too difficult for non-JavaScript tools to make the determination (e.g. build toolchains such as Sprockets or Bash scripts)
+* Don't impose a noticeable performance cost on users (e.g. by double-parsing large files)
+* No ambiguity
+* Preferably self-contained
+* Preferably without vestiges in a future where ES Modules may be the most prominent type
+-->
+<p>의사 결정 과정에 적용된 다음과 같은 제약사항이 있습니다.</p>
+<ul>
+<li>&quot;상용문식의 세금&quot;은 피합니다.(예시: <code>&quot;use module&quot;</code>)</li>
+<li>Modules와 Scripts를 다르게 파싱할 수 있는 이중 파싱은 피합니다.</li>
+<li>JavaScript가 아닌 도구에서 이 결정을 하기 너무 어렵게 만들지 않습니다.<br>
+(예시: <a target="_blank" rel="noopener" href="https://github.com/rails/sprockets">Sprockets</a>나 Bash 스크립트같은 툴 체인 작성)</li>
+<li>사용자에게 인지할만한 성능비용을 부과하지 않습니다. (예시: 큰 파일의 이중 파싱)</li>
+<li>모호함을 없앱니다.</li>
+<li>가능하면 자급자족합니다.</li>
+<li>가능하면 ES Modules가 가장 뛰어난 형식이 될 미래에 유물이 남지 않게 합니다.</li>
+</ul>
+<!--
+Clearly compromise has to be made somewhere to find a path forward as some of these constraints are in conflict when considering the options available.
+
+The route chosen for the Node.js EP, and currently accepted by the Node.js CTC for ES Modules is detection via filename extension, .mjs (alternatives such as .es, .jsm were ruled out for various reasons).
+
+Detection via filename extension provides a simple route to determining the intended contents of a JavaScript file: if a file's extension is .mjs then the file will load as an ES Module, but .js files will be loaded as a Script via CommonJS.
+-->
+<p>가능한 선택사항을 고려할 때 이 제약사항 중 일부는 충돌하기 때문에 진행할 방향을 찾기 위해서<br>
+절충할 필요가 있습니다.</p>
+<p>Node.js EP에서 선택한 방법과 Node.js CTC가 현재 받아들인 방법은 파일 확장자 <code>.mjs</code>로<br>
+ES Modules를 구별하는 것입니다.(대안이었던 <code>.es</code>, <code>.jsm</code>은 여러 가지 이유로 제외되었습니다.)</p>
+<p>파일확장자로 구별하는 방법은 JavaScript 파일에 작성된 내용을 결정하는 간단한 방법을 제공합니다.<br>
+파일의 확장자가 <code>.mjs</code>이면 파일은 ES Module로 로드될 것이고 <code>.js</code> 파일은 CommonJS를 통해<br>
+Script로 로드될 것입니다.</p>
+<!--
+### Basic interoperability algorithm
+The following algorithm describes how interoperability between ES Modules and CommonJS can be achieved:
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1. Determine if file is an ES Module (ES) or CommonJS (CJS)</span><br><span class="line">2. If CJS:</span><br><span class="line">  2.1. Wrap CJS code to bootstrap code</span><br><span class="line">  2.1. Evaluate as Script</span><br><span class="line">  2.2. Produce a DynamicModuleRecord from `module.exports`</span><br><span class="line">3. If ES:</span><br><span class="line">  3.1. Parse for `import`/`export`s and keep record, in order to create bindings</span><br><span class="line">  3.2. Gather all submodules by performing recursive dependency loading</span><br><span class="line">  3.3. Connect `import` bindings for all relevant submodules</span><br><span class="line">  3.4. Evaluate as Module</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/yosuke-furukawa/esmodules_on_node/master/images/output.png" alt=""><br>
+–&gt;</p>
+<h3 id="기초-상호운용성-알고리즘">기초 상호운용성 알고리즘</h3>
+<p>다음 알고리즘은 ES Modules와 CommonJS 간의 상호운용성이 이뤄지는 방법을 설명합니다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1. 파일이 ES Module(ES)인지 CommonJS(CJS)인지를 결정합니다.</span><br><span class="line">2. CJS라면:</span><br><span class="line">  2.1. CJS 코드를 부트스트랩 코드로 감쌉니다.</span><br><span class="line">  2.2. Script로 평가합니다.</span><br><span class="line">  2.3. `module.exports`에서 DynamicModuleRecord를 만듭니다.</span><br><span class="line">3. ES라면:</span><br><span class="line">  3.1. 바인딩하기 위해 `import`/`export`를 파싱하고 기록합니다.</span><br><span class="line">  3.2. 재귀 의존성 로딩을 수행해서 모든 하위 모듈을 수집합니다.</span><br><span class="line">  3.3. 관련 있는 모든 모듈에 `import` 바인딩을 연결합니다.</span><br><span class="line">  3.4. Module로 평가합니다.</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/yosuke-furukawa/esmodules_on_node/master/images/output.png" alt=""></p>
+<!--
+For example, if a developer wanted to create a module that exports both module types (CommonJS and ES Modules) for backward compatibility, their package.json may be defined as:
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;test&quot;,</span><br><span class="line">  &quot;version&quot;: &quot;0.0.1&quot;,</span><br><span class="line">  &quot;description&quot;: &quot;&quot;,</span><br><span class="line">  &quot;main&quot;: &quot;./index&quot;, // no file extension</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>–&gt;<br>
+예를 들어 개발자가 모듈을 만드는데 하위호환성 때문에 두 가지 모듈 형식(CommonJS와 ES Modules)을<br>
+모두 지원하고자 한다면 다음과 같이 <code>package.json</code>을 정의할 것입니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;name&quot;</span>: <span class="string">&quot;test&quot;</span>,</span><br><span class="line">  <span class="string">&quot;version&quot;</span>: <span class="string">&quot;0.0.1&quot;</span>,</span><br><span class="line">  <span class="string">&quot;description&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">  <span class="string">&quot;main&quot;</span>: <span class="string">&quot;./index&quot;</span>, <span class="comment">// 파일 확장자 없음</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<!--
+The package will then have both an index.mjs and an index.js. The index.mjs is an ES Module, using the new export / import syntax:
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// index.mjs</span><br><span class="line">export default class Foo &#123;</span><br><span class="line">  //..</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>And the index.js is a CommonJS style module, using the module.exports object:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// index.js</span><br><span class="line">class Foo &#123;</span><br><span class="line">  // ...</span><br><span class="line">&#125;</span><br><span class="line">module.exports = Foo;</span><br></pre></td></tr></table></figure>
+<p>–&gt;<br>
+이제 패키지는 <code>index.mjs</code>와 <code>index.js</code>를 모두 가집니다. <code>index.mjs</code>는 새로운 문법인<br>
+<code>export</code>/<code>import</code>를 사용하는 ES Module입니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.mjs</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">class</span> <span class="title class_">Foo</span> &#123;</span><br><span class="line">  <span class="comment">//..</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>index.js</code>는 CommonJS 형식의 모듈로 <code>module.exports</code> 객체를 사용합니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.js</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Foo</span> &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = <span class="title class_">Foo</span>;</span><br></pre></td></tr></table></figure>
+<!--
+If the version of Node.js being used supports ES Modules via the .mjs file extension, it will first try to find an index.mjs. On the other hand, if the version of Node.js does not support ES Modules (such as Node.js v4 or v6), or it can not find an index.mjs, it will look for an index.js.
+
+According to the EP, you would be able to use both require and import to find packages in your node_modules:
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import mkdirp from &#x27;mkdirp&#x27;;</span><br><span class="line">require(&#x27;mkdirp&#x27;);</span><br></pre></td></tr></table></figure>
+<p>–&gt;<br>
+<code>.mjs</code> 파일 확장자로 ES Modules를 지원하는 Node.js 버전이라면 먼저 <code>index.mjs</code>를 찾으려고<br>
+할 것입니다. (Node.js v4나 v6처럼) ES Modules를 지원하지 않는 Node.js 버전이거나<br>
+<code>index.mjs</code>를 찾지 못한다면 <code>index.js</code>를 찾을 것입니다.</p>
+<p>EP에 따르면, <code>node_modules</code>에서 패키지를 찾을 때 <code>require</code>와 <code>import</code>를<br>
+모두 사용할 수 있습니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> mkdirp <span class="keyword">from</span> <span class="string">&#x27;mkdirp&#x27;</span>;</span><br><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;mkdirp&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<!--
+For resolving modules local to your own project or package, you do not need to add a file extensions in your require() or import statements unless you want to be precise. The standard Node.js file resolution algorithm applies when you don't supply an extension, but an .mjs version is looked for before a .js:
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">require(&#x27;./foo&#x27;);</span><br><span class="line">import &#x27;./foo&#x27;;</span><br><span class="line">// these both look at</span><br><span class="line">//   ./foo.mjs</span><br><span class="line">//   ./foo.js</span><br><span class="line">//   ./foo/index.mjs</span><br><span class="line">//   ./foo/index.js</span><br><span class="line"></span><br><span class="line">// to explicitly load a CJS module, add &#x27;.js&#x27;:</span><br><span class="line">import &#x27;./foo.js&#x27;;</span><br><span class="line">// to explicitly load an ES module add &#x27;.mjs&#x27;</span><br><span class="line">import &#x27;./bar.mjs&#x27;;</span><br></pre></td></tr></table></figure>
+<p>–&gt;<br>
+자신의 프로젝트나 패키지 내에서 모듈을 가져올 때 정확하게 지정하려는 것이 아니라면 <code>require()</code>나<br>
+<code>import</code>문에서 파일 확장자를 추가할 필요가 없습니다. 표준 Node.js 파일 처리 알고리즘은<br>
+파일 확장자를 지정하지 않았을 때 적용되고 <code>.mjs</code>를 <code>.js</code>보다 먼저 찾습니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;./foo&#x27;</span>);</span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;./foo&#x27;</span>;</span><br><span class="line"><span class="comment">// 이는 다음을 모두 찾습니다.</span></span><br><span class="line"><span class="comment">//   ./foo.mjs</span></span><br><span class="line"><span class="comment">//   ./foo.js</span></span><br><span class="line"><span class="comment">//   ./foo/index.mjs</span></span><br><span class="line"><span class="comment">//   ./foo/index.js</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 명시적으로 CJS 모듈을 로드하려면 &#x27;.js&#x27;를 추가하세요.</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;./foo.js&#x27;</span>;</span><br><span class="line"><span class="comment">// 명시적으로 ES 모듈을 로드하려면 &#x27;.mjs&#x27;를 추가하세요.</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;./bar.mjs&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<!--
+### Examples: Consuming CommonJS with ES Modules
+
+#### Example 1: Load CommonJS from ES Modules
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// cjs.js</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  default:&#x27;my-default&#x27;,</span><br><span class="line">  thing:&#x27;stuff&#x27;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// es.mjs</span><br><span class="line"></span><br><span class="line">import * as baz from &#x27;./cjs.js&#x27;;</span><br><span class="line">// baz = &#123;</span><br><span class="line">//   get default() &#123;return module.exports;&#125;,</span><br><span class="line">//   get thing() &#123;return this.default.thing&#125;.bind(baz)</span><br><span class="line">// &#125;</span><br><span class="line">// console.log(baz.default.default); // my-default</span><br><span class="line"></span><br><span class="line">import foo from &#x27;./cjs.js&#x27;;</span><br><span class="line">// foo = &#123;default:&#x27;my-default&#x27;, thing:&#x27;stuff&#x27;&#125;;</span><br><span class="line"></span><br><span class="line">import &#123;default as bar&#125; from &#x27;./cjs.js&#x27;;</span><br><span class="line">// bar = &#123;default:&#x27;my-default&#x27;, thing:&#x27;stuff&#x27;&#125;;</span><br></pre></td></tr></table></figure>
+<p>–&gt;</p>
+<h3 id="예제-ES-Modules에서-CommonJS-사용하기">예제: ES Modules에서 CommonJS 사용하기</h3>
+<h4 id="예제-1-ES-Modules에서-CommonJS-로드하기">예제 1: ES Modules에서 CommonJS 로드하기</h4>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// cjs.js</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">default</span>:<span class="string">&#x27;my-default&#x27;</span>,</span><br><span class="line">  <span class="attr">thing</span>:<span class="string">&#x27;stuff&#x27;</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// es.mjs</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> baz <span class="keyword">from</span> <span class="string">&#x27;./cjs.js&#x27;</span>;</span><br><span class="line"><span class="comment">// baz = &#123;</span></span><br><span class="line"><span class="comment">//   get default() &#123;return module.exports;&#125;,</span></span><br><span class="line"><span class="comment">//   get thing() &#123;return this.default.thing&#125;.bind(baz)</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="comment">// console.log(baz.default.default); // my-default</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> foo <span class="keyword">from</span> <span class="string">&#x27;./cjs.js&#x27;</span>;</span><br><span class="line"><span class="comment">// foo = &#123;default:&#x27;my-default&#x27;, thing:&#x27;stuff&#x27;&#125;;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123;<span class="keyword">default</span> <span class="keyword">as</span> bar&#125; <span class="keyword">from</span> <span class="string">&#x27;./cjs.js&#x27;</span>;</span><br><span class="line"><span class="comment">// bar = &#123;default:&#x27;my-default&#x27;, thing:&#x27;stuff&#x27;&#125;;</span></span><br></pre></td></tr></table></figure>
+<!--
+#### Example 2: Export value and assigning "default"
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// cjs.js</span><br><span class="line">module.exports = null;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// es.mjs</span><br><span class="line">import foo from &#x27;./cjs.js&#x27;;</span><br><span class="line">// foo = null;</span><br><span class="line"></span><br><span class="line">import * as bar from &#x27;./cjs.js&#x27;;</span><br><span class="line">// bar = &#123;default:null&#125;;</span><br></pre></td></tr></table></figure>
+<p>–&gt;</p>
+<h4 id="예제-2-값을-내보내고-“default”-할당하기">예제 2: 값을 내보내고 “default” 할당하기</h4>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// cjs.js</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// es.mjs</span></span><br><span class="line"><span class="keyword">import</span> foo <span class="keyword">from</span> <span class="string">&#x27;./cjs.js&#x27;</span>;</span><br><span class="line"><span class="comment">// foo = null;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> bar <span class="keyword">from</span> <span class="string">&#x27;./cjs.js&#x27;</span>;</span><br><span class="line"><span class="comment">// bar = &#123;default:null&#125;;</span></span><br></pre></td></tr></table></figure>
+<!--
+#### Example 3: Single-function export
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// cjs.js</span><br><span class="line">module.exports = function two() &#123;</span><br><span class="line">  return 2;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// es.mjs</span><br><span class="line">import foo from &#x27;./cjs.js&#x27;;</span><br><span class="line">foo(); // 2</span><br><span class="line"></span><br><span class="line">import * as bar from &#x27;./cjs.js&#x27;;</span><br><span class="line">bar.name; // &#x27;two&#x27; ( get function name)</span><br><span class="line">bar.default(); // 2 ( assigned default function )</span><br><span class="line">bar(); // throws, bar is not a function</span><br></pre></td></tr></table></figure>
+<p>–&gt;</p>
+<h4 id="예제-3-단일-함수-내보내기">예제 3: 단일 함수 내보내기</h4>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// cjs.js</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = <span class="keyword">function</span> <span class="title function_">two</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// es.mjs</span></span><br><span class="line"><span class="keyword">import</span> foo <span class="keyword">from</span> <span class="string">&#x27;./cjs.js&#x27;</span>;</span><br><span class="line"><span class="title function_">foo</span>(); <span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> bar <span class="keyword">from</span> <span class="string">&#x27;./cjs.js&#x27;</span>;</span><br><span class="line">bar.<span class="property">name</span>; <span class="comment">// &#x27;two&#x27; ( 함수명 가져오기 )</span></span><br><span class="line">bar.<span class="title function_">default</span>(); <span class="comment">// 2 ( 할당된 default 함수 )</span></span><br><span class="line"><span class="title function_">bar</span>(); <span class="comment">// bar is not a function 예외가 발생합니다</span></span><br></pre></td></tr></table></figure>
+<!--
+### Examples: Consuming ES Modules with CommonJS
+
+#### Example 1: Using export default
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// es.mjs</span><br><span class="line">let foo = &#123;bar:&#x27;my-default&#x27;&#125;;</span><br><span class="line">export default foo;</span><br><span class="line">foo = null; // this null value does not effect import value.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// cjs.js</span><br><span class="line">const es_namespace = require(&#x27;./es&#x27;);</span><br><span class="line">// es_namespace ~= &#123;</span><br><span class="line">//   get default() &#123;</span><br><span class="line">//     return result_from_evaluating_foo;</span><br><span class="line">//   &#125;</span><br><span class="line">// &#125;</span><br><span class="line">console.log(es_namespace.default);</span><br><span class="line">// &#123;bar:&#x27;my-default&#x27;&#125;</span><br></pre></td></tr></table></figure>
+<p>–&gt;</p>
+<h3 id="예제-CommonJS에서-ES-Modules-사용하기">예제: CommonJS에서 ES Modules 사용하기</h3>
+<h4 id="예제-1-export-default의-사용">예제 1: <code>export default</code>의 사용</h4>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// es.mjs</span></span><br><span class="line"><span class="keyword">let</span> foo = &#123;<span class="attr">bar</span>:<span class="string">&#x27;my-default&#x27;</span>&#125;;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> foo;</span><br><span class="line">foo = <span class="literal">null</span>; <span class="comment">// 이 null 값은 import 값에 영향을 주지 않습니다.</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// cjs.js</span></span><br><span class="line"><span class="keyword">const</span> es_namespace = <span class="built_in">require</span>(<span class="string">&#x27;./es&#x27;</span>);</span><br><span class="line"><span class="comment">// es_namespace ~= &#123;</span></span><br><span class="line"><span class="comment">//   get default() &#123;</span></span><br><span class="line"><span class="comment">//     return result_from_evaluating_foo;</span></span><br><span class="line"><span class="comment">//   &#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(es_namespace.<span class="property">default</span>);</span><br><span class="line"><span class="comment">// &#123;bar:&#x27;my-default&#x27;&#125;</span></span><br></pre></td></tr></table></figure>
+<!--
+#### Example 2: Using export
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// es.mjs</span><br><span class="line">export let foo = &#123;bar:&#x27;my-default&#x27;&#125;;</span><br><span class="line">export &#123;foo as bar&#125;;</span><br><span class="line">export function f() &#123;&#125;;</span><br><span class="line">export class c &#123;&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// cjs.js</span><br><span class="line">const es_namespace = require(&#x27;./es&#x27;);</span><br><span class="line">// es_namespace ~= &#123;</span><br><span class="line">//   get foo() &#123;return foo;&#125;</span><br><span class="line">//   get bar() &#123;return foo;&#125;</span><br><span class="line">//   get f() &#123;return f;&#125;</span><br><span class="line">//   get c() &#123;return c;&#125;</span><br><span class="line">// &#125;</span><br></pre></td></tr></table></figure>
+<p>–&gt;</p>
+<h4 id="예제-2-export의-사용">예제 2: <code>export</code>의 사용</h4>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// es.mjs</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">let</span> foo = &#123;<span class="attr">bar</span>:<span class="string">&#x27;my-default&#x27;</span>&#125;;</span><br><span class="line"><span class="keyword">export</span> &#123;foo <span class="keyword">as</span> bar&#125;;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">f</span>(<span class="params"></span>) &#123;&#125;;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> <span class="title class_">c</span> &#123;&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// cjs.js</span></span><br><span class="line"><span class="keyword">const</span> es_namespace = <span class="built_in">require</span>(<span class="string">&#x27;./es&#x27;</span>);</span><br><span class="line"><span class="comment">// es_namespace ~= &#123;</span></span><br><span class="line"><span class="comment">//   get foo() &#123;return foo;&#125;</span></span><br><span class="line"><span class="comment">//   get bar() &#123;return foo;&#125;</span></span><br><span class="line"><span class="comment">//   get f() &#123;return f;&#125;</span></span><br><span class="line"><span class="comment">//   get c() &#123;return c;&#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+<!--
+## Current state of discussion
+
+Although built in a collaborative process, taking into account proposals for alternatives, Bradley's landed EP received a prominent counter-proposal from outside of the EP process. Going by the name "In Defense of .js", this counter-proposal relies on the use of package.json rather than a new file extension. Even though this option had been previously discussed, this new proposal contains some interesting additions.
+-->
+<h2 id="논의의-현재-상황">논의의 현재 상황</h2>
+<p>내부의 협업 과정에서 여러 가지 대안을 고려했지만 받아들여진 Bradley의 EP는 EP 과정 밖에서<br>
+가장 뛰어난 제안으로 받아들여졌습니다.<br>
+&quot;<a target="_blank" rel="noopener" href="https://github.com/dherman/defense-of-dot-js/blob/master/proposal.md">In Defense of .js</a>&quot;라는<br>
+이름의 제안으로 넘어가서 이 제안은 새로 만든 파일 확장자 대신 <code>package.json</code>을 사용합니다.<br>
+이전에도 이 방법에 대해 논의하기는 했지만, 이 제안에는 몇 가지 흥미로운 부분이 추가되어 있습니다.</p>
+<!--
+In Defense of .js presents the following rules for determining what format to load a file, with the same rules for both require and import:
+
+* If package.json has "main" field but not a "module" field, all files in that package are loaded as CommonJS.
+* If a package.json has a "module" field but not "main" field, all files in that package are loaded as ES Modules.
+* If a package.json has neither "main" nor "module" fields, it will depend on on whether an index.js or a module.js exists in the package as to whether to load files in the package as CommonJS or ES Modules respectively.
+* If a package.json has both "main" and "module" fields, files in the package will be loaded as CommonJS unless they are enumerated in the "module" field in which case they will be loaded as ES Modules, this may also include directories.
+* If there is no package.json in place (e.g. require('c:/foo')), it will default to being loaded as CommonJS.
+* A special "modules.root" field in package.json, files under the directory specified will be loaded as ES Modules. Additionally, files loaded relative to the package itself (e.g. require('lodash/array')) will load from within this directory.
+-->
+<p><em>In Defense of .js</em> 는 어떤 형식의 파일을 로드할지 결정하기 위해 <code>require</code>와 <code>import</code>에<br>
+동일하게 적용되는 규칙을 제안합니다.</p>
+<ul>
+<li><code>package.json</code>에 <code>&quot;main&quot;</code> 필드는 있지만 <code>&quot;module&quot;</code> 필드가 없다면 패키지의<br>
+모든 파일은 CommonJS로 로드합니다.</li>
+<li><code>package.json</code>에 <code>&quot;module&quot;</code> 필드는 있지만 <code>&quot;main&quot;</code> 필드가 없다면 패키지의<br>
+모든 파일은 ES Modules로 로드합니다.</li>
+<li><code>package.json</code>에 <code>&quot;main&quot;</code>과 <code>&quot;module&quot;</code> 필드가 둘 다 없다면 패키지의 파일은 CommonJS로<br>
+로드할지 ES Modules로 로드할지를 <code>index.js</code>가 있는지 <code>module.js</code>가 있는지에 따릅니다.</li>
+<li><code>package.json</code>에 <code>&quot;main&quot;</code>과 <code>&quot;module&quot;</code> 필드가 둘 다 있는 경우 <code>&quot;module&quot;</code> 필드에서<br>
+어떤 경우에 ES Modules로 로드할지를 설명하지 않았다면 패키지의 파일은 CommonJS로 로드합니다.<br>
+여기서는 디렉터리를 지정할 수도 있습니다.</li>
+<li><code>package.json</code>이 존재하지 않는다면(예: <code>require('c:/foo')</code>) 기본적으로 CommonJS로<br>
+로드합니다.</li>
+<li><code>package.json</code>에 특수한 필드인 <code>&quot;modules.root&quot;</code> 필드가 있다면 지정한 디렉터리의 파일은<br>
+ES Modules로 로드합니다. 추가로 패키지 내에서 상대적으로 로드된 파일은(예시:<br>
+<code>require('lodash/array')</code>) 해당 디렉터리 내에서 로드합니다.</li>
+</ul>
+<!--
+### In Defense of .js Examples
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// package.json</span><br><span class="line">// all files loaded as CommonJS</span><br><span class="line">&#123;</span><br><span class="line">  &quot;main&quot;: &quot;index.js&quot; // default module for package</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// package.json</span><br><span class="line">// default to CommonJS, conditional loading of ES Modules</span><br><span class="line">&#123;</span><br><span class="line">  &quot;main&quot;: &quot;index.js&quot;, // used by older versions of Node.js as default module, CommonJS</span><br><span class="line">  &quot;module&quot;: &quot;module.js&quot; // used by newer versions of Node.js as default module, ES Module</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// package.json</span><br><span class="line">// CommonJS with directory exceptions</span><br><span class="line">&#123;</span><br><span class="line">  &quot;main&quot;: &quot;index.js&quot;,</span><br><span class="line">  &quot;module&quot;: &quot;module.js&quot;,</span><br><span class="line">  &quot;modules.root&quot;: &quot;lib&quot; // all files loaded within this directory will be ES Modules</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>–&gt;</p>
+<h3 id="In-Defense-of-js-예제"><em>In Defense of .js</em> 예제</h3>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// package.json</span></span><br><span class="line"><span class="comment">// 모든 파일은 CommonJS로 로드됩니다.</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;main&quot;</span>: <span class="string">&quot;index.js&quot;</span> <span class="comment">// 패키지의 기본 모듈</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// package.json</span></span><br><span class="line"><span class="comment">// 기본은 CommonJS이고 조건에 따라 ES Modules로 로드됩니다.</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;main&quot;</span>: <span class="string">&quot;index.js&quot;</span>, <span class="comment">// CommmonJS를 기본 모듈로 Node.js 구 버전이 사용합니다.</span></span><br><span class="line">  <span class="string">&quot;module&quot;</span>: <span class="string">&quot;module.js&quot;</span> <span class="comment">// ES Module를 기본 모듈로 Node.js 새로운 버전이 사용합니다.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// package.json</span></span><br><span class="line"><span class="comment">// 예외적인 디렉터리 외에는 CommonJS를 사용합니다.</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;main&quot;</span>: <span class="string">&quot;index.js&quot;</span>,</span><br><span class="line">  <span class="string">&quot;module&quot;</span>: <span class="string">&quot;module.js&quot;</span>,</span><br><span class="line">  <span class="string">&quot;modules.root&quot;</span>: <span class="string">&quot;lib&quot;</span> <span class="comment">// 이 디렉터리의 모든 파일은 ES Modules로 로드됩니다.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<!--
+The above example is used to show how to maintain backward compatibility for packages. For older versions of Node.js, require('foo/bar') will look for a CommonJS bar.js in the root of the package. However, for newer versions of Node.js, the "modules.root": "lib" directory will dictate that loading 'foo/bar' will look for an ES Module at lib/bar.js.
+-->
+<p>위의 예제는 패키지의 하위호환성을 유지하는 방법을 보여줍니다. Node.js의 구 버전에서<br>
+<code>require('foo/bar')</code>는 패키지의 루트에서 CommonJS <code>bar.js</code>를 찾습니다. 하지만 새로운<br>
+버전의 Node.js는 <code>&quot;modules.root&quot;: &quot;lib&quot;</code>에서 <code>'foo/bar'</code> 로딩이 <code>lib/bar.js</code>에서<br>
+ES Module을 찾도록 지시합니다.</p>
+<!--
+### Supporting both CommonJS and ES Modules
+
+Under most proposals, including the Node.js EP and In Defense of .js, it is assumed that packages wishing to provide support for old and newer versions of Node.js will use a transpilation mechanism. Under the .mjs solution, the ES Modules would be transpiled to .js files next to their originals and the different versions of Node.js would resolve to the right file. Under In Defense of .js, the ES Modules would exist under a subdirectory specified by "modules.root" and be transpiled to CommonJS forms in the parent directory; additionally, package.json would have both "main" and "module" entry-points.
+-->
+<h3 id="CommonJS와-ES-Modules-모두-지원하기">CommonJS와 ES Modules 모두 지원하기</h3>
+<p>Node.js EP와 <em>In Defense of .js</em> 를 포함한 대부분의 제안에서 Node.js의 구 버전과 신버전을<br>
+지원하는 패키지가 트랜스파일 메커니즘을 사용할 것이라고 가정하고 있습니다. <code>.mjs</code> 방법에서<br>
+ES Modules은 원래의 파일과 함께 <code>.js</code> 파일로 트랜스파일되고 Node.js의 다른 버전은 적합한 파일을<br>
+사용할 것입니다. <em>In Defense of .js</em> 에서 ES Modules는 <code>&quot;modules.root&quot;</code>에서 지정한<br>
+하위 디렉터리에 있고 이는 부모 디렉터리에서 CommonJS 형식으로 트랜스파일 될 것입니다. 게다가<br>
+<code>package.json</code>은 <code>&quot;main&quot;</code>과 <code>&quot;module&quot;</code> 진입점을 모두 가질 것입니다.</p>
+<!--
+## Hard choices
+In Defense of .js presents a view that we need to switch to ES Modules from CommonJS and prioritizes such a future. On the other hand, the Node.js EP prioritizes compatibility and interoperability.
+
+Bradley recently wrote a post attempting to further explain the difficult choice and why a file extension was an appropriate way forward. In it, he goes into further details about why it is not possible to parse a file to determine whether it is an ES Module or not. He also further explores the difficulties of having an out-of-band descriptor (e.g. package.json) determine what type of content is in a .js file.
+
+Although it may be sad to consider the loss of a universal .js file extension, it's worth noting that other languages have already paved this path. Perl for instance uses .pl for Perl Script, and .pm for Perl Module.
+-->
+<h2 id="쉽지-않은-선택">쉽지 않은 선택</h2>
+<p><em>In Defense of .js</em> 는 CommonJS에서 ES Modules로 갈아타야 한다는 시각을 가지고 있고 그<br>
+시점에 더 우선순위를 두고 있습니다. 반면에 Node.js EP는 호환성과 상호운용성에 더 우선순위를 두고<br>
+있습니다.</p>
+<p>최근 Bradley가 이 어려운 선택에 대해서, 또 왜 파일 확장자가 앞으로를 위해서도 적절한 방법인지를 설명하는<br>
+<a target="_blank" rel="noopener" href="https://medium.com/@bradleymeck/understanding-the-hard-choice-1ea3008fc9d0#.3gryiqkmv">글을 작성</a>했습니다.<br>
+이 글에서 파일이 ES Modules인지 아닌지를 결정하려고 파일을 파싱하는 것이 불가능한 이유를 자세하게<br>
+설명했습니다. <code>.js</code> 파일의 내용이 어떤 형식인지를 결정하는 외부 서술자(예: <code>package.json</code>)가<br>
+가지는 어려음도 설명했습니다.</p>
+<p>보편적인 <code>.js</code> 파일 확장자를 버리기를 고민하는 것은 슬픈 일이지만 이미 다른 언어는 이 방법을<br>
+사용하고 있는 것을 강조할 필요도 없습니다. 예를 들어, Perl은 Perl Script에 <code>.pl</code>을 사용하고<br>
+Perl Module에는 <code>.pm</code>을 사용합니다.</p>
+<!--
+## Getting involved
+Even though the Node.js CTC has accepted the EP in its current form and stated its preference on how ES Modules would be implemented in Node.js (if they are implemented in Node.js at all), discussion continues and there is still room for change. You can engage with the Node.js community on this topic in the Node.js EP repository issues list. Be sure to first review existing comments to see if your concerns have already been addressed.
+
+Bradley and the Node.js CTC are very concerned about getting this decision right, in the interests of Node.js users everywhere. The choices that Node.js is having to make to accommodate ES Modules are difficult and are not being approached lightly.
+-->
+<h2 id="참여하기">참여하기</h2>
+<p>Node.js CTC가 현재 형식의 EP를 받아들였고 Node.js에서 ES Modules를 구현하는 방법(Node.js에서<br>
+조금이라도 구현된다면)으로 선호하고 있지만 논의는 계속되고 있고 아직 변경될 가능성이 있습니다.<br>
+<a target="_blank" rel="noopener" href="https://github.com/nodejs/node-eps/issues">Node.js EP 저장소의 이슈 목록</a>에서<br>
+이 토픽에 대해서 Node.js 커뮤니티와 토론할 수 있습니다. 고민하는 부분이 이미 논의되었는지를 보려면<br>
+첫 리뷰의 댓글을 보기 바랍니다.</p>
+<p>Bradley와 the Node.js CTC는 모든 Node.js 사용자가 관심을 가지는 이 결정을 제대로 하기 위해서<br>
+고민하고 있습니다. ES Modules를 수용하기 위해 Node.js가 고민하는 선택은 어렵고<br>
+가볍게 다룰 수 없습니다.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://nodejs.github.io/nodejs-ko/articles/2016/06/09/es-modules-and-node-js-hard-choices/" data-id="cl1s6zrmz0089a3oq91m8fm0s" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/nodejs-ko/weekly/2016/06/16/weekly/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Node.js 주간 뉴스 2016년 6월 16일
+        
+      </div>
+    </a>
+  
+  
+    <a href="/nodejs-ko/articles/2016/06/02/release-v6.2.1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Node v6.2.1(현재 버전)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title">Menu</h3>
+  <div class="widget">
+    <ul class="category-list">
+      <li class="category-list-item">
+        <a href="/nodejs-ko/">Home</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/CONTRIBUTING.html">번역 참여 가이드</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/about.html">소개</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/categories/articles">글 모음</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/categories/weekly">주간 뉴스</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/archives">보관함</a>
+      </li>
+      <li class="category-list-item">
+        <a href="https://github.com/nodejs/nodejs-ko" target="_blank">GitHub project</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+  
+</aside>
+
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Node.js 한국어 번역팀<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/nodejs-ko/" class="mobile-nav-link">Home</a>
+  
+    <a href="/nodejs-ko/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/nodejs-ko/fancybox/jquery.fancybox.css">
+
+  
+<script src="/nodejs-ko/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/nodejs-ko/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>

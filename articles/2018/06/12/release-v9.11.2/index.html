@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  
+  <title>Node v9.11.2(현재 버전) | Node.js 한국 커뮤니티</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="주요 변경사항  메모리 소진 DoS 수정 (CVE-2018-7164): net.Socket 객체를 직접 사용해서 스트림으로 네트워크에서 JavaScript로 읽을 때 소비 메모리가 증가하는 9.7.0에서 발생한 버그를 수정했습니다. buffer (CVE-2018-7167): 행이 걸릴 수 있는 Buffer.fill()을 호출했을 때의 서비스 거부 취약점을">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node v9.11.2(현재 버전)">
+<meta property="og:url" content="https://nodejs.github.io/nodejs-ko/articles/2018/06/12/release-v9.11.2/index.html">
+<meta property="og:site_name" content="Node.js 한국 커뮤니티">
+<meta property="og:description" content="주요 변경사항  메모리 소진 DoS 수정 (CVE-2018-7164): net.Socket 객체를 직접 사용해서 스트림으로 네트워크에서 JavaScript로 읽을 때 소비 메모리가 증가하는 9.7.0에서 발생한 버그를 수정했습니다. buffer (CVE-2018-7167): 행이 걸릴 수 있는 Buffer.fill()을 호출했을 때의 서비스 거부 취약점을">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-06-12T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-09T18:30:15.193Z">
+<meta property="article:author" content="Node.js 한국어 번역팀">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@nodejs_ko">
+  
+    <link rel="alternate" href="/nodejs-ko/atom.xml" title="Node.js 한국 커뮤니티" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/nodejs-ko/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/nodejs-ko/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/nodejs-ko/" id="logo">Node.js 한국 커뮤니티</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/nodejs-ko/">Home</a>
+        
+          <a class="main-nav-link" href="/nodejs-ko/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/nodejs-ko/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://nodejs.github.io/nodejs-ko"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-release-v9.11.2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <a href="/nodejs-ko/articles/2018/06/12/release-v9.11.2/" class="article-date">
+    <time datetime="2018-06-12T00:00:00.000Z" itemprop="datePublished">2018-06-12</time>
+  </a>
+
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/nodejs-ko/categories/articles/">articles</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Node v9.11.2(현재 버전)
+    </h1>
+  
+  <ul>
+    <li>작성자: <strong>Evan Lucas</strong></li>
+    <li>
+      원문: <strong><a target="_blank" rel="noopener" href="https://nodejs.org/en/blog/release/v9.11.2" taret="_blank">
+        Node v9.11.2 (Current)
+      </a></strong>
+    </li>
+    <li>
+      번역:
+      <strong><a target="_blank" rel="noopener" href="https://github.com/outsideris">outsideris</a></strong>
+    </li>
+  </ul>
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--
+### Notable Changes
+
+* **Fixes memory exhaustion DoS** (CVE-2018-7164): Fixes a bug introduced in 9.7.0 that increases the memory consumed when reading from the network into JavaScript using the net.Socket object directly as a stream.
+* **buffer** (CVE-2018-7167): Fixes Denial of Service vulnerability where calling Buffer.fill() could hang
+* **http2**
+  * (CVE-2018-7161): Fixes Denial of Service vulnerability by updating the http2 implementation to not crash under certain circumstances during cleanup
+  * (CVE-2018-1000168): Fixes Denial of Service vulnerability by upgrading nghttp2 to 1.32.0
+* **tls** (CVE-2018-7162): Fixes Denial of Service vulnerability by updating the TLS implementation to not crash upon receiving
+-->
+<h3 id="주요-변경사항-142">주요 변경사항</h3>
+<ul>
+<li><strong>메모리 소진 DoS 수정</strong> (CVE-2018-7164): net.Socket 객체를 직접 사용해서 스트림으로 네트워크에서 JavaScript로 읽을 때 소비 메모리가 증가하는 9.7.0에서 발생한 버그를 수정했습니다.</li>
+<li><strong>buffer</strong> (CVE-2018-7167): 행이 걸릴 수 있는 Buffer.fill()을 호출했을 때의 서비스 거부 취약점을 수정했습니다.</li>
+<li><strong>http2</strong>
+<ul>
+<li>(CVE-2018-7161): 정리 중 특정 상황에서 크래시가 발생하지 않도록 http2 구현체를 업데이트해서 서비스 거부 취약점을 수정했습니다.</li>
+<li>(CVE-2018-1000168): nghttp2를 1.32.0으로 업그레이드해서 서비스 거부 취약점을 수정했습니다.</li>
+</ul>
+</li>
+<li><strong>tls</strong> (CVE-2018-7162): 메시지를 받을 때 크래시가 발생하지 않도록 TLS 구현체를 업데이트해서 서비스 거부 취약점을 수정했습니다.</li>
+</ul>
+<h3 id="Commits-169">Commits</h3>
+<ul>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/65ed3213ca"><code>65ed3213ca</code></a>] - <strong>deps</strong>: update to nghttp2 1.32.0 (James M Snell) <a target="_blank" rel="noopener" href="https://github.com/nodejs-private/node-private/pull/124">nodejs-private/node-private#124</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/f0af3b09bd"><code>f0af3b09bd</code></a>] - <strong>doc</strong>: buffer.fill() can zero-fill on invalid input (Сковорода Никита Андреевич) <a target="_blank" rel="noopener" href="https://github.com/nodejs-private/node-private/pull/120">nodejs-private/node-private#120</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/828159fcd4"><code>828159fcd4</code></a>] - <strong>http2</strong>: fixup http2stream cleanup and other nits (James M Snell) <a target="_blank" rel="noopener" href="https://github.com/nodejs-private/node-private/pull/122">nodejs-private/node-private#122</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/be103eba41"><code>be103eba41</code></a>] - <strong>src</strong>: re-add <code>Realloc()</code> shrink after reading stream data (Anna Henningsen) <a target="_blank" rel="noopener" href="https://github.com/nodejs-private/node-private/pull/129">nodejs-private/node-private#129</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/555696df51"><code>555696df51</code></a>] - <strong>src</strong>: avoid hanging on Buffer#fill 0-length input (Сковорода Никита Андреевич) <a target="_blank" rel="noopener" href="https://github.com/nodejs-private/node-private/pull/120">nodejs-private/node-private#120</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/7684ba63c4"><code>7684ba63c4</code></a>] - <strong>test</strong>: add tls write error regression test (Shigeki Ohtsu) <a target="_blank" rel="noopener" href="https://github.com/nodejs-private/node-private/pull/130">nodejs-private/node-private#130</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/0ab90acaf3"><code>0ab90acaf3</code></a>] - <strong>test</strong>: add regression test for nghttp2 CVE-2018-1000168 (James M Snell) <a target="_blank" rel="noopener" href="https://github.com/nodejs-private/node-private/pull/124">nodejs-private/node-private#124</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/84f23d2f12"><code>84f23d2f12</code></a>] - <strong>tls</strong>: fix SSL write error handling (Anna Henningsen) <a target="_blank" rel="noopener" href="https://github.com/nodejs-private/node-private/pull/130">nodejs-private/node-private#130</a></li>
+</ul>
+<p>Windows 32-bit Installer: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v9.11.2/node-v9.11.2-x86.msi">https://nodejs.org/dist/v9.11.2/node-v9.11.2-x86.msi</a><br><br>
+Windows 64-bit Installer: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v9.11.2/node-v9.11.2-x64.msi">https://nodejs.org/dist/v9.11.2/node-v9.11.2-x64.msi</a><br><br>
+Windows 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v9.11.2/win-x86/node.exe">https://nodejs.org/dist/v9.11.2/win-x86/node.exe</a><br><br>
+Windows 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v9.11.2/win-x64/node.exe">https://nodejs.org/dist/v9.11.2/win-x64/node.exe</a><br><br>
+macOS 64-bit Installer: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v9.11.2/node-v9.11.2.pkg">https://nodejs.org/dist/v9.11.2/node-v9.11.2.pkg</a><br><br>
+macOS 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v9.11.2/node-v9.11.2-darwin-x64.tar.gz">https://nodejs.org/dist/v9.11.2/node-v9.11.2-darwin-x64.tar.gz</a><br><br>
+Linux 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v9.11.2/node-v9.11.2-linux-x86.tar.xz">https://nodejs.org/dist/v9.11.2/node-v9.11.2-linux-x86.tar.xz</a><br><br>
+Linux 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v9.11.2/node-v9.11.2-linux-x64.tar.xz">https://nodejs.org/dist/v9.11.2/node-v9.11.2-linux-x64.tar.xz</a><br><br>
+Linux PPC LE 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v9.11.2/node-v9.11.2-linux-ppc64le.tar.xz">https://nodejs.org/dist/v9.11.2/node-v9.11.2-linux-ppc64le.tar.xz</a><br><br>
+Linux s390x 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v9.11.2/node-v9.11.2-linux-s390x.tar.xz">https://nodejs.org/dist/v9.11.2/node-v9.11.2-linux-s390x.tar.xz</a><br><br>
+AIX 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v9.11.2/node-v9.11.2-aix-ppc64.tar.gz">https://nodejs.org/dist/v9.11.2/node-v9.11.2-aix-ppc64.tar.gz</a><br><br>
+SunOS 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v9.11.2/node-v9.11.2-sunos-x86.tar.xz">https://nodejs.org/dist/v9.11.2/node-v9.11.2-sunos-x86.tar.xz</a><br><br>
+SunOS 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v9.11.2/node-v9.11.2-sunos-x64.tar.xz">https://nodejs.org/dist/v9.11.2/node-v9.11.2-sunos-x64.tar.xz</a><br><br>
+ARMv6 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v9.11.2/node-v9.11.2-linux-armv6l.tar.xz">https://nodejs.org/dist/v9.11.2/node-v9.11.2-linux-armv6l.tar.xz</a><br><br>
+ARMv7 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v9.11.2/node-v9.11.2-linux-armv7l.tar.xz">https://nodejs.org/dist/v9.11.2/node-v9.11.2-linux-armv7l.tar.xz</a><br><br>
+ARMv8 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v9.11.2/node-v9.11.2-linux-arm64.tar.xz">https://nodejs.org/dist/v9.11.2/node-v9.11.2-linux-arm64.tar.xz</a><br><br>
+Source Code: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v9.11.2/node-v9.11.2.tar.gz">https://nodejs.org/dist/v9.11.2/node-v9.11.2.tar.gz</a><br><br>
+Other release files: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v9.11.2/">https://nodejs.org/dist/v9.11.2/</a><br><br>
+Documentation: <a target="_blank" rel="noopener" href="https://nodejs.org/docs/v9.11.2/api/">https://nodejs.org/docs/v9.11.2/api/</a></p>
+<h3 id="shasums">SHASUMS</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">-----BEGIN PGP SIGNED MESSAGE-----</span><br><span class="line">Hash: SHA256</span><br><span class="line"></span><br><span class="line">b2a6ce3c9161436e5219748f42c7ce2d0cbc9a1ab05ee404d47a39115da0181f  node-v9.11.2-aix-ppc64.tar.gz</span><br><span class="line">340993096108d1dc0e0b598560d87ec645fc94b0fc83a423c36343f2da45f4b8  node-v9.11.2-darwin-x64.tar.gz</span><br><span class="line">9f2441d902d3dd6c02a21099ee1f579a91bd55916c925a1ab7a3b9011fe7dda6  node-v9.11.2-darwin-x64.tar.xz</span><br><span class="line">48a88d158dc83aa211e6fb59aeacb535c9a791f3b7ad8e6d041ada5c43c02a19  node-v9.11.2-headers.tar.gz</span><br><span class="line">a1112577b10108c0499a38740fed60fa0379cdd3fd0d25adaf33a5e3a64ab22e  node-v9.11.2-headers.tar.xz</span><br><span class="line">78f600a8690ae34aac8079142c77bb0f0f09c6ddea2272b9a135285610ad71d1  node-v9.11.2-linux-arm64.tar.gz</span><br><span class="line">9a713a6f4473425b83bf67e13e4b3c9f1f683c996b913f1f6854d208996367b6  node-v9.11.2-linux-arm64.tar.xz</span><br><span class="line">d784e5c862c1e34ce241c57ceaac4dc8242ec038b0d315d26a89fd620b82be06  node-v9.11.2-linux-armv6l.tar.gz</span><br><span class="line">21b789165d04a205ed914ee6ddd59099a6bc7cb0c5435079a44978243a98d152  node-v9.11.2-linux-armv6l.tar.xz</span><br><span class="line">319b64f32ffd43d66eb97abecdd14d2f74217142e1bf33192accd9e49c9c98e4  node-v9.11.2-linux-armv7l.tar.gz</span><br><span class="line">9e00140edde72b8a9ff7dd110e80655e268583ec2e32a0fc73d32f942bc6e382  node-v9.11.2-linux-armv7l.tar.xz</span><br><span class="line">00f1ff033fa728a0c516be08b06c46e5eea1155b8d1ee944ae6f96739dd559a7  node-v9.11.2-linux-ppc64le.tar.gz</span><br><span class="line">55daf9d83072b0a36e599210fb51427fcbdd81821e0b06efa7bd9fae039d6564  node-v9.11.2-linux-ppc64le.tar.xz</span><br><span class="line">6b6391abf64f6ff10c64fb98d4e77580f2d9d0104e959fab6551d40b7007e62c  node-v9.11.2-linux-s390x.tar.gz</span><br><span class="line">7e7c7b88615bd6df3c8846a6034f595e7c367d30985596cbbfedafeb436e9a92  node-v9.11.2-linux-s390x.tar.xz</span><br><span class="line">bbb46f86c64abe96ee98faa733424fc76f20a38d12f59bdcd60057efa5f1ce89  node-v9.11.2-linux-x64.tar.gz</span><br><span class="line">a2e7fe4ee3c4e3f31e00dff241c92c2ed779a9f36735578603d2be966f938a4b  node-v9.11.2-linux-x64.tar.xz</span><br><span class="line">166cc28bd9c8217c533b2921edd5e980b14f1d670d828e9d40c1d5b37f51496d  node-v9.11.2-linux-x86.tar.gz</span><br><span class="line">b4ba2b95e6a8a22dcfd7f402f25710719e67af144d32a003b538d05a57626b00  node-v9.11.2-linux-x86.tar.xz</span><br><span class="line">276f82d8742e7069d47667cec243305d587534a74a7aa8a6b7d92df98767f53b  node-v9.11.2.pkg</span><br><span class="line">079dabdc51bf9210b5844cebe6b88e4a2597698e59364362977a698d471a22a2  node-v9.11.2-sunos-x64.tar.gz</span><br><span class="line">de46c7a599d76a57781aa22a350909859fd1b204ae4fe6f31143df96fc8e40de  node-v9.11.2-sunos-x64.tar.xz</span><br><span class="line">b195eca0163a2f90bf88ad00ad4233293a4d00080b05441df5ac4eb0728f420c  node-v9.11.2-sunos-x86.tar.gz</span><br><span class="line">2316a57b45f7ad1a3a2bf665dfb491b32a48f20151a67fe1c5e0a5d023dfddad  node-v9.11.2-sunos-x86.tar.xz</span><br><span class="line">4a9cf0bfdf6a0e8c454d21517f70fc2c05a99d7055571826939096172a7040f6  node-v9.11.2.tar.gz</span><br><span class="line">06484eac7f6b7c87e96983a039422347c0047284bc4d373d90884ae3966dc213  node-v9.11.2.tar.xz</span><br><span class="line">46f9d8584a16d61c02c81ef5eb5bf00793fa94ff35647e9549453992abf91c81  node-v9.11.2-win-x64.7z</span><br><span class="line">051db8f4d3c0503e3082173f16b25e2362de8f9a5e509c403992b2069d826c25  node-v9.11.2-win-x64.zip</span><br><span class="line">a7451b05db2a28ebdc095a31e79ec55ae1aae40ad701827d0013b884492ddffc  node-v9.11.2-win-x86.7z</span><br><span class="line">e9f55afb5a22b8289880836e59eb13ed012d16e235a81315018a7ce3a12498c2  node-v9.11.2-win-x86.zip</span><br><span class="line">6a9a125a01e377063b11578cd033163068b0f1a0f030907cbbc32db3b9b18c1d  node-v9.11.2-x64.msi</span><br><span class="line">82982c3322fb8c25eda90acbecb5a07b298dc6bf4d2de8db68c5beaf11fd5b4d  node-v9.11.2-x86.msi</span><br><span class="line">8c33626a10282e4b19094826bf9c932497563bf93286ca728f72b35e6f9860c9  win-x64/node.exe</span><br><span class="line">902e8984223c2c4e34a2548d1c5f9f58b781f7b1a6401236c4e83268a7090cc2  win-x64/node.lib</span><br><span class="line">2afcd24f40e8bded935b5a8fe3fd218259ce311f80f8a5bd0f6661f03dd4e95b  win-x64/node_pdb.7z</span><br><span class="line">6b69110408f0a106ec32241c46570dcd28debb6bb883d20d7964a8c741affc26  win-x64/node_pdb.zip</span><br><span class="line">d045eb4305c20d84a115c7e1d7c68e6822c14f0900ca7ea4b0ad642ea7121015  win-x86/node.exe</span><br><span class="line">3cdb7b4d2c6a49cd7d811ecc3082c071fe511caf7295739f6c6b16994e2010db  win-x86/node.lib</span><br><span class="line">ea6c59600915e3006a7d76fd7031986fbf38e1714cdab6eb133bef83ce59ac25  win-x86/node_pdb.7z</span><br><span class="line">9fab06214591a5129808b1ef9f12a9ef9e4b6e0fb03115dbe2dce33fcb55d3c0  win-x86/node_pdb.zip</span><br><span class="line">-----BEGIN PGP SIGNATURE-----</span><br><span class="line"></span><br><span class="line">iQIzBAEBCAAdFiEEua6ZBf/XgD8lcUZhtjtTWkwgbKkFAlsgVsUACgkQtjtTWkwg</span><br><span class="line">bKl6khAAjm0jyHmBkerH9lF4hFUSfC40ngG7/TPXREfxmDge7QzMsaPZYRJpFMYE</span><br><span class="line">O5r5zAy7e/t+4FIr+wpZbUfGzZC5a5Q1/mRxNigGeotoTb5JW3FxxOfkabl/h7dx</span><br><span class="line">0xaZ61aSTotb6jfqnp+6lOktmm4bVLdPSMfW1mhgTa9uMG4Mnlk6V+FCSh+REOzY</span><br><span class="line">FoZL3wqN0nE14PNk8nrwFKkvW3W85sA09qppxOHEJPithepfsSxijltYcr4BChhF</span><br><span class="line">dgQSHn4SiIonIEE5wfxwTmJHqMltJyHkZ0LSl31+5+Hw4NPhUJvg4P0o74UFX6uQ</span><br><span class="line">oUU1U5LX0eYgP1+WSyrQ2EtXTzZXSawOp95vLPYE07H/u9yCbLdY9auUYCLS31CP</span><br><span class="line">lwIHg7qUl6qTARvRgWCJ/U3WSoMaOLeocqxvhjXS+fLkEaf9IJkuGACwjSq7Yshi</span><br><span class="line">DPVX/l33PLLfmKG3/9kIDn43b+pfYYGG0mEMwCSRHCDPrHB8hORolcItucZFA8Nd</span><br><span class="line">G3TdQiZmMQ/VFNkb0GsARAupmoKbVgTzOX4bKLU41Tkq+eSy3UyDbUf58LdQMbqr</span><br><span class="line">WyKkEhXa6aR84UGnF61tCaoFw/7VU2All7iW8k1vHrSUfCq7gYLJiety5KsoS9bB</span><br><span class="line">aAxNDshKZ3tzOOXGuZq++t+xkFZOJGtUeSAq7g011kFK1jWTTDA=</span><br><span class="line">=Ih7m</span><br><span class="line">-----END PGP SIGNATURE-----</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://nodejs.github.io/nodejs-ko/articles/2018/06/12/release-v9.11.2/" data-id="cl1s6zrqt00hta3oq7ovxefye" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/nodejs-ko/articles/2018/06/12/release-v8.11.3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Node v8.11.3(LTS)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/nodejs-ko/articles/2018/06/12/vulnerability-june-2018-security-releases/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">2018년 6월 보안 릴리스</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title">Menu</h3>
+  <div class="widget">
+    <ul class="category-list">
+      <li class="category-list-item">
+        <a href="/nodejs-ko/">Home</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/CONTRIBUTING.html">번역 참여 가이드</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/about.html">소개</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/categories/articles">글 모음</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/categories/weekly">주간 뉴스</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/archives">보관함</a>
+      </li>
+      <li class="category-list-item">
+        <a href="https://github.com/nodejs/nodejs-ko" target="_blank">GitHub project</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+  
+</aside>
+
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Node.js 한국어 번역팀<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/nodejs-ko/" class="mobile-nav-link">Home</a>
+  
+    <a href="/nodejs-ko/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/nodejs-ko/fancybox/jquery.fancybox.css">
+
+  
+<script src="/nodejs-ko/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/nodejs-ko/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>

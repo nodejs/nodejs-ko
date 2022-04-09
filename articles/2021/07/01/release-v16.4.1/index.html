@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  
+  <title>Node v16.4.1(현재 버전) | Node.js 한국 커뮤니티</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="주요 변경사항 다음 취약점을 수정했습니다.  CVE-2021-22918: libuv 업그레이드 - 범위를 벗어난 읽기(중간)  Node.js는 문자열을 ASCII로 변환하는데 사용하는 libuv의 uv__idna_toascii() 함수에서 범위를 벗어난 읽기에 취약합니다. 이 함수는 Node dns 모듈의 lookup() 함수에서 호출하고 정보를 노출하거">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node v16.4.1(현재 버전)">
+<meta property="og:url" content="https://nodejs.github.io/nodejs-ko/articles/2021/07/01/release-v16.4.1/index.html">
+<meta property="og:site_name" content="Node.js 한국 커뮤니티">
+<meta property="og:description" content="주요 변경사항 다음 취약점을 수정했습니다.  CVE-2021-22918: libuv 업그레이드 - 범위를 벗어난 읽기(중간)  Node.js는 문자열을 ASCII로 변환하는데 사용하는 libuv의 uv__idna_toascii() 함수에서 범위를 벗어난 읽기에 취약합니다. 이 함수는 Node dns 모듈의 lookup() 함수에서 호출하고 정보를 노출하거">
+<meta property="og:locale">
+<meta property="article:published_time" content="2021-07-01T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-09T18:30:15.221Z">
+<meta property="article:author" content="Node.js 한국어 번역팀">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@nodejs_ko">
+  
+    <link rel="alternate" href="/nodejs-ko/atom.xml" title="Node.js 한국 커뮤니티" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/nodejs-ko/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/nodejs-ko/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/nodejs-ko/" id="logo">Node.js 한국 커뮤니티</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/nodejs-ko/">Home</a>
+        
+          <a class="main-nav-link" href="/nodejs-ko/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/nodejs-ko/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://nodejs.github.io/nodejs-ko"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-release-v16.4.1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <a href="/nodejs-ko/articles/2021/07/01/release-v16.4.1/" class="article-date">
+    <time datetime="2021-07-01T00:00:00.000Z" itemprop="datePublished">2021-07-01</time>
+  </a>
+
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/nodejs-ko/categories/articles/">articles</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Node v16.4.1(현재 버전)
+    </h1>
+  
+  <ul>
+    <li>작성자: <strong>Bethany Nicolle Griggs</strong></li>
+    <li>
+      원문: <strong><a target="_blank" rel="noopener" href="https://nodejs.org/en/blog/release/v16.4.1" taret="_blank">
+        Node v16.4.1 (Current)
+      </a></strong>
+    </li>
+    <li>
+      번역:
+      <strong><a target="_blank" rel="noopener" href="https://github.com/outsideris">outsideris</a></strong>
+    </li>
+  </ul>
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--
+### Notable Changes
+
+Vulnerabilities fixed:
+
+* **CVE-2021-22918**: libuv upgrade - Out of bounds read (Medium)
+  * Node.js is vulnerable to out-of-bounds read in libuv's uv__idna_toascii() function which is used to convert strings to ASCII. This is called by Node's dns module's lookup() function and can lead to information disclosures or crashes. You can read more about it in https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-22918
+* **CVE-2021-22921**: Windows installer - Node Installer Local Privilege Escalation (Medium)
+  * Node.js is vulnerable to local privilege escalation attacks under certain conditions on Windows platforms. More specifically, improper configuration of permissions in the installation directory allows an attacker to perform two different escalation attacks: PATH and DLL hijacking. You can read more about it in https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-22921
+-->
+<h3 id="주요-변경사항-303">주요 변경사항</h3>
+<p>다음 취약점을 수정했습니다.</p>
+<ul>
+<li><strong>CVE-2021-22918</strong>: libuv 업그레이드 - 범위를 벗어난 읽기(중간)
+<ul>
+<li>Node.js는 문자열을 ASCII로 변환하는데 사용하는 libuv의 uv__idna_toascii() 함수에서<br>
+범위를 벗어난 읽기에 취약합니다. 이 함수는 Node dns 모듈의 lookup() 함수에서 호출하고 정보를<br>
+노출하거나 크래시가 발생할 수 있습니다. 자세한 내용은<br>
+<a target="_blank" rel="noopener" href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-22918">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-22918</a>에서 볼 수 있습니다.</li>
+</ul>
+</li>
+<li><strong>CVE-2021-22921</strong>: Node 설치 프로그램의 로컬 권한 확대(중간)
+<ul>
+<li>Node.js는 Windows 플랫폼에서 특정 상황에 로컬 권한 확대 공격에 취약합니다. 더 자세히는<br>
+설치 디렉터리의 부적절한 권한 설정으로 공격자가 확대 공격인 PATH와 DLL 하이재킹 공격을 할 수<br>
+있습니다. 자세한 내용은<br>
+<a target="_blank" rel="noopener" href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-22921">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-22921</a>에서 볼 수 있습니다.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Commits-340">Commits</h3>
+<ul>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/d33aead28b"><code>d33aead28b</code></a>] - <strong>deps</strong>: uv: cherry-pick 99c29c9c2c9b (Ben Noordhuis) <a target="_blank" rel="noopener" href="https://github.com/nodejs-private/node-private/pull/267">nodejs-private/node-private#267</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/2690907b81"><code>2690907b81</code></a>] - <strong>win,msi</strong>: set install directory permission (AkshayK) <a target="_blank" rel="noopener" href="https://github.com/nodejs-private/node-private/pull/269">nodejs-private/node-private#269</a></li>
+</ul>
+<p>Windows 32-bit Installer: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v16.4.1/node-v16.4.1-x86.msi">https://nodejs.org/dist/v16.4.1/node-v16.4.1-x86.msi</a><br><br>
+Windows 64-bit Installer: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v16.4.1/node-v16.4.1-x64.msi">https://nodejs.org/dist/v16.4.1/node-v16.4.1-x64.msi</a><br><br>
+Windows 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v16.4.1/win-x86/node.exe">https://nodejs.org/dist/v16.4.1/win-x86/node.exe</a><br><br>
+Windows 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v16.4.1/win-x64/node.exe">https://nodejs.org/dist/v16.4.1/win-x64/node.exe</a><br><br>
+macOS 64-bit Installer: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v16.4.1/node-v16.4.1.pkg">https://nodejs.org/dist/v16.4.1/node-v16.4.1.pkg</a><br><br>
+macOS Apple Silicon 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v16.4.1/node-v16.4.1-darwin-arm64.tar.gz">https://nodejs.org/dist/v16.4.1/node-v16.4.1-darwin-arm64.tar.gz</a><br><br>
+macOS Intel 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v16.4.1/node-v16.4.1-darwin-x64.tar.gz">https://nodejs.org/dist/v16.4.1/node-v16.4.1-darwin-x64.tar.gz</a><br><br>
+Linux 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v16.4.1/node-v16.4.1-linux-x64.tar.xz">https://nodejs.org/dist/v16.4.1/node-v16.4.1-linux-x64.tar.xz</a><br><br>
+Linux PPC LE 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v16.4.1/node-v16.4.1-linux-ppc64le.tar.xz">https://nodejs.org/dist/v16.4.1/node-v16.4.1-linux-ppc64le.tar.xz</a><br><br>
+Linux s390x 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v16.4.1/node-v16.4.1-linux-s390x.tar.xz">https://nodejs.org/dist/v16.4.1/node-v16.4.1-linux-s390x.tar.xz</a><br><br>
+AIX 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v16.4.1/node-v16.4.1-aix-ppc64.tar.gz">https://nodejs.org/dist/v16.4.1/node-v16.4.1-aix-ppc64.tar.gz</a><br><br>
+ARMv7 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v16.4.1/node-v16.4.1-linux-armv7l.tar.xz">https://nodejs.org/dist/v16.4.1/node-v16.4.1-linux-armv7l.tar.xz</a><br><br>
+ARMv8 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v16.4.1/node-v16.4.1-linux-arm64.tar.xz">https://nodejs.org/dist/v16.4.1/node-v16.4.1-linux-arm64.tar.xz</a><br><br>
+Source Code: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v16.4.1/node-v16.4.1.tar.gz">https://nodejs.org/dist/v16.4.1/node-v16.4.1.tar.gz</a><br><br>
+Other release files: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v16.4.1/">https://nodejs.org/dist/v16.4.1/</a><br><br>
+Documentation: <a target="_blank" rel="noopener" href="https://nodejs.org/docs/v16.4.1/api/">https://nodejs.org/docs/v16.4.1/api/</a></p>
+<h3 id="SHASUMS-116">SHASUMS</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">-----BEGIN PGP SIGNED MESSAGE-----</span><br><span class="line">Hash: SHA256</span><br><span class="line"></span><br><span class="line">d0f079c4bc78ee9e1eb646434bc52730c59e433f75febee70ee5506a5526eead  node-v16.4.1-aix-ppc64.tar.gz</span><br><span class="line">c6e2a79873c4afbd9fcd7e9d2889e2a7b84860bea472a07ccbe33387397990f5  node-v16.4.1-darwin-arm64.tar.gz</span><br><span class="line">e8d2c3e90e93f3456e8f33e900c4eb404f8456b584e78550a12218aa89689fff  node-v16.4.1-darwin-arm64.tar.xz</span><br><span class="line">c78fecdfb062c51ba0432d1c6bb8f30eb14daf47001a5f68d17b3ae6d4d9eb31  node-v16.4.1-darwin-x64.tar.gz</span><br><span class="line">3840f63f73513bfe60aac2a7180501f2b7e8b04806ed0ff0c100042f01bf5612  node-v16.4.1-darwin-x64.tar.xz</span><br><span class="line">85b46ae7c3f2f6482a9a009cffe36ae4ead98f936d05a4e602eb32de148c4345  node-v16.4.1-headers.tar.gz</span><br><span class="line">95d1cc071266739cbb2421a8419bae13652007701165549f0ae584863d11dd8e  node-v16.4.1-headers.tar.xz</span><br><span class="line">5d50cb3ce5b5ecccead1d0cf4e18e038c580e10733ff510f73d04a711092569c  node-v16.4.1-linux-arm64.tar.gz</span><br><span class="line">7519f43bc704bbb86af6162bad967eb0a277466b6b8c3e0b17dd367d86a97b27  node-v16.4.1-linux-arm64.tar.xz</span><br><span class="line">b8df70739ffb058d4771722384e818fc5f9f0a5e096a45f1bfe7919b3173d32e  node-v16.4.1-linux-armv7l.tar.gz</span><br><span class="line">ab8a575ffd154b1faab4c94be5bcb961f6ed1dcc79afa18489dcdb1eea7e660b  node-v16.4.1-linux-armv7l.tar.xz</span><br><span class="line">49a3f2958e1e822d4053adf7c006ccf230ca7dc4f830bea789163fd093184160  node-v16.4.1-linux-ppc64le.tar.gz</span><br><span class="line">72607271437948a6470063bc8bbb622ae1da60899217526b60ab2594fdff6b10  node-v16.4.1-linux-ppc64le.tar.xz</span><br><span class="line">c3162a66943a0871423f94c8697c0bbfa2dc8a8474e63fa67a0cdd7f3618aca7  node-v16.4.1-linux-s390x.tar.gz</span><br><span class="line">d472d95911c46bcae6e83ce2ea4312d544ee5ead6d8a6639ba40e51ad5678269  node-v16.4.1-linux-s390x.tar.xz</span><br><span class="line">21181395c11ee1d13c05c4e07b1f4e36ba501d92030ac60a901291c50915b320  node-v16.4.1-linux-x64.tar.gz</span><br><span class="line">3c73b58051a4435d605f9842e582a252e100d5ff62e0a30e3961cab71e8477b1  node-v16.4.1-linux-x64.tar.xz</span><br><span class="line">d4eec360becc29d06b4ee7ee41ab3bf07bd8f4d979d911e18b5ed4ba9841a17f  node-v16.4.1.pkg</span><br><span class="line">562df905fdc9c8b3854fea1c755cc969b3c1437774d28b513457cc4034136458  node-v16.4.1.tar.gz</span><br><span class="line">769014432ed8e16267c70b834999e76c48193cd8523ca4f3ee4eadaae7f32aa8  node-v16.4.1.tar.xz</span><br><span class="line">0bec96b5b22ca6d4eead44003011fcdb44af0d331bb1fc8af0647f95cd9feb65  node-v16.4.1-win-x64.7z</span><br><span class="line">f2f0dfc9ee54aff908575734713c482d76bfbed14dcfaea4931fff7450753f25  node-v16.4.1-win-x64.zip</span><br><span class="line">2eec50ab1e34eb99af2819dd92a272e44944dc5b3fbf74c3ab25355feccc97c4  node-v16.4.1-win-x86.7z</span><br><span class="line">a505508994890e418757ea88a55a9685914f57643ec5fb5737c28c5c8b6a1abe  node-v16.4.1-win-x86.zip</span><br><span class="line">a6c50420ab8e65df482e841a41a309582445480f2682e58ba3af30edf558b43b  node-v16.4.1-x64.msi</span><br><span class="line">f05522114177fd5acf49b2c81aca438f3c88284c5d69196efc2df8bb43cb8090  node-v16.4.1-x86.msi</span><br><span class="line">3b69159360b235d20cd8a35a63562ffd8e96f1032dbd3c0980a6ff794968cc07  win-x64/node.exe</span><br><span class="line">4b5caea50ee2170fd752225477d77a8818965e3e8cbb9871ecbddf32bd6ed94d  win-x64/node.lib</span><br><span class="line">ba7c1a22e2a59a73aaeab4c8d56826b705c2da00a57c94d3a3d6b1b460cb8cff  win-x64/node_pdb.7z</span><br><span class="line">36b27e73b3132bc6fae11d75f648fe4c35efef2002dfed03a9784f145445f17e  win-x64/node_pdb.zip</span><br><span class="line">8fd7ef41cf3a394ace65922babe7db8108374cf0c4cfba5613be61fb147cf141  win-x86/node.exe</span><br><span class="line">e899517caf4e57f674ff37ca8c9db892d676d86960698b2663bbe16e82fa2542  win-x86/node.lib</span><br><span class="line">aafaf686584d890a7b580cb16a9f898a299f3a1c91ae720224a858a9bc5c2f89  win-x86/node_pdb.7z</span><br><span class="line">359ef4b5be217ed189910ae806a57fa555874a5ae2b2e1200b2754ff90942a1c  win-x86/node_pdb.zip</span><br><span class="line">-----BEGIN PGP SIGNATURE-----</span><br><span class="line"></span><br><span class="line">iQEzBAEBCAAdFiEETtd49TnjY0x3nIfG1wYoSKGrAFwFAmDd4aEACgkQ1wYoSKGr</span><br><span class="line">AFyTuQf+PGAx0iu/qHynzVfoiixzCeugk9HEegU2Sj8oovmnok/bGKFxWTTl+SYj</span><br><span class="line">6h70KpfObXgy5TyczvX1KsuabcFQ+wwSASUtnJcnaG1bKwP1JJOZbvKUwkxEVtDe</span><br><span class="line">/jV1sUr8eAgI0K9SwKn7jRGwaUp88XEKdxlX9Vbio91X0OD9KWkilg6haX+/ccLa</span><br><span class="line">AlaOgmo4lvP8kgycD1AKytZwQOA+BQqhF86C1/+QIQa5EiP/mWztZEzpvUMxFvwU</span><br><span class="line">/CPZPriYuOvXIfzbthGJOEfccU25VJKNaJTIj12UEH54UjWnz0UPCZhQLtBUwLmC</span><br><span class="line">odXiC6kU7Hjq2bFq+Gss4fGmt7LvAA==</span><br><span class="line">=e3hn</span><br><span class="line">-----END PGP SIGNATURE-----</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://nodejs.github.io/nodejs-ko/articles/2021/07/01/release-v16.4.1/" data-id="cl1s6zrvx00ssa3oq37r0dml8" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/nodejs-ko/articles/2021/07/01/release-v14.17.2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Node v14.17.2(LTS)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/nodejs-ko/articles/2021/07/01/vulnerability-july-2021-security-releases/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">2021년 7월 보안 릴리스</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title">Menu</h3>
+  <div class="widget">
+    <ul class="category-list">
+      <li class="category-list-item">
+        <a href="/nodejs-ko/">Home</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/CONTRIBUTING.html">번역 참여 가이드</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/about.html">소개</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/categories/articles">글 모음</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/categories/weekly">주간 뉴스</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/archives">보관함</a>
+      </li>
+      <li class="category-list-item">
+        <a href="https://github.com/nodejs/nodejs-ko" target="_blank">GitHub project</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+  
+</aside>
+
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Node.js 한국어 번역팀<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/nodejs-ko/" class="mobile-nav-link">Home</a>
+  
+    <a href="/nodejs-ko/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/nodejs-ko/fancybox/jquery.fancybox.css">
+
+  
+<script src="/nodejs-ko/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/nodejs-ko/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>

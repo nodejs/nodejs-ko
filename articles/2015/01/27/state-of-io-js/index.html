@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  
+  <title>io.js의 상태 | Node.js 한국 커뮤니티</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="기억하는 한 가장 성공적인 오픈 소스 주도 활동 io.js의 발표 후 몇 달 동안 많은 일이 있었습니다. 야심에 찬 출시는 Fedor의 생일인 1월 13일로 결정했습니다. 놀랄만큼 많은 사람들이 열심히 노력해 준 끝에 출시일을 맞출 수 있었습니다. ☺ 덧붙여 최초의 릴리스 외에도 4번의 패치 릴리스가 있었고 이는 40만 번이 넘는 다운로드를 기록했습니다.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="io.js의 상태">
+<meta property="og:url" content="https://nodejs.github.io/nodejs-ko/articles/2015/01/27/state-of-io-js/index.html">
+<meta property="og:site_name" content="Node.js 한국 커뮤니티">
+<meta property="og:description" content="기억하는 한 가장 성공적인 오픈 소스 주도 활동 io.js의 발표 후 몇 달 동안 많은 일이 있었습니다. 야심에 찬 출시는 Fedor의 생일인 1월 13일로 결정했습니다. 놀랄만큼 많은 사람들이 열심히 노력해 준 끝에 출시일을 맞출 수 있었습니다. ☺ 덧붙여 최초의 릴리스 외에도 4번의 패치 릴리스가 있었고 이는 40만 번이 넘는 다운로드를 기록했습니다.">
+<meta property="og:locale">
+<meta property="article:published_time" content="2015-01-27T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-09T18:30:15.153Z">
+<meta property="article:author" content="Node.js 한국어 번역팀">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@nodejs_ko">
+  
+    <link rel="alternate" href="/nodejs-ko/atom.xml" title="Node.js 한국 커뮤니티" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/nodejs-ko/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/nodejs-ko/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/nodejs-ko/" id="logo">Node.js 한국 커뮤니티</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/nodejs-ko/">Home</a>
+        
+          <a class="main-nav-link" href="/nodejs-ko/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/nodejs-ko/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://nodejs.github.io/nodejs-ko"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-state-of-io-js" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <a href="/nodejs-ko/articles/2015/01/27/state-of-io-js/" class="article-date">
+    <time datetime="2015-01-27T00:00:00.000Z" itemprop="datePublished">2015-01-27</time>
+  </a>
+
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/nodejs-ko/categories/articles/">articles</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      io.js의 상태
+    </h1>
+  
+  <ul>
+    <li>작성자: <strong>mikeal</strong></li>
+    <li>
+      원문: <strong><a target="_blank" rel="noopener" href="https://medium.com/node-js-javascript/state-of-io-js-2b3094e6f923" taret="_blank">
+        State of io.js
+      </a></strong>
+    </li>
+    <li>
+      번역:
+      <strong><a href="https://github.com/marocchino" target="_blank">Shim Won</a></strong>
+    </li>
+  </ul>
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>기억하는 한 가장 성공적인 오픈 소스 주도 활동</p>
+<p>io.js의 발표 후 몇 달 동안 많은 일이 있었습니다. 야심에 찬 출시는 <strong>Fedor의 생일</strong>인<br>
+1월 13일로 결정했습니다. 놀랄만큼 많은 사람들이 열심히 노력해 준 끝에 출시일을 맞출<br>
+수 있었습니다. ☺</p>
+<p>덧붙여 최초의 릴리스 외에도 4번의 패치 릴리스가 있었고 이는 <strong>40만 번이 넘는</strong><br>
+다운로드를 기록했습니다.</p>
+<p>우리는 누구도 예상치 못한 기여를 받고 있습니다. 프로젝트 발표 후,<br>
+뛰어난 활약을 해준 <a target="_blank" rel="noopener" href="https://github.com/chrisdickinson"><strong>Chris Dickinson</strong></a>과<br>
+<a target="_blank" rel="noopener" href="https://github.com/cjihrig"><strong>Colin Ihrig</strong></a>을</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/nodejs/node/blob/v1.x/GOVERNANCE.md#iojs-project-governance">TC</a><br>
+(프로젝트 의사결정 기구)에 추가했습니다. <a target="_blank" rel="noopener" href="https://github.com/domenic"><strong>Domenic<br>
+Denicola</strong></a>도 (저나 <a target="_blank" rel="noopener" href="https://github.com/rvagg">Rod<br>
+Vagg</a>처럼) 투표권이 없는 참가자로 TC 회의에<br>
+초대되었습니다. 이는 <strong>TC39</strong>와 <a target="_blank" rel="noopener" href="https://twitter.com/rvagg/status/558378711624343552"><strong>v8</strong>과의 협력</a>의<br>
+길을 열었습니다.</p>
+<p>node.js™ 역사상 활발한 커미터가 8명 이상 있었던 적은 없습니다. 지난주 <strong>Chris<br>
+Dickinson</strong>는 또 다른 라운드로 이끌어 줄 <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/issues/234#issuecomment-71097752"><strong>새로운 커미터<br>
+8명</strong></a>을<br>
+io.js에 올렸습니다.</p>
+<p>io.js에서 현재 사용 중인 V8은 <strong>안정</strong> 버전으로 표기될 예정이며 <strong>3월 초</strong>에<br>
+크롬에 포함될 것입니다. 그때부터는  v8 최신 안정 버전을 사용하는 안정된 채널과<br>
+v8 다음 개발 버전을 사용하는 불안정한 채널을 갖게 됩니다. 이 말은 <strong>3월에는<br>
+안정 버전 io.js를 기대해도 된다</strong>는 이야기입니다. 개발 버전은 <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/630">계속<br>
+유지</a>되며 io.js와 v8의 새 기능을<br>
+테스트하는데 사용될 것입니다.</p>
+<p>코어 개발 외의 몇 가지 작업은 이미 프로젝트 팀과 커미터가 필요할 만큼<br>
+성장했습니다. 설립될 때 있었던 <a target="_blank" rel="noopener" href="https://github.com/nodejs/build"><strong>빌드</strong></a><br>
+그룹 말고도 이제는 <a target="_blank" rel="noopener" href="https://github.com/nodejs/website"><strong>웹사이트</strong></a> 그룹과<br>
+<a target="_blank" rel="noopener" href="https://github.com/nodejs/readable-stream"><strong>스트림</strong></a> 그룹이 있습니다. 우리는<br>
+앞으로 <strong>전파, 문서화, 지역화, nan<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>, 로드맵</strong>과 관련한 워킹 그룹도 만들어지기를<br>
+기대합니다. 이 그룹들이 만들어지면 커뮤니티에서 더 다양한 참여를 이끌어 낼 수 있을<br>
+것입니다.</p>
+<p>io.js를 시작할 때만 해도 node.js에 공헌하는 사람이 없다는 것이 가장 큰<br>
+문제였습니다. 지금은 프로젝트 전반에 걸쳐 참여하고 유입되는 공헌자들을 따라잡는<br>
+것이 큰 문제가 되었습니다. io.js는 <strong>현재</strong>의 node.js™는 물론, <strong>그 어느 때</strong>의<br>
+node.js™보다 활발합니다. 그리고 이것은 시작에 불과합니다.</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://github.com/rvagg/nan">https://github.com/rvagg/nan</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://nodejs.github.io/nodejs-ko/articles/2015/01/27/state-of-io-js/" data-id="cl1s6zrip0001a3oq2wv2c8yy" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/nodejs-ko/weekly/2015/02/06/weekly/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          io.js 주간 뉴스 2015년 2월 6일
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title">Menu</h3>
+  <div class="widget">
+    <ul class="category-list">
+      <li class="category-list-item">
+        <a href="/nodejs-ko/">Home</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/CONTRIBUTING.html">번역 참여 가이드</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/about.html">소개</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/categories/articles">글 모음</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/categories/weekly">주간 뉴스</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/archives">보관함</a>
+      </li>
+      <li class="category-list-item">
+        <a href="https://github.com/nodejs/nodejs-ko" target="_blank">GitHub project</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+  
+</aside>
+
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Node.js 한국어 번역팀<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/nodejs-ko/" class="mobile-nav-link">Home</a>
+  
+    <a href="/nodejs-ko/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/nodejs-ko/fancybox/jquery.fancybox.css">
+
+  
+<script src="/nodejs-ko/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/nodejs-ko/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>

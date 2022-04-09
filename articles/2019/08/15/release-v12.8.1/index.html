@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  
+  <title>Node v12.8.1(현재 버전) | Node.js 한국 커뮤니티</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="주요 변경사항  보안 릴리스입니다. HTTP&#x2F;2의 다른 구현체와 마찬가지로 Node.js에서 서비스 거부 공격을 할 수 있는 취약점이 발견되었습니다. 더 자세한 정보는 https:&#x2F;&#x2F;github.com&#x2F;Netflix&#x2F;security-bulletins&#x2F;blob&#x2F;master&#x2F;advisories&#x2F;third-party&#x2F;2019-002.md에서 확인하세요. 다음">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node v12.8.1(현재 버전)">
+<meta property="og:url" content="https://nodejs.github.io/nodejs-ko/articles/2019/08/15/release-v12.8.1/index.html">
+<meta property="og:site_name" content="Node.js 한국 커뮤니티">
+<meta property="og:description" content="주요 변경사항  보안 릴리스입니다. HTTP&#x2F;2의 다른 구현체와 마찬가지로 Node.js에서 서비스 거부 공격을 할 수 있는 취약점이 발견되었습니다. 더 자세한 정보는 https:&#x2F;&#x2F;github.com&#x2F;Netflix&#x2F;security-bulletins&#x2F;blob&#x2F;master&#x2F;advisories&#x2F;third-party&#x2F;2019-002.md에서 확인하세요. 다음">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-08-15T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-09T18:30:15.205Z">
+<meta property="article:author" content="Node.js 한국어 번역팀">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@nodejs_ko">
+  
+    <link rel="alternate" href="/nodejs-ko/atom.xml" title="Node.js 한국 커뮤니티" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/nodejs-ko/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/nodejs-ko/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/nodejs-ko/" id="logo">Node.js 한국 커뮤니티</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/nodejs-ko/">Home</a>
+        
+          <a class="main-nav-link" href="/nodejs-ko/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/nodejs-ko/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://nodejs.github.io/nodejs-ko"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-release-v12.8.1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <a href="/nodejs-ko/articles/2019/08/15/release-v12.8.1/" class="article-date">
+    <time datetime="2019-08-15T00:00:00.000Z" itemprop="datePublished">2019-08-15</time>
+  </a>
+
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/nodejs-ko/categories/articles/">articles</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Node v12.8.1(현재 버전)
+    </h1>
+  
+  <ul>
+    <li>작성자: <strong>Michaël Zasso</strong></li>
+    <li>
+      원문: <strong><a target="_blank" rel="noopener" href="https://nodejs.org/en/blog/release/v12.8.1" taret="_blank">
+        Node v12.8.1 (Current)
+      </a></strong>
+    </li>
+    <li>
+      번역:
+      <strong><a target="_blank" rel="noopener" href="https://github.com/marocchino">marocchino</a></strong>
+    </li>
+  </ul>
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- ### Notable changes -->
+<h3 id="주요-변경사항-200">주요 변경사항</h3>
+<!--
+This is a security release.
+
+Node.js, as well as many other implementations of HTTP/2, have been found
+vulnerable to Denial of Service attacks.
+See https://github.com/Netflix/security-bulletins/blob/master/advisories/third-party/2019-002.md
+for more information.
+
+Vulnerabilities fixed:
+
+- **CVE-2019-9511 “Data Dribble”**: The attacker requests a large amount of data from a specified resource over multiple streams. They manipulate window size and stream priority to force the server to queue the data in 1-byte chunks. Depending on how efficiently this data is queued, this can consume excess CPU, memory, or both, potentially leading to a denial of service.
+- **CVE-2019-9512 “Ping Flood”**: The attacker sends continual pings to an HTTP/2 peer, causing the peer to build an internal queue of responses. Depending on how efficiently this data is queued, this can consume excess CPU, memory, or both, potentially leading to a denial of service.
+- **CVE-2019-9513 “Resource Loop”**: The attacker creates multiple request streams and continually shuffles the priority of the streams in a way that causes substantial churn to the priority tree. This can consume excess CPU, potentially leading to a denial of service.
+- **CVE-2019-9514 “Reset Flood”**: The attacker opens a number of streams and sends an invalid request over each stream that should solicit a stream of RST_STREAM frames from the peer. Depending on how the peer queues the RST_STREAM frames, this can consume excess memory, CPU, or both, potentially leading to a denial of service.
+- **CVE-2019-9515 “Settings Flood”**: The attacker sends a stream of SETTINGS frames to the peer. Since the RFC requires that the peer reply with one acknowledgement per SETTINGS frame, an empty SETTINGS frame is almost equivalent in behavior to a ping. Depending on how efficiently this data is queued, this can consume excess CPU, memory, or both, potentially leading to a denial of service.
+- **CVE-2019-9516 “0-Length Headers Leak”**: The attacker sends a stream of headers with a 0-length header name and 0-length header value, optionally Huffman encoded into 1-byte or greater headers. Some implementations allocate memory for these headers and keep the allocation alive until the session dies. This can consume excess memory, potentially leading to a denial of service.
+- **CVE-2019-9517 “Internal Data Buffering”**: The attacker opens the HTTP/2 window so the peer can send without constraint; however, they leave the TCP window closed so the peer cannot actually write (many of) the bytes on the wire. The attacker then sends a stream of requests for a large response object. Depending on how the servers queue the responses, this can consume excess memory, CPU, or both, potentially leading to a denial of service.
+- **CVE-2019-9518 “Empty Frames Flood”**: The attacker sends a stream of frames with an empty payload and without the end-of-stream flag. These frames can be DATA, HEADERS, CONTINUATION and/or PUSH_PROMISE. The peer spends time processing each frame disproportionate to attack bandwidth. This can consume excess CPU, potentially leading to a denial of service. (Discovered by Piotr Sikora of Google)
+  -->
+<p>보안 릴리스입니다.</p>
+<p>HTTP/2의 다른 구현체와 마찬가지로 Node.js에서 서비스 거부 공격을 할 수 있는<br>
+취약점이 발견되었습니다.<br>
+더 자세한 정보는 <a target="_blank" rel="noopener" href="https://github.com/Netflix/security-bulletins/blob/master/advisories/third-party/2019-002.md">https://github.com/Netflix/security-bulletins/blob/master/advisories/third-party/2019-002.md</a>에서<br>
+확인하세요.</p>
+<p>다음 취약점이 수정되었습니다.</p>
+<ul>
+<li><strong>CVE-2019-9511 “Data Dribble”</strong>: 공격자는 특정 리소스에서 대량의 데이터를 여러 스트림으로 요청합니다. 윈도우 크기 및 스트림 우선 순위를 조작하여 서버가 1 바이트 청크로 데이터를 큐에 넣도록 합니다. 이 데이터를 얼마나 효율적으로 큐에 넣는지에 따라 CPU, 메모리를 과도하게 소비하게 하여 서비스 거부가 발생할 수 있습니다.</li>
+<li><strong>CVE-2019-9512 “Ping Flood”</strong>: 공격자는 지속적인 핑을 HTTP/2 피어로 보내 피어가 내부 응답 큐를 작성하게 합니다. 이 데이터를 얼마나 효율적으로 큐에 넣는지에 따라 CPU, 메모리를 과도하게 소비하게 하여 서비스 거부가 발생할 수 있습니다.</li>
+<li><strong>CVE-2019-9513 “Resource Loop”</strong>: 공격자는 여러 요청 스트림을 생성하고 우선 순위 트리에 상당한 변동을 일으키는 방식으로 스트림 우선 순위를 계속 섞습니다. 이로 인해 과도한 CPU가 소비되어 서비스 거부가 발생할 수 있습니다.</li>
+<li><strong>CVE-2019-9514 “Reset Flood”</strong>: 공격자는 여러 스트림을 열고 각 스트림을 통해 잘못된 요청을 보내 피어에서 RST_STREAM 프레임의 스트림을 요청합니다. 피어가 RST_STREAM 프레임을 큐에 넣는 방법에 따라 메모리, CPU를 소비하게 하여 서비스 거부가 발생할 수 있습니다.</li>
+<li><strong>CVE-2019-9515 “Settings Flood”</strong>: 공격자는 SETTINGS 프레임 스트림을 피어에게 보냅니다. RFC는 SETTINGS 프레임당 하나의 승인으로 피어 응답을 요구하므로 빈 SETTINGS 프레임은 핑과 거의 동일하게 행동합니다. 이 데이터를 얼마나 효율적으로 큐에 넣는지에 따라 CPU, 메모리를 과도하게 소비하게 하여 서비스 거부가 발생할 수 있습니다.</li>
+<li><strong>CVE-2019-9516 “0-Length Headers Leak”</strong>: 공격자는 길이가 0인 헤더 이름과 길이가 0인 헤더 값을 가지는 헤더 스트림을 보냅니다. 추가로 이 헤더의 허프만 인코딩 결과가 1 바이트 이상일 수 있습니다. 일부 구현에서는 이러한 헤더에 메모리를 할당하고 세션이 종료될 때까지 할당을 유지합니다. 이로 인해 불필요한 메모리가 소비되어 서비스 거부가 발생할 수 있습니다.</li>
+<li><strong>CVE-2019-9517 “Internal Data Buffering”</strong>: 공격자는 HTTP/2 윈도우를 열어서 피어가 제약 없이 전송할 수 있지만, TCP 윈도우를 닫아 놓기 때문에 피어가 실제로 (많은) 바이트를 쓸 수는 없습니다. 이 상태에서 공격자는 큰 응답 개체에 대한 요청 스트림을 보냅니다. 서버가 응답을 큐에 넣는 방법에 따라 메모리, CPU를 과도하게 소비하여 서비스 거부가 발생할 수 있습니다.</li>
+<li><strong>CVE-2019-9518 “Empty Frames Flood”</strong>: 공격자는 end-of-stream 플래그 없이 빈 페이로드 프레임 스트림을 보냅니다. 이 프레임은 DATA, HEADERS, CONTINUATION, PUSH_PROMISE일 수 있습니다. 피어는 각 프레임을 처리하는 데 시간을 소비하여 대역폭을 공격합니다. 이로 인해 과도한 CPU가 소비되어 서비스 거부가 발생할 수 있습니다.(구글의 Piotr Sikora가 발견)</li>
+</ul>
+<h3 id="Commits-229">Commits</h3>
+<ul>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/bfeb5fc07f"><code>bfeb5fc07f</code></a>] - <strong>deps</strong>: update nghttp2 to 1.39.2 (Anna Henningsen) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/29122">#29122</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/08021fac59"><code>08021fac59</code></a>] - <strong>http2</strong>: allow security revert for Ping/Settings Flood (Anna Henningsen) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/29122">#29122</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/bbb4769cc1"><code>bbb4769cc1</code></a>] - <strong>http2</strong>: pause input processing if sending output (Anna Henningsen) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/29122">#29122</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/f64515b05e"><code>f64515b05e</code></a>] - <strong>http2</strong>: stop reading from socket if writes are in progress (Anna Henningsen) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/29122">#29122</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/ba332df5d2"><code>ba332df5d2</code></a>] - <strong>http2</strong>: consider 0-length non-end DATA frames an error (Anna Henningsen) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/29122">#29122</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/23b0db58ca"><code>23b0db58ca</code></a>] - <strong>http2</strong>: shrink default <code>vector::reserve()</code> allocations (Anna Henningsen) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/29122">#29122</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/4f10ac3623"><code>4f10ac3623</code></a>] - <strong>http2</strong>: handle 0-length headers better (Anna Henningsen) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/29122">#29122</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/a21a1c007b"><code>a21a1c007b</code></a>] - <strong>http2</strong>: limit number of invalid incoming frames (Anna Henningsen) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/29122">#29122</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/4570ed10d7"><code>4570ed10d7</code></a>] - <strong>http2</strong>: limit number of rejected stream openings (Anna Henningsen) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/29122">#29122</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/88726f2384"><code>88726f2384</code></a>] - <strong>http2</strong>: do not create ArrayBuffers when no DATA received (Anna Henningsen) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/29122">#29122</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/530004ef32"><code>530004ef32</code></a>] - <strong>http2</strong>: only call into JS when necessary for session events (Anna Henningsen) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/29122">#29122</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/58d8c9ef48"><code>58d8c9ef48</code></a>] - <strong>http2</strong>: improve JS-side debug logging (Anna Henningsen) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/29122">#29122</a></li>
+</ul>
+<p>Windows 32-bit Installer: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v12.8.1/node-v12.8.1-x86.msi">https://nodejs.org/dist/v12.8.1/node-v12.8.1-x86.msi</a><br><br>
+Windows 64-bit Installer: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v12.8.1/node-v12.8.1-x64.msi">https://nodejs.org/dist/v12.8.1/node-v12.8.1-x64.msi</a><br><br>
+Windows 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v12.8.1/win-x86/node.exe">https://nodejs.org/dist/v12.8.1/win-x86/node.exe</a><br><br>
+Windows 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v12.8.1/win-x64/node.exe">https://nodejs.org/dist/v12.8.1/win-x64/node.exe</a><br><br>
+macOS 64-bit Installer: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v12.8.1/node-v12.8.1.pkg">https://nodejs.org/dist/v12.8.1/node-v12.8.1.pkg</a><br><br>
+macOS 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v12.8.1/node-v12.8.1-darwin-x64.tar.gz">https://nodejs.org/dist/v12.8.1/node-v12.8.1-darwin-x64.tar.gz</a><br><br>
+Linux 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v12.8.1/node-v12.8.1-linux-x64.tar.xz">https://nodejs.org/dist/v12.8.1/node-v12.8.1-linux-x64.tar.xz</a><br><br>
+Linux PPC LE 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v12.8.1/node-v12.8.1-linux-ppc64le.tar.xz">https://nodejs.org/dist/v12.8.1/node-v12.8.1-linux-ppc64le.tar.xz</a><br><br>
+Linux s390x 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v12.8.1/node-v12.8.1-linux-s390x.tar.xz">https://nodejs.org/dist/v12.8.1/node-v12.8.1-linux-s390x.tar.xz</a><br><br>
+AIX 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v12.8.1/node-v12.8.1-aix-ppc64.tar.gz">https://nodejs.org/dist/v12.8.1/node-v12.8.1-aix-ppc64.tar.gz</a><br><br>
+SmartOS 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v12.8.1/node-v12.8.1-sunos-x64.tar.xz">https://nodejs.org/dist/v12.8.1/node-v12.8.1-sunos-x64.tar.xz</a><br><br>
+ARMv7 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v12.8.1/node-v12.8.1-linux-armv7l.tar.xz">https://nodejs.org/dist/v12.8.1/node-v12.8.1-linux-armv7l.tar.xz</a><br><br>
+ARMv8 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v12.8.1/node-v12.8.1-linux-arm64.tar.xz">https://nodejs.org/dist/v12.8.1/node-v12.8.1-linux-arm64.tar.xz</a><br><br>
+Source Code: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v12.8.1/node-v12.8.1.tar.gz">https://nodejs.org/dist/v12.8.1/node-v12.8.1.tar.gz</a><br><br>
+Other release files: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v12.8.1/">https://nodejs.org/dist/v12.8.1/</a><br><br>
+Documentation: <a target="_blank" rel="noopener" href="https://nodejs.org/docs/v12.8.1/api/">https://nodejs.org/docs/v12.8.1/api/</a></p>
+<h3 id="shasums">SHASUMS</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">-----BEGIN PGP SIGNED MESSAGE-----</span><br><span class="line">Hash: SHA256</span><br><span class="line"></span><br><span class="line">a140e9c84fdb5c40328dc1ea6425954e08cec722ab4e1ab4521b0523bd7b2fa0  node-v12.8.1-aix-ppc64.tar.gz</span><br><span class="line">caccf8b409af342e35672cc766430587664f88d01dab622a5de44c8be1336e44  node-v12.8.1-darwin-x64.tar.gz</span><br><span class="line">c4789916ef5fcb61f8d6b10e15f9137d043ee5dbd004638c88ea4dde2841b2c2  node-v12.8.1-darwin-x64.tar.xz</span><br><span class="line">06c011a5601fca1107d4a29428a051416dffb592391b47e23d6150abc98e4fef  node-v12.8.1-headers.tar.gz</span><br><span class="line">b39eb6675c88b62c7c0d5103d7098f98b43b841a2d0065692760c9513b2bb6c4  node-v12.8.1-headers.tar.xz</span><br><span class="line">3ad6e53bcf8a3b92b10504fa70d83f69eab85a8603c2fbe210121278dd19920b  node-v12.8.1-linux-arm64.tar.gz</span><br><span class="line">3707240c402aae0b5879ce1ba17b32ebd224d47f5147639c6881a1b71ce65383  node-v12.8.1-linux-arm64.tar.xz</span><br><span class="line">44e2f0dda0ae2ebabecfefe9a33995939d8e362a5bb3fcc579df98c107db2272  node-v12.8.1-linux-armv7l.tar.gz</span><br><span class="line">cbe09af1f41de4cdc917a8874a1cda6bf877495dee159752d3f8745cf6a1e9a3  node-v12.8.1-linux-armv7l.tar.xz</span><br><span class="line">1ddabc01c81dc8056daf831db9815439aa2dea9f93e653c6a185ec859836cf93  node-v12.8.1-linux-ppc64le.tar.gz</span><br><span class="line">2002c80e3cd8c3c4816bdb96e9fc496510a5d2edf273a5cda91625a48a87dedd  node-v12.8.1-linux-ppc64le.tar.xz</span><br><span class="line">a4b73e4c847ebc33d05d7f0d2efb7720ebbb643d17f3848ff3fe4266cc32f0ff  node-v12.8.1-linux-s390x.tar.gz</span><br><span class="line">f8712268de942b2c05a58eb7291b8ed7cdd9b6413f82bc1aa99e23fae42375f9  node-v12.8.1-linux-s390x.tar.xz</span><br><span class="line">8758a131cac2e8a373153b9eb53696d2e823b910dbf175af7ec4a0592b065c22  node-v12.8.1-linux-x64.tar.gz</span><br><span class="line">1c7cf61cb8fa98a76d92445823d6dd1649e985899e16900b39eacdd8cd4094f3  node-v12.8.1-linux-x64.tar.xz</span><br><span class="line">79c92434d5e9cf7b77122b679aa4b61e12dffa9feb1caee0134446ff8b7ecf05  node-v12.8.1.pkg</span><br><span class="line">9e6fbd7d4346ddb0e86e14dbeff5f1cb23a69e09096dde6c0ad2785dc5643742  node-v12.8.1-sunos-x64.tar.gz</span><br><span class="line">9f0ac2d6f98efeb54bb3a6f52ea58e545bc542b354061f79c1f2804e52a406a0  node-v12.8.1-sunos-x64.tar.xz</span><br><span class="line">fbd4de6657f6301cdcd0c60a0e5a413c490670d8c21b501c380b96cc3b9b5b95  node-v12.8.1.tar.gz</span><br><span class="line">3e63b2e7979b51d79b6f2f89d2869de85222be8edc549f08e10dc8d039de5b88  node-v12.8.1.tar.xz</span><br><span class="line">52ece730f0d4d80657eb8d5c62120c2a91f435b8ef3bea672e1bfdaf9f7eae70  node-v12.8.1-win-x64.7z</span><br><span class="line">c81ecaa03dc882dde36087c854e4831c13d3eb237f262f9ce74ccc6f156684da  node-v12.8.1-win-x64.zip</span><br><span class="line">73e50beac826d2a68ad7bfa9c69d02881651a84d8284b609eb6de1f816422ce1  node-v12.8.1-win-x86.7z</span><br><span class="line">71257bcb20caeb22320f4316549424329af888d4fb49f9beb6ea660a85c5848b  node-v12.8.1-win-x86.zip</span><br><span class="line">cf7766ff0ffb30a6b1d88832b059c151cd84a43b9e80891bde0b456a730034ed  node-v12.8.1-x64.msi</span><br><span class="line">b861512e89b07266b90422c5a48ba5a718f5377e0a3fe2e64e13ac69b87f6d29  node-v12.8.1-x86.msi</span><br><span class="line">f54c49a9652b59f10b7961f6b3891636946b68e404e69d83e32762135c1fa862  win-x64/node.exe</span><br><span class="line">508026e08ee3d579c17f766167c5c69ce31280a4a5607ac853099cd2b84e0426  win-x64/node.lib</span><br><span class="line">dd9308e9161a5ff3bc549cf017d498d6bb05c7a9940c9e6d4d34f95cbce55e2d  win-x64/node_pdb.7z</span><br><span class="line">46240f4ddb0d8ce81bff744b14376b702f37c2b43022602b002464622b7e8395  win-x64/node_pdb.zip</span><br><span class="line">bf42f24a980db702b51939fdcfdf38a95580b00dd57a78d3d9d9c8bc558ab8c9  win-x86/node.exe</span><br><span class="line">26e54309d4e8a8ac8f10d460962c474f1ae3f83ffa1bf420ec773b53db36a90a  win-x86/node.lib</span><br><span class="line">297a842f38c8bb2bb1082ca763c40ca9ab104bcab3d57ea85fa62bb6682f2f43  win-x86/node_pdb.7z</span><br><span class="line">07e4a6cdc87b1e5bbd2970ef7b35412c50393d9a74199f7babe6c432cc7db299  win-x86/node_pdb.zip</span><br><span class="line">-----BEGIN PGP SIGNATURE-----</span><br><span class="line"></span><br><span class="line">iQIzBAEBCAAdFiEEj8yhP+8dDC6RAI4Jdw96mlrhVgAFAl1VWqEACgkQdw96mlrh</span><br><span class="line">VgB40w//Z/qkA9OpKmcu8VE4g2tWIU4utQTh2HR5ueAyy/LjJQ2f2mcC5Xar5WCq</span><br><span class="line">w8K5q9loPkdxdQlteb55/p4VGEGAam5tWhy3juS5HbboiOlt5QNfswe9JQfcQGvu</span><br><span class="line">UdPSukHoY+DLHeiaAdhf1bFhWTnCNuXRZdrWqukTjQhApu3JkLMa+gwex1TrEb7R</span><br><span class="line">4mlpDtEXi1sTudOgBD71VGo3t7//nD6oV5NegH5AJZwXaGeaeWVhW9jscyy9GLLq</span><br><span class="line">e0mzbZTUQnECw7fUujsGL0UbRRwUiVgeoBCV5WwatF/ofVXJ+VU0z3L18the+z27</span><br><span class="line">DidOXQQHU/9EFkkXjGAmob2iS7imZMPHTiEhCCsfyHT7ldVFJS2UXdfetkfcMauO</span><br><span class="line">D1jt0OVLRaJ78zYCO2Ct6CWDIqbYERvjuvIkWk3wLGvWZCMxkVnsNQH4Yrr9cYKq</span><br><span class="line">P5PU8wGZyueOWj4TN9JAzj9h6BIrPmEJMgJHFiIDQnP84mq+tSqQSNwTiFUW6jZN</span><br><span class="line">1WHg8zdq4kEJuYusKnZF13Z5FCnisXVXDThO9p7dwrJ1xta2t6LWmWF7uTwiate5</span><br><span class="line">AXGnXz+zoZiGll831QOuIMCMZZyZPh6JHZOMO6AGj+58d4OQcVMyLVH2bsRQhK7B</span><br><span class="line">Q8g229JTL7XjOvd5MwKuvoZAi+HG35hqPstICTu/ZsSZEiWgV2c=</span><br><span class="line">=9JPr</span><br><span class="line">-----END PGP SIGNATURE-----</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://nodejs.github.io/nodejs-ko/articles/2019/08/15/release-v12.8.1/" data-id="cl1s6zrs900lja3oqasd46l04" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/nodejs-ko/articles/2019/08/15/release-v10.16.3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Node v10.16.3(LTS)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/nodejs-ko/articles/2019/08/15/release-v8.16.1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Node v8.16.1(LTS)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title">Menu</h3>
+  <div class="widget">
+    <ul class="category-list">
+      <li class="category-list-item">
+        <a href="/nodejs-ko/">Home</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/CONTRIBUTING.html">번역 참여 가이드</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/about.html">소개</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/categories/articles">글 모음</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/categories/weekly">주간 뉴스</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/archives">보관함</a>
+      </li>
+      <li class="category-list-item">
+        <a href="https://github.com/nodejs/nodejs-ko" target="_blank">GitHub project</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+  
+</aside>
+
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Node.js 한국어 번역팀<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/nodejs-ko/" class="mobile-nav-link">Home</a>
+  
+    <a href="/nodejs-ko/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/nodejs-ko/fancybox/jquery.fancybox.css">
+
+  
+<script src="/nodejs-ko/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/nodejs-ko/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>

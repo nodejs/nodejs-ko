@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  
+  <title>Node v10.15.0(LTS) | Node.js 한국 커뮤니티</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="10.x 릴리스 라인에 도입된 10.14.0 보안 릴리스에 예상하지 못한 호환성 깨짐이 있었습니다. HTTP 바이너리 업그레이드 응답 보디에서 발생한 회귀 문제를 수정하고 http 파서의 최대 헤더 크기를 조정하는 플래그가 빠져서 추가한 특수한 릴리스입니다. 주요 변경사항  cli:  –max-http-header-size 플래그를 추가했습니다. (cji">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node v10.15.0(LTS)">
+<meta property="og:url" content="https://nodejs.github.io/nodejs-ko/articles/2018/12/26/release-v10.15.0/index.html">
+<meta property="og:site_name" content="Node.js 한국 커뮤니티">
+<meta property="og:description" content="10.x 릴리스 라인에 도입된 10.14.0 보안 릴리스에 예상하지 못한 호환성 깨짐이 있었습니다. HTTP 바이너리 업그레이드 응답 보디에서 발생한 회귀 문제를 수정하고 http 파서의 최대 헤더 크기를 조정하는 플래그가 빠져서 추가한 특수한 릴리스입니다. 주요 변경사항  cli:  –max-http-header-size 플래그를 추가했습니다. (cji">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-12-26T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-09T18:30:15.197Z">
+<meta property="article:author" content="Node.js 한국어 번역팀">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@nodejs_ko">
+  
+    <link rel="alternate" href="/nodejs-ko/atom.xml" title="Node.js 한국 커뮤니티" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/nodejs-ko/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/nodejs-ko/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/nodejs-ko/" id="logo">Node.js 한국 커뮤니티</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/nodejs-ko/">Home</a>
+        
+          <a class="main-nav-link" href="/nodejs-ko/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/nodejs-ko/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://nodejs.github.io/nodejs-ko"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-release-v10.15.0" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <a href="/nodejs-ko/articles/2018/12/26/release-v10.15.0/" class="article-date">
+    <time datetime="2018-12-26T00:00:00.000Z" itemprop="datePublished">2018-12-26</time>
+  </a>
+
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/nodejs-ko/categories/articles/">articles</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Node v10.15.0(LTS)
+    </h1>
+  
+  <ul>
+    <li>작성자: <strong>Myles Borins</strong></li>
+    <li>
+      원문: <strong><a target="_blank" rel="noopener" href="https://nodejs.org/en/blog/release/v10.15.0" taret="_blank">
+        Node v10.15.0 (LTS)
+      </a></strong>
+    </li>
+    <li>
+      번역:
+      <strong><a target="_blank" rel="noopener" href="https://github.com/freenice12">freenice12</a></strong>
+    </li>
+  </ul>
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--
+The 10.14.0 security release introduced some unexpected breakages on the 10.x release line.
+This is a special release to fix a regression in the HTTP binary upgrade response body and add
+a missing CLI flag to adjust the max header size of the http parser.
+
+### Notable Changes
+
+* **cli**:
+  - add --max-http-header-size flag (cjihrig) [#24811](https://github.com/nodejs/node/pull/24811)
+* **http**:
+  - add maxHeaderSize property (cjihrig) [#24860](https://github.com/nodejs/node/pull/24860)
+-->
+<p>10.x 릴리스 라인에 도입된 10.14.0 보안 릴리스에 예상하지 못한 호환성 깨짐이 있었습니다. HTTP 바이너리 업그레이드 응답 보디에서 발생한 회귀 문제를 수정하고 http 파서의 최대 헤더 크기를 조정하는 플래그가 빠져서 추가한 특수한 릴리스입니다.</p>
+<h3 id="주요-변경사항-167">주요 변경사항</h3>
+<ul>
+<li><strong>cli</strong>:
+<ul>
+<li>–max-http-header-size 플래그를 추가했습니다. (cjihrig) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/24811">#24811</a></li>
+</ul>
+</li>
+<li><strong>http</strong>:
+<ul>
+<li>maxHeaderSize 속성을 추가했습니다. (cjihrig) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/24860">#24860</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="Commits-195">Commits</h3>
+<ul>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/9b2ffc81c0"><code>9b2ffc81c0</code></a>] - <strong>(SEMVER-MINOR)</strong> <strong>cli</strong>: add --max-http-header-size flag (cjihrig) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/24811">#24811</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/6183c7107d"><code>6183c7107d</code></a>] - <strong>(SEMVER-MINOR)</strong> <strong>deps</strong>: cherry-pick http_parser_set_max_header_size (cjihrig) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/24811">#24811</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/e669733595"><code>e669733595</code></a>] - <strong>doc</strong>: describe current HTTP header size limit (Sam Roberts) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/24700">#24700</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/b6d3afb257"><code>b6d3afb257</code></a>] - <strong>(SEMVER-MINOR)</strong> <strong>http</strong>: add maxHeaderSize property (cjihrig) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/24860">#24860</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/1aea1e3634"><code>1aea1e3634</code></a>] - <strong>http</strong>: fix regression of binary upgrade response body (Matteo Collina) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/25039">#25039</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/a57aed144a"><code>a57aed144a</code></a>] - <strong>(SEMVER-MINOR)</strong> <strong>src</strong>: add kUInteger parsing (Matteo Collina) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/24811">#24811</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/527407c49f"><code>527407c49f</code></a>] - <strong>src</strong>: cache the result of GetOptions() in JS land (Joyee Cheung) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/24091">#24091</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/728bc631e5"><code>728bc631e5</code></a>] - <strong>test</strong>: fix expectation in test-bootstrap-modules (Ali Ijaz Sheikh) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/25112">#25112</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/3e14212f0e"><code>3e14212f0e</code></a>] - <strong>test</strong>: remove magic numbers in test-gc-http-client-onerror (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/24943">#24943</a></li>
+</ul>
+<p>Windows 32-bit Installer: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v10.15.0/node-v10.15.0-x86.msi">https://nodejs.org/dist/v10.15.0/node-v10.15.0-x86.msi</a><br><br>
+Windows 64-bit Installer: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v10.15.0/node-v10.15.0-x64.msi">https://nodejs.org/dist/v10.15.0/node-v10.15.0-x64.msi</a><br><br>
+Windows 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v10.15.0/win-x86/node.exe">https://nodejs.org/dist/v10.15.0/win-x86/node.exe</a><br><br>
+Windows 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v10.15.0/win-x64/node.exe">https://nodejs.org/dist/v10.15.0/win-x64/node.exe</a><br><br>
+macOS 64-bit Installer: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v10.15.0/node-v10.15.0.pkg">https://nodejs.org/dist/v10.15.0/node-v10.15.0.pkg</a><br><br>
+macOS 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v10.15.0/node-v10.15.0-darwin-x64.tar.gz">https://nodejs.org/dist/v10.15.0/node-v10.15.0-darwin-x64.tar.gz</a><br><br>
+Linux 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v10.15.0/node-v10.15.0-linux-x64.tar.xz">https://nodejs.org/dist/v10.15.0/node-v10.15.0-linux-x64.tar.xz</a><br><br>
+Linux PPC LE 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v10.15.0/node-v10.15.0-linux-ppc64le.tar.xz">https://nodejs.org/dist/v10.15.0/node-v10.15.0-linux-ppc64le.tar.xz</a><br><br>
+Linux s390x 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v10.15.0/node-v10.15.0-linux-s390x.tar.xz">https://nodejs.org/dist/v10.15.0/node-v10.15.0-linux-s390x.tar.xz</a><br><br>
+AIX 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v10.15.0/node-v10.15.0-aix-ppc64.tar.gz">https://nodejs.org/dist/v10.15.0/node-v10.15.0-aix-ppc64.tar.gz</a><br><br>
+SmartOS 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v10.15.0/node-v10.15.0-sunos-x64.tar.xz">https://nodejs.org/dist/v10.15.0/node-v10.15.0-sunos-x64.tar.xz</a><br><br>
+ARMv6 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v10.15.0/node-v10.15.0-linux-armv6l.tar.xz">https://nodejs.org/dist/v10.15.0/node-v10.15.0-linux-armv6l.tar.xz</a><br><br>
+ARMv7 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v10.15.0/node-v10.15.0-linux-armv7l.tar.xz">https://nodejs.org/dist/v10.15.0/node-v10.15.0-linux-armv7l.tar.xz</a><br><br>
+ARMv8 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v10.15.0/node-v10.15.0-linux-arm64.tar.xz">https://nodejs.org/dist/v10.15.0/node-v10.15.0-linux-arm64.tar.xz</a><br><br>
+Source Code: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v10.15.0/node-v10.15.0.tar.gz">https://nodejs.org/dist/v10.15.0/node-v10.15.0.tar.gz</a><br><br>
+Other release files: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v10.15.0/">https://nodejs.org/dist/v10.15.0/</a><br><br>
+Documentation: <a target="_blank" rel="noopener" href="https://nodejs.org/docs/v10.15.0/api/">https://nodejs.org/docs/v10.15.0/api/</a></p>
+<h3 id="shasums">SHASUMS</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">-----BEGIN PGP SIGNED MESSAGE-----</span><br><span class="line">Hash: SHA256</span><br><span class="line"></span><br><span class="line">5a0eac2db2dc6114a9095190a0e9e835e210d5cdf5c0042607bb50331c32313f  node-v10.15.0-aix-ppc64.tar.gz</span><br><span class="line">353402461c898c569658d0a963790476f4d9828cc6c9286d81617ee8afcba4e8  node-v10.15.0-darwin-x64.tar.gz</span><br><span class="line">90c991ad51528705b47312fb63f52cd770c66757b02b782168e4bc6c5165b8be  node-v10.15.0-darwin-x64.tar.xz</span><br><span class="line">36a5b15184bec31a83d7abd4569b6808401e55cd53ed27c09e4c7b9d90048e6b  node-v10.15.0-headers.tar.gz</span><br><span class="line">339167b1d4d5b2fdb3263cd6512d43adead92e2402dfe69ad4c1a48f66172a33  node-v10.15.0-headers.tar.xz</span><br><span class="line">69a86c71df32320dc8dfccd1aca124c73dc2b274c7ce50104dad733a06dc26f3  node-v10.15.0-linux-arm64.tar.gz</span><br><span class="line">77aa4a02c5471b6eb7ba935cbc6829889a27115353cff7226a208c08b654e972  node-v10.15.0-linux-arm64.tar.xz</span><br><span class="line">701ea80df70f86cb1980b1ccc8f38fe9d55e4155acc13a73717c9ea4aeed466c  node-v10.15.0-linux-armv6l.tar.gz</span><br><span class="line">6e3b97d35ab51fe7b236f78c2fff8e0d0c77587a5a297b6469c7b8f6e68f8314  node-v10.15.0-linux-armv6l.tar.xz</span><br><span class="line">81a248baa989667d14a0868adf87e5048a53518e9aed169131194e88b39c20aa  node-v10.15.0-linux-armv7l.tar.gz</span><br><span class="line">a1f3fc1fade97ff44914a033a176118b8323575984c5897c464ab1bf03ce6be0  node-v10.15.0-linux-armv7l.tar.xz</span><br><span class="line">fc4ce0770bfabbe6be61b52bf6ed48c4ffd10f4fa8a698e4bf22594525a3116a  node-v10.15.0-linux-ppc64le.tar.gz</span><br><span class="line">ebeae2719bba8fca47bb81e543bf5bd6391b2813db289b1e1af5ae6e90eecdfd  node-v10.15.0-linux-ppc64le.tar.xz</span><br><span class="line">80ae06a0f2fc936d663043b5b709ec050016ab846aa29faf9718c6fe3f20cc14  node-v10.15.0-linux-s390x.tar.gz</span><br><span class="line">934263cd756983f734964ec3b5923ac4e257221a029dee95e2bb851c459338e3  node-v10.15.0-linux-s390x.tar.xz</span><br><span class="line">f0b4ff9a74cbc0106bbf3ee7715f970101ac5b1bbe814404d7a0673d1da9f674  node-v10.15.0-linux-x64.tar.gz</span><br><span class="line">4ee8503c1133797777880ebf75dcf6ae3f9b894c66fd2d5da507e407064c13b5  node-v10.15.0-linux-x64.tar.xz</span><br><span class="line">b80f5b3136ed993f31c28cd37b54fd8528ff2620bc2423ea440aa41f61a57412  node-v10.15.0.pkg</span><br><span class="line">77254ecb8576cf54af53df72842cbdb756b2b34b23309194649be7891ff9bd1f  node-v10.15.0-sunos-x64.tar.gz</span><br><span class="line">10c5605ea949118224e570a5723c4c97473a1cd5b052290efd2be71485649bfa  node-v10.15.0-sunos-x64.tar.xz</span><br><span class="line">dbe467e3dabb6854fcb0cd96e04082268cb1e313ce97a4b7100b2ed152b0a0ab  node-v10.15.0.tar.gz</span><br><span class="line">797ab34c74b83b21b7d6ea261b5ca235d34c61a7da5aebb32459a963097ede3e  node-v10.15.0.tar.xz</span><br><span class="line">ac2115dcd5ee53c0c8b10521368aec540370e75cd4f7ff1544a44791c7d3362d  node-v10.15.0-win-x64.7z</span><br><span class="line">c1dbc9372ad789cd21727cb5f63b4a44ed3eae216763959cff8e68e68c6fcfe1  node-v10.15.0-win-x64.zip</span><br><span class="line">ba089a8120c63b322c888efd3d959c9b9ce2b3b954a39cd996531c4e4982be43  node-v10.15.0-win-x86.7z</span><br><span class="line">3b7076ea74551f05747bb2db1803dc0406ce543f3744c6896359c619c7e5296e  node-v10.15.0-win-x86.zip</span><br><span class="line">1cf90ea486607a1e4e3191e4880d4e6a256168d800fe33a6e46680149b88e3ed  node-v10.15.0-x64.msi</span><br><span class="line">9b4b01c5e8181caa2b48ded5b481773b504b54b6145754a09aae8de948e46053  node-v10.15.0-x86.msi</span><br><span class="line">7884185dcbadbb14a81a56caea569da87f21563dd60b8770763bb63de236b0a1  win-x64/node.exe</span><br><span class="line">48dcf15c1eb32836e3124a5d4bfc8489e2e84c22b49576aa08a405b224e70fb6  win-x64/node.lib</span><br><span class="line">be6bebbe07cf6f5ac840d889283406f0ec834b3076a7742bf79942910f78138d  win-x64/node_pdb.7z</span><br><span class="line">eeff351d2f79d30b3da9afc1026a28b589763e20b1a46294077549016389943a  win-x64/node_pdb.zip</span><br><span class="line">71bfd4449aa4c4505a6bbc23b1a9870bad4edaee5eae99a4d22fd0cad704fdae  win-x86/node.exe</span><br><span class="line">ede58d70f22373d7abfd71582ad3c93ec8f6a8b59efd7aa8e207d7cb30481010  win-x86/node.lib</span><br><span class="line">f3c26eeb7921b2db8ad1eda410856a79d1de9e5cf69bdd30b3e06554c4ce42a1  win-x86/node_pdb.7z</span><br><span class="line">bca112bc708f34cadc936fe71d50665175adf4436d382923888ab9c2c0ea8fc9  win-x86/node_pdb.zip</span><br><span class="line">-----BEGIN PGP SIGNATURE-----</span><br><span class="line"></span><br><span class="line">iQEzBAEBCAAdFiEEDv/hvO/ZyE49CYFSkzsB9AtcqUYFAlwjq4sACgkQkzsB9Atc</span><br><span class="line">qUbWtAf8CkdNBnT2R5mSbLwkxAr8mZfK0HBjI8zSa9G2tUhIr9MMfWibABfKWDpd</span><br><span class="line">00QMobKl8uEswbNxwNm1Bygjsa13w2p33IT3HkP3K0VpGcZNQUy0cGrQImFTKAh2</span><br><span class="line">OoKsEOHsJDsVuCcXoi4rDRt66dQDxfmDhxvCfuHRsixjL8RwjpoFYlq8j0aCxlBU</span><br><span class="line">4zEn3aS1naUP9QIiLgAZl9GcLqd4xcdm0dpRTMCxk4J6nKI+byg8eesjMIv/3q7y</span><br><span class="line">wJQfS8VKtxcBV8EKXPOsqzE2Oj9b4RwkPkV3nFjGFAmfRoYX1o/hTI4QQK3zi4vK</span><br><span class="line">Z3Pc9Q/WlqxYpe2+yWh90rowQNrQrA==</span><br><span class="line">=+WLA</span><br><span class="line">-----END PGP SIGNATURE-----</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://nodejs.github.io/nodejs-ko/articles/2018/12/26/release-v10.15.0/" data-id="cl1s6zrre00jha3oq86526b1q" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/nodejs-ko/articles/2019/01/18/release-v11.7.0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Node v11.7.0(현재 버전)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/nodejs-ko/articles/2018/12/26/release-v11.6.0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Node v11.6.0(현재 버전)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title">Menu</h3>
+  <div class="widget">
+    <ul class="category-list">
+      <li class="category-list-item">
+        <a href="/nodejs-ko/">Home</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/CONTRIBUTING.html">번역 참여 가이드</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/about.html">소개</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/categories/articles">글 모음</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/categories/weekly">주간 뉴스</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/archives">보관함</a>
+      </li>
+      <li class="category-list-item">
+        <a href="https://github.com/nodejs/nodejs-ko" target="_blank">GitHub project</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+  
+</aside>
+
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Node.js 한국어 번역팀<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/nodejs-ko/" class="mobile-nav-link">Home</a>
+  
+    <a href="/nodejs-ko/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/nodejs-ko/fancybox/jquery.fancybox.css">
+
+  
+<script src="/nodejs-ko/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/nodejs-ko/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>

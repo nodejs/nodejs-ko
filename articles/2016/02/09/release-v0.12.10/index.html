@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  
+  <title>Node v0.12.10(LTS) | Node.js 한국 커뮤니티</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="중요한 보안 릴리스입니다. 패치된 취약점에 관한 자세한 사항은 https:&#x2F;&#x2F;nodejs.org&#x2F;en&#x2F;blog&#x2F;vulnerability&#x2F;february-2016-security-releases&#x2F; 문서를 참고하세요.  주요 변경 사항  http: 요청과 응답의 HTTP 헤더를 파싱할 때 요청 스머글링(smuggling)을 허용하거나(CVE-2016-2086">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node v0.12.10(LTS)">
+<meta property="og:url" content="https://nodejs.github.io/nodejs-ko/articles/2016/02/09/release-v0.12.10/index.html">
+<meta property="og:site_name" content="Node.js 한국 커뮤니티">
+<meta property="og:description" content="중요한 보안 릴리스입니다. 패치된 취약점에 관한 자세한 사항은 https:&#x2F;&#x2F;nodejs.org&#x2F;en&#x2F;blog&#x2F;vulnerability&#x2F;february-2016-security-releases&#x2F; 문서를 참고하세요.  주요 변경 사항  http: 요청과 응답의 HTTP 헤더를 파싱할 때 요청 스머글링(smuggling)을 허용하거나(CVE-2016-2086">
+<meta property="og:locale">
+<meta property="article:published_time" content="2016-02-09T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-09T18:30:15.161Z">
+<meta property="article:author" content="Node.js 한국어 번역팀">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@nodejs_ko">
+  
+    <link rel="alternate" href="/nodejs-ko/atom.xml" title="Node.js 한국 커뮤니티" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/nodejs-ko/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/nodejs-ko/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/nodejs-ko/" id="logo">Node.js 한국 커뮤니티</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/nodejs-ko/">Home</a>
+        
+          <a class="main-nav-link" href="/nodejs-ko/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/nodejs-ko/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://nodejs.github.io/nodejs-ko"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-release-v0.12.10" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <a href="/nodejs-ko/articles/2016/02/09/release-v0.12.10/" class="article-date">
+    <time datetime="2016-02-09T00:00:00.000Z" itemprop="datePublished">2016-02-09</time>
+  </a>
+
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/nodejs-ko/categories/articles/">articles</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Node v0.12.10(LTS)
+    </h1>
+  
+  <ul>
+    <li>작성자: <strong>James M Snell</strong></li>
+    <li>
+      원문: <strong><a target="_blank" rel="noopener" href="https://nodejs.org/en/blog/release/v0.12.10/" taret="_blank">
+        Node v0.12.10 (LTS)
+      </a></strong>
+    </li>
+    <li>
+      번역:
+      <strong><a href="https://github.com/taggon" target="_blank">taggon</a></strong>
+    </li>
+  </ul>
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--
+This is an important security release. For full details see https://nodejs.org/en/blog/vulnerability/february-2016-security-releases/ for details on patched vulnerabilities.
+-->
+<p>중요한 보안 릴리스입니다. 패치된 취약점에 관한 자세한 사항은 <a target="_blank" rel="noopener" href="https://nodejs.org/en/blog/vulnerability/february-2016-security-releases/">https://nodejs.org/en/blog/vulnerability/february-2016-security-releases/</a> 문서를 참고하세요.</p>
+<!--
+### Notable changes:
+
+* http: fix defects in HTTP header parsing for requests and responses that can allow request smuggling (CVE-2016-2086) or response splitting (CVE-2016-2216). HTTP header parsing now aligns more closely with the HTTP spec including restricting the acceptable characters.
+* http-parser: upgrade from 2.3.0 to 2.3.1
+* openssl: upgrade from 1.0.1q to 1.0.1r. To mitigate against the Logjam attack, TLS clients now reject Diffie-Hellman handshakes with parameters shorter than 1024-bits, up from the previous limit of 768-bits.
+* src:
+  - introduce new `--security-revert={cvenum}` command line flag for selective reversion of specific CVE fixes
+  - allow the fix for CVE-2016-2216 to be selectively reverted using `--security-revert=CVE-2016-2216`
+* build:
+  - xz compressed tar files will be made available from nodejs.org for v0.12 builds from v0.12.10 onward
+  - A headers.tar.gz file will be made available from nodejs.org for v0.12 builds from v0.12.10 onward, a future change to node-gyp will be required to make use of these
+-->
+<h3 id="주요-변경-사항-48">주요 변경 사항</h3>
+<ul>
+<li><strong>http</strong>: 요청과 응답의 HTTP 헤더를 파싱할 때 요청 스머글링(smuggling)을 허용하거나(CVE-2016-2086) 응답 스플리팅(splitting)을 허용할 수 있는(CVE-2016-2216) 취약점이 수정됐습니다.<br>
+이제 HTTP 헤더 파싱은 수용하는 문자를 제한하는 등 HTTP 스펙에 더 근접하게 조정되었습니다.</li>
+<li><strong>http-parser</strong>: 2.3.0 버전에서 2.3.1 버전으로 업그레이드 했습니다.</li>
+<li><strong>openssl</strong>: 1.0.1q 버전에서 1.0.1r 버전으로 업그레이드 했습니다.<br>
+로그잼(Logjam) 공격을 방지하기 위해 TLS 클라이언트는 이제 파라미터가 1024비트보다 짧은 디피-헬만(Diffie-Hellman) 핸드셰이크를 거부합니다.<br>
+이전에는 768비트까지 허용했습니다.</li>
+<li><strong>src</strong>:
+<ul>
+<li>특정 CVE 수정 사항을 선택적으로 되돌리는 <code>--security-revert=&#123;cvenum&#125;</code> 명령행 플래그를 새롭게 도입했습니다.</li>
+<li><code>--security-revert=CVE-2016-2216</code>를 사용하면 CVE-2016-2216에 대한 수정 사항만 선택적으로 되돌릴 수 있습니다.</li>
+</ul>
+</li>
+<li><strong>build</strong>:
+<ul>
+<li>0.12.10 버전부터 v0.12 빌드를 nodejs.org에서 xz 방식으로 압축된 tar 파일로 받을 수 있습니다.</li>
+<li>0.12.10 버전부터 v0.12 빌드에 해당하는 headers.tar.gz 파일을 nodejs.org에서 받을 수 있습니다. 이 파일을 사용하려면 node-gyp가 업데이트 되어야 합니다.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Commits-23">Commits:</h3>
+<ul>
+<li>[4312848bff] - build: enable xz compressed tarballs where possible (Rod Vagg) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/4894">https://github.com/nodejs/node/pull/4894</a></li>
+<li>[247626245c] - deps: upgrade openssl sources to 1.0.1r (Shigeki Ohtsu) <a target="_blank" rel="noopener" href="https://github.com/joyent/node/pull/25368">https://github.com/joyent/node/pull/25368</a></li>
+<li>[744c9749fc] - deps: update http-parser to version 2.3.1 (James M Snell)</li>
+<li>[d1c56ec7d1] - doc: clarify v0.12.9 notable items (Rod Vagg) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/4154">https://github.com/nodejs/node/pull/4154</a></li>
+<li>[e128d9a5b4] - http: strictly forbid invalid characters from headers (James M Snell)</li>
+<li>[bdb9f2cf89] - src: avoiding compiler warnings in node_revert.cc (James M Snell)</li>
+<li>[23bced1fb3] - src: add --security-revert command line flag (James M Snell)</li>
+<li>[f41a3c73e7] - tools: backport tools/install.py for headers (Richard Lau) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/4149">https://github.com/nodejs/node/pull/4149</a></li>
+</ul>
+<p>Windows 32-bit Installer: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v0.12.10/node-v0.12.10-x86.msi">https://nodejs.org/dist/v0.12.10/node-v0.12.10-x86.msi</a><br><br>
+Windows 64-bit Installer: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v0.12.10/x64/node-v0.12.10-x64.msi">https://nodejs.org/dist/v0.12.10/x64/node-v0.12.10-x64.msi</a><br><br>
+Windows 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v0.12.10/node.exe">https://nodejs.org/dist/v0.12.10/node.exe</a><br><br>
+Windows 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v0.12.10/x64/node.exe">https://nodejs.org/dist/v0.12.10/x64/node.exe</a><br><br>
+Mac OS X Universal Installer: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v0.12.10/node-v0.12.10.pkg">https://nodejs.org/dist/v0.12.10/node-v0.12.10.pkg</a><br><br>
+Mac OS X 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v0.12.10/node-v0.12.10-darwin-x64.tar.gz">https://nodejs.org/dist/v0.12.10/node-v0.12.10-darwin-x64.tar.gz</a><br><br>
+Mac OS X 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v0.12.10/node-v0.12.10-darwin-x86.tar.gz">https://nodejs.org/dist/v0.12.10/node-v0.12.10-darwin-x86.tar.gz</a><br><br>
+Linux 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v0.12.10/node-v0.12.10-linux-x86.tar.gz">https://nodejs.org/dist/v0.12.10/node-v0.12.10-linux-x86.tar.gz</a><br><br>
+Linux 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v0.12.10/node-v0.12.10-linux-x64.tar.gz">https://nodejs.org/dist/v0.12.10/node-v0.12.10-linux-x64.tar.gz</a><br><br>
+SunOS 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v0.12.10/node-v0.12.10-sunos-x86.tar.gz">https://nodejs.org/dist/v0.12.10/node-v0.12.10-sunos-x86.tar.gz</a><br><br>
+SunOS 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v0.12.10/node-v0.12.10-sunos-x64.tar.gz">https://nodejs.org/dist/v0.12.10/node-v0.12.10-sunos-x64.tar.gz</a><br><br>
+Source Code: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v0.12.10/node-v0.12.10.tar.gz">https://nodejs.org/dist/v0.12.10/node-v0.12.10.tar.gz</a><br><br>
+Other release files: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v0.12.10/">https://nodejs.org/dist/v0.12.10/</a><br><br>
+Documentation: <a target="_blank" rel="noopener" href="https://nodejs.org/docs/v0.12.10/api/">https://nodejs.org/docs/v0.12.10/api/</a></p>
+<p>Shasums (GPG signing hash: SHA512, file hash: SHA256):</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">-----BEGIN PGP SIGNED MESSAGE-----</span><br><span class="line">Hash: SHA512</span><br><span class="line"></span><br><span class="line">8a9c7fe990c1028e7c6d5bf61413027904a0fff67e23ba7c7c6d5fbb16cd4884  node.exe</span><br><span class="line">c2b369b4fdb12c3ac14a6214c48c901e4805366a361c6cae5bb24215bf282318  node.exp</span><br><span class="line">6919172dc22ad2690836a3988bf138cfc80ba484490a05a6eafda0a4909936d1  node.lib</span><br><span class="line">5809753f1a8b6e3e311c41a066f0eb8f90b5b569896b6f1945af0971de9b2e4d  node.pdb</span><br><span class="line">c95df35ca1ed7b4b0ded815c1d49f36defcb1fdb882f6a8ef6106a07e3f2ffef  node-v0.12.10-darwin-x64.tar.gz</span><br><span class="line">b4ae523d81ced4935e0c7184bafcc1eb199d08ccfc70267a0dab546c33c18831  node-v0.12.10-darwin-x64.tar.xz</span><br><span class="line">d4abd2b778c9d803676ad6121e6fdbc625b9ea73e845b0ecd761c162e86150ca  node-v0.12.10-darwin-x86.tar.gz</span><br><span class="line">0bc827d4c494274855b01ff2fab4ad311fe3c0b50cc0b62bb7736c7c890d2f15  node-v0.12.10-darwin-x86.tar.xz</span><br><span class="line">c8e99589d96f9ad598c2d602e3dcac4bb0147a709da4da89a1f2b7f667f4b415  node-v0.12.10-headers.tar.gz</span><br><span class="line">8c44114a3f5747475a042fd2f2333d4671223638a0dfa3cb264bf32f9a7c91c5  node-v0.12.10-headers.tar.xz</span><br><span class="line">8fb4d6ed8934f0b0c92c26878511e1d340b068ee966c131ba0fccc1199f4349d  node-v0.12.10-linux-x64.tar.gz</span><br><span class="line">a993b72902eb1bdd50f1615026b6372a0d28302c15841b04e11bedab379709c0  node-v0.12.10-linux-x64.tar.xz</span><br><span class="line">6f3ea401d2f488afb6adc57a3056df8658c1c9a57a368637cbc215ed3133c3b7  node-v0.12.10-linux-x86.tar.gz</span><br><span class="line">99d0c121cd58b2d44080f78692dfb400e5098190f453709707594debd1359154  node-v0.12.10-linux-x86.tar.xz</span><br><span class="line">afa45162c741898c7fc382093f29e68503edfa48cd67541d9c2c4081197fba02  node-v0.12.10.pkg</span><br><span class="line">d67f17540c711eb150b8a389af1b4e6ecdcab66a1648b7ce925af98ab52b2698  node-v0.12.10-sunos-x64.tar.gz</span><br><span class="line">2840f181594a0bd8b9cade785e9b6502591da68dc5a3ed3f2773637eb7df980b  node-v0.12.10-sunos-x64.tar.xz</span><br><span class="line">beca24cc3615c5b1858817d121bd91eecdc3af5b98ed0c4c171e1ef60afac049  node-v0.12.10-sunos-x86.tar.gz</span><br><span class="line">3cb4a9cbfd0f724c3ba6e4ca2c6c70bb6d7c103dea682acf9c8ca1125133e1a2  node-v0.12.10-sunos-x86.tar.xz</span><br><span class="line">edbd3710512ec7518a3de4cabf9bfee6d12f278eef2e4b53422c7b063f6b976d  node-v0.12.10.tar.gz</span><br><span class="line">f6318e5413982d40358a1b479458ebdd4bb523ae572c1149ce0e73cb58661978  node-v0.12.10.tar.xz</span><br><span class="line">b888d17dbf04e43f521dbff8a68b24fae37027f6cd6b5a80430bc64fc5e7da40  node-v0.12.10-x86.msi</span><br><span class="line">6153b53d72ea6cfbd6fd4a591787831c32fdd610d851fa2312eece6ac4686929  openssl-cli.exe</span><br><span class="line">668479f90904e088ead0258de2941e597ba08aa61a1eed3ed96622c4c6d3bb25  openssl-cli.pdb</span><br><span class="line">79687fe8d08a439f5167ab474a1238b6423cdb4f72cbc94213cfd6c21cf729f0  x64/node.exe</span><br><span class="line">90116c88db51255a9c20158fd7b577769241b576d5642e269c465342c20f7025  x64/node.exp</span><br><span class="line">490482c06c1ae913e3f78006aa9d41d67659e5499a4155cef2ff2ab49caf8921  x64/node.lib</span><br><span class="line">58d9088252d3d5cc12647448491b6e287f9cd6a573be7b59f98ceb13fed15e2e  x64/node.pdb</span><br><span class="line">a3b49281f8f07eddf310c621feb55f98bd07f7ad252d5afa215212cf3f6e12d2  x64/node-v0.12.10-x64.msi</span><br><span class="line">3cf691f703fc23c71263f8f02fd8780891a0e0f6cae37b4e15353446a47014b7  x64/openssl-cli.exe</span><br><span class="line">ab634d22bd0a6bbf8a1adbd144f621e600deabf957d08effed729f88db3763ab  x64/openssl-cli.pdb</span><br><span class="line">-----BEGIN PGP SIGNATURE-----</span><br><span class="line">Comment: GPGTools - https://gpgtools.org</span><br><span class="line"></span><br><span class="line">iQEcBAEBCgAGBQJWuhv7AAoJEHNBsVwHCHes2HwH/i14nZes3/aej0uw3Yu2vhU6</span><br><span class="line">X+MSyaZ4/Nrd+5YWy2BYXyVwO/PK7g508nGUqf5I4zEfmw8nwBYqyuf6891YeTR/</span><br><span class="line">rD5yKhldt/lnWFLu6L8g4FKSPo3Zf0Vb1EB/xgL04VHlP6Pjh0/AOU5VS6Rvk9is</span><br><span class="line">TerO4AHbYFYMkI7/xeSSPGxwhGEP5grBxOogJNRyHTfbav04VEg+kLwH59CSaYvM</span><br><span class="line">PdHEvb03fOhJBDsuK1I0yADvLqtiVeUoarWO9h4HVbt2+8haPaDFpHfGREEOwyxn</span><br><span class="line">hTZJUpoHMDTADd8Fzxpqbu2IPBhZwc01QUyCju8FUSTxAScCxNM1bYpuqDr934M=</span><br><span class="line">=w69g</span><br><span class="line">-----END PGP SIGNATURE-----</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://nodejs.github.io/nodejs-ko/articles/2016/02/09/release-v0.12.10/" data-id="cl1s6zrlv005ja3oq5eb53gmn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/nodejs-ko/articles/2016/02/09/release-v0.10.42/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Node v0.10.42(LTS)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/nodejs-ko/articles/2016/02/09/release-v4.3.0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Node v4.3.0(LTS)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title">Menu</h3>
+  <div class="widget">
+    <ul class="category-list">
+      <li class="category-list-item">
+        <a href="/nodejs-ko/">Home</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/CONTRIBUTING.html">번역 참여 가이드</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/about.html">소개</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/categories/articles">글 모음</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/categories/weekly">주간 뉴스</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/archives">보관함</a>
+      </li>
+      <li class="category-list-item">
+        <a href="https://github.com/nodejs/nodejs-ko" target="_blank">GitHub project</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+  
+</aside>
+
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Node.js 한국어 번역팀<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/nodejs-ko/" class="mobile-nav-link">Home</a>
+  
+    <a href="/nodejs-ko/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/nodejs-ko/fancybox/jquery.fancybox.css">
+
+  
+<script src="/nodejs-ko/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/nodejs-ko/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>

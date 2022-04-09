@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  
+  <title>Node v9.6.1(현재 버전) | Node.js 한국 커뮤니티</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="이번 릴리스는 이미 배포된 v9.6.0의 잠재적인 Semver-Major 회귀를 수정한 특별한 릴리스입니다. 주요 변경사항  events:  9.5.0에서 변경된 events.usingDomains는 기본 값이 false였고 이는 9.6.0에서 제거되었습니다. 이 변화는 되돌려졌고, 9.6.0 이전의 9.x 동작대로 events 객체는 이제 usingDo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node v9.6.1(현재 버전)">
+<meta property="og:url" content="https://nodejs.github.io/nodejs-ko/articles/2018/02/23/release-v9.6.1/index.html">
+<meta property="og:site_name" content="Node.js 한국 커뮤니티">
+<meta property="og:description" content="이번 릴리스는 이미 배포된 v9.6.0의 잠재적인 Semver-Major 회귀를 수정한 특별한 릴리스입니다. 주요 변경사항  events:  9.5.0에서 변경된 events.usingDomains는 기본 값이 false였고 이는 9.6.0에서 제거되었습니다. 이 변화는 되돌려졌고, 9.6.0 이전의 9.x 동작대로 events 객체는 이제 usingDo">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-02-23T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-09T18:30:15.189Z">
+<meta property="article:author" content="Node.js 한국어 번역팀">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@nodejs_ko">
+  
+    <link rel="alternate" href="/nodejs-ko/atom.xml" title="Node.js 한국 커뮤니티" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/nodejs-ko/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/nodejs-ko/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/nodejs-ko/" id="logo">Node.js 한국 커뮤니티</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/nodejs-ko/">Home</a>
+        
+          <a class="main-nav-link" href="/nodejs-ko/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/nodejs-ko/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://nodejs.github.io/nodejs-ko"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-release-v9.6.1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <a href="/nodejs-ko/articles/2018/02/23/release-v9.6.1/" class="article-date">
+    <time datetime="2018-02-23T00:00:00.000Z" itemprop="datePublished">2018-02-23</time>
+  </a>
+
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/nodejs-ko/categories/articles/">articles</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Node v9.6.1(현재 버전)
+    </h1>
+  
+  <ul>
+    <li>작성자: <strong>Myles Borins</strong></li>
+    <li>
+      원문: <strong><a target="_blank" rel="noopener" href="https://nodejs.org/en/blog/release/v9.6.1" taret="_blank">
+        Node v9.6.1 (Current)
+      </a></strong>
+    </li>
+    <li>
+      번역:
+      <strong><a target="_blank" rel="noopener" href="https://github.com/freenice12">freenice12</a></strong>
+    </li>
+  </ul>
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--
+This is a special release to fix potentially Semver-Major regression that was released in v9.6.0
+
+### Notable Changes
+
+* **events**:
+  - `events.usingDomains` being set to `false` by default was removed in 9.6.0 which was a change in behavior compares to 9.5.0. This behavior change has been reverted and the `events` object now has `usingDomains` preset to `false`, which is the behavior in 9.x prior to 9.6.0 (Myles Borins) [#18944](https://github.com/nodejs/node/pull/18944)
+-->
+<p>이번 릴리스는 이미 배포된 v9.6.0의 잠재적인 Semver-Major 회귀를 수정한 특별한 릴리스입니다.</p>
+<h2 id="주요-변경사항-115">주요 변경사항</h2>
+<ul>
+<li><strong>events</strong>:
+<ul>
+<li>9.5.0에서 변경된 <code>events.usingDomains</code>는 기본 값이 <code>false</code>였고 이는 9.6.0에서 제거되었습니다. 이 변화는 되돌려졌고, 9.6.0 이전의 9.x 동작대로 <code>events</code> 객체는 이제 <code>usingDomains</code>를 미리 <code>false</code>로 할당하고 있습니다. (Myles Borins) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/18944">#18944</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="Commits-147">Commits</h3>
+<ul>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/761caec379"><code>761caec379</code></a>] - <strong>events</strong>: preset <code>usingDomains</code> to false (Myles Borins) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/18944">#18944</a></li>
+</ul>
+<p>Windows 32-bit Installer: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v9.6.1/node-v9.6.1-x86.msi">https://nodejs.org/dist/v9.6.1/node-v9.6.1-x86.msi</a><br><br>
+Windows 64-bit Installer: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v9.6.1/node-v9.6.1-x64.msi">https://nodejs.org/dist/v9.6.1/node-v9.6.1-x64.msi</a><br><br>
+Windows 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v9.6.1/win-x86/node.exe">https://nodejs.org/dist/v9.6.1/win-x86/node.exe</a><br><br>
+Windows 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v9.6.1/win-x64/node.exe">https://nodejs.org/dist/v9.6.1/win-x64/node.exe</a><br><br>
+macOS 64-bit Installer: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v9.6.1/node-v9.6.1.pkg">https://nodejs.org/dist/v9.6.1/node-v9.6.1.pkg</a><br><br>
+macOS 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v9.6.1/node-v9.6.1-darwin-x64.tar.gz">https://nodejs.org/dist/v9.6.1/node-v9.6.1-darwin-x64.tar.gz</a><br><br>
+Linux 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v9.6.1/node-v9.6.1-linux-x86.tar.xz">https://nodejs.org/dist/v9.6.1/node-v9.6.1-linux-x86.tar.xz</a><br><br>
+Linux 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v9.6.1/node-v9.6.1-linux-x64.tar.xz">https://nodejs.org/dist/v9.6.1/node-v9.6.1-linux-x64.tar.xz</a><br><br>
+Linux PPC LE 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v9.6.1/node-v9.6.1-linux-ppc64le.tar.xz">https://nodejs.org/dist/v9.6.1/node-v9.6.1-linux-ppc64le.tar.xz</a><br><br>
+Linux s390x 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v9.6.1/node-v9.6.1-linux-s390x.tar.xz">https://nodejs.org/dist/v9.6.1/node-v9.6.1-linux-s390x.tar.xz</a><br><br>
+AIX 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v9.6.1/node-v9.6.1-aix-ppc64.tar.gz">https://nodejs.org/dist/v9.6.1/node-v9.6.1-aix-ppc64.tar.gz</a><br><br>
+SmartOS 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v9.6.1/node-v9.6.1-sunos-x86.tar.xz">https://nodejs.org/dist/v9.6.1/node-v9.6.1-sunos-x86.tar.xz</a><br><br>
+SmartOS 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v9.6.1/node-v9.6.1-sunos-x64.tar.xz">https://nodejs.org/dist/v9.6.1/node-v9.6.1-sunos-x64.tar.xz</a><br><br>
+ARMv6 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v9.6.1/node-v9.6.1-linux-armv6l.tar.xz">https://nodejs.org/dist/v9.6.1/node-v9.6.1-linux-armv6l.tar.xz</a><br><br>
+ARMv7 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v9.6.1/node-v9.6.1-linux-armv7l.tar.xz">https://nodejs.org/dist/v9.6.1/node-v9.6.1-linux-armv7l.tar.xz</a><br><br>
+ARMv8 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v9.6.1/node-v9.6.1-linux-arm64.tar.xz">https://nodejs.org/dist/v9.6.1/node-v9.6.1-linux-arm64.tar.xz</a><br><br>
+Source Code: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v9.6.1/node-v9.6.1.tar.gz">https://nodejs.org/dist/v9.6.1/node-v9.6.1.tar.gz</a><br><br>
+Other release files: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v9.6.1/">https://nodejs.org/dist/v9.6.1/</a><br><br>
+Documentation: <a target="_blank" rel="noopener" href="https://nodejs.org/docs/v9.6.1/api/">https://nodejs.org/docs/v9.6.1/api/</a></p>
+<h3 id="shasums">SHASUMS</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">-----BEGIN PGP SIGNED MESSAGE-----</span><br><span class="line">Hash: SHA256</span><br><span class="line"></span><br><span class="line">2c11c8796afe731a11ae0ea5898650881e86e557b8127cb5201ffb64cb3dd2d4  node-v9.6.1-aix-ppc64.tar.gz</span><br><span class="line">de486bc479817df2df1f91468e85e5da228a19101422c0c9a27153c1d0013c6d  node-v9.6.1-darwin-x64.tar.gz</span><br><span class="line">2135db4d515ae4e8ad2c116cdd208b573b4a9c1c8f6160213da41e59ff5be8b5  node-v9.6.1-darwin-x64.tar.xz</span><br><span class="line">91967e96ffe9f0988495ee0d3b0ff41de1ba1ead4785d1526afb2cada8add134  node-v9.6.1-headers.tar.gz</span><br><span class="line">a0493549a337cbebf691fd8bbb8d9f4febf40384bfae38a0a6aa380f8f179bc8  node-v9.6.1-headers.tar.xz</span><br><span class="line">b97dc8ebf084dea630b876e96e6838f735dd412a4b56c501c9c1e56ecfe9946c  node-v9.6.1-linux-arm64.tar.gz</span><br><span class="line">6246c85acab2dd92463fa1c456db31a24cd7b50b3fa556c4976c5a91473b8c8f  node-v9.6.1-linux-arm64.tar.xz</span><br><span class="line">a8e1a7a4e15b2abad910aa3f947d1077c3f1461bac58469ecccc94103db19ae9  node-v9.6.1-linux-armv6l.tar.gz</span><br><span class="line">230976ad605b1052474c9f52e27d18a2c9c6ac7d87e8075ec80ad48cc0802e49  node-v9.6.1-linux-armv6l.tar.xz</span><br><span class="line">c8b17b02828b78dcfa403707c638acea9676e96e0303e702119a24650f1142b6  node-v9.6.1-linux-armv7l.tar.gz</span><br><span class="line">c5f5174d4ef11c7751e8bf246809d972a44cd179091a5e305244c4cfeb46c4a4  node-v9.6.1-linux-armv7l.tar.xz</span><br><span class="line">add44f1c0f63ee464ec1a32a52502e0c14723193794d53bc43ae77723ddde68a  node-v9.6.1-linux-ppc64le.tar.gz</span><br><span class="line">fddc58ddf40020358a83ee0e976486557f64de78bfcbb3dfd24833394fa010e5  node-v9.6.1-linux-ppc64le.tar.xz</span><br><span class="line">af3a3038645e4c8940869b06deaddd7817b0bd338ada39cd2eee7ab241c48a4f  node-v9.6.1-linux-s390x.tar.gz</span><br><span class="line">e235a5853c70643216113ef31ee01debe266bcbc1a609429576233cec7646790  node-v9.6.1-linux-s390x.tar.xz</span><br><span class="line">fe9417e39248928e48a0db3befc7b65534998a8117faa4713970f5a156af286c  node-v9.6.1-linux-x64.tar.gz</span><br><span class="line">d38f1707faccc54fae3cb201c25b02c4a3474d2c409c64f2a1d08925b238f8ad  node-v9.6.1-linux-x64.tar.xz</span><br><span class="line">6558bf0bad8333afc8ce00a8c3c6f5f62c7a39814f861ac96e42f57ab8c7161d  node-v9.6.1-linux-x86.tar.gz</span><br><span class="line">f5da57eb9330a55450d1d33821d0ef8537da2d3ff0251cb1943859f4ad3add38  node-v9.6.1-linux-x86.tar.xz</span><br><span class="line">d8cbbe7723d68bf3c480391897d07ee0d8496d0a92e4fa191302fc8b07374b49  node-v9.6.1.pkg</span><br><span class="line">50b6c206c87c84724087cb519e38201a6a79ae72df3a4152074940d6de358221  node-v9.6.1-sunos-x64.tar.gz</span><br><span class="line">d2465dcec4190d24c0cc548e417d1f0542172025f39ce6b5992b0f679489effc  node-v9.6.1-sunos-x64.tar.xz</span><br><span class="line">c499d8243eb62a85f53e1a26e12d8c1dfc7e9bf85d4e9517a261de99720f7497  node-v9.6.1-sunos-x86.tar.gz</span><br><span class="line">c299c6c1d29846e3e0d3de273323bb95d5e23548ad967210cc6eb58741a2546c  node-v9.6.1-sunos-x86.tar.xz</span><br><span class="line">d3ddf10fd009a73e84e9990a9b057ea7de6645b3513471a84f188301b27062cf  node-v9.6.1.tar.gz</span><br><span class="line">b84c024d97b3f09ab55e352f91e038066afb44f8c49d13fdc298ffd8383d1112  node-v9.6.1.tar.xz</span><br><span class="line">842bcab3dc6b4b2bc7f10f63327b02730144352ee0632a911c25727d05d2862e  node-v9.6.1-win-x64.7z</span><br><span class="line">c8176d317945ce6221473d70999ec7e725f1c9a7477e991bd7c729026c46dffb  node-v9.6.1-win-x64.zip</span><br><span class="line">fa423f8299d3120a50ba3dad03af4707eb8738626f445662c0b8993b3357ca28  node-v9.6.1-win-x86.7z</span><br><span class="line">96f75463b5ee4bacb0e3153467c8be3f5bc2e4d2e714d18879cd340b6ef0382e  node-v9.6.1-win-x86.zip</span><br><span class="line">f42dce5722b1684f3ca4402a46240987d95322d634260f2645ba4d12370b1895  node-v9.6.1-x64.msi</span><br><span class="line">011c02b469dfd09bf030bb213370c86b299d670d97368f4044bc83cfc91cc1cf  node-v9.6.1-x86.msi</span><br><span class="line">fdbaf86a55833dbaeb2736d0750c58ec1ed6234080a1a26b15c1577f3e295c6b  win-x64/node.exe</span><br><span class="line">670e0403948085b5f2ea3208693de593bb77b850104b22d840fbb6f25bfb61ea  win-x64/node.lib</span><br><span class="line">1739ba7f7014acf822a516f162b5c7796cf5fa129e2505f6030790aa90ffb959  win-x64/node_pdb.7z</span><br><span class="line">de542b83583a7406f9d6c9b1c1904fc6f5d0bf8a8f6c4520b5d25ba6139e6223  win-x64/node_pdb.zip</span><br><span class="line">09c3ee4d527d898fd9c2804adc0bdab18d70ea655f5dd8dd77f6d34609000c72  win-x86/node.exe</span><br><span class="line">8b205c789bd2215deb286bc5c101a83122ff0939cbde7d1ad4b7159feba2c188  win-x86/node.lib</span><br><span class="line">ea4710b4ab72ba57752fdaef3581132e2b9b283697e272c09500a91223928190  win-x86/node_pdb.7z</span><br><span class="line">07ce909ab5dd07a47bc899c808f4f4f7cd7b995beb41a44adab07f6083314a8d  win-x86/node_pdb.zip</span><br><span class="line">-----BEGIN PGP SIGNATURE-----</span><br><span class="line"></span><br><span class="line">iQEzBAEBCAAdFiEEDv/hvO/ZyE49CYFSkzsB9AtcqUYFAlqPkokACgkQkzsB9Atc</span><br><span class="line">qUbPtQf+OZ+PwdtPTfv6o0HkSey+zFruZvDXtI9UhITMS3pm+/QsAVzcUZvEGAXT</span><br><span class="line">3orDmNH7lqG66C+e6au84JxjgogcuD0Z8lEE/ADDXh1cZoSsx6PKn9V9FLzJmxd3</span><br><span class="line">7e/nv4j+MuvIX45+WtVAJjlnURk4Lv53R/+dT8nzA6Nbh9VSW/s9mIAG5Alu+o8a</span><br><span class="line">MiaKaibntKJ5t+34C7GksQ4jpnlRL0FoE3aXrlCt/mzsHd+zkq8s206UGoZkpGBq</span><br><span class="line">enAjpz9u7ihpOk/ywnTQLm+J160Fu5o74cePdUrl+3M4uaftwi5J7RAp/6IiY3xi</span><br><span class="line">R76MY7rriIPdofSKMEwPivFFGfgmwg==</span><br><span class="line">=FFOn</span><br><span class="line">-----END PGP SIGNATURE-----</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://nodejs.github.io/nodejs-ko/articles/2018/02/23/release-v9.6.1/" data-id="cl1s6zrq800g5a3oq1d1s3faw" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/nodejs-ko/articles/2018/03/01/release-v9.7.0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Node v9.7.0(현재 버전)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/nodejs-ko/articles/2018/02/22/release-v9.6.0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Node v9.6.0(현재 버전)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title">Menu</h3>
+  <div class="widget">
+    <ul class="category-list">
+      <li class="category-list-item">
+        <a href="/nodejs-ko/">Home</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/CONTRIBUTING.html">번역 참여 가이드</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/about.html">소개</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/categories/articles">글 모음</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/categories/weekly">주간 뉴스</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/archives">보관함</a>
+      </li>
+      <li class="category-list-item">
+        <a href="https://github.com/nodejs/nodejs-ko" target="_blank">GitHub project</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+  
+</aside>
+
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Node.js 한국어 번역팀<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/nodejs-ko/" class="mobile-nav-link">Home</a>
+  
+    <a href="/nodejs-ko/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/nodejs-ko/fancybox/jquery.fancybox.css">
+
+  
+<script src="/nodejs-ko/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/nodejs-ko/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>

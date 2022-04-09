@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  
+  <title>Node v4.8.5(유지보수 버전) | Node.js 한국 커뮤니티</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="주요 변경사항  zlib:  CVE-2017-14919 - zlib v1.2.9에 windowBits 값이 8로 초기화 된 DEFLATE 스트림이 에러를 일으킬 수 있는 변경사항이 포함되었습니다. 이 문제가 발생하면 일부 Node 버전은 복구할 수 없는 충돌을 일으키고, 일부 버전에서는 예외가 일어납니다. 이제 Node.js는 내부적으로 windowBit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node v4.8.5(유지보수 버전)">
+<meta property="og:url" content="https://nodejs.github.io/nodejs-ko/articles/2017/10/24/release-v4.8.5/index.html">
+<meta property="og:site_name" content="Node.js 한국 커뮤니티">
+<meta property="og:description" content="주요 변경사항  zlib:  CVE-2017-14919 - zlib v1.2.9에 windowBits 값이 8로 초기화 된 DEFLATE 스트림이 에러를 일으킬 수 있는 변경사항이 포함되었습니다. 이 문제가 발생하면 일부 Node 버전은 복구할 수 없는 충돌을 일으키고, 일부 버전에서는 예외가 일어납니다. 이제 Node.js는 내부적으로 windowBit">
+<meta property="og:locale">
+<meta property="article:published_time" content="2017-10-24T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-09T18:30:15.181Z">
+<meta property="article:author" content="Node.js 한국어 번역팀">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@nodejs_ko">
+  
+    <link rel="alternate" href="/nodejs-ko/atom.xml" title="Node.js 한국 커뮤니티" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/nodejs-ko/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/nodejs-ko/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/nodejs-ko/" id="logo">Node.js 한국 커뮤니티</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/nodejs-ko/">Home</a>
+        
+          <a class="main-nav-link" href="/nodejs-ko/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/nodejs-ko/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://nodejs.github.io/nodejs-ko"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-release-v4.8.5" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <a href="/nodejs-ko/articles/2017/10/24/release-v4.8.5/" class="article-date">
+    <time datetime="2017-10-24T00:00:00.000Z" itemprop="datePublished">2017-10-24</time>
+  </a>
+
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/nodejs-ko/categories/articles/">articles</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Node v4.8.5(유지보수 버전)
+    </h1>
+  
+  <ul>
+    <li>작성자: <strong>Myles Borins</strong></li>
+    <li>
+      원문: <strong><a target="_blank" rel="noopener" href="https://nodejs.org/en/blog/release/v4.8.5" taret="_blank">
+        Node v4.8.5 (Maintenance)
+      </a></strong>
+    </li>
+    <li>
+      번역:
+      <strong><a target="_blank" rel="noopener" href="https://github.com/taggon">taggon</a></strong>
+    </li>
+  </ul>
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--
+### Notable Changes
+
+* **zlib**:
+  - CVE-2017-14919 - In zlib v1.2.9, a change was made that causes an error to be raised when a raw deflate stream is initialized with windowBits set to 8. On some versions this crashes Node and you cannot recover from it, while on some versions it throws an exception. Node.js will now gracefully set windowBits to 9 replicating the legacy behavior to avoid a DOS vector. [nodejs-private/node-private#95](https://github.com/nodejs-private/node-private/pull/95)
+-->
+<h3 id="주요-변경사항-91">주요 변경사항</h3>
+<ul>
+<li><strong>zlib</strong>:
+<ul>
+<li>CVE-2017-14919 - zlib v1.2.9에 windowBits 값이 8로 초기화 된 DEFLATE 스트림이 에러를 일으킬 수 있는 변경사항이 포함되었습니다. 이 문제가 발생하면 일부 Node 버전은 복구할 수 없는 충돌을 일으키고, 일부 버전에서는 예외가 일어납니다. 이제 Node.js는 내부적으로 windowBits의 값을 9로 설정하여 문제를 수정하고 DOS 공격을 방지합니다. <a target="_blank" rel="noopener" href="https://github.com/nodejs-private/node-private/pull/95">nodejs-private/node-private#95</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="Commits-123">Commits</h3>
+<ul>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/733578bb2e"><code>f5defa2a7c</code></a>] - <strong>zlib</strong>: gracefully set windowBits from 8 to 9 (Myles Borins) <a target="_blank" rel="noopener" href="https://github.com/nodejs-private/node-private/pull/95">nodejs-private/node-private#95</a></li>
+</ul>
+<p>Windows 32-bit Installer: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v4.8.5/node-v4.8.5-x86.msi">https://nodejs.org/dist/v4.8.5/node-v4.8.5-x86.msi</a><br><br>
+Windows 64-bit Installer: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v4.8.5/node-v4.8.5-x64.msi">https://nodejs.org/dist/v4.8.5/node-v4.8.5-x64.msi</a><br><br>
+Windows 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v4.8.5/win-x86/node.exe">https://nodejs.org/dist/v4.8.5/win-x86/node.exe</a><br><br>
+Windows 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v4.8.5/win-x64/node.exe">https://nodejs.org/dist/v4.8.5/win-x64/node.exe</a><br><br>
+macOS 64-bit Installer: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v4.8.5/node-v4.8.5.pkg">https://nodejs.org/dist/v4.8.5/node-v4.8.5.pkg</a><br><br>
+macOS 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v4.8.5/node-v4.8.5-darwin-x64.tar.gz">https://nodejs.org/dist/v4.8.5/node-v4.8.5-darwin-x64.tar.gz</a><br><br>
+Linux 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v4.8.5/node-v4.8.5-linux-x86.tar.xz">https://nodejs.org/dist/v4.8.5/node-v4.8.5-linux-x86.tar.xz</a><br><br>
+Linux 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v4.8.5/node-v4.8.5-linux-x64.tar.xz">https://nodejs.org/dist/v4.8.5/node-v4.8.5-linux-x64.tar.xz</a><br><br>
+Linux PPC LE 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v4.8.5/node-v4.8.5-linux-ppc64le.tar.xz">https://nodejs.org/dist/v4.8.5/node-v4.8.5-linux-ppc64le.tar.xz</a><br><br>
+Linux PPC BE 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v4.8.5/node-v4.8.5-linux-ppc64.tar.xz">https://nodejs.org/dist/v4.8.5/node-v4.8.5-linux-ppc64.tar.xz</a><br><br>
+SmartOS 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v4.8.5/node-v4.8.5-sunos-x86.tar.xz">https://nodejs.org/dist/v4.8.5/node-v4.8.5-sunos-x86.tar.xz</a><br><br>
+SmartOS 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v4.8.5/node-v4.8.5-sunos-x64.tar.xz">https://nodejs.org/dist/v4.8.5/node-v4.8.5-sunos-x64.tar.xz</a><br><br>
+ARMv6 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v4.8.5/node-v4.8.5-linux-armv6l.tar.xz">https://nodejs.org/dist/v4.8.5/node-v4.8.5-linux-armv6l.tar.xz</a><br><br>
+ARMv7 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v4.8.5/node-v4.8.5-linux-armv7l.tar.xz">https://nodejs.org/dist/v4.8.5/node-v4.8.5-linux-armv7l.tar.xz</a><br><br>
+ARMv8 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v4.8.5/node-v4.8.5-linux-arm64.tar.xz">https://nodejs.org/dist/v4.8.5/node-v4.8.5-linux-arm64.tar.xz</a><br><br>
+Source Code: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v4.8.5/node-v4.8.5.tar.gz">https://nodejs.org/dist/v4.8.5/node-v4.8.5.tar.gz</a><br><br>
+Other release files: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v4.8.5/">https://nodejs.org/dist/v4.8.5/</a><br><br>
+Documentation: <a target="_blank" rel="noopener" href="https://nodejs.org/docs/v4.8.5/api/">https://nodejs.org/docs/v4.8.5/api/</a></p>
+<h3 id="shasums">SHASUMS</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">-----BEGIN PGP SIGNED MESSAGE-----</span><br><span class="line">Hash: SHA256</span><br><span class="line"></span><br><span class="line">7e0b0ea1ea8d37096561caed59368eebb773c2cdf9d455ad30381053fbc109ce  node-v4.8.5-darwin-x64.tar.gz</span><br><span class="line">c32a9d5d47255a8dfd768787a0bac7d17d5f55709b20f7b59a3de3f013c6e7dc  node-v4.8.5-darwin-x64.tar.xz</span><br><span class="line">68efec4d1b8cd080bbb622e6f690520bfae575c26aeaa983ae9eb0585e087658  node-v4.8.5-headers.tar.gz</span><br><span class="line">311734f04786dad2ded0d31611d1a180983e0eba8da350622a395ea0dd9bc83b  node-v4.8.5-headers.tar.xz</span><br><span class="line">9133ba0865f1d15c52a6fe550fb7a8df81ac81083661dd28ce0bec5fb97be6bf  node-v4.8.5-linux-arm64.tar.gz</span><br><span class="line">826f8f898b70085443a6191321e7424967154596021f39bbd517c10ad78bd920  node-v4.8.5-linux-arm64.tar.xz</span><br><span class="line">c2665427269408ba05a7917362af3c9ee28095931315987ec8e9ff332cc4df5d  node-v4.8.5-linux-armv6l.tar.gz</span><br><span class="line">d219a26024498d4fdc615803621dead734a515087e1b98b38240deeb0c2c877d  node-v4.8.5-linux-armv6l.tar.xz</span><br><span class="line">b6b1a85c7d8fe63aa9459748b035116ca71a42c0aac06eab6d876ebc67f7a136  node-v4.8.5-linux-armv7l.tar.gz</span><br><span class="line">d054af00b6d67f3417e6062a967c7124bcdd45c83f1f103ae4705ff8e62e16ea  node-v4.8.5-linux-armv7l.tar.xz</span><br><span class="line">53599540a678fd7114922b4f94b28518a76899f64d3c0e6ba94ccf5c266b5652  node-v4.8.5-linux-ppc64le.tar.gz</span><br><span class="line">8b5ae4d119d645bcff7e93186aff6c5f8ee4ae7d9c66d2969ff70ddf01707ccc  node-v4.8.5-linux-ppc64le.tar.xz</span><br><span class="line">f26cfd2e27cda911fbacf03d856cd8dcbbe0f54cf16958d94c58eb721d2e8946  node-v4.8.5-linux-ppc64.tar.gz</span><br><span class="line">a97e732688f9b4a0c2b208160abd939c660d7298d299c3281947829c8f37ad57  node-v4.8.5-linux-ppc64.tar.xz</span><br><span class="line">8a82f320795cf0874ccefb3e7890dffb02d59127ab8c5da1d6c96db1364baeaf  node-v4.8.5-linux-x64.tar.gz</span><br><span class="line">3232b4576c33e0f9c555b6f2cf7571e89bf34b058b5c8154acf9de5109fc7e4e  node-v4.8.5-linux-x64.tar.xz</span><br><span class="line">472e257f7ca5868902ee0670e90e86a59655074cba848b87cd9787052c106552  node-v4.8.5-linux-x86.tar.gz</span><br><span class="line">f6392b06f1abbbbaebbc67b8815b719ea7a23e5d09d448b9d741e21084b4a95d  node-v4.8.5-linux-x86.tar.xz</span><br><span class="line">19fdf0f9b070ebc9a72189c97546fabd50c0b29da50415e69f4bc6a47a3cf8db  node-v4.8.5.pkg</span><br><span class="line">27dff44f867312e05db0e920fa42bcfbf8dd88173713458a605d86ed7de726e3  node-v4.8.5-sunos-x64.tar.gz</span><br><span class="line">db2d17078e9706ac3970fe4de90a3123752b994243a1a6bf5073ed4003f313fa  node-v4.8.5-sunos-x64.tar.xz</span><br><span class="line">11eca9ca85e042d776af869548a814bbd4deaf58c708ee502aec879d5b808f5a  node-v4.8.5-sunos-x86.tar.gz</span><br><span class="line">0060848babf558feb6819130446e0f98b4c541b58a5eed225f26f652d297588e  node-v4.8.5-sunos-x86.tar.xz</span><br><span class="line">23980b1d31c6b0e05eff2102ffa0059a6f7a93e27e5288eb5551b9b003ec0c07  node-v4.8.5.tar.gz</span><br><span class="line">a48aeefc2b4fae0ea6410a8045ca106af244223012eab003bd5cb00aa3b50d53  node-v4.8.5.tar.xz</span><br><span class="line">337457be3625a4a14acef74ce5de3747ad26c9c522f1b03c1fd0b33108612a18  node-v4.8.5-win-x64.7z</span><br><span class="line">d891947117e244f6994ddac899884965b3a8c83ce8e79e3768c299a152204ce3  node-v4.8.5-win-x64.zip</span><br><span class="line">c62eae06928a9e30560002128605adfc21132aab9088f5417721603d4eebdb45  node-v4.8.5-win-x86.7z</span><br><span class="line">e912b9ca0c3d09dd16f8d8d916fba6b6db8f0467c2241b9cf5f17ded94a26afe  node-v4.8.5-win-x86.zip</span><br><span class="line">e116d48230e8f546ac4f8e7b9f33262319765555ef70fad755bb0b4fa3de9d64  node-v4.8.5-x64.msi</span><br><span class="line">28ebefc83293be6e2c18e75eea30103cc23e43f375e4577baf8a7b16ef599470  node-v4.8.5-x86.msi</span><br><span class="line">13c81c59ca4c29d7b071b0e11bebb611f34a31d7ba888e342ddf0dd360659a7c  win-x64/node.exe</span><br><span class="line">6769b66a08f4cde3e7d8d949e3e5973eec79fd5efb6ec6e9518dfa4605115543  win-x64/node.lib</span><br><span class="line">ef91c423d4ba6e6f82251aeb70ae14559e49d2a2ee12d9fd71a96b4d917b804d  win-x64/node_pdb.7z</span><br><span class="line">3d9f5e915a916d1846abd17ba85b991bc4ce0bccd8f4374b986a1149ca91674d  win-x64/node_pdb.zip</span><br><span class="line">6450207c73f5813fe22fbb88d6315513ca99afabf055612cbee8ba6e0aa9303b  win-x86/node.exe</span><br><span class="line">9d61f8ebd06acabfc7d1a04ed59376ed099b87499bfb31fd920ac4639ff88fe6  win-x86/node.lib</span><br><span class="line">1f5914c7479135584bdc9d1ca38a2d7d1d9a490ae4935e854eec432e0dbed797  win-x86/node_pdb.7z</span><br><span class="line">9a5b77b3b1a10bf43867064936f2262baa02b1a6957b92961fa6bcfcb4229d60  win-x86/node_pdb.zip</span><br><span class="line">-----BEGIN PGP SIGNATURE-----</span><br><span class="line"></span><br><span class="line">iQEzBAEBCAAdFiEEDv/hvO/ZyE49CYFSkzsB9AtcqUYFAlnvuAEACgkQkzsB9Atc</span><br><span class="line">qUaHNAf/fTLWldJXVl06N6J2XoMW9KpYYNwEiZRftPBD51v3WWJmAhDU7+55QNXM</span><br><span class="line">cNW+BgBdJ01C5GQJPBF0zkWsjwDvBT1Kpq08fjdoe9GuSlTpbuvBtnkVCtxxLQix</span><br><span class="line">BKQMA86BYeYhYFYPX6GEvtfXbucpAg+ER1LlsuHU8gapVuF/bMxBvu+6jZ4IAZCi</span><br><span class="line">oI+/fbIQVg1AG29u5Wp8eN/l9ouKWchtJBf0/Y4hH46NlOimtra3MUtx9cn6JvAg</span><br><span class="line">criPkgI4twM/2Xz3FZgnkhpN5Ne7eyJy54GmlCIZZZsz+7+r29PcqU18HZH1LRhj</span><br><span class="line">a9oCT1GeqsoyRN60x3K5K28HYYYtQA==</span><br><span class="line">=HJ5I</span><br><span class="line">-----END PGP SIGNATURE-----</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://nodejs.github.io/nodejs-ko/articles/2017/10/24/release-v4.8.5/" data-id="cl1s6zrpe00eja3oqcghbcn95" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/nodejs-ko/articles/2017/10/26/release-v8.8.1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Node v8.8.1(현재 버전)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/nodejs-ko/articles/2017/10/24/release-v6.11.5/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Node v6.11.5(LTS)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title">Menu</h3>
+  <div class="widget">
+    <ul class="category-list">
+      <li class="category-list-item">
+        <a href="/nodejs-ko/">Home</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/CONTRIBUTING.html">번역 참여 가이드</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/about.html">소개</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/categories/articles">글 모음</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/categories/weekly">주간 뉴스</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/archives">보관함</a>
+      </li>
+      <li class="category-list-item">
+        <a href="https://github.com/nodejs/nodejs-ko" target="_blank">GitHub project</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+  
+</aside>
+
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Node.js 한국어 번역팀<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/nodejs-ko/" class="mobile-nav-link">Home</a>
+  
+    <a href="/nodejs-ko/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/nodejs-ko/fancybox/jquery.fancybox.css">
+
+  
+<script src="/nodejs-ko/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/nodejs-ko/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>

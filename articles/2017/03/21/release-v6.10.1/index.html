@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  
+  <title>Node v6.10.1(LTS) | Node.js 한국 커뮤니티</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="주요 변경사항  performance: 일부 API의 성능이 개선되었습니다.  Buffer.compare()는 대략 최대 35% 빨라졌습니다. (Brian White) #10927 buffer.toJSON()은 대략 최대 2859% 빨라졌습니다. (Brian White) #10895 fs.*statSync() 함수는 대략 최대 9.3% 빨라졌습니다. (B">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node v6.10.1(LTS)">
+<meta property="og:url" content="https://nodejs.github.io/nodejs-ko/articles/2017/03/21/release-v6.10.1/index.html">
+<meta property="og:site_name" content="Node.js 한국 커뮤니티">
+<meta property="og:description" content="주요 변경사항  performance: 일부 API의 성능이 개선되었습니다.  Buffer.compare()는 대략 최대 35% 빨라졌습니다. (Brian White) #10927 buffer.toJSON()은 대략 최대 2859% 빨라졌습니다. (Brian White) #10895 fs.*statSync() 함수는 대략 최대 9.3% 빨라졌습니다. (B">
+<meta property="og:locale">
+<meta property="article:published_time" content="2017-03-21T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-09T18:30:15.177Z">
+<meta property="article:author" content="Node.js 한국어 번역팀">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@nodejs_ko">
+  
+    <link rel="alternate" href="/nodejs-ko/atom.xml" title="Node.js 한국 커뮤니티" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/nodejs-ko/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/nodejs-ko/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/nodejs-ko/" id="logo">Node.js 한국 커뮤니티</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/nodejs-ko/">Home</a>
+        
+          <a class="main-nav-link" href="/nodejs-ko/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/nodejs-ko/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://nodejs.github.io/nodejs-ko"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-release-v6.10.1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <a href="/nodejs-ko/articles/2017/03/21/release-v6.10.1/" class="article-date">
+    <time datetime="2017-03-21T00:00:00.000Z" itemprop="datePublished">2017-03-21</time>
+  </a>
+
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/nodejs-ko/categories/articles/">articles</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Node v6.10.1(LTS)
+    </h1>
+  
+  <ul>
+    <li>작성자: <strong>Myles Borins</strong></li>
+    <li>
+      원문: <strong><a target="_blank" rel="noopener" href="https://nodejs.org/en/blog/release/v6.10.1" taret="_blank">
+        Node v6.10.1 (LTS)
+      </a></strong>
+    </li>
+    <li>
+      번역:
+      <strong><a target="_blank" rel="noopener" href="https://github.com/taggon">taggon</a></strong>
+    </li>
+  </ul>
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--
+### Notable changes
+
+* **performance**: The performance of several APIs has been improved.
+  - `Buffer.compare()` is up to 35% faster on average. (Brian White) [#10927](https://github.com/nodejs/node/pull/10927)
+  - `buffer.toJSON()` is up to 2859% faster on average. (Brian White) [#10895](https://github.com/nodejs/node/pull/10895)
+  - `fs.*statSync()` functions are now up to 9.3% faster on average. (Brian White) [#11522](https://github.com/nodejs/node/pull/11522)
+  - `os.loadavg` is up to 151% faster. (Brian White) [#11516](https://github.com/nodejs/node/pull/11516)
+  - `process.memoryUsage()` is up to 34% faster. (Brian White) [#11497](https://github.com/nodejs/node/pull/11497)
+  - `querystring.unescape()` for `Buffer`s is 15% faster on average. (Brian White) [#10837](https://github.com/nodejs/node/pull/10837)
+  - `querystring.stringify()` is up to 7.8% faster on average. (Brian White) [#10852](https://github.com/nodejs/node/pull/10852)
+  - `querystring.parse()` is up to 21% faster on average. (Brian White) [#10874](https://github.com/nodejs/node/pull/10874)
+* **IPC**: Batched writes have been enabled for process IPC on platforms that support Unix Domain Sockets. (Alexey Orlenko) [#10677](https://github.com/nodejs/node/pull/10677)
+  - Performance gains may be up to 40% for some workloads.
+* **child_process**: `spawnSync` now returns a null `status` when child is terminated by a signal. (cjihrig) [#11288](https://github.com/nodejs/node/pull/11288)
+  - This fixes the behavior to act like `spawn()` does.
+* **http**:
+  - Control characters are now always rejected when using `http.request()`. (Ben Noordhuis) [#8923](https://github.com/nodejs/node/pull/8923)
+  - Debug messages have been added for cases when headers contain invalid values. (Evan Lucas) [#9195](https://github.com/nodejs/node/pull/9195)
+* **node**: Heap statistics now support values larger than 4GB. (Ben Noordhuis) [#10186](https://github.com/nodejs/node/pull/10186)
+* **timers**: Timer callbacks now always maintain order when interacting with domain error handling. (John Barboza) [#10522](https://github.com/nodejs/node/pull/10522)
+-->
+<h3 id="주요-변경사항-62">주요 변경사항</h3>
+<ul>
+<li><strong>performance</strong>: 일부 API의 성능이 개선되었습니다.
+<ul>
+<li><code>Buffer.compare()</code>는 대략 최대 35% 빨라졌습니다. (Brian White) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10927">#10927</a></li>
+<li><code>buffer.toJSON()</code>은 대략 최대 2859% 빨라졌습니다. (Brian White) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10895">#10895</a></li>
+<li><code>fs.*statSync()</code> 함수는 대략 최대 9.3% 빨라졌습니다. (Brian White) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11522">#11522</a></li>
+<li><code>os.loadavg</code>는 최대 151% 빨라졌습니다. (Brian White) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11516">#11516</a></li>
+<li><code>process.memoryUsage()</code>는 최대 34% 빨라졌습니다. (Brian White) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11497">#11497</a></li>
+<li><code>querystring.unescape()</code>는 <code>Buffer</code>에 대해 평균적으로 15% 빨라졌습니다. (Brian White) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10837">#10837</a></li>
+<li><code>querystring.stringify()</code>는 대략 최대 7.8% 빨라졌습니다. (Brian White) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10852">#10852</a></li>
+<li><code>querystring.parse()</code>는 대략 최대 21% 빨라졌습니다. (Brian White) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10874">#10874</a></li>
+</ul>
+</li>
+<li><strong>IPC</strong>: 유닉스 도메인 소켓(Unix Domain Socket)을 지원하는 플랫폼에서는 IPC 프로세서도 일괄 쓰기 작업이 가능해졌습니다. (Alexey Orlenko) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10677">#10677</a>
+<ul>
+<li>작업량에 따라 성능이 최대 40%까지 향상되었습니다.</li>
+</ul>
+</li>
+<li><strong>child_process</strong>: <code>spawnSync</code>는 이제 시그널에 의해 자식 프로세스가 종료될 때 null <code>status</code>를 반환합니다. (cjihrig) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11288">#11288</a>
+<ul>
+<li>이 덕분에 <code>spawn()</code>처럼 동작하던 부분이 수정됐습니다.</li>
+</ul>
+</li>
+<li><strong>http</strong>
+<ul>
+<li><code>http.request()</code>를 사용할 때 제어 문자는 항상 거부됩니다. (Ben Noordhuis) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/8923">#8923</a></li>
+<li>헤더가 유효하지 않은 값을 포함하고 있을 때 보여주는 디버그 메시지가 추가되었습니다. (Evan Lucas) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/9195">#9195</a></li>
+</ul>
+</li>
+<li><strong>node</strong>: 힙 통계에서 4GB 이상의 값도 지원됩니다. (Ben Noordhuis) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10186">#10186</a></li>
+<li><strong>timers</strong>: 도메인 에러를 다룰 때 타이머 콜백의 순서가 그대로 유지됩니다. (John Barboza) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10522">#10522</a></li>
+</ul>
+<h3 id="Commits-95">Commits</h3>
+<ul>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/fb75bed078"><code>fb75bed078</code></a>] - <strong>assert</strong>: unlock the assert API (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11304">#11304</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/32b264c33b"><code>32b264c33b</code></a>] - <strong>assert</strong>: remove unneeded condition (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11314">#11314</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/a0c705ef79"><code>a0c705ef79</code></a>] - <strong>assert</strong>: apply minor refactoring (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11511">#11511</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/7ecfe4971a"><code>7ecfe4971a</code></a>] - <strong>assert</strong>: update comments (Kai Cataldo) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10579">#10579</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/4d6fa8d040"><code>4d6fa8d040</code></a>] - <strong>benchmark</strong>: add more thorough timers benchmarks (Jeremiah Senkpiel) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10925">#10925</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/406e623b13"><code>406e623b13</code></a>] - <strong>benchmark</strong>: add benchmark for object properties (Michaël Zasso) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10949">#10949</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/7ee04c6015"><code>7ee04c6015</code></a>] - <strong>benchmark</strong>: don’t lint autogenerated modules (Brian White) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10756">#10756</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/d22d7cce7c"><code>d22d7cce7c</code></a>] - <strong>benchmark</strong>: move punycode benchmark out of net (Brian White) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10446">#10446</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/6b361611c3"><code>6b361611c3</code></a>] - <strong>benchmark</strong>: move setImmediate benchmarks to timers (Joshua Colvin) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11010">#11010</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/a469ce5826"><code>a469ce5826</code></a>] - <strong>benchmark</strong>: add assert.deep[Strict]Equal benchmarks (Joyee Cheung) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11092">#11092</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/eca1e80722"><code>eca1e80722</code></a>] - <strong>benchmark</strong>: add dgram bind(+/- params) benchmark (Vse Mozhet Byt) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11313">#11313</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/06c339dcce"><code>06c339dcce</code></a>] - <strong>benchmark</strong>: improve readability of net benchmarks (Brian White) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10446">#10446</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/b4cf8c4036"><code>b4cf8c4036</code></a>] - <strong>benchmark,lib,test</strong>: adjust for linting (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10561">#10561</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/e397e6f94a"><code>e397e6f94a</code></a>] - <strong>buffer</strong>: improve compare() performance (Brian White) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10927">#10927</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/2b52859535"><code>2b52859535</code></a>] - <strong>buffer</strong>: fix comments in bidirectionalIndexOf (<a href="mailto:dcposch@dcpos.ch">dcposch@dcpos.ch</a>) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10162">#10162</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/f7879d98f8"><code>f7879d98f8</code></a>] - <strong>buffer</strong>: improve toJSON() performance (Brian White) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10895">#10895</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/f83d035c50"><code>f83d035c50</code></a>] - <strong>buffer</strong>: convert offset &amp; length to int properly (Sakthipriyan Vairamani (thefourtheye)) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11176">#11176</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/cda593774f"><code>cda593774f</code></a>] - <strong>build</strong>: sort sources alphabetically (Daniel Bevenius) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10892">#10892</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/2d31fd8bf7"><code>2d31fd8bf7</code></a>] - <strong>build</strong>: move source files from headers section (Daniel Bevenius) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10850">#10850</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/b7c5295437"><code>b7c5295437</code></a>] - <strong>build</strong>: don’t squash signal handlers with --shared (Stewart X Addison) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10539">#10539</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/6772b1d81c"><code>6772b1d81c</code></a>] - <strong>build</strong>: disable C4267 conversion compiler warning (Ben Noordhuis) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11205">#11205</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/93416e9b7a"><code>93416e9b7a</code></a>] - <strong>build</strong>: fix newlines in addon build output (Brian White) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11466">#11466</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/2d5cb3b870"><code>2d5cb3b870</code></a>] - <strong>build</strong>: fail on CI if leftover processes (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11269">#11269</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/edcca78f10"><code>edcca78f10</code></a>] - <strong>build</strong>: add rule to clean addon tests build (Joyee Cheung) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11519">#11519</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/0200a5a74e"><code>0200a5a74e</code></a>] - <strong>build</strong>: fix node_g target (Daniel Bevenius) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10153">#10153</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/f44c0a5d7a"><code>f44c0a5d7a</code></a>] - <strong>build</strong>: Don’t regenerate node symlink (sxa555) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/9827">#9827</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/947d07bd87"><code>947d07bd87</code></a>] - <strong>child_process</strong>: exit spawnSync with null on signal (cjihrig) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11288">#11288</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/4179c7050f"><code>4179c7050f</code></a>] - <strong>child_process</strong>: move anonymous class to top level (Jackson Tian) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11147">#11147</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/818cef848e"><code>818cef848e</code></a>] - <strong>child_process</strong>: remove empty if condition (cjihrig) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11427">#11427</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/c371fdcf34"><code>c371fdcf34</code></a>] - <strong>child_process</strong>: refactor internal/child_process.js (Arseniy Maximov) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11366">#11366</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/b662c117cb"><code>b662c117cb</code></a>] - <strong>crypto</strong>: return the retval of HMAC_Update (Travis Meisenheimer) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10891">#10891</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/44510197dd"><code>44510197dd</code></a>] - <strong>crypto</strong>: freelist_max_len is gone in OpenSSL 1.1.0 (Adam Langley) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10859">#10859</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/34614af53b"><code>34614af53b</code></a>] - <strong>crypto</strong>: add cert check issued by StartCom/WoSign (Shigeki Ohtsu) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/9469">#9469</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/b4b3bb4c5d"><code>b4b3bb4c5d</code></a>] - <strong>crypto</strong>: Remove expired certs from CNNIC whitelist (Shigeki Ohtsu) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/9469">#9469</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/1f44922e34"><code>1f44922e34</code></a>] - <strong>crypto</strong>: use CHECK_NE instead of ABORT or abort (Sam Roberts) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10413">#10413</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/ccb6045f2d"><code>ccb6045f2d</code></a>] - <strong>crypto,tls</strong>: fix mutability of return values (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10795">#10795</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/3ab070d4e1"><code>3ab070d4e1</code></a>] - <strong>deps</strong>: backport dfb8d33 from V8 upstream (Michaël Zasso) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11483">#11483</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/3fc6a2247f"><code>3fc6a2247f</code></a>] - <strong>deps</strong>: cherry-pick a814b8a from upstream V8 (<a href="mailto:ishell@chromium.org">ishell@chromium.org</a>) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10733">#10733</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/254cb1cb77"><code>254cb1cb77</code></a>] - <strong>deps</strong>: back-port 73ee7943 from v8 upstream (Ben Noordhuis) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/9293">#9293</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/e774de1685"><code>e774de1685</code></a>] - <strong>deps</strong>: back-port 306c412c from v8 upstream (Ben Noordhuis) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/9293">#9293</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/e5d1e273d7"><code>e5d1e273d7</code></a>] - <strong>dgram</strong>: fix possibly deoptimizing use of arguments (Vse Mozhet Byt) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11242">#11242</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/c7257e716f"><code>c7257e716f</code></a>] - <strong>dgram</strong>: remove this aliases (cjihrig) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11243">#11243</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/227cc1e810"><code>227cc1e810</code></a>] - <strong>doc</strong>: restrict the ES.Next features usage in tests (DavidCai) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11452">#11452</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/23246768fb"><code>23246768fb</code></a>] - <strong>doc</strong>: add missing entry in v6 changelog table (Luigi Pinca) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11534">#11534</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/ff9a86a73e"><code>ff9a86a73e</code></a>] - <strong>doc</strong>: remove Chris Dickinson from active releasers (Ben Noordhuis) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11011">#11011</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/313d1a3009"><code>313d1a3009</code></a>] - <strong>doc</strong>: for style, remove “isn’t” contraction (Sam Roberts) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10981">#10981</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/ab7587ed6c"><code>ab7587ed6c</code></a>] - <strong>doc</strong>: update <a target="_blank" rel="noopener" href="http://http.md">http.md</a> for consistency and clarity (Lance Ball) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10715">#10715</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/21a94ab78c"><code>21a94ab78c</code></a>] - <strong>doc</strong>: clarify Buffer.indexOf/lastIndexOf edge cases (<a href="mailto:dcposch@dcpos.ch">dcposch@dcpos.ch</a>) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10162">#10162</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/8c487de736"><code>8c487de736</code></a>] - <strong>doc</strong>: document argument variant in the <a target="_blank" rel="noopener" href="http://repl.md">repl.md</a> (Vse Mozhet Byt) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10221">#10221</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/130710476b"><code>130710476b</code></a>] - <strong>doc</strong>: DEFAULT_ECDH_CURVE was added in 0.11.13 (Sam Roberts) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10983">#10983</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/5118e05b15"><code>5118e05b15</code></a>] - <strong>doc</strong>: HTTP response getHeader doc fix (Faiz Halde) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10817">#10817</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/243652abbe"><code>243652abbe</code></a>] - <strong>doc</strong>: remove duplicate properties bullet in readme (Javis Sullivan) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10741">#10741</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/fa8a394e51"><code>fa8a394e51</code></a>] - <strong>doc</strong>: specify sorted requires in tests (Sam Roberts) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10716">#10716</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/1660311056"><code>1660311056</code></a>] - <strong>doc</strong>: fix typo in <a target="_blank" rel="noopener" href="http://http.md">http.md</a> (Peter Mescalchin) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10975">#10975</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/8936814a70"><code>8936814a70</code></a>] - <strong>doc</strong>: add who to CC list for dgram (cjihrig) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11035">#11035</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/b934058128"><code>b934058128</code></a>] - <strong>doc</strong>: correct and complete dgram’s Socket.bind docs (Alex Jordan) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11025">#11025</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/faa55fbe09"><code>faa55fbe09</code></a>] - <strong>doc</strong>: edit <a target="_blank" rel="noopener" href="http://CONTRIBUTING.md">CONTRIBUTING.md</a> for clarity (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11045">#11045</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/c26258e1fd"><code>c26258e1fd</code></a>] - <strong>doc</strong>: fix confusing example in <a target="_blank" rel="noopener" href="http://dns.md">dns.md</a> (Vse Mozhet Byt) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11022">#11022</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/8bf7f9f202"><code>8bf7f9f202</code></a>] - <strong>doc</strong>: add personal pronouns option (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11089">#11089</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/7c22a52a74"><code>7c22a52a74</code></a>] - <strong>doc</strong>: clarify msg when doc/api/cli.md not updated (Stewart X Addison) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10872">#10872</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/d404d8b673"><code>d404d8b673</code></a>] - <strong>doc</strong>: edit stability text for clarity and style (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11112">#11112</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/38938e1ba9"><code>38938e1ba9</code></a>] - <strong>doc</strong>: remove assertions about assert (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11113">#11113</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/89d30908f2"><code>89d30908f2</code></a>] - <strong>doc</strong>: fix “initial delay” link in <a target="_blank" rel="noopener" href="http://http.md">http.md</a> (Timo Tijhof) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11108">#11108</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/c0072f8d71"><code>c0072f8d71</code></a>] - <strong>doc</strong>: typographical fixes in COLLABORATOR_GUIDE.md (Anna Henningsen) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11163">#11163</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/207142d050"><code>207142d050</code></a>] - <strong>doc</strong>: add not-an-aardvark as ESLint contact (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11169">#11169</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/3746eee19d"><code>3746eee19d</code></a>] - <strong>doc</strong>: improve testing guide (Joyee Cheung) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11150">#11150</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/6cadc7160f"><code>6cadc7160f</code></a>] - <strong>doc</strong>: remove extraneous paragraph from assert doc (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11174">#11174</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/d5d8a8d7b5"><code>d5d8a8d7b5</code></a>] - <strong>doc</strong>: fix typo in dgram doc (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11186">#11186</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/59a1d00906"><code>59a1d00906</code></a>] - <strong>doc</strong>: add and fix System Error properties (Daiki Arai) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10986">#10986</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/72adba4317"><code>72adba4317</code></a>] - <strong>doc</strong>: add links between cork() and uncork() (Matteo Collina) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11222">#11222</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/1cd526c253"><code>1cd526c253</code></a>] - <strong>doc</strong>: clarify the behavior of Buffer.byteLength (Nikolai Vavilov) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11238">#11238</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/b1bda165ce"><code>b1bda165ce</code></a>] - <strong>doc</strong>: edit maxBuffer/Unicode paragraph for clarity (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11228">#11228</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/1150af00f7"><code>1150af00f7</code></a>] - <strong>doc</strong>: improve consistency in documentation titles (Vse Mozhet Byt) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11230">#11230</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/ade39cdf9c"><code>ade39cdf9c</code></a>] - <strong>doc</strong>: drop “and io.js” from release section (Ben Noordhuis) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11054">#11054</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/c79d9f95d1"><code>c79d9f95d1</code></a>] - <strong>doc</strong>: update email and add personal pronoun (JungMinu) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11318">#11318</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/7df4ee8d49"><code>7df4ee8d49</code></a>] - <strong>doc</strong>: update link to V8 Embedder’s guide (Franziska Hinkelmann) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11336">#11336</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/8468d823a8"><code>8468d823a8</code></a>] - <strong>doc</strong>: update code examples in <a target="_blank" rel="noopener" href="http://domain.md">domain.md</a> (Vse Mozhet Byt) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11110">#11110</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/10a497cdcb"><code>10a497cdcb</code></a>] - <strong>doc</strong>: describe when stdout/err is sync (Sam Roberts) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10884">#10884</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/53d5002ef9"><code>53d5002ef9</code></a>] - <strong>doc</strong>: dns examples implied string args were arrays (Sam Roberts) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11350">#11350</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/42304de4f7"><code>42304de4f7</code></a>] - <strong>doc</strong>: change STYLE-GUIDE to STYLE_GUIDE (Dean Coakley) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11460">#11460</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/13a9ba9523"><code>13a9ba9523</code></a>] - <strong>doc</strong>: add STYLE_GUIDE (moved from nodejs/docs) (Gibson Fahnestock) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11321">#11321</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/0164d9263e"><code>0164d9263e</code></a>] - <strong>doc</strong>: improve test/README.md (Joyee Cheung) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11237">#11237</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/e0868aa529"><code>e0868aa529</code></a>] - <strong>doc</strong>: add comment for net.Server’s error event (QianJin2013) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11136">#11136</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/9a684a1511"><code>9a684a1511</code></a>] - <strong>doc</strong>: note message event listeners ref IPC channels (Diego Rodríguez Baquero) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11494">#11494</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/bfa3989584"><code>bfa3989584</code></a>] - <strong>doc</strong>: argument types for assert methods (Amelia Clarke) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11548">#11548</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/fc41a1d34d"><code>fc41a1d34d</code></a>] - <strong>doc</strong>: document clientRequest.aborted (Zach Bjornson) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11544">#11544</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/ff77425eba"><code>ff77425eba</code></a>] - <strong>doc</strong>: link to readable and writeable stream section (Sebastian Van Sande) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11517">#11517</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/4850b503dd"><code>4850b503dd</code></a>] - <strong>doc</strong>: update TheAlphaNerd to MylesBorins (Myles Borins) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10586">#10586</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/d04de226a1"><code>d04de226a1</code></a>] - <strong>doc</strong>: update examples in api/crypto.md (Vse Mozhet Byt) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10909">#10909</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/a045af3b95"><code>a045af3b95</code></a>] - <strong>doc</strong>: update AUTHORS list to fix name (Noah Rose Ledesma) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10945">#10945</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/d266759b99"><code>d266759b99</code></a>] - <strong>doc</strong>: add TimothyGu to collaborators (Timothy Gu) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10954">#10954</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/42a5989b39"><code>42a5989b39</code></a>] - <strong>doc</strong>: mention moderation repo in onboarding doc (Anna Henningsen) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10869">#10869</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/cdc981f6e1"><code>cdc981f6e1</code></a>] - <strong>doc</strong>: add edsadr to collaborators (Adrian Estrada) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10883">#10883</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/787d4ec197"><code>787d4ec197</code></a>] - <strong>doc</strong>: clarifying variables in fs.write() (Jessica Quynh Tran) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/9792">#9792</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/f48c86ce48"><code>f48c86ce48</code></a>] - <strong>doc</strong>: add links for zlib convenience methods (Anna Henningsen) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10829">#10829</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/1dbb366611"><code>1dbb366611</code></a>] - <strong>doc</strong>: add missing <code>added:</code> tag for <code>zlib.constants</code> (Anna Henningsen) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10826">#10826</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/867b4d87dc"><code>867b4d87dc</code></a>] - <strong>doc</strong>: fix broken internal link in <a target="_blank" rel="noopener" href="http://process.md">process.md</a> (Anna Henningsen) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10828">#10828</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/6d726c07aa"><code>6d726c07aa</code></a>] - <strong>doc</strong>: update writable.write return value (Nathan Phillip Brink) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10582">#10582</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/1975f82168"><code>1975f82168</code></a>] - <strong>doc</strong>: edit <a target="_blank" rel="noopener" href="http://writing-tests.md">writing-tests.md</a> (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10585">#10585</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/494ee5163f"><code>494ee5163f</code></a>] - <strong>doc</strong>: fix misleading language in vm docs (Alexey Orlenko) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10708">#10708</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/8e807f6552"><code>8e807f6552</code></a>] - <strong>doc</strong>: mention cc-ing nodejs/url team for reviews (Anna Henningsen) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10652">#10652</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/f9bd4a5645"><code>f9bd4a5645</code></a>] - <strong>doc</strong>: sort require statements in tests (Sam Roberts) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10616">#10616</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/032d73841d"><code>032d73841d</code></a>] - <strong>doc</strong>: handle backpressure when write() return false (Matteo Collina) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10631">#10631</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/af991c7a98"><code>af991c7a98</code></a>] - <strong>doc</strong>: add test naming information to guide (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10584">#10584</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/b5fd61d77a"><code>b5fd61d77a</code></a>] - <strong>doc</strong>: fix missing negation in <a target="_blank" rel="noopener" href="http://stream.md">stream.md</a> (Johannes Rieken) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10712">#10712</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/7e5a59e6fc"><code>7e5a59e6fc</code></a>] - <strong>doc</strong>: “s/git apply/git am -3” in V8 guide (Myles Borins) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10665">#10665</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/789bafd693"><code>789bafd693</code></a>] - <strong>doc</strong>: update LTS info for current releases (Evan Lucas) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10720">#10720</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/fef978584a"><code>fef978584a</code></a>] - <strong>doc</strong>: update <a target="_blank" rel="noopener" href="http://BUILDING.md">BUILDING.md</a> (Lukasz Gasior) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10669">#10669</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/f2ddc72b62"><code>f2ddc72b62</code></a>] - <strong>doc</strong>: document use of Refs: for references (Gibson Fahnestock) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10670">#10670</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/0a1d15fba6"><code>0a1d15fba6</code></a>] - <strong>doc</strong>: clarify information about ABI version (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10419">#10419</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/22f3813b3e"><code>22f3813b3e</code></a>] - <strong>doc</strong>: clarify the statement in vm.createContext() (AnnaMag) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10519">#10519</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/38d63e49eb"><code>38d63e49eb</code></a>] - <strong>doc</strong>: improve rinfo object documentation (Matt Crummey) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10050">#10050</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/998fd1e7e1"><code>998fd1e7e1</code></a>] - <strong>doc</strong>: add tls.DEFAULT_ECDH_CURVE (Sam Roberts) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10264">#10264</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/4995a819e0"><code>4995a819e0</code></a>] - <strong>doc</strong>: fix a wrong note in the <a target="_blank" rel="noopener" href="http://buffer.md">buffer.md</a> (Vse Mozhet Byt) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/9795">#9795</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/6d3c2d6212"><code>6d3c2d6212</code></a>] - <strong>doc</strong>: fix examples in <a target="_blank" rel="noopener" href="http://buffer.md">buffer.md</a> to avoid confusion (Vse Mozhet Byt) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/9795">#9795</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/020c90eb2d"><code>020c90eb2d</code></a>] - <strong>doc</strong>: remove a wrong remark in the <a target="_blank" rel="noopener" href="http://buffer.md">buffer.md</a> (Vse Mozhet Byt) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/9795">#9795</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/8af811f90e"><code>8af811f90e</code></a>] - <strong>doc</strong>: fix copy-paste artifacts in the <a target="_blank" rel="noopener" href="http://buffer.md">buffer.md</a> (Vse Mozhet Byt) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/9795">#9795</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/a2b40ad6a4"><code>a2b40ad6a4</code></a>] - <strong>doc</strong>: fix wrong function arguments in the <a target="_blank" rel="noopener" href="http://buffer.md">buffer.md</a> (Vse Mozhet Byt) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/9795">#9795</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/e94abaec1c"><code>e94abaec1c</code></a>] - <strong>doc</strong>: fix a syntax error in the <a target="_blank" rel="noopener" href="http://buffer.md">buffer.md</a> (Vse Mozhet Byt) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/9795">#9795</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/b36c315423"><code>b36c315423</code></a>] - <strong>doc</strong>: var =&gt; const/let in the <a target="_blank" rel="noopener" href="http://buffer.md">buffer.md</a> (Vse Mozhet Byt) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/9795">#9795</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/b503824b81"><code>b503824b81</code></a>] - <strong>doc,test</strong>: args to <code>buffer.copy</code> can be Uint8Arrays (Anna Henningsen) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11486">#11486</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/c8d2ca7a78"><code>c8d2ca7a78</code></a>] - <strong>fs</strong>: improve performance for sync stat() functions (Brian White) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11522">#11522</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/b4dc7a778f"><code>b4dc7a778f</code></a>] - <strong>http</strong>: make request.abort() destroy the socket (Luigi Pinca) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10818">#10818</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/d777da27bc"><code>d777da27bc</code></a>] - <strong>http</strong>: reject control characters in http.request() (Ben Noordhuis) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/8923">#8923</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/bad0d9367e"><code>bad0d9367e</code></a>] - <strong>http</strong>: add debug message for invalid header value (Evan Lucas) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/9195">#9195</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/bde1a7e09e"><code>bde1a7e09e</code></a>] - <strong>lib</strong>: remove unnecessary parameter for assertCrypto() (Jackson Tian) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10834">#10834</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/a2aa2f7de4"><code>a2aa2f7de4</code></a>] - <strong>lib</strong>: refactor bootstrap_node.js regular expression (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10749">#10749</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/797d9ee924"><code>797d9ee924</code></a>] - <strong>lib</strong>: refactor crypto cipher/hash/curve getters (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10682">#10682</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/69327f5e72"><code>69327f5e72</code></a>] - <strong>lib</strong>: rename kMaxCallbacksUntilQueueIsShortened (JungMinu) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11473">#11473</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/a6b2dfa43c"><code>a6b2dfa43c</code></a>] - <strong>lib</strong>: add constant kMaxCallbacksUntilQueueIsShortened (Daniel Bevenius) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11199">#11199</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/a3ad63b9b3"><code>a3ad63b9b3</code></a>] - <strong>lib,src</strong>: support values &gt; 4GB in heap statistics (Ben Noordhuis) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10186">#10186</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/8b5dd35ae8"><code>8b5dd35ae8</code></a>] - <strong>meta</strong>: add explicit deprecation and semver-major policy (James M Snell) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/7964">#7964</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/4df850ba59"><code>4df850ba59</code></a>] - <strong>meta</strong>: remove Chris Dickinson from CTC (Chris Dickinson) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11267">#11267</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/8863360a21"><code>8863360a21</code></a>] - <strong>meta</strong>: adding Italo A. Casas PGP Fingerprint (Italo A. Casas) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11202">#11202</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/8287d03adf"><code>8287d03adf</code></a>] - <strong>meta</strong>: decharter the http working group (James M Snell) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10604">#10604</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/742ec6213f"><code>742ec6213f</code></a>] - <strong>net</strong>: prefer === to == (Arseniy Maximov) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11513">#11513</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/5bfa43d8f0"><code>5bfa43d8f0</code></a>] - <strong>os</strong>: improve loadavg() performance (Brian White) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11516">#11516</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/b7088a9355"><code>b7088a9355</code></a>] - <strong>process</strong>: improve memoryUsage() performance (Brian White) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11497">#11497</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/02e5f5c57e"><code>02e5f5c57e</code></a>] - <strong>process</strong>: fix typo in comments (levsthings) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11503">#11503</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/db45bf850a"><code>db45bf850a</code></a>] - <strong>querystring</strong>: improve unescapeBuffer performance (Brian White) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10837">#10837</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/32cdbca2dc"><code>32cdbca2dc</code></a>] - <strong>querystring</strong>: improve stringify() performance (Brian White) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10852">#10852</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/23f3f20963"><code>23f3f20963</code></a>] - <strong>querystring</strong>: improve parse() performance (Brian White) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10874">#10874</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/dc88b6572d"><code>dc88b6572d</code></a>] - <strong>readline</strong>: refactor construct Interface (Jackson Tian) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/4740">#4740</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/f7c6ad2df9"><code>f7c6ad2df9</code></a>] - <strong>readline</strong>: update 6 comparions to strict (Umair Ishaq) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11078">#11078</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/b5a0d46c55"><code>b5a0d46c55</code></a>] - <strong>src</strong>: add NODE_NO_WARNINGS to --help output (cjihrig) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10918">#10918</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/566e2fea48"><code>566e2fea48</code></a>] - <strong>src</strong>: remove unnecessary req_wrap_obj (Daniel Bevenius) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10942">#10942</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/c7436df889"><code>c7436df889</code></a>] - <strong>src</strong>: add a missing space in node_os.cc (Alexey Orlenko) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10931">#10931</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/4358c6096c"><code>4358c6096c</code></a>] - <strong>src</strong>: enable writev for pipe handles on Unix (Alexey Orlenko) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10677">#10677</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/28102edbc8"><code>28102edbc8</code></a>] - <strong>src</strong>: unconsume stream fix in internal http impl (Roee Kasher) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11015">#11015</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/587857e301"><code>587857e301</code></a>] - <strong>src</strong>: fix delete operator on vm context (Franziska Hinkelmann) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11266">#11266</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/b7cbb8002c"><code>b7cbb8002c</code></a>] - <strong>src</strong>: support UTF-8 in compiled-in JS source files (Ben Noordhuis) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11129">#11129</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/ce01372b68"><code>ce01372b68</code></a>] - <strong>src</strong>: remove unused typedef (Ben Noordhuis) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11322">#11322</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/1dddfeccb2"><code>1dddfeccb2</code></a>] - <strong>src</strong>: remove usage of deprecated debug API (Yang Guo) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11437">#11437</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/7f273c6f6e"><code>7f273c6f6e</code></a>] - <strong>src</strong>: update http-parser link (Daniel Bevenius) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11477">#11477</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/214b514efe"><code>214b514efe</code></a>] - <strong>src</strong>: use ABORT() macro instead of abort() (Evan Lucas) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/9613">#9613</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/412f380903"><code>412f380903</code></a>] - <strong>stream</strong>: move legacy to lib/internal dir (yorkie) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/8197">#8197</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/336f1bd842"><code>336f1bd842</code></a>] - <strong>test</strong>: increase setMulticastLoopback() coverage (cjihrig) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11277">#11277</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/b29165f249"><code>b29165f249</code></a>] - <strong>test</strong>: increase dgram ref()/unref() coverage (cjihrig) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11240">#11240</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/22d4ed2484"><code>22d4ed2484</code></a>] - <strong>test</strong>: add an exception test to http-write-head (Yuta Hiroto) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11034">#11034</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/9edd342e81"><code>9edd342e81</code></a>] - <strong>test</strong>: add known_issues test for #10223 (AnnaMag) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11024">#11024</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/646f82520c"><code>646f82520c</code></a>] - <strong>test</strong>: guarantee test runs in test-readline-keys (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11023">#11023</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/d8eed12d31"><code>d8eed12d31</code></a>] - <strong>test</strong>: check error message in test-http-outgoing-proto (Alex Ling) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10943">#10943</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/174bef182a"><code>174bef182a</code></a>] - <strong>test</strong>: increase coverage for stream’s duplex (abouthiroppy) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10963">#10963</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/8ff15a262d"><code>8ff15a262d</code></a>] - <strong>test</strong>: allow for slow hosts in spawnSync() test (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10998">#10998</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/62f6749cd6"><code>62f6749cd6</code></a>] - <strong>test</strong>: expand test coverage of fs.js (Vinícius do Carmo) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10947">#10947</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/5cea2239d8"><code>5cea2239d8</code></a>] - <strong>test</strong>: expand test coverage of events.js (Vinícius do Carmo) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10947">#10947</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/a1751864e2"><code>a1751864e2</code></a>] - <strong>test</strong>: check noAssert option in buf.write*() (larissayvette) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10790">#10790</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/0b5f2b45f9"><code>0b5f2b45f9</code></a>] - <strong>test</strong>: expand test coverage of fs.js (Vinícius do Carmo) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10972">#10972</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/d9362efb6c"><code>d9362efb6c</code></a>] - <strong>test</strong>: enhance test-timers (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10960">#10960</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/b9615b3abc"><code>b9615b3abc</code></a>] - <strong>test</strong>: increase coverage for exec() functions (cjihrig) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10919">#10919</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/b45280671a"><code>b45280671a</code></a>] - <strong>test</strong>: add process.assert’s test (abouthiroppy) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10911">#10911</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/6584ea0715"><code>6584ea0715</code></a>] - <strong>test</strong>: update Buffer.lastIndexOf (<a href="mailto:dcposch@dcpos.ch">dcposch@dcpos.ch</a>) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10162">#10162</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/0c60540014"><code>0c60540014</code></a>] - <strong>test</strong>: improve code in test-crypto-verify (Adrian Estrada) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10845">#10845</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/2a52a68a96"><code>2a52a68a96</code></a>] - <strong>test</strong>: add dgram.Socket.prototype.bind’s test (abouthiroppy) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10894">#10894</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/2494d8ac68"><code>2494d8ac68</code></a>] - <strong>test</strong>: update V8 flag in test (Franziska Hinkelmann) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10917">#10917</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/9ac22cdcaf"><code>9ac22cdcaf</code></a>] - <strong>test</strong>: increase coverage of string-decoder (abouthiroppy) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10863">#10863</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/d766f5e0ad"><code>d766f5e0ad</code></a>] - <strong>test</strong>: improving coverage of dns-lookup (abouthiroppy) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10844">#10844</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/8f984c3a8a"><code>8f984c3a8a</code></a>] - <strong>test</strong>: refactor test-fs-read-zero-length.js (abouthiroppy) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10729">#10729</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/c0e24f9029"><code>c0e24f9029</code></a>] - <strong>test</strong>: improving coverage for dgram (abouthiroppy) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10783">#10783</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/c91d873115"><code>c91d873115</code></a>] - <strong>test</strong>: improve code in test-console-instance (Adrian Estrada) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10813">#10813</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/a434f451d9"><code>a434f451d9</code></a>] - <strong>test</strong>: improve code in test-domain-multi (Adrian Estrada) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10798">#10798</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/b01db3a73f"><code>b01db3a73f</code></a>] - <strong>test</strong>: improve test-stream2-large-read-stall (stefan judis) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10725">#10725</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/76f0556c4a"><code>76f0556c4a</code></a>] - <strong>test</strong>: improve code in test-http-host-headers (Adrian Estrada) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10830">#10830</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/c740cb6667"><code>c740cb6667</code></a>] - <strong>test</strong>: add test case to test-http-response-statuscode.js (abouthiroppy) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10808">#10808</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/872354563c"><code>872354563c</code></a>] - <strong>test</strong>: refactor cluster-preload.js (abouthiroppy) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10701">#10701</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/04dc1cdfcb"><code>04dc1cdfcb</code></a>] - <strong>test</strong>: improve test-fs-write-file-sync (Adrian Estrada) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10624">#10624</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/0d25d056a4"><code>0d25d056a4</code></a>] - <strong>test</strong>: test hmac binding robustness (Sam Roberts) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10923">#10923</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/99a234c97e"><code>99a234c97e</code></a>] - <strong>test</strong>: refactor the code in test-fs-watch.js (sivaprasanna) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10357">#10357</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/c13f01c94d"><code>c13f01c94d</code></a>] - <strong>test</strong>: reduce unmanaged parallelism in domain test (Joyee Cheung) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10329">#10329</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/ed76b4a8e9"><code>ed76b4a8e9</code></a>] - <strong>test</strong>: add dgram.Socket.prototype.sendto’s test (abouthiroppy) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10901">#10901</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/5365501a2f"><code>5365501a2f</code></a>] - <strong>test</strong>: add regression test for V8 parse error (Michaël Zasso) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11483">#11483</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/b5fb9f4098"><code>b5fb9f4098</code></a>] - <strong>test</strong>: increase timeout in break-on-uncaught (Sakthipriyan Vairamani (thefourtheye)) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10822">#10822</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/443dd508d2"><code>443dd508d2</code></a>] - <strong>test</strong>: fix process.title expectation (Sakthipriyan Vairamani (thefourtheye)) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10597">#10597</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/ae338daf06"><code>ae338daf06</code></a>] - <strong>test</strong>: refactor test-debugger-remote (Sakthipriyan Vairamani (thefourtheye)) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10455">#10455</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/34e0bc6d16"><code>34e0bc6d16</code></a>] - <strong>test</strong>: fix and improve debugger-client test (Sakthipriyan Vairamani (thefourtheye)) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10371">#10371</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/da874590a6"><code>da874590a6</code></a>] - <strong>test</strong>: improve test-assert (richnologies) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10916">#10916</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/a15ecd269d"><code>a15ecd269d</code></a>] - <strong>test</strong>: increase coverage for punycode’s decode (abouthiroppy) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10940">#10940</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/98e32db207"><code>98e32db207</code></a>] - <strong>test</strong>: check fd 0,1,2 are used, not access mode (John Barboza) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10339">#10339</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/e59697c695"><code>e59697c695</code></a>] - <strong>test</strong>: fix flaky test-regress-GH-897 (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10903">#10903</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/a08c7f6d87"><code>a08c7f6d87</code></a>] - <strong>test</strong>: don’t connect to :: (use localhost instead) (Gibson Fahnestock) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10854">#10854</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/ca53866333"><code>ca53866333</code></a>] - <strong>test</strong>: add message verification on assert.throws (Travis Meisenheimer) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10890">#10890</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/38b123c918"><code>38b123c918</code></a>] - <strong>test</strong>: refactor test-repl-tab-complete (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10879">#10879</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/68fc4d3a1c"><code>68fc4d3a1c</code></a>] - <strong>test</strong>: simplify array initialization (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10860">#10860</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/a26d752e77"><code>a26d752e77</code></a>] - <strong>test</strong>: add http-common’s test (abouthiroppy) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10832">#10832</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/80e2ff9bff"><code>80e2ff9bff</code></a>] - <strong>test</strong>: tests for _readableStream.awaitDrain (Mark) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/8914">#8914</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/e4e9f675d2"><code>e4e9f675d2</code></a>] - <strong>test</strong>: improve the code in test-process-cpuUsage (Adrian Estrada) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10714">#10714</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/73c0c46cf2"><code>73c0c46cf2</code></a>] - <strong>test</strong>: increase test-crypto.js strictness (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10784">#10784</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/e316fafbd4"><code>e316fafbd4</code></a>] - <strong>test</strong>: delete duplicate test of noAssert in readUInt* (larissayvette) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10791">#10791</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/896fb63173"><code>896fb63173</code></a>] - <strong>test</strong>: add http_incoming’s matchKnownFields test (abouthiroppy) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10811">#10811</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/c086bdc2de"><code>c086bdc2de</code></a>] - <strong>test</strong>: check error msg test-writeint.js (Irene Li) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10755">#10755</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/2eb0c25aa1"><code>2eb0c25aa1</code></a>] - <strong>test</strong>: no unused args test-fs-watch-file.js (istinson) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10758">#10758</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/2f026f6668"><code>2f026f6668</code></a>] - <strong>test</strong>: improve tests in pummel/test-exec (Chase Starr) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10757">#10757</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/93877c87cc"><code>93877c87cc</code></a>] - <strong>test</strong>: fix temp-dir option in tools/test.py (Gibson Fahnestock) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10723">#10723</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/0f3677dd5d"><code>0f3677dd5d</code></a>] - <strong>test</strong>: use realpath for NODE_TEST_DIR in common.js (Gibson Fahnestock) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10723">#10723</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/5d0cc617bb"><code>5d0cc617bb</code></a>] - <strong>test</strong>: move resource intensive test to sequential (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10744">#10744</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/cd4bb067ad"><code>cd4bb067ad</code></a>] - <strong>test</strong>: add test for noAssert option in buf.read*() (larissayvette) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10713">#10713</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/5b55689b2c"><code>5b55689b2c</code></a>] - <strong>test</strong>: refactor test-crypto-padding-aes256 (adelmann) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10622">#10622</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/119e512db3"><code>119e512db3</code></a>] - <strong>test</strong>: refactor the code of test-keep-alive.js (sivaprasanna) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10684">#10684</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/ef3d889ee7"><code>ef3d889ee7</code></a>] - <strong>test</strong>: validate ‘expected’ argument to mustCall() (Nathan Friedly) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10692">#10692</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/21704a3b6b"><code>21704a3b6b</code></a>] - <strong>test</strong>: fix misplaced ) in http response statuscode test (Nathan Friedly) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10692">#10692</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/8565a06b09"><code>8565a06b09</code></a>] - <strong>test</strong>: refactor test-doctool-html.js (abouthiroppy) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10696">#10696</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/168f3e4bf8"><code>168f3e4bf8</code></a>] - <strong>test</strong>: improve the code in test-process-hrtime (Adrian Estrada) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10667">#10667</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/9acc86f578"><code>9acc86f578</code></a>] - <strong>test</strong>: refactor test-watch-file.js (sivaprasanna) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10679">#10679</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/86e39367d6"><code>86e39367d6</code></a>] - <strong>test</strong>: improve zlib-from-gzip-with-trailing-garbage (Michael Lefkowitz) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10674">#10674</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/3135455cd9"><code>3135455cd9</code></a>] - <strong>test</strong>: refactor the code in test-child-process-spawn-loop.js (sivaprasanna) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10605">#10605</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/f43a8765a2"><code>f43a8765a2</code></a>] - <strong>test</strong>: allow testing uid and gid separately (cjihrig) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10647">#10647</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/2f1d231c0d"><code>2f1d231c0d</code></a>] - <strong>test</strong>: improve test-http-chunked-304 (Adrian Estrada) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10462">#10462</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/ec8a9962ce"><code>ec8a9962ce</code></a>] - <strong>test</strong>: improve test-fs-readfile-zero-byte-liar (Adrian Estrada) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10570">#10570</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/12746af524"><code>12746af524</code></a>] - <strong>test</strong>: refactor test-fs-utimes (Junshu Okamoto) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/9290">#9290</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/e81b1cc1ae"><code>e81b1cc1ae</code></a>] - <strong>test</strong>: provide duration/interval to timers (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/9472">#9472</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/17a63e15e6"><code>17a63e15e6</code></a>] - <strong>test</strong>: improve test-event-emitter-modify-in-emit (Adrian Estrada) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10600">#10600</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/50ee4e6dad"><code>50ee4e6dad</code></a>] - <strong>test</strong>: require handler to be run in sigwinch test (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11068">#11068</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/8cce29587c"><code>8cce29587c</code></a>] - <strong>test</strong>: add 2nd argument to throws in test-assert (Marlena Compton) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11061">#11061</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/b14d7b3aa1"><code>b14d7b3aa1</code></a>] - <strong>test</strong>: improve error messages in test-npm-install (Gonen Dukas) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11027">#11027</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/87488ba2ff"><code>87488ba2ff</code></a>] - <strong>test</strong>: add path.join’s test (Yuta Hiroto) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11063">#11063</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/232664a10d"><code>232664a10d</code></a>] - <strong>test</strong>: fix timing sensitivity in debugger test (Ali Ijaz Sheikh) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11008">#11008</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/c16160418b"><code>c16160418b</code></a>] - <strong>test</strong>: improve coverage on removeListeners functions (matsuda-koushi) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11140">#11140</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/898276b1b4"><code>898276b1b4</code></a>] - <strong>test</strong>: simplify output handling in repl tests (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11124">#11124</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/3248cdb2e6"><code>3248cdb2e6</code></a>] - <strong>test</strong>: improve crypto.setEngine coverage to check for errors (Sebastian Van Sande) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11143">#11143</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/28111f9eb2"><code>28111f9eb2</code></a>] - <strong>test</strong>: increase specificity in dgram test (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11187">#11187</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/c5e8ccab63"><code>c5e8ccab63</code></a>] - <strong>test</strong>: remove obsolete comment from dgram test (ALJCepeda) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/8689">#8689</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/7aebc6907c"><code>7aebc6907c</code></a>] - <strong>test</strong>: improve checks in test-path-parse-format (cjihrig) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11223">#11223</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/baec432c93"><code>baec432c93</code></a>] - <strong>test</strong>: add coverage for string array dgram send() (cjihrig) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11247">#11247</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/6694c26420"><code>6694c26420</code></a>] - <strong>test</strong>: adapt test-debugger-pid to localized Windows (Vse Mozhet Byt) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11270">#11270</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/2db4c3c453"><code>2db4c3c453</code></a>] - <strong>test</strong>: add vm module edge cases (Franziska Hinkelmann) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11265">#11265</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/759604912a"><code>759604912a</code></a>] - <strong>test</strong>: refactor test-dgram-setBroadcast.js (cjihrig) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11252">#11252</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/3185fa1249"><code>3185fa1249</code></a>] - <strong>test</strong>: querystring.escape with multibyte characters (Daijiro Wachi) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11251">#11251</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/460a3e1f7a"><code>460a3e1f7a</code></a>] - <strong>test</strong>: improve test-assert.js (jobala) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11193">#11193</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/1adfca4b5e"><code>1adfca4b5e</code></a>] - <strong>test</strong>: refactor test-repl-sigint (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11309">#11309</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/c539325d89"><code>c539325d89</code></a>] - <strong>test</strong>: improve punycode test coverage (Sebastian Van Sande) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11144">#11144</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/8db3c770be"><code>8db3c770be</code></a>] - <strong>test</strong>: refactor test-repl-sigint-nested-eval (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11303">#11303</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/874ef9d312"><code>874ef9d312</code></a>] - <strong>test</strong>: add coverage for dgram _createSocketHandle() (cjihrig) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11291">#11291</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/92f6919532"><code>92f6919532</code></a>] - <strong>test</strong>: improve crypto coverage (Akito Ito) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11280">#11280</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/d9deb1fb62"><code>d9deb1fb62</code></a>] - <strong>test</strong>: improve message in net-connect-local-error (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11393">#11393</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/6677c113aa"><code>6677c113aa</code></a>] - <strong>test</strong>: refactor test-dgram-membership (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11388">#11388</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/e7b7d7279c"><code>e7b7d7279c</code></a>] - <strong>test</strong>: cases to querystring related to empty string (Daijiro Wachi) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11329">#11329</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/5a92fc25a1"><code>5a92fc25a1</code></a>] - <strong>test</strong>: consolidate buffer.read() in a file (larissayvette) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11297">#11297</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/607158ab6e"><code>607158ab6e</code></a>] - <strong>test</strong>: improve crypto coverage (樋口　彰) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11279">#11279</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/27f302d94f"><code>27f302d94f</code></a>] - <strong>test</strong>: remove unused args and comparison fix (Alexander) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11396">#11396</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/8da156d68f"><code>8da156d68f</code></a>] - <strong>test</strong>: add coverage for utf8CheckIncomplete() (xiaoyu) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11419">#11419</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/0ddad76813"><code>0ddad76813</code></a>] - <strong>test</strong>: fix over-dependence on native promise impl (Ali Ijaz Sheikh) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11437">#11437</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/34444580f6"><code>34444580f6</code></a>] - <strong>test</strong>: add test cases for path (Yuta Hiroto) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11453">#11453</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/4bcf1a0387"><code>4bcf1a0387</code></a>] - <strong>test</strong>: refactor test-http-response-splitting (Arseniy Maximov) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11429">#11429</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/7836807178"><code>7836807178</code></a>] - <strong>test</strong>: add error checking in callback (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11446">#11446</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/13b7856444"><code>13b7856444</code></a>] - <strong>test</strong>: improve coverage in test-crypto.dh (Eric Christie) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11253">#11253</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/b2f7e7a5ad"><code>b2f7e7a5ad</code></a>] - <strong>test</strong>: add regex check to test-module-loading (Tarang Hirani) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11413">#11413</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/6bf936644e"><code>6bf936644e</code></a>] - <strong>test</strong>: increase coverage of vm (DavidCai) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11377">#11377</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/6202f14583"><code>6202f14583</code></a>] - <strong>test</strong>: throw check in test-zlib-write-after-close (Jason Wilson) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11482">#11482</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/f8884dd1b5"><code>f8884dd1b5</code></a>] - <strong>test</strong>: add cases for unescape &amp; unescapeBuffer (Daijiro Wachi) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11326">#11326</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/05909d045b"><code>05909d045b</code></a>] - <strong>test</strong>: fix flaky test-vm-timeout-rethrow (Kunal Pathak) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11530">#11530</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/6e5f6e3c02"><code>6e5f6e3c02</code></a>] - <strong>test</strong>: favor assertions over console logging (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11547">#11547</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/2c4aa39021"><code>2c4aa39021</code></a>] - <strong>test</strong>: mark test-tty-wrap as flaky for AIX (Michael Dawson) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10618">#10618</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/cb03e74037"><code>cb03e74037</code></a>] - <strong>test</strong>: improve test-fs-null-bytes (Adrian Estrada) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10521">#10521</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/69b55f35f7"><code>69b55f35f7</code></a>] - <strong>test</strong>: refactor test-https-truncate (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10225">#10225</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/ada7166dfd"><code>ada7166dfd</code></a>] - <strong>test</strong>: simplify test-http-client-unescaped-path (Rod Vagg) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/9649">#9649</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/1b85989fb2"><code>1b85989fb2</code></a>] - <strong>test</strong>: move long-running test to sequential (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11176">#11176</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/87760cc346"><code>87760cc346</code></a>] - <strong>test</strong>: add new.target add-on regression test (Ben Noordhuis) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/9689">#9689</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/73283060ad"><code>73283060ad</code></a>] - <strong>test,repl</strong>: add coverage for repl .clear+useGlobal (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10777">#10777</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/4a87aee532"><code>4a87aee532</code></a>] - <strong>test,util</strong>: remove lint workarounds (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10785">#10785</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/3e9ce770f7"><code>3e9ce770f7</code></a>] - <strong>test-console</strong>: streamline arrow fn and refine regex (John Maguire) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11039">#11039</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/b90a141cc7"><code>b90a141cc7</code></a>] - <strong>timer</strong>: remove duplicated word in comment (asafdav2) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11323">#11323</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/d71ebb90ec"><code>d71ebb90ec</code></a>] - <strong>timer,domain</strong>: maintain order of timer callbacks (John Barboza) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10522">#10522</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/2a168917cb"><code>2a168917cb</code></a>] - <strong>tls</strong>: do not crash on STARTTLS when OCSP requested (Fedor Indutny) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10706">#10706</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/f33684ac5f"><code>f33684ac5f</code></a>] - <strong>tools</strong>: remove custom align-function-arguments rule (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10561">#10561</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/fb2f449acc"><code>fb2f449acc</code></a>] - <strong>tools</strong>: update ESLint to current version (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10561">#10561</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/83a3aef873"><code>83a3aef873</code></a>] - <strong>tools</strong>: rename eslintrc to an undeprecated format (Sakthipriyan Vairamani) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/7699">#7699</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/e4f7f5c630"><code>e4f7f5c630</code></a>] - <strong>tools</strong>: add lint rule to enforce timer arguments (Rich Trott) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/9472">#9472</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/a13bb54466"><code>a13bb54466</code></a>] - <strong>tools</strong>: add compile_commands.json gyp generator (Ben Noordhuis) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/7986">#7986</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/b38d8d6e06"><code>b38d8d6e06</code></a>] - <strong>tools</strong>: suggest python2 command in configure (Roman Reiss) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11375">#11375</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/291346ea51"><code>291346ea51</code></a>] - <strong>tools,doc</strong>: add Google Analytics tracking. (Phillip Johnsen) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/6601">#6601</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/1ed47d3f33"><code>1ed47d3f33</code></a>] - <strong>tty</strong>: avoid oob warning in TTYWrap::GetWindowSize() (Dmitry Tsvettsikh) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11454">#11454</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/9e6fcbb34c"><code>9e6fcbb34c</code></a>] - <strong>url</strong>: fix surrogate handling in encodeAuth() (Timothy Gu) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11387">#11387</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/53213004eb"><code>53213004eb</code></a>] - <strong>util</strong>: improve readability of normalizeEncoding (Joyee Cheung) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/10439">#10439</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/e54b433c8d"><code>e54b433c8d</code></a>] - <strong>util</strong>: use ES2015+ <a target="_blank" rel="noopener" href="http://Object.is">Object.is</a> to check negative zero (Shinnosuke Watanabe) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11332">#11332</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/2e15d48447"><code>2e15d48447</code></a>] - <strong>v8</strong>: drop v8::FunctionCallbackInfo&lt;T&gt;::NewTarget() (Ben Noordhuis) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/9293">#9293</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/fd1ffe4f5a"><code>fd1ffe4f5a</code></a>] - <strong>v8</strong>: fix --always-opt bug (Ben Noordhuis) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/9293">#9293</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/a55af77fc5"><code>a55af77fc5</code></a>] - <strong>vm</strong>: refactor vm module (James M Snell) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/11392">#11392</a></li>
+</ul>
+<p>Windows 32-bit Installer: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v6.10.1/node-v6.10.1-x86.msi">https://nodejs.org/dist/v6.10.1/node-v6.10.1-x86.msi</a><br><br>
+Windows 64-bit Installer: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v6.10.1/node-v6.10.1-x64.msi">https://nodejs.org/dist/v6.10.1/node-v6.10.1-x64.msi</a><br><br>
+Windows 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v6.10.1/win-x86/node.exe">https://nodejs.org/dist/v6.10.1/win-x86/node.exe</a><br><br>
+Windows 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v6.10.1/win-x64/node.exe">https://nodejs.org/dist/v6.10.1/win-x64/node.exe</a><br><br>
+macOS 64-bit Installer: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v6.10.1/node-v6.10.1.pkg">https://nodejs.org/dist/v6.10.1/node-v6.10.1.pkg</a><br><br>
+macOS 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v6.10.1/node-v6.10.1-darwin-x64.tar.gz">https://nodejs.org/dist/v6.10.1/node-v6.10.1-darwin-x64.tar.gz</a><br><br>
+Linux 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v6.10.1/node-v6.10.1-linux-x86.tar.xz">https://nodejs.org/dist/v6.10.1/node-v6.10.1-linux-x86.tar.xz</a><br><br>
+Linux 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v6.10.1/node-v6.10.1-linux-x64.tar.xz">https://nodejs.org/dist/v6.10.1/node-v6.10.1-linux-x64.tar.xz</a><br><br>
+Linux PPC LE 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v6.10.1/node-v6.10.1-linux-ppc64le.tar.xz">https://nodejs.org/dist/v6.10.1/node-v6.10.1-linux-ppc64le.tar.xz</a><br><br>
+Linux PPC BE 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v6.10.1/node-v6.10.1-linux-ppc64.tar.xz">https://nodejs.org/dist/v6.10.1/node-v6.10.1-linux-ppc64.tar.xz</a><br><br>
+Linux s390x 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v6.10.1/node-v6.10.1-linux-s390x.tar.xz">https://nodejs.org/dist/v6.10.1/node-v6.10.1-linux-s390x.tar.xz</a><br><br>
+AIX 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v6.10.1/node-v6.10.1-aix-ppc64.tar.gz">https://nodejs.org/dist/v6.10.1/node-v6.10.1-aix-ppc64.tar.gz</a><br><br>
+SunOS 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v6.10.1/node-v6.10.1-sunos-x86.tar.xz">https://nodejs.org/dist/v6.10.1/node-v6.10.1-sunos-x86.tar.xz</a><br><br>
+SunOS 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v6.10.1/node-v6.10.1-sunos-x64.tar.xz">https://nodejs.org/dist/v6.10.1/node-v6.10.1-sunos-x64.tar.xz</a><br><br>
+ARMv6 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v6.10.1/node-v6.10.1-linux-armv6l.tar.xz">https://nodejs.org/dist/v6.10.1/node-v6.10.1-linux-armv6l.tar.xz</a><br><br>
+ARMv7 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v6.10.1/node-v6.10.1-linux-armv7l.tar.xz">https://nodejs.org/dist/v6.10.1/node-v6.10.1-linux-armv7l.tar.xz</a><br><br>
+ARMv8 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v6.10.1/node-v6.10.1-linux-arm64.tar.xz">https://nodejs.org/dist/v6.10.1/node-v6.10.1-linux-arm64.tar.xz</a><br><br>
+Source Code: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v6.10.1/node-v6.10.1.tar.gz">https://nodejs.org/dist/v6.10.1/node-v6.10.1.tar.gz</a><br><br>
+Other release files: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v6.10.1/">https://nodejs.org/dist/v6.10.1/</a><br><br>
+Documentation: <a target="_blank" rel="noopener" href="https://nodejs.org/docs/v6.10.1/api/">https://nodejs.org/docs/v6.10.1/api/</a></p>
+<h3 id="shasums">SHASUMS</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">-----BEGIN PGP SIGNED MESSAGE-----</span><br><span class="line">Hash: SHA256</span><br><span class="line"></span><br><span class="line">fe3f3de8ac6789df4639e29dd2ee3f5b3b8c30445a6120f1caf46dd347229e4a  node-v6.10.1-aix-ppc64.tar.gz</span><br><span class="line">5b61c8c15c4d79283e39ef5ccba396aed5031a4a33df2b9dd5b20f14b38bb4b9  node-v6.10.1-darwin-x64.tar.gz</span><br><span class="line">96d355d0fede05889d404617946c86b9b06926a05bb93a19466cc0a408476ed8  node-v6.10.1-darwin-x64.tar.xz</span><br><span class="line">00172a468520b4c7fb2db1d3c169ae548e421239c1e43c5cc7a28b303cad96ce  node-v6.10.1-headers.tar.gz</span><br><span class="line">52d7713d3785e86a40155cd71af67dd1ec0802b4609a78e7d20228b6802f866c  node-v6.10.1-headers.tar.xz</span><br><span class="line">8d3955523e2f25e8f62aefb1181f500a6e1458d4decbda95b147f3e3f4598081  node-v6.10.1-linux-arm64.tar.gz</span><br><span class="line">c361ca0b508fcdfcd0e07e588b5cc38f32c547c94eb6a60e30980dfda2b35df9  node-v6.10.1-linux-arm64.tar.xz</span><br><span class="line">e59a5558a6271385fddc5f58f85dfe7bf9b7c73d75ea14d0171266cf90bff830  node-v6.10.1-linux-armv6l.tar.gz</span><br><span class="line">277a85ddd93581a48798e87ef568d5353d03e50bb2af04a9fb54ee4d115fb022  node-v6.10.1-linux-armv6l.tar.xz</span><br><span class="line">d50572bfbbf8fb617fb8abe0bfd59974e7f8841c6b366ffdfc532f40039f4451  node-v6.10.1-linux-armv7l.tar.gz</span><br><span class="line">aa16b41344fcdce55efff1a5b43d921f9721cdfc0eebe12ea3306cad832c5b90  node-v6.10.1-linux-armv7l.tar.xz</span><br><span class="line">4ee596c38a271d1f32c614bd43dfb79b8dce5cba66166ae5c7d242d1d4444ff3  node-v6.10.1-linux-ppc64le.tar.gz</span><br><span class="line">b4cf8cf2c1dd6d3fbdf632540d6820430b37802ca74fae4a9bc68a67de69d4a1  node-v6.10.1-linux-ppc64le.tar.xz</span><br><span class="line">463ea8c16ecdbbdf05f60a6a3dd309bba0bab4c9741e5ca53cfb5581b4020c71  node-v6.10.1-linux-ppc64.tar.gz</span><br><span class="line">c8a7049c9a087c28a0691b31670034fb6c96e3fb2bf475d479bb15c9c4d7f7ad  node-v6.10.1-linux-ppc64.tar.xz</span><br><span class="line">995644d4fa2fb33a070bfe44b62a66b0272e25cb28ab14f2fec48e9843575006  node-v6.10.1-linux-s390x.tar.gz</span><br><span class="line">f646d61b43412efad1ef8ab8137adfec05cd66fa1218cc0a846573bbfc494654  node-v6.10.1-linux-s390x.tar.xz</span><br><span class="line">31ad1731f4375da2f3ee739f23b0d92c54402eefcc7f98595010395178dde047  node-v6.10.1-linux-x64.tar.gz</span><br><span class="line">e8f100e9ee70eb63216b33cf39666a4dc6c4038f6ee4fbfc7751ab3a825e576c  node-v6.10.1-linux-x64.tar.xz</span><br><span class="line">463c32dd47fe51e3eb694bfb019e17a9e1fe83f3292fb02c05103e20494323b9  node-v6.10.1-linux-x86.tar.gz</span><br><span class="line">1e8be5c912cb31e7221836d3f988432e63a1564b2213a673259367f9f7222b1e  node-v6.10.1-linux-x86.tar.xz</span><br><span class="line">14ce9adc6a08bbbce9005e4bbb0a788407afd280da93744ed1cb4c563bc97dcb  node-v6.10.1.pkg</span><br><span class="line">e89d40e980caa52d59fcaa4fb77e6fdc45166ccc0e1093f33e69a0fa497ee444  node-v6.10.1-sunos-x64.tar.gz</span><br><span class="line">a9f96424a4a2a347eb22f681d2ba9f2b5a834f84dc0cc47ebeb802a6654a5f56  node-v6.10.1-sunos-x64.tar.xz</span><br><span class="line">e73d3a948fbb4024f3022af0530ee15e9f4950b2f463fa5c546e96d3d5ecf5bc  node-v6.10.1-sunos-x86.tar.gz</span><br><span class="line">363d72c5f91970d33449350676ef009978af304c466b4f14890554b76b0a84dc  node-v6.10.1-sunos-x86.tar.xz</span><br><span class="line">2c7a643b199c63390f4e33359e82f1449b84ec94d647c606fc0f1d1a2b5bdedd  node-v6.10.1.tar.gz</span><br><span class="line">6547c1c25440bd71d75f8a23590c2cd6d1c00c0c72736b5de79e7152566fd4b2  node-v6.10.1.tar.xz</span><br><span class="line">80e936dbece81dd1c292c67001c1e9989d98201d2015481282d02db32e298f3d  node-v6.10.1-win-x64.7z</span><br><span class="line">28923f51691bb34dc399af4ceb567da487d7f4806aec5e6f0cfab1e6c3f2dd1c  node-v6.10.1-win-x64.zip</span><br><span class="line">9e8bfa89c9db626507c4ecc4869816a3a1673e09d3069cb2901648dd09ae9a39  node-v6.10.1-win-x86.7z</span><br><span class="line">87a94bc3ddf80f467408e3e6f95e425dd576e6d6cc6c0fad80203d52c786c621  node-v6.10.1-win-x86.zip</span><br><span class="line">e9fd4ff49700ece923e6e0d9b9013abc1ce65c3ed3a5810d166a0e05a911c2d4  node-v6.10.1-x64.msi</span><br><span class="line">868a96e012222ce95c732d4e2c97d0349f8fefbd889af690cf6d2278d6844932  node-v6.10.1-x86.msi</span><br><span class="line">da55174c403fe35123bc78416c32c8fddd8515057f36a3587df3838f8759fc65  win-x64/node.exe</span><br><span class="line">3396b0e4442d094c52f16a120c35ef290525454eacec866e4e835e3c73fbcb80  win-x64/node.lib</span><br><span class="line">5b23d7e9192b7feab6f7f5d9caaa58436a1cf8a770194ded4bbba44cd834aecf  win-x64/node_pdb.7z</span><br><span class="line">0eb4c5a34b32c6d1a4807be35ededf54e3cdd9478fff3d05f2d9f0b5ac53d895  win-x64/node_pdb.zip</span><br><span class="line">dedd07471e0cd2f478ce283cdc18dca71cc3a3e8ff82972a2e162bce06516e21  win-x86/node.exe</span><br><span class="line">af8a1032de2ab7637ce39280eec9d2fe71cadf6dc4b45c4fb01d1efae68b362d  win-x86/node.lib</span><br><span class="line">587c0d669f565048a130c3147dad1a7e14115d930ea6d4e8f309ea7a4dbd272d  win-x86/node_pdb.7z</span><br><span class="line">252f86bbcadfcc893a6097f847749eb2ebbe5d1d126726c375e11dce79707a06  win-x86/node_pdb.zip</span><br><span class="line">-----BEGIN PGP SIGNATURE-----</span><br><span class="line"></span><br><span class="line">iQEcBAEBCAAGBQJY0ZtBAAoJEJM7AfQLXKlGIhoH/izl87LyjwTHBO0ofruiEack</span><br><span class="line">SOgm/OPkefxmcI636z2ooS5smGJgRjgdnXN7qwdZhXAvdrtjlBhdayu36gkqFYOm</span><br><span class="line">fofjqvvzQ/6+LFg97F9c8E3E/Vc+4GBVYu6eJ+hggua+tPBE34gajdmJUJ9IEOiu</span><br><span class="line">u2mNcC2J1eD4i2C8v0SRfTDA+54Tb5mzBl3fziciAEjfdKwVL+FSmPNMCYhI+Dh8</span><br><span class="line">zuE2A3ckTO84jCiuDWO3ixcA77mToVjk1tn+uSZsGy+rt781sd/tQa9IswnWwZR6</span><br><span class="line">FoZLPgzwv0eic9y3PveHB+QmejfMdhyANsnveHY5eJKFgyQnwUDOvaRNlPIJsCY=</span><br><span class="line">=eMcy</span><br><span class="line">-----END PGP SIGNATURE-----</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://nodejs.github.io/nodejs-ko/articles/2017/03/21/release-v6.10.1/" data-id="cl1s6zron00cla3oqcmkt441k" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/nodejs-ko/articles/2017/03/21/release-v4.8.1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Node v4.8.1(LTS)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/nodejs-ko/articles/2017/03/21/release-v7.7.4/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Node v7.7.4(현재 버전)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title">Menu</h3>
+  <div class="widget">
+    <ul class="category-list">
+      <li class="category-list-item">
+        <a href="/nodejs-ko/">Home</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/CONTRIBUTING.html">번역 참여 가이드</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/about.html">소개</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/categories/articles">글 모음</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/categories/weekly">주간 뉴스</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/archives">보관함</a>
+      </li>
+      <li class="category-list-item">
+        <a href="https://github.com/nodejs/nodejs-ko" target="_blank">GitHub project</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+  
+</aside>
+
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Node.js 한국어 번역팀<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/nodejs-ko/" class="mobile-nav-link">Home</a>
+  
+    <a href="/nodejs-ko/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/nodejs-ko/fancybox/jquery.fancybox.css">
+
+  
+<script src="/nodejs-ko/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/nodejs-ko/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  
+  <title>Node v12.18.2(LTS) | Node.js 한국 커뮤니티</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="주요 변경사항  deps: V8: fb26d0bb1835를 백포트했습니다. (Matheus Marchini) #33573  PrototypeUsers::Add에서 발생하는 메모리 누수를 수정합니다.   src: AsyncWrap 리소스를 저장할 때 심볼을 사용합니다. (Anna Henningsen) #31745  #33468에서 보고된 메모리 누수 문제를">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node v12.18.2(LTS)">
+<meta property="og:url" content="https://nodejs.github.io/nodejs-ko/articles/2020/06/30/release-v12.18.2/index.html">
+<meta property="og:site_name" content="Node.js 한국 커뮤니티">
+<meta property="og:description" content="주요 변경사항  deps: V8: fb26d0bb1835를 백포트했습니다. (Matheus Marchini) #33573  PrototypeUsers::Add에서 발생하는 메모리 누수를 수정합니다.   src: AsyncWrap 리소스를 저장할 때 심볼을 사용합니다. (Anna Henningsen) #31745  #33468에서 보고된 메모리 누수 문제를">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-06-30T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-09T18:30:15.213Z">
+<meta property="article:author" content="Node.js 한국어 번역팀">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@nodejs_ko">
+  
+    <link rel="alternate" href="/nodejs-ko/atom.xml" title="Node.js 한국 커뮤니티" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/nodejs-ko/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/nodejs-ko/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/nodejs-ko/" id="logo">Node.js 한국 커뮤니티</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/nodejs-ko/">Home</a>
+        
+          <a class="main-nav-link" href="/nodejs-ko/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/nodejs-ko/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://nodejs.github.io/nodejs-ko"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-release-v12.18.2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <a href="/nodejs-ko/articles/2020/06/30/release-v12.18.2/" class="article-date">
+    <time datetime="2020-06-30T00:00:00.000Z" itemprop="datePublished">2020-06-30</time>
+  </a>
+
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/nodejs-ko/categories/articles/">articles</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Node v12.18.2(LTS)
+    </h1>
+  
+  <ul>
+    <li>작성자: <strong>Bethany Nicolle Griggs</strong></li>
+    <li>
+      원문: <strong><a target="_blank" rel="noopener" href="https://nodejs.org/en/blog/release/v12.18.2" taret="_blank">
+        Node v12.18.2 (LTS)
+      </a></strong>
+    </li>
+    <li>
+      번역:
+      <strong><a target="_blank" rel="noopener" href="https://github.com/taggon">taggon</a></strong>
+    </li>
+  </ul>
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--
+### Notable changes
+
+* **deps**: V8: backport fb26d0bb1835 (Matheus Marchini) [#33573](https://github.com/nodejs/node/pull/33573)
+  * Fixes memory leak in `PrototypeUsers::Add`
+* **src**: use symbol to store `AsyncWrap` resource (Anna Henningsen) [#31745](https://github.com/nodejs/node/pull/31745)
+  * Fixes reported memory leak in [#33468](https://github.com/nodejs/node/issues/33468)
+-->
+<h3 id="주요-변경사항-243">주요 변경사항</h3>
+<ul>
+<li><strong>deps</strong>: V8: fb26d0bb1835를 백포트했습니다. (Matheus Marchini) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33573">#33573</a>
+<ul>
+<li><code>PrototypeUsers::Add</code>에서 발생하는 메모리 누수를 수정합니다.</li>
+</ul>
+</li>
+<li><strong>src</strong>: <code>AsyncWrap</code> 리소스를 저장할 때 심볼을 사용합니다. (Anna Henningsen) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/31745">#31745</a>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/nodejs/node/issues/33468">#33468</a>에서 보고된 메모리 누수 문제를 수정합니다.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Commits-277">Commits</h3>
+<ul>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/97a3f7b702"><code>97a3f7b702</code></a>] - <strong>deps</strong>: V8: backport fb26d0bb1835 (Matheus Marchini) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/33573">#33573</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/30b0339061"><code>30b0339061</code></a>] - <strong>src</strong>: use symbol to store <code>AsyncWrap</code> resource (Anna Henningsen) <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/31745">#31745</a></li>
+</ul>
+<p>Windows 32-bit Installer: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v12.18.2/node-v12.18.2-x86.msi">https://nodejs.org/dist/v12.18.2/node-v12.18.2-x86.msi</a><br><br>
+Windows 64-bit Installer: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v12.18.2/node-v12.18.2-x64.msi">https://nodejs.org/dist/v12.18.2/node-v12.18.2-x64.msi</a><br><br>
+Windows 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v12.18.2/win-x86/node.exe">https://nodejs.org/dist/v12.18.2/win-x86/node.exe</a><br><br>
+Windows 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v12.18.2/win-x64/node.exe">https://nodejs.org/dist/v12.18.2/win-x64/node.exe</a><br><br>
+macOS 64-bit Installer: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v12.18.2/node-v12.18.2.pkg">https://nodejs.org/dist/v12.18.2/node-v12.18.2.pkg</a><br><br>
+macOS 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v12.18.2/node-v12.18.2-darwin-x64.tar.gz">https://nodejs.org/dist/v12.18.2/node-v12.18.2-darwin-x64.tar.gz</a><br><br>
+Linux 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v12.18.2/node-v12.18.2-linux-x64.tar.xz">https://nodejs.org/dist/v12.18.2/node-v12.18.2-linux-x64.tar.xz</a><br><br>
+Linux PPC LE 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v12.18.2/node-v12.18.2-linux-ppc64le.tar.xz">https://nodejs.org/dist/v12.18.2/node-v12.18.2-linux-ppc64le.tar.xz</a><br><br>
+Linux s390x 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v12.18.2/node-v12.18.2-linux-s390x.tar.xz">https://nodejs.org/dist/v12.18.2/node-v12.18.2-linux-s390x.tar.xz</a><br><br>
+AIX 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v12.18.2/node-v12.18.2-aix-ppc64.tar.gz">https://nodejs.org/dist/v12.18.2/node-v12.18.2-aix-ppc64.tar.gz</a><br><br>
+SmartOS 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v12.18.2/node-v12.18.2-sunos-x64.tar.xz">https://nodejs.org/dist/v12.18.2/node-v12.18.2-sunos-x64.tar.xz</a><br><br>
+ARMv7 32-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v12.18.2/node-v12.18.2-linux-armv7l.tar.xz">https://nodejs.org/dist/v12.18.2/node-v12.18.2-linux-armv7l.tar.xz</a><br><br>
+ARMv8 64-bit Binary: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v12.18.2/node-v12.18.2-linux-arm64.tar.xz">https://nodejs.org/dist/v12.18.2/node-v12.18.2-linux-arm64.tar.xz</a><br><br>
+Source Code: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v12.18.2/node-v12.18.2.tar.gz">https://nodejs.org/dist/v12.18.2/node-v12.18.2.tar.gz</a><br><br>
+Other release files: <a target="_blank" rel="noopener" href="https://nodejs.org/dist/v12.18.2/">https://nodejs.org/dist/v12.18.2/</a><br><br>
+Documentation: <a target="_blank" rel="noopener" href="https://nodejs.org/docs/v12.18.2/api/">https://nodejs.org/docs/v12.18.2/api/</a></p>
+<h3 id="SHASUMS-50">SHASUMS</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">-----BEGIN PGP SIGNED MESSAGE-----</span><br><span class="line">Hash: SHA256</span><br><span class="line"></span><br><span class="line">3b7026487c93871c8d7817c008cf2a04a04094873f198a605c7386d7054d2c06  node-v12.18.2-aix-ppc64.tar.gz</span><br><span class="line">6e6e7311943e4f3880db5038b8b8034a30469342fe436c8aaacf2997dfa305a6  node-v12.18.2-darwin-x64.tar.gz</span><br><span class="line">aac2dd754e5ee21b11e4973da582fa9928a69e548d89daf8193a2a5ee5dcc0f1  node-v12.18.2-darwin-x64.tar.xz</span><br><span class="line">2fc9ac8c89bfd4a81d8d61c8e821ef2317406234c7c038742618bd33300e07a8  node-v12.18.2-headers.tar.gz</span><br><span class="line">946a8d7985e95174cc06c1fcd985e6d93ef13fc62e01d2527b807342b97d6b89  node-v12.18.2-headers.tar.xz</span><br><span class="line">f6413c83c3a5ab0935f0ca8653a81b9b180462db078ea49478fa4e843b074eff  node-v12.18.2-linux-arm64.tar.gz</span><br><span class="line">d7d3a05f36de9eb079b7b25e0fc1aaa0c960afdf36fb24b498f7303365eb945c  node-v12.18.2-linux-arm64.tar.xz</span><br><span class="line">72bf943dc760d984413ba5f12b79f2659803f3536ebc78ecab338029eef5a73b  node-v12.18.2-linux-armv7l.tar.gz</span><br><span class="line">d7fb41dd668a4ccc0148f08be23685853c831ad6fb19e82f7f1ce44742546de1  node-v12.18.2-linux-armv7l.tar.xz</span><br><span class="line">87d44e1d81604ba587a35cd8f760e591c71825e9fed7d9c4ff3ceda3eacfe52f  node-v12.18.2-linux-ppc64le.tar.gz</span><br><span class="line">fbf92c479d1a39c542fd09f22cb3594eb2ea47def140ea71f2e6540bb2658ec1  node-v12.18.2-linux-ppc64le.tar.xz</span><br><span class="line">a5f3fe254e4c6145e7d2d4f03038bb023553b096c3e2336d3a88a8190c86a50d  node-v12.18.2-linux-s390x.tar.gz</span><br><span class="line">4f2c6937837ec1ec8534cb7bb94a35066f47fe95154824318de4f9be9a817502  node-v12.18.2-linux-s390x.tar.xz</span><br><span class="line">2d316e55994086e41761b0c657e0027e9d16d7160d3f8854cc9dc7615b99a526  node-v12.18.2-linux-x64.tar.gz</span><br><span class="line">b8dc634798ee783482c2ae1755bd7dff09d83fa7bb037cdc370b601d0a5e5cbb  node-v12.18.2-linux-x64.tar.xz</span><br><span class="line">b406065c4fc99363d24ee63128511a57130e3049fb00f015a828bb28e835e8f0  node-v12.18.2.pkg</span><br><span class="line">1f886760993efe54054e534dc9e3845a1de9399b6c6d6a9c6f69fdb3acd14891  node-v12.18.2-sunos-x64.tar.gz</span><br><span class="line">a05a44eea005201344c2c5c0ce2f7daf9bebbb11b1c72b0b2a1d7d7194a2267a  node-v12.18.2-sunos-x64.tar.xz</span><br><span class="line">2be366d6068f9e1a5eb3f6f21c5ea246eb0a1faf48f98b88e68c8bb193d85a14  node-v12.18.2.tar.gz</span><br><span class="line">38bd10ad72370010641531d1473ebb62b8c39cf0380d086c2cfa61a8c552ddf2  node-v12.18.2.tar.xz</span><br><span class="line">cb356e145568ec301c2b735e5000f682bdd070995f1191449d5d47091776b104  node-v12.18.2-win-x64.7z</span><br><span class="line">91fdd5b5df16873c63541bc844c9eb66870d366b2076d114f9ab7528b5e2f9a3  node-v12.18.2-win-x64.zip</span><br><span class="line">375d5412e5b215721c0468b833336255c0fad3c32d4b625e6f2ddc3e894a9e78  node-v12.18.2-win-x86.7z</span><br><span class="line">34c8d089ed29b979b0683ef879641bbe7d318d000ac68b8fab7b967d80aee507  node-v12.18.2-win-x86.zip</span><br><span class="line">a9ab96c315c144ff876fb5e6552a7891795a83f26c43f8395d5dec1b004fee29  node-v12.18.2-x64.msi</span><br><span class="line">b7679cfa07d545a4ddd9533afdbc5ae936c1427cb29742a3b5bfb1d6d751fe63  node-v12.18.2-x86.msi</span><br><span class="line">c71e77520d1e3685fb41608881254822c0022a0d6315a5d380ddcf365d46ac2d  win-x64/node.exe</span><br><span class="line">550f56a8b8aaf7e3a6154ce66b4b6321ab1b3aa84c14c49804053bb489cf406e  win-x64/node.lib</span><br><span class="line">fbc42a33e2cbce162af4574ef200e562294594c7e6be5737cc4631c227a9e770  win-x64/node_pdb.7z</span><br><span class="line">8bd07582ca92ecdbc19e0fac12dc1db8ecbb20c0f9854ebdfa3766e234615cf9  win-x64/node_pdb.zip</span><br><span class="line">e7443f3f91bb83429e96caafc1067ccf04453e7656b5b82a642e4016c426b3e1  win-x86/node.exe</span><br><span class="line">aef2cb69d4916cc3d792a9b6f610a313893caaa3f0d5a0cae1075621d6bc2e16  win-x86/node.lib</span><br><span class="line">016eb479a65bc64617de44d256690eda44d6e7e7c19f9e3f25ab31cafdaa749b  win-x86/node_pdb.7z</span><br><span class="line">2d6854f6a2f293a1425e740a2ac7933806ed3c386722ef1fe8568a204b602602  win-x86/node_pdb.zip</span><br><span class="line">-----BEGIN PGP SIGNATURE-----</span><br><span class="line"></span><br><span class="line">iQEzBAEBCAAdFiEETtd49TnjY0x3nIfG1wYoSKGrAFwFAl77QLYACgkQ1wYoSKGr</span><br><span class="line">AFyEewf/UdYooWw2BlzQT7iI2AVQLUhh7hsIlsHw+a+wWSlQgwfCwbgRBA1Qi5Js</span><br><span class="line">9kKZYU+We1p9U4W8TsGfuxhhSi9O/fjZSinIfFOc8cJX0sp3Wb2qEVrV51g6+TNf</span><br><span class="line">9iKHfrYgyeNsZ3/M1sMy0x6urmkR4gKKKCFza8FvHzTIVd5F3TgTBoKkVteOb0to</span><br><span class="line">8NXiwIZfWMMHuZRge8xJR6GdL4FoquZc3GI9Yu/SB1oabapUTIVISJaJ3i0CUeR5</span><br><span class="line">VAAzoaPCRiEPKDRrSY6bdWZ7MYpsjBjNX3bD6d7Jn3vbUkEpF1iG2ekjWmEcfuD9</span><br><span class="line">sRWSY6NoX+ZuXeKMuxNMY4gU430KEw==</span><br><span class="line">=rZgN</span><br><span class="line">-----END PGP SIGNATURE-----</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://nodejs.github.io/nodejs-ko/articles/2020/06/30/release-v12.18.2/" data-id="cl1s6zrtq00ora3oq5gn4bvcd" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/nodejs-ko/articles/2020/07/21/release-v14.6.0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Node v14.6.0(현재 버전)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/nodejs-ko/articles/2020/06/30/release-v14.5.0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Node v14.5.0(현재 버전)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title">Menu</h3>
+  <div class="widget">
+    <ul class="category-list">
+      <li class="category-list-item">
+        <a href="/nodejs-ko/">Home</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/CONTRIBUTING.html">번역 참여 가이드</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/about.html">소개</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/categories/articles">글 모음</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/categories/weekly">주간 뉴스</a>
+      </li>
+      <li class="category-list-item">
+        <a href="/nodejs-ko/archives">보관함</a>
+      </li>
+      <li class="category-list-item">
+        <a href="https://github.com/nodejs/nodejs-ko" target="_blank">GitHub project</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+  
+</aside>
+
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Node.js 한국어 번역팀<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/nodejs-ko/" class="mobile-nav-link">Home</a>
+  
+    <a href="/nodejs-ko/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/nodejs-ko/fancybox/jquery.fancybox.css">
+
+  
+<script src="/nodejs-ko/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/nodejs-ko/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>
